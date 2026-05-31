@@ -86,7 +86,7 @@ function getResult(answers: Answer[]): Result {
     return {
       level: "high",
       headline: "You're carrying a lot right now.",
-      summary: "Your answers suggest you're experiencing significant burnout. This isn't a character flaw or a sign you're not cut out for medicine: it's a signal your current pace isn't sustainable. The most important thing you can do right now isn't study harder. It's rest, and reach out.",
+      summary: "Your answers suggest you're experiencing significant burnout. This isn't a sign you're not cut out for medicine: it's a signal your current pace isn't sustainable. The most important thing you can do right now isn't study harder. It's rest, and reach out.",
       color: "text-red-600 dark:text-red-400",
       bgColor: "bg-red-50 border-red-200 dark:bg-red-950/30 dark:border-red-900/50",
       reflections: [
