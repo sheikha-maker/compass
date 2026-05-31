@@ -1,4 +1,4 @@
-export const lastReviewed = "Spring 2026"
+export const lastReviewed = "Summer 2026"
 
 export type NavItem = {
   id: string
