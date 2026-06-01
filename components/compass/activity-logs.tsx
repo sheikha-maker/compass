@@ -35,6 +35,39 @@ type LogEntry = {
   note: string
 }
 
+const REFLECTION_PROMPTS: Record<Category, string[]> = {
+  Clinical: [
+    "What did you witness that surprised you? How did the care team make patients feel?",
+    "Was there a moment where you saw medicine at its best — or its hardest?",
+    "What did a patient or family member say that stayed with you?",
+  ],
+  Research: [
+    "What question did today's work help answer? What new questions did it raise?",
+    "What did you learn about the research process that you didn't expect?",
+    "How does this work connect to patients, even if indirectly?",
+  ],
+  Shadowing: [
+    "What did the physician do that you'd want to emulate? What would you do differently?",
+    "How did the doctor communicate with patients — what worked, what didn't?",
+    "What part of this specialty surprised you most?",
+  ],
+  Leadership: [
+    "What did you learn about motivating or supporting others?",
+    "What was harder than you expected? What would you do differently next time?",
+    "How did this experience shape how you think about teamwork in medicine?",
+  ],
+  "Service (Non-Clinical)": [
+    "Who did you meet today? What did their situation teach you about health or equity?",
+    "What did this experience reveal about the non-medical barriers to healthcare?",
+    "How has this shaped your understanding of the communities you want to serve?",
+  ],
+}
+
+function getPrompt(category: Category): string {
+  const prompts = REFLECTION_PROMPTS[category]
+  return prompts[Math.floor(Math.random() * prompts.length)]
+}
+
 export function ActivityLogs() {
   const [logs, setLogs, hydrated] = useLocalStorage<LogEntry[]>("compass-activity-logs", [])
   const [category, setCategory] = useState<Category>("Clinical")
@@ -42,6 +75,12 @@ export function ActivityLogs() {
   const [hours, setHours] = useState("")
   const [date, setDate] = useState("")
   const [note, setNote] = useState("")
+  const [prompt, setPrompt] = useState(() => getPrompt("Clinical"))
+
+  function handleCategoryChange(val: Category) {
+    setCategory(val)
+    setPrompt(getPrompt(val))
+  }
 
   function addLog(e: React.FormEvent) {
     e.preventDefault()
@@ -61,6 +100,7 @@ export function ActivityLogs() {
     setHours("")
     setDate("")
     setNote("")
+    setPrompt(getPrompt(category))
   }
 
   function remove(id: string) {
@@ -84,9 +124,12 @@ export function ActivityLogs() {
     >
       <div className="mb-5 flex items-start gap-2 rounded-lg border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-800 dark:border-amber-900/50 dark:bg-amber-950/30 dark:text-amber-400">
         <span className="mt-0.5 shrink-0">⚠️</span>
-        <p><strong>Browser storage only.</strong> Your data is saved locally and will be lost if you clear your browser history or switch devices. Screenshot or copy your entries regularly to keep a backup.</p>
+        <p>
+          <strong>Browser storage only.</strong> Your data is saved locally and will be lost if you
+          clear your browser history or switch devices. Screenshot or copy your entries regularly.
+        </p>
       </div>
-      {/* Totals overview */}
+
       <div className="mb-6 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
         <div className="rounded-lg border border-primary/30 bg-primary/5 p-4">
           <p className="text-2xl font-semibold text-foreground">{grandTotal}</p>
@@ -104,15 +147,13 @@ export function ActivityLogs() {
         <div className="grid gap-3 sm:grid-cols-2">
           <div>
             <Label htmlFor="log-category">Category</Label>
-            <Select value={category} onValueChange={(v) => setCategory(v as Category)}>
+            <Select value={category} onValueChange={(v) => handleCategoryChange(v as Category)}>
               <SelectTrigger id="log-category" className="mt-1.5">
                 <SelectValue />
               </SelectTrigger>
               <SelectContent>
                 {categories.map((c) => (
-                  <SelectItem key={c} value={c}>
-                    {c}
-                  </SelectItem>
+                  <SelectItem key={c} value={c}>{c}</SelectItem>
                 ))}
               </SelectContent>
             </Select>
@@ -150,16 +191,24 @@ export function ActivityLogs() {
             />
           </div>
         </div>
+
         <div>
-          <Label htmlFor="log-note">Reflection (optional)</Label>
+          <div className="flex items-baseline justify-between mb-1.5">
+            <Label htmlFor="log-note">Reflection</Label>
+            <span className="text-xs text-muted-foreground">optional — but worth it</span>
+          </div>
           <Textarea
             id="log-note"
             value={note}
             onChange={(e) => setNote(e.target.value)}
-            placeholder="What did you see or learn? What stuck with you?"
-            className="mt-1.5 min-h-20"
+            placeholder={prompt}
+            className="mt-0 min-h-20"
           />
+          <p className="mt-1.5 text-[11px] text-muted-foreground leading-snug">
+            💡 These notes become your personal statement and secondary essays. Even one sentence counts.
+          </p>
         </div>
+
         <Button type="submit" className="gap-1.5 justify-self-start">
           <Plus className="h-4 w-4" />
           Add entry
@@ -191,7 +240,9 @@ export function ActivityLogs() {
                       )}
                     </div>
                     <p className="mt-1.5 font-medium text-foreground">{l.title}</p>
-                    {l.note && <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{l.note}</p>}
+                    {l.note && (
+                      <p className="mt-1 text-sm leading-relaxed text-muted-foreground">{l.note}</p>
+                    )}
                   </div>
                   <Button
                     variant="ghost"

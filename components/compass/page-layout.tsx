@@ -1,14 +1,16 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { Compass, Menu, X, Info, ArrowLeft } from "lucide-react"
+import { Compass, Menu, X, Info, ArrowLeft, Sun, Moon } from "lucide-react"
 import Link from "next/link"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
+import { useTheme } from "next-themes"
 
 export type PageNavItem = {
   id: string
   label: string
+  progress?: { done: number; total: number }
 }
 
 type Props = {
@@ -17,6 +19,24 @@ type Props = {
   backHref?: string
   navItems: PageNavItem[]
   children: React.ReactNode
+}
+
+function DarkModeToggle() {
+  const { theme, setTheme } = useTheme()
+  const [mounted, setMounted] = useState(false)
+  useEffect(() => setMounted(true), [])
+  if (!mounted) return <div className="h-8 w-8" />
+  return (
+    <Button
+      variant="ghost"
+      size="icon"
+      aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+      onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+      className="h-8 w-8 text-muted-foreground hover:text-foreground"
+    >
+      {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+    </Button>
+  )
 }
 
 export function PageLayout({ title, eyebrow, backHref = "/", navItems, children }: Props) {
@@ -54,14 +74,17 @@ export function PageLayout({ title, eyebrow, backHref = "/", navItems, children 
           <Compass className="h-5 w-5 text-primary" aria-hidden="true" />
           <span className="font-serif text-base font-semibold text-foreground">The Pre-Med Compass</span>
         </div>
-        <Button
-          variant="ghost"
-          size="icon"
-          onClick={() => setOpen((v) => !v)}
-          aria-label={open ? "Close navigation" : "Open navigation"}
-        >
-          {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-        </Button>
+        <div className="flex items-center gap-1">
+          <DarkModeToggle />
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={() => setOpen((v) => !v)}
+            aria-label={open ? "Close navigation" : "Open navigation"}
+          >
+            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+          </Button>
+        </div>
       </header>
 
       {open && (
@@ -80,12 +103,16 @@ export function PageLayout({ title, eyebrow, backHref = "/", navItems, children 
           open ? "translate-x-0" : "-translate-x-full",
         )}
       >
-        <div className="flex items-center gap-2 border-b border-sidebar-border px-6 py-5">
-          <Compass className="h-6 w-6 text-primary" aria-hidden="true" />
-          <div>
-            <p className="font-serif text-lg font-semibold leading-tight text-foreground">The Pre-Med Compass</p>
-            <p className="text-xs text-muted-foreground">Moravian University</p>
+        {/* Sidebar header */}
+        <div className="flex items-center justify-between border-b border-sidebar-border px-6 py-5">
+          <div className="flex items-center gap-2">
+            <Compass className="h-6 w-6 text-primary" aria-hidden="true" />
+            <div>
+              <p className="font-serif text-lg font-semibold leading-tight text-foreground">The Pre-Med Compass</p>
+              <p className="text-xs text-muted-foreground">Moravian University</p>
+            </div>
           </div>
+          <DarkModeToggle />
         </div>
 
         <div className="px-3 py-4">
@@ -103,6 +130,7 @@ export function PageLayout({ title, eyebrow, backHref = "/", navItems, children 
           <div className="mb-3 px-3 pb-1 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
             {eyebrow}
           </div>
+
           <ul className="space-y-0.5">
             {navItems.map((item) => (
               <li key={item.id}>
@@ -116,7 +144,37 @@ export function PageLayout({ title, eyebrow, backHref = "/", navItems, children 
                   )}
                   aria-current={active === item.id ? "true" : undefined}
                 >
-                  {item.label}
+                  <div className="flex items-center justify-between gap-2">
+                    <span className="truncate">{item.label}</span>
+                    {item.progress && (
+                      <span
+                        className={cn(
+                          "shrink-0 text-[10px] font-semibold tabular-nums",
+                          item.progress.done === item.progress.total
+                            ? "text-green-600 dark:text-green-400"
+                            : "text-muted-foreground",
+                        )}
+                      >
+                        {item.progress.done}/{item.progress.total}
+                      </span>
+                    )}
+                  </div>
+                  {/* Mini progress bar */}
+                  {item.progress && item.progress.total > 0 && (
+                    <div className="mt-1.5 h-0.5 rounded-full bg-sidebar-border overflow-hidden">
+                      <div
+                        className={cn(
+                          "h-full rounded-full transition-all duration-300",
+                          item.progress.done === item.progress.total
+                            ? "bg-green-500"
+                            : "bg-primary/60",
+                        )}
+                        style={{
+                          width: `${Math.round((item.progress.done / item.progress.total) * 100)}%`,
+                        }}
+                      />
+                    </div>
+                  )}
                 </button>
               </li>
             ))}
@@ -124,7 +182,9 @@ export function PageLayout({ title, eyebrow, backHref = "/", navItems, children 
 
           {/* Nav between pages */}
           <div className="mt-6 border-t border-sidebar-border pt-4 space-y-0.5">
-            <p className="px-3 pb-1.5 text-xs font-semibold uppercase tracking-wider text-muted-foreground">Other Sections</p>
+            <p className="px-3 pb-1.5 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
+              Other Sections
+            </p>
             {[
               { href: "/mindset", label: "Mindset" },
               { href: "/your-path", label: "Building Your Path" },
@@ -151,7 +211,6 @@ export function PageLayout({ title, eyebrow, backHref = "/", navItems, children 
       </nav>
 
       <main className="lg:pl-72">
-        {/* Page hero */}
         <div className="border-b border-border bg-primary px-5 py-10 text-primary-foreground md:px-8 md:py-14">
           <div className="mx-auto max-w-4xl">
             <p className="text-sm font-medium uppercase tracking-wider text-primary-foreground/60">{eyebrow}</p>
