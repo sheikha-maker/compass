@@ -81,7 +81,7 @@ export function SectionCards() {
           </div>
           <div>
             <p className="font-semibold text-foreground">Not sure how you're doing?</p>
-            <p className="text-sm text-muted-foreground">Take the 3-minute Burnout Self-Check — honest reflection, no score.</p>
+            <p className="text-sm text-muted-foreground">Take the 3-minute Burnout Self-Check. Honest reflection, no score.</p>
           </div>
         </div>
         <ArrowRight className="h-5 w-5 shrink-0 text-primary transition-transform duration-200 group-hover:translate-x-1.5" />
