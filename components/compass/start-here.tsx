@@ -15,6 +15,8 @@ const idToPage: Record<string, string> = {
   "timeline": "/milestones",
   "course-planner": "/tools",
   "activity-logs": "/tools",
+  "wellness-checkin": "/tools",
+  "burnout-check": "/burnout-check",
   "mentorship": "/your-path",
   "course-guides": "/your-path",
   "faq": "/milestones",

@@ -60,6 +60,8 @@ export const navItems: NavItem[] = [
   { id: "faq", label: "Pre-Med FAQ", group: "The Big Milestones" },
   { id: "course-planner", label: "Course Planner", group: "Your Tools" },
   { id: "activity-logs", label: "Activity Logs", group: "Your Tools" },
+  { id: "wellness-checkin", label: "Weekly Check-in", group: "Your Tools" },
+  { id: "burnout-check", label: "Burnout Check", group: "Your Tools" },
   { id: "resources", label: "Resources & Contribute", group: "Your Tools" },
 ]
 
@@ -79,8 +81,8 @@ export const startPaths = [
   },
   {
     situation: "You're feeling overwhelmed",
-    action: "Go to Mindfulness, then Decision Tool #3.",
-    targets: ["mindfulness", "decision-tools"],
+    action: "Start with Mindfulness and Decision Tools, then check your stress with the Weekly Check-in or Burnout Check.",
+    targets: ["mindfulness", "decision-tools", "wellness-checkin", "burnout-check"],
   },
   {
     situation: "You're planning your path",

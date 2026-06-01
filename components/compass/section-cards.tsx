@@ -40,10 +40,10 @@ const sections = [
     eyebrow: "Section 4",
     title: "Your Tools",
     description:
-      "A semester-view course planner, activity hour tracker with reflections, and curated links for every stage of the journey.",
+      "Plan your semesters, track prerequisites, countdown to the MCAT, log wellness, and capture the tools that keep your pre-med path on track.",
     icon: Wrench,
     color: "bg-timeline-4/20 text-timeline-4",
-    topics: ["Course Planner", "Activity Logs", "Resources & Links"],
+    topics: ["Course Planner", "Prereq Tracker", "MCAT Countdown", "Weekly Check-in", "Activity Logs"],
   },
 ]
 
@@ -81,7 +81,7 @@ export function SectionCards() {
           </div>
           <div>
             <p className="font-semibold text-foreground">Not sure how you're doing?</p>
-            <p className="text-sm text-muted-foreground">Take the 3-minute Burnout Self-Check. Honest reflection, no score.</p>
+            <p className="text-sm text-muted-foreground">Take the 3-minute Burnout Self-Check. Honest reflection, scored feedback, and next-step guidance.</p>
           </div>
         </div>
         <ArrowRight className="h-5 w-5 shrink-0 text-primary transition-transform duration-200 group-hover:translate-x-1.5" />

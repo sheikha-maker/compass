@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect, useCallback } from "react"
+import Link from "next/link"
 import { Plus, X, BookOpen, FlaskConical, Brain, GraduationCap, Layers, AlertTriangle } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -285,6 +286,15 @@ export function CoursePlannerCalendar() {
           <p className="mt-4 text-pretty text-lg leading-relaxed text-muted-foreground">
             Map your prerequisites semester by semester. Everything saves in your browser.
           </p>
+          <div className="mt-5 rounded-xl border border-border bg-card px-4 py-3 text-sm text-muted-foreground">
+            <p>
+              <span className="font-semibold text-foreground">Pro tip:</span> Use the
+              <Link href="/tools#prereq-tracker" className="ml-1 underline underline-offset-2 text-primary transition-colors hover:text-primary/80">
+                Prerequisite Tracker
+              </Link>
+              to cross-check the requirements behind the classes you're planning.
+            </p>
+          </div>
         </header>
 
         {/* Storage warning */}
@@ -320,7 +330,11 @@ export function CoursePlannerCalendar() {
         </div>
 
         {/* Year bands */}
-        <div className="overflow-x-auto pb-4">
+        <div className="relative overflow-x-auto pb-4">
+          <div className="pointer-events-none absolute right-0 top-0 hidden h-full w-20 bg-gradient-to-l from-card to-transparent dark:from-slate-950/95 sm:block" />
+          <div className="absolute right-4 top-3 rounded-full bg-background/90 px-3 py-1 text-[11px] font-semibold text-muted-foreground shadow-sm backdrop-blur-sm sm:hidden">
+            ← scroll →
+          </div>
           <div className="min-w-[900px]">
             {/* Year band labels */}
             <div className="grid grid-cols-4 mb-1.5 gap-2">

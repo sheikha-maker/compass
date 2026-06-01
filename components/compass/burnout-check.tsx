@@ -162,8 +162,8 @@ export function BurnoutCheck() {
             Burnout Check
           </h2>
           <p className="mt-4 text-pretty text-lg leading-relaxed text-muted-foreground">
-            Five honest questions. No score is wrong — this just helps you figure out where to focus
-            your energy. Take it whenever something feels off.
+            Five honest questions. This gives you a reflection score and next-step guidance, not a diagnosis.
+            Take it whenever something feels off.
           </p>
         </header>
 

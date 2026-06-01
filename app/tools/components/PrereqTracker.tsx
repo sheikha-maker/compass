@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect, useCallback } from "react"
+import Link from "next/link"
 import { CheckCircle2, Circle, AlertTriangle } from "lucide-react"
 import { Input } from "@/components/ui/input"
 
@@ -315,8 +316,12 @@ export function PrereqTracker() {
           <p className="font-semibold text-foreground mb-1">💡 How to use this</p>
           <p>
             Enter credits you have <em>completed</em> or are <em>currently enrolled in</em>.
-            Planning a course for next semester? Count it here. Use this alongside your course
-            planner to make sure every prerequisite is covered before you apply.
+            Planning a course for next semester? Count it here.
+            Use this alongside the
+            <Link href="/tools#course-planner" className="mx-1 underline underline-offset-2 text-primary transition-colors hover:text-primary/80">
+              Course Planner
+            </Link>
+            to make sure every prerequisite is covered before you apply.
           </p>
         </div>
       </div>

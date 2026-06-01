@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect, useCallback } from "react"
+import Link from "next/link"
 import { AlertTriangle } from "lucide-react"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -75,6 +76,11 @@ export function MCATCountdown() {
           </h2>
           <p className="mt-4 text-pretty text-lg leading-relaxed text-muted-foreground">
             Set your target test date, log practice scores by section, and track weekly study hours.
+            Pair this with the
+            <Link href="/milestones#mcat" className="underline underline-offset-2 text-primary transition-colors hover:text-primary/80">
+              MCAT Deep Dive
+            </Link>
+            for section strategy and pacing.
           </p>
         </header>
 
