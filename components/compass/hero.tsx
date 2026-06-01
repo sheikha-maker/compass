@@ -1,8 +1,9 @@
 "use client"
 
-import { useEffect, useRef } from "react"
-import { Compass, ArrowDown, BookOpen, Stethoscope, GraduationCap, Rocket } from "lucide-react"
+import { useEffect, useRef, useState } from "react"
+import { Compass, ArrowDown, BookOpen, Stethoscope, GraduationCap, Rocket, Moon, Sun } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { useTheme } from "next-themes"
 import Link from "next/link"
 
 const timelineSteps = [
@@ -94,6 +95,13 @@ function ParticleCanvas() {
 }
 
 export function Hero() {
+  const { theme, setTheme } = useTheme()
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
   function scrollTo(id: string) {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" })
   }
@@ -188,6 +196,15 @@ export function Hero() {
               Jump to Tools
             </Button>
           </Link>
+          <Button
+            variant="ghost"
+            size="icon"
+            aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+            className="text-primary-foreground/90 hover:text-primary-foreground"
+          >
+            {mounted ? (theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />) : <span className="h-4 w-4" />}
+          </Button>
           <Link href="/about" className="sm:ml-auto">
             <Button
               variant="ghost"
