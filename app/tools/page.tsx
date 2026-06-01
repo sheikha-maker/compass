@@ -5,7 +5,6 @@ import { MCATCountdown } from "./components/MCATCountdown"
 import { YearlyChecklist } from "./components/YearlyChecklist"
 import { LORTracker } from "./components/LORTracker"
 import { WellnessCheckin } from "./components/WellnessCheckin"
-import { BurnoutCheck } from "./components/BurnoutCheck"
 import { ActivityLogs } from "@/components/compass/activity-logs"
 import { Resources, SiteFooter } from "@/components/compass/resources"
 
@@ -16,7 +15,6 @@ const navItems = [
   { id: "yearly-checklist", label: "Am I on track?" },
   { id: "lor-tracker", label: "LOR Tracker" },
   { id: "wellness-checkin", label: "Weekly Check-in" },
-  { id: "burnout-check", label: "Burnout Check" },
   { id: "activity-logs", label: "Activity Logs" },
   { id: "resources", label: "Resources & Contribute" },
 ]
@@ -30,7 +28,6 @@ export default function ToolsPage() {
       <YearlyChecklist />
       <LORTracker />
       <WellnessCheckin />
-      <BurnoutCheck />
       <ActivityLogs />
       <Resources />
       <SiteFooter />

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { Source_Sans_3, Source_Serif_4 } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
+import { ThemeProvider } from 'next-themes'
 import './globals.css'
 import { PageTransition } from '@/components/compass/page-transition'
 import { ReadingProgress } from '@/components/compass/progress-tracker'
@@ -34,11 +35,13 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="en" className={`bg-background ${sourceSans.variable} ${sourceSerif.variable}`}>
+    <html lang="en" suppressHydrationWarning className={`bg-background ${sourceSans.variable} ${sourceSerif.variable}`}>
       <body className="font-sans antialiased">
-        <ReadingProgress />
-        <PageTransition>{children}</PageTransition>
-        {process.env.NODE_ENV === 'production' && <Analytics />}
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+          <ReadingProgress />
+          <PageTransition>{children}</PageTransition>
+          {process.env.NODE_ENV === 'production' && <Analytics />}
+        </ThemeProvider>
       </body>
     </html>
   )
