@@ -283,8 +283,7 @@ export function CoursePlannerCalendar() {
             Course Planner
           </h2>
           <p className="mt-4 text-pretty text-lg leading-relaxed text-muted-foreground">
-            Map your prerequisites semester by semester. No account needed — everything saves in
-            your browser.
+            Map your prerequisites semester by semester. Everything saves in your browser.
           </p>
         </header>
 
