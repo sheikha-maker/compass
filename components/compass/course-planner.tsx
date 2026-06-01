@@ -100,13 +100,6 @@ export function CoursePlanner() {
       title="Course Planner"
       intro="Map your prerequisites semester by semester. No account needed, everything saves in your browser."
     >
-      <div className="mb-5 flex items-start gap-2 rounded-lg border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-800 dark:border-amber-900/50 dark:bg-amber-950/30 dark:text-amber-400">
-        <span className="mt-0.5 shrink-0">⚠️</span>
-        <p>
-          <strong>Browser storage only.</strong> Your courses will be lost if you clear your browser history or switch devices. Screenshot or export your plan regularly.
-        </p>
-      </div>
-
       {/* Add course form */}
       <form onSubmit={addCourse} className="rounded-xl border border-border bg-card p-5">
         <p className="mb-4 text-sm font-medium text-foreground">Add a course</p>

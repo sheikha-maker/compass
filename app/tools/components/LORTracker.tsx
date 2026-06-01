@@ -98,10 +98,6 @@ export function LORTracker() {
           </p>
         </header>
 
-        <div className="mb-5 flex items-start gap-2 rounded-lg border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-800 dark:border-amber-900/50 dark:bg-amber-950/30 dark:text-amber-400">
-          <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0" />
-          <p><strong>Browser storage only.</strong> Your data will be lost if you clear browser history or switch devices.</p>
-        </div>
 
         {/* Stats */}
         <div className="flex flex-wrap gap-3 mb-8">

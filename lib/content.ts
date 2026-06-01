@@ -511,9 +511,27 @@ export const usefulLinks = [
     category: "Official Resources"
   },
   {
+    label: "AAMC Fee Assistance Program (FAP)",
+    href: "https://students-residents.aamc.org/fee-assistance-program",
+    desc: "Helps eligible students cover MCAT registration and AMCAS application fees.",
+    category: "Applications"
+  },
+  {
+    label: "AAMC Pre-Med Worksheets",
+    href: "https://students-residents.aamc.org/pre-med-worksheets",
+    desc: "Free worksheets to assess where you are in your pre-med journey and plan next steps.",
+    category: "Applications"
+  },
+  {
     label: "AAMC - The MCAT Exam",
     href: "https://students-residents.aamc.org/taking-mcat-exam/taking-mcat-exam",
     desc: "Everything about registering for and preparing for the MCAT.",
+    category: "MCAT Prep"
+  },
+  {
+    label: "AAMC Official MCAT Materials",
+    href: "https://students-residents.aamc.org/taking-mcat-exam/practice-materials",
+    desc: "The only source that replicates the real exam. Start here with the free diagnostic and practice hub.",
     category: "MCAT Prep"
   },
   {
@@ -535,6 +553,12 @@ export const usefulLinks = [
     category: "School Research"
   },
   {
+    label: "Student Doctor Network",
+    href: "https://www.studentdoctor.net/",
+    desc: "School-specific forums and cycle threads. Messy, but essential for real applicant perspectives.",
+    category: "School Research"
+  },
+  {
     label: "Moravian Pre-Health Advising",
     href: "https://www.moravian.edu/advising",
     desc: "Connect with your campus pre-health advisor and committee.",
@@ -553,9 +577,39 @@ export const usefulLinks = [
     category: "Moravian Resources"
   },
   {
+    label: "Active Minds",
+    href: "https://www.activeminds.org/",
+    desc: "A national student mental health organization with resources for pre-med stress and burnout.",
+    category: "Wellbeing"
+  },
+  {
+    label: "The Pre-Med Years Podcast",
+    href: "https://medicalschoolhq.net/the-pre-med-years-podcast/",
+    desc: "Free episodes on burnout, non-traditional paths, and application strategy for busy students.",
+    category: "Wellbeing"
+  },
+  {
     label: "St. Luke's Volunteer Services",
     href: "https://www.slhn.org/volunteer",
     desc: "Information on hospital volunteering and observership programs with our local health network.",
+    category: "Clinical Opportunities"
+  },
+  {
+    label: "AAMC Clinical Care Observership Directory",
+    href: "https://students-residents.aamc.org/clinical-care-observership-directory",
+    desc: "Search for shadowing and observership opportunities before you cold-email clinical sites.",
+    category: "Clinical Opportunities"
+  },
+  {
+    label: "MedSchoolCoach Virtual Shadowing",
+    href: "https://www.medschoolcoach.com/virtual-shadowing/",
+    desc: "10 hours of virtual clinical observation with real physicians and a certificate for applications.",
+    category: "Clinical Opportunities"
+  },
+  {
+    label: "VolunteerMatch",
+    href: "https://www.volunteermatch.org/",
+    desc: "Find local clinical and non-clinical volunteer opportunities based on your interests.",
     category: "Clinical Opportunities"
   },
   {
@@ -568,6 +622,18 @@ export const usefulLinks = [
     label: "Jack Westin MCAT",
     href: "https://jackwestin.com/",
     desc: "Free daily CARS passages and practice. Great for building consistent CARS habits.",
+    category: "MCAT Prep"
+  },
+  {
+    label: "MileDown Anki Deck",
+    href: "https://www.miledownanki.com/",
+    desc: "A free spaced repetition flashcard deck for MCAT review. Great for building daily retention habits.",
+    category: "Study Tools"
+  },
+  {
+    label: "Blueprint Free MCAT Full-Length",
+    href: "https://www.blueprintprep.com/mcat/free-resources/",
+    desc: "Free full-length practice exam with analytics plus a baseline half-length diagnostic.",
     category: "MCAT Prep"
   },
   {
@@ -586,12 +652,6 @@ export const usefulLinks = [
     label: "r/MCAT (Reddit)",
     href: "https://www.reddit.com/r/Mcat/",
     desc: "MCAT-specific community with study schedules, resource reviews, and score reactions.",
-    category: "Communities"
-  },
-  {
-    label: "Student Doctor Network",
-    href: "https://www.studentdoctor.net/",
-    desc: "Forum for pre-meds and medical students. School-specific threads can be helpful.",
     category: "Communities"
   },
 ]

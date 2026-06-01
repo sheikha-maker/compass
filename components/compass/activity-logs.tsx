@@ -122,14 +122,6 @@ export function ActivityLogs() {
       title="Activity Logs"
       intro="Track your experiences and hours by category, and jot reflections while they're fresh. Those notes become your application later."
     >
-      <div className="mb-5 flex items-start gap-2 rounded-lg border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-800 dark:border-amber-900/50 dark:bg-amber-950/30 dark:text-amber-400">
-        <span className="mt-0.5 shrink-0">⚠️</span>
-        <p>
-          <strong>Browser storage only.</strong> Your data is saved locally and will be lost if you
-          clear your browser history or switch devices. Screenshot or copy your entries regularly.
-        </p>
-      </div>
-
       <div className="mb-6 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
         <div className="rounded-lg border border-primary/30 bg-primary/5 p-4">
           <p className="text-2xl font-semibold text-foreground">{grandTotal}</p>

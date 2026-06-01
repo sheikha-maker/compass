@@ -79,6 +79,11 @@ export default function ToolsPage() {
   return (
     <PageLayout title="Your Tools" eyebrow="Your Tools" navItems={navItems}>
       <RecommendedFlow />
+      <div className="mb-8 rounded-2xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900 dark:border-amber-900/50 dark:bg-amber-950/20 dark:text-amber-200">
+        <p>
+          <strong>Browser storage only.</strong> Your data is saved locally and will be lost if you clear browser history or switch devices. Screenshot or copy your entries regularly.
+        </p>
+      </div>
       <CoursePlannerCalendar />
       <PrereqTracker />
       <MCATCountdown />

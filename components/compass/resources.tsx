@@ -5,11 +5,12 @@ import { Section } from "./section"
 // Group links by category
 const linkCategories = [
   "Moravian Resources",
-  "Clinical Opportunities",
   "Official Resources",
-  "Applications",
-  "School Research",
   "MCAT Prep",
+  "School Research",
+  "Clinical Opportunities",
+  "Applications",
+  "Wellbeing",
   "Study Tools",
   "Communities",
 ]
@@ -34,7 +35,7 @@ export function Resources() {
             <div className="grid gap-3 sm:grid-cols-2">
               {group.links.map((link) => (
                 <a
-                  key={link.href}
+                  key={`${link.category}-${link.label}`}
                   href={link.href}
                   target="_blank"
                   rel="noopener noreferrer"
