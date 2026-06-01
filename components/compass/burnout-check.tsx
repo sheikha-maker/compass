@@ -1,6 +1,7 @@
 "use client"
 
 import { useState } from "react"
+import Link from "next/link"
 import { RotateCcw } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
@@ -256,6 +257,17 @@ export function BurnoutCheck() {
                   </div>
                 ))}
               </div>
+            </div>
+
+            <div className="mt-6 rounded-xl border border-border bg-card p-5 text-sm text-muted-foreground">
+              <p className="font-semibold text-foreground mb-2">Keep these in sync</p>
+              <p>
+                Use the
+                <Link href="/tools#wellness-checkin" className="mx-1 font-semibold text-primary underline underline-offset-2">
+                  Weekly Check-in
+                </Link>
+                to track your stress and energy over time, then revisit this Burnout Check if your pattern feels persistent.
+              </p>
             </div>
 
             <Button

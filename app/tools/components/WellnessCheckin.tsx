@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect, useCallback } from "react"
+import Link from "next/link"
 import { AlertTriangle, CheckCircle2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
@@ -145,6 +146,21 @@ export function WellnessCheckin() {
             </div>
           </div>
         )}
+
+        <div className="rounded-xl border border-border bg-card p-5 mb-6 text-sm text-muted-foreground">
+          <p className="font-semibold text-foreground mb-2">Related tools</p>
+          <p>
+            If your weekly trend shows strain, try the
+            <Link href="/burnout-check" className="mx-1 font-semibold text-primary underline underline-offset-2">
+              Burnout Check
+            </Link>
+            next. Keep longer-term notes in
+            <Link href="#activity-logs" className="mx-1 font-semibold text-primary underline underline-offset-2">
+              Activity Logs
+            </Link>
+            so you can spot patterns more easily.
+          </p>
+        </div>
 
         {/* Sliders */}
         <div className="rounded-xl border border-border bg-card p-6 mb-6">
