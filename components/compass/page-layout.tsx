@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { Compass, Menu, X, Info, ArrowLeft } from "lucide-react"
+import { Compass, Menu, X, ArrowLeft } from "lucide-react"
 import Link from "next/link"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
@@ -15,6 +15,14 @@ const THEME_OPTIONS = [
   { value: "green", label: "Green" },
   { value: "purple", label: "Purple" },
   { value: "brown", label: "Brown" },
+]
+
+const TOOL_LINKS = [
+  { href: "/tools/plan-check", label: "Plan & Check" },
+  { href: "/tools/application-prep", label: "Application Prep" },
+  { href: "/tools/milestones", label: "Milestones" },
+  { href: "/tools/wellness-hours", label: "Wellness & Hours" },
+  { href: "/tools/resources", label: "Resources" },
 ]
 
 export type PageNavItem = {
@@ -204,12 +212,7 @@ export function PageLayout({ title, eyebrow, description, backHref = "/", navIte
             <p className="px-3 pb-1.5 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
               Other Sections
             </p>
-            {[
-              { href: "/mindset", label: "Mindset" },
-              { href: "/your-path", label: "Building Your Path" },
-              { href: "/milestones", label: "The Big Milestones" },
-              { href: "/tools", label: "Your Tools" },
-            ].map((link) => (
+            {TOOL_LINKS.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
@@ -218,13 +221,6 @@ export function PageLayout({ title, eyebrow, description, backHref = "/", navIte
                 {link.label}
               </Link>
             ))}
-            <Link
-              href="/about"
-              className="flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm text-muted-foreground transition-colors hover:bg-sidebar-accent/60 hover:text-foreground"
-            >
-              <Info className="h-4 w-4" />
-              About this guide
-            </Link>
           </div>
         </div>
       </nav>
