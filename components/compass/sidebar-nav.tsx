@@ -13,15 +13,15 @@ const sectionLinks = [
   { href: "/burnout-check", label: "✦ Burnout Self-Check", group: "Sections" },
   { href: "/your-path", label: "Building Your Path", group: "Sections" },
   { href: "/milestones", label: "The Big Milestones", group: "Sections" },
-  { href: "/tools#planning", label: "Plan & Check", group: "Sections" },
-  { href: "/tools#application-prep", label: "Application Prep", group: "Sections" },
-  { href: "/tools#milestones", label: "Milestones", group: "Sections" },
-  { href: "/tools#wellbeing", label: "Wellness & Hours", group: "Sections" },
-  { href: "/tools#resources", label: "Resources", group: "Sections" },
+  { href: "/tools/plan-check", label: "Plan & Check", group: "Tools" },
+  { href: "/tools/application-prep", label: "Application Prep", group: "Tools" },
+  { href: "/tools/milestones", label: "Milestones", group: "Tools" },
+  { href: "/tools/wellness-hours", label: "Wellness & Hours", group: "Tools" },
+  { href: "/tools/resources", label: "Resources", group: "Tools" },
   { href: "/about", label: "About this guide", group: "About" },
 ]
 
-const groups = ["Start", "Sections", "About"]
+const groups = ["Start", "Sections", "Tools", "About"]
 
 export function SidebarNav() {
   const [open, setOpen] = useState(false)

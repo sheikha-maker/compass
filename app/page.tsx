@@ -26,31 +26,31 @@ export default function Page() {
           </p>
           <div className="mt-6 grid gap-3 sm:grid-cols-2 xl:grid-cols-5">
             <Link
-              href="/tools#planning"
+              href="/tools/plan-check"
               className="rounded-2xl border border-border bg-card px-4 py-4 text-sm font-medium text-foreground transition hover:border-primary hover:text-primary hover:shadow-md"
             >
               Plan & Check
             </Link>
             <Link
-              href="/tools#application-prep"
+              href="/tools/application-prep"
               className="rounded-2xl border border-border bg-card px-4 py-4 text-sm font-medium text-foreground transition hover:border-primary hover:text-primary hover:shadow-md"
             >
               Application Prep
             </Link>
             <Link
-              href="/tools#milestones"
+              href="/tools/milestones"
               className="rounded-2xl border border-border bg-card px-4 py-4 text-sm font-medium text-foreground transition hover:border-primary hover:text-primary hover:shadow-md"
             >
               Milestones
             </Link>
             <Link
-              href="/tools#wellbeing"
+              href="/tools/wellness-hours"
               className="rounded-2xl border border-border bg-card px-4 py-4 text-sm font-medium text-foreground transition hover:border-primary hover:text-primary hover:shadow-md"
             >
               Wellness & Hours
             </Link>
             <Link
-              href="/tools#resources"
+              href="/tools/resources"
               className="rounded-2xl border border-border bg-card px-4 py-4 text-sm font-medium text-foreground transition hover:border-primary hover:text-primary hover:shadow-md"
             >
               Resources
