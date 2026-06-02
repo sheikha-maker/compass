@@ -1,9 +1,10 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import { Compass, ArrowDown, BookOpen, Stethoscope, GraduationCap, Rocket, Moon, Sun } from "lucide-react"
+import { Compass, ArrowDown, BookOpen, Stethoscope, GraduationCap, Rocket } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { useTheme } from "next-themes"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import Link from "next/link"
 
 const timelineSteps = [
@@ -12,6 +13,38 @@ const timelineSteps = [
   { year: "Year 3", label: "Prepare", icon: GraduationCap, color: "bg-timeline-3" },
   { year: "Year 4", label: "Apply", icon: Rocket, color: "bg-timeline-4" },
 ]
+
+const THEME_OPTIONS = [
+  { value: "light", label: "Light" },
+  { value: "dark", label: "Dark" },
+  { value: "red", label: "Red" },
+  { value: "green", label: "Green" },
+  { value: "brown", label: "Brown" },
+]
+
+function ThemePicker() {
+  const { theme, setTheme } = useTheme()
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => setMounted(true), [])
+
+  if (!mounted) return <div className="h-9 w-28 rounded-full bg-white/10" />
+
+  return (
+    <Select value={theme ?? "light"} onValueChange={(value) => setTheme(value)}>
+      <SelectTrigger className="h-9 min-w-[112px] rounded-full text-sm">
+        <SelectValue placeholder="Theme" />
+      </SelectTrigger>
+      <SelectContent>
+        {THEME_OPTIONS.map((option) => (
+          <SelectItem key={option.value} value={option.value} className="text-xs">
+            {option.label}
+          </SelectItem>
+        ))}
+      </SelectContent>
+    </Select>
+  )
+}
 
 function ParticleCanvas() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
@@ -196,15 +229,7 @@ export function Hero() {
               Jump to Tools
             </Button>
           </Link>
-          <Button
-            variant="ghost"
-            size="icon"
-            aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
-            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-            className="text-primary-foreground/90 hover:text-primary-foreground"
-          >
-            {mounted ? (theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />) : <span className="h-4 w-4" />}
-          </Button>
+          <ThemePicker />
           <Link href="/about" className="sm:ml-auto">
             <Button
               variant="ghost"
