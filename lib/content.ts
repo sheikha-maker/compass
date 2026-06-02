@@ -190,7 +190,7 @@ export const experienceTools = [
     tips: [
       "Shadow a few different specialties, including at least one primary care.",
       "Ask physicians what they'd tell their pre-med selves.",
-      "40–50 thoughtful hours is plenty for most applications.",
+      "40-50 thoughtful hours is plenty for most applications.",
     ],
   },
   {
@@ -491,7 +491,7 @@ export const faqs = [
   },
   {
     q: "How many shadowing hours do I really need?",
-    a: "Fewer than the internet implies. Roughly 40–50 thoughtful hours across a couple of specialties is plenty for most applications. What matters is what you understood, not the count.",
+    a: "Fewer than the internet implies. Roughly 40-50 thoughtful hours across a couple of specialties is plenty for most applications. What matters is what you understood, not the count.",
   },
   {
     q: "Do my grades from freshman year ruin everything?",
