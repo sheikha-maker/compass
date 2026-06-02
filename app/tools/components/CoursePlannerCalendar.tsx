@@ -237,7 +237,7 @@ export function CoursePlannerCalendar() {
     const course: Course = {
       id: uid(),
       name: form.name.trim(),
-      credits: Math.max(1, Math.min(6, Number(form.credits) || 4)),
+      credits: Math.max(0, Math.min(6, Number(form.credits) || 0)),
       category: form.category,
     }
     const updated = {
@@ -392,7 +392,7 @@ export function CoursePlannerCalendar() {
                 <Input
                   id="cp-credits"
                   type="number"
-                  min={1}
+                  min={0}
                   max={6}
                   className="mt-1.5"
                   value={form.credits}

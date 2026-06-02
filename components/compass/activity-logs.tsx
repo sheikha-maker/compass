@@ -32,6 +32,7 @@ type LogEntry = {
   title: string
   hours: string
   date: string
+  endDate?: string
   note: string
 }
 
@@ -74,6 +75,7 @@ export function ActivityLogs() {
   const [title, setTitle] = useState("")
   const [hours, setHours] = useState("")
   const [date, setDate] = useState("")
+  const [endDate, setEndDate] = useState("")
   const [note, setNote] = useState("")
   const [prompt, setPrompt] = useState(() => getPrompt("Clinical"))
 
@@ -92,6 +94,7 @@ export function ActivityLogs() {
         title: title.trim(),
         hours: hours.trim(),
         date: date || new Date().toISOString().slice(0, 10),
+        endDate: endDate?.trim() || undefined,
         note: note.trim(),
       },
       ...prev,
@@ -99,6 +102,7 @@ export function ActivityLogs() {
     setTitle("")
     setHours("")
     setDate("")
+    setEndDate("")
     setNote("")
     setPrompt(getPrompt(category))
   }
@@ -173,12 +177,22 @@ export function ActivityLogs() {
             />
           </div>
           <div>
-            <Label htmlFor="log-date">Date</Label>
+            <Label htmlFor="log-date">Start date</Label>
             <Input
               id="log-date"
               type="date"
               value={date}
               onChange={(e) => setDate(e.target.value)}
+              className="mt-1.5"
+            />
+          </div>
+          <div>
+            <Label htmlFor="log-end-date">End date</Label>
+            <Input
+              id="log-end-date"
+              type="date"
+              value={endDate}
+              onChange={(e) => setEndDate(e.target.value)}
               className="mt-1.5"
             />
           </div>
@@ -226,7 +240,9 @@ export function ActivityLogs() {
                       <span className="rounded-full bg-accent/15 px-2.5 py-0.5 text-xs font-medium text-accent">
                         {l.category}
                       </span>
-                      <span className="text-sm text-muted-foreground">{l.date}</span>
+                      <span className="text-sm text-muted-foreground">
+                      {l.endDate ? `${l.date} — ${l.endDate}` : l.date}
+                    </span>
                       {l.hours && (
                         <span className="text-sm font-medium text-foreground">{l.hours} hrs</span>
                       )}

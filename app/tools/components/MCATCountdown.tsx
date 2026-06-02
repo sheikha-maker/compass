@@ -35,7 +35,14 @@ export function MCATCountdown() {
   useEffect(() => {
     try {
       const stored = localStorage.getItem(MCAT_STORAGE_KEY)
-      if (stored) setData(JSON.parse(stored))
+      if (stored) {
+        const parsed = JSON.parse(stored)
+        setData({
+          date: parsed.date ?? "",
+          scores: parsed.scores ?? {},
+          hours: parsed.hours ?? {},
+        })
+      }
     } catch {}
   }, [])
 
@@ -47,7 +54,7 @@ export function MCATCountdown() {
   const days = data.date ? daysUntil(data.date) : null
   const weeks = days !== null && days > 0 ? Math.ceil(days / 7) : null
 
-  const totalHrs = SECTIONS.reduce((s, sec) => s + (Number(data.hours[sec.id]) || 0), 0)
+  const totalHrs = SECTIONS.reduce((s, sec) => s + (Number(data.hours?.[sec.id]) || 0), 0)
   const projectedHrs = weeks ? weeks * totalHrs : null
 
   const validScores = SECTIONS.map((s) => Number(data.scores[s.id])).filter((v) => v >= 118 && v <= 132)

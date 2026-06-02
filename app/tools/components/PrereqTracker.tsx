@@ -23,13 +23,13 @@ type PrereqData = Record<string, number>
 const PREREQS: Prereq[] = [
   { id: "bio",     name: "Biology",              required: 8, note: "2 semesters + labs recommended", category: "science" },
   { id: "gchem",   name: "General Chemistry",    required: 8, note: "2 semesters + labs recommended", category: "science" },
-  { id: "ochem",   name: "Organic Chemistry",    required: 6, note: "2 semesters",                    category: "science" },
-  { id: "physics", name: "Physics",              required: 6, note: "2 semesters",                    category: "science" },
-  { id: "math",    name: "Math / Statistics",    required: 6, note: "Calculus or statistics",          category: "science" },
-  { id: "biochem", name: "Biochemistry",         required: 3, note: "1 semester minimum",              category: "science" },
-  { id: "english", name: "English / Writing",    required: 6, note: "2 writing-intensive courses",     category: "writing" },
-  { id: "psych",   name: "Psychology",           required: 3, note: "Intro psychology",               category: "behavioral" },
-  { id: "socio",   name: "Sociology",            required: 3, note: "Intro sociology",                category: "behavioral" },
+  { id: "ochem",   name: "Organic Chemistry",    required: 8, note: "2 courses (8 credits)",         category: "science" },
+  { id: "physics", name: "Physics",              required: 8, note: "2 courses (8 credits)",         category: "science" },
+  { id: "math",    name: "Math / Statistics",    required: 4, note: "4-credit course",              category: "science" },
+  { id: "biochem", name: "Biochemistry",         required: 4, note: "1 semester minimum",          category: "science" },
+  { id: "english", name: "English / Writing",    required: 8, note: "2 writing-intensive courses", category: "writing" },
+  { id: "psych",   name: "Psychology",           required: 4, note: "Intro psychology",             category: "behavioral" },
+  { id: "socio",   name: "Sociology",            required: 4, note: "Intro sociology",              category: "behavioral" },
 ]
 
 const CATEGORY_META = {
