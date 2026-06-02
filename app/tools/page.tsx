@@ -203,7 +203,11 @@ export default function ToolsPage() {
 
       <WellnessCheckin />
       <ActivityLogs />
-      <Resources />
+      
+      <section id="resources" className="scroll-mt-20 border-b border-border py-10 md:py-14">
+        <Resources />
+      </section>
+      
       <SiteFooter />
     </PageLayout>
   )
