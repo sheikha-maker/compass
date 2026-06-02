@@ -75,7 +75,7 @@ const YEARS = [
       "Prepare for MMI and panel interviews",
       "Submit FAFSA for medical school",
       "Finalize your school list",
-      "Celebrate — you've done the work",
+      "Celebrate, you've done the work",
     ],
   },
 ]

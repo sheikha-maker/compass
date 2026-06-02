@@ -129,7 +129,7 @@ export function MCATCountdown() {
                   type="number"
                   min={118}
                   max={132}
-                  placeholder="118–132"
+                  placeholder="118-132"
                   value={data.scores[sec.id] ?? ""}
                   onChange={(e) =>
                     persist({ ...data, scores: { ...data.scores, [sec.id]: e.target.value } })

@@ -93,8 +93,8 @@ export function LORTracker() {
             Letter of Rec Tracker
           </h2>
           <p className="mt-4 text-pretty text-lg leading-relaxed text-muted-foreground">
-            Track every writer — who you've asked, what they've confirmed, and when submissions are due.
-            Most schools require 3–5 letters.
+            Track every writer. Who you've asked, what they've confirmed, and when submissions are due.
+            Most schools require 3-5 letters.
           </p>
         </header>
 
@@ -105,7 +105,7 @@ export function LORTracker() {
             { label: "Writers tracked", value: lors.length },
             { label: "Confirmed", value: confirmed },
             { label: "Submitted", value: submitted },
-            { label: "Recommended", value: target, sub: "most schools require 3–5" },
+            { label: "Recommended", value: target, sub: "most schools require 3-5" },
           ].map((s) => (
             <div key={s.label} className="flex-1 min-w-[100px] rounded-xl border border-border bg-card px-4 py-3">
               <p className="text-xs text-muted-foreground mb-1">{s.label}</p>
@@ -284,7 +284,7 @@ export function LORTracker() {
           <p className="font-semibold text-foreground mb-1">💡 Who to ask</p>
           <p>
             Most MD programs want at least one science professor, one non-science professor, and one
-            clinical supervisor or physician. Ask early — give writers at least 4–6 weeks, and always
+            clinical supervisor or physician. Ask early — give writers at least 4-6 weeks, and always
             send them your CV, personal statement draft, and a list of your activities to help them
             write something specific.
           </p>

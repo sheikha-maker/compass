@@ -46,7 +46,7 @@ const QUESTIONS: Question[] = [
     ],
   },
   {
-    text: "How well are you sleeping and taking care of basic needs — food, exercise, downtime?",
+    text: "How well are you sleeping and taking care of basic needs. food, exercise, downtime?",
     options: [
       { label: "Consistently well", value: 0 },
       { label: "Mostly okay", value: 1 },
@@ -57,9 +57,9 @@ const QUESTIONS: Question[] = [
   {
     text: "How much do you feel like yourself outside of your pre-med role?",
     options: [
-      { label: "Fully — I have hobbies, friends, fun", value: 0 },
-      { label: "Somewhat — there's some balance", value: 1 },
-      { label: "Not much — pre-med is consuming", value: 2 },
+      { label: "Fully. I have hobbies, friends, fun", value: 0 },
+      { label: "Somewhat. there's some balance", value: 1 },
+      { label: "Not much. pre-med is consuming", value: 2 },
       { label: "Pre-med is my whole identity right now", value: 3 },
     ],
   },
@@ -69,7 +69,7 @@ const QUESTIONS: Question[] = [
       { label: "Yes, readily", value: 0 },
       { label: "Somewhat", value: 1 },
       { label: "Not really", value: 2 },
-      { label: "No — I feel quite alone", value: 3 },
+      { label: "No. I feel quite alone", value: 3 },
     ],
   },
 ]
@@ -80,11 +80,11 @@ const RESULTS: ResultTier[] = [
     label: "You seem balanced",
     tagline: "Keep protecting what's working.",
     description:
-      "Your responses suggest you're managing the pre-med journey with relative balance. That's genuinely hard to do, and it deserves recognition. Keep protecting the things that are working — your routines, your support system, and your identity outside of medicine. Checking in regularly (even when things feel fine) is one of the best things you can do.",
+      "Your responses suggest you're managing the pre-med journey with relative balance. That's genuinely hard to do, and it deserves recognition. Keep protecting the things that are working. Your routines, your support system, and your identity outside of medicine. Checking in regularly (even when things feel fine) is one of the best things you can do.",
     resources: [
       { text: "Keep checking in here each week" },
       { text: "Talk to your advisor about what's working" },
-      { text: "Share what you're doing with other pre-meds — it helps them too" },
+      { text: "Share what you're doing with other pre-meds. it helps them too" },
     ],
     cardBg: "bg-teal-50 dark:bg-teal-950/20",
     cardBorder: "border-teal-200 dark:border-teal-800/40",
@@ -97,12 +97,12 @@ const RESULTS: ResultTier[] = [
     label: "Some signs of strain",
     tagline: "You're carrying more than you might realize.",
     description:
-      "Some areas of your wellbeing are showing stress. This is very common in pre-med — but common doesn't mean okay. You don't have to feel this way. Small, consistent changes make a real difference: one protected evening per week, one honest conversation, one walk without your phone. You don't need to overhaul everything at once.",
+      "Some areas of your wellbeing are showing stress. This is very common in pre-med, but common doesn't mean okay. You don't have to feel this way. Small, consistent changes make a real difference: one protected evening per week, one honest conversation, one walk without your phone. You don't need to overhaul everything at once.",
     resources: [
       { text: "Schedule a check-in with your pre-health advisor" },
       { text: "Try blocking one evening per week as non-pre-med time" },
       {
-        text: "Moravian Counseling Services — free and confidential",
+        text: "Moravian Counseling Services: Free and confidential",
         href: "https://www.moravian.edu/counseling",
       },
     ],
@@ -117,13 +117,13 @@ const RESULTS: ResultTier[] = [
     label: "This is heavy right now",
     tagline: "Please reach out to someone — today, not next week.",
     description:
-      "Your responses reflect genuine burnout or near-burnout. This is not a sign that you're not cut out for medicine. It's a sign that you're human and you need support. Many of the strongest physicians hit this point before they ever reached med school. The most important thing you can do right now is not push harder — it's ask for help.",
+      "Your responses reflect genuine burnout or near-burnout. This is not a sign that you're not cut out for medicine. It's a sign that you're human and you need support. Many of the strongest physicians hit this point before they ever reached med school. The most important thing you can do right now is not push harder, it's ask for help.",
     resources: [
       {
-        text: "Moravian Counseling Services — please reach out",
+        text: "Moravian Counseling Services: If needed, please reach out",
         href: "https://www.moravian.edu/counseling",
       },
-      { text: "Talk to someone today — a friend, a family member, anyone" },
+      { text: "Talk to someone today. A friend, a family member, anyone" },
       { text: "Consider talking to your advisor about your course load" },
     ],
     cardBg: "bg-red-50 dark:bg-red-950/20",
@@ -179,11 +179,10 @@ export function BurnoutCheck() {
                     <button
                       key={opt.value}
                       onClick={() => setAnswers((a) => ({ ...a, [qi]: opt.value }))}
-                      className={`rounded-full px-4 py-1.5 text-sm border transition-all duration-150 ${
-                        answers[qi] === opt.value
-                          ? "bg-foreground text-background border-foreground"
-                          : "bg-card text-muted-foreground border-border hover:border-primary/60 hover:text-foreground"
-                      }`}
+                      className={`rounded-full px-4 py-1.5 text-sm border transition-all duration-150 ${answers[qi] === opt.value
+                        ? "bg-foreground text-background border-foreground"
+                        : "bg-card text-muted-foreground border-border hover:border-primary/60 hover:text-foreground"
+                        }`}
                     >
                       {opt.label}
                     </button>
