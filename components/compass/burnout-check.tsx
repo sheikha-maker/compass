@@ -124,7 +124,7 @@ const RESULTS: ResultTier[] = [
         text: "Moravian Counseling Services — please reach out",
         href: "https://www.moravian.edu/counseling",
       },
-      { text: "Talk to someone today — a friend, a family member, anyone" },
+      { text: "Talk to someone today. A friend, a family member, anyone" },
       { text: "Consider talking to your advisor about your course load" },
     ],
     cardBg: "bg-red-50 dark:bg-red-950/20",
