@@ -38,7 +38,7 @@ type LogEntry = {
 const REFLECTION_PROMPTS: Record<Category, string[]> = {
   Clinical: [
     "What did you witness that surprised you? How did the care team make patients feel?",
-    "Was there a moment where you saw medicine at its best — or its hardest?",
+    "Was there a moment where you saw medicine at its best, or its hardest?",
     "What did a patient or family member say that stayed with you?",
   ],
   Research: [
@@ -48,7 +48,7 @@ const REFLECTION_PROMPTS: Record<Category, string[]> = {
   ],
   Shadowing: [
     "What did the physician do that you'd want to emulate? What would you do differently?",
-    "How did the doctor communicate with patients — what worked, what didn't?",
+    "How did the doctor communicate with patients? What did and didn't work?",
     "What part of this specialty surprised you most?",
   ],
   Leadership: [
@@ -187,7 +187,7 @@ export function ActivityLogs() {
         <div>
           <div className="flex items-baseline justify-between mb-1.5">
             <Label htmlFor="log-note">Reflection</Label>
-            <span className="text-xs text-muted-foreground">optional — but worth it</span>
+            <span className="text-xs text-muted-foreground">optional, but worth it</span>
           </div>
           <Textarea
             id="log-note"

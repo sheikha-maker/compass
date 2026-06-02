@@ -93,7 +93,7 @@ export function LORTracker() {
             Letter of Rec Tracker
           </h2>
           <p className="mt-4 text-pretty text-lg leading-relaxed text-muted-foreground">
-            Track every writer — who you've asked, what they've confirmed, and when submissions are due.
+            Track every writer. Who you've asked, what they've confirmed, and when submissions are due.
             Most schools require 3-5 letters.
           </p>
         </header>

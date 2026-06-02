@@ -47,7 +47,7 @@ const QUESTIONS: Question[] = [
     ],
   },
   {
-    text: "How well are you sleeping and taking care of basic needs — food, exercise, downtime?",
+    text: "How well are you sleeping and taking care of basic needs, such as food, exercise, downtime?",
     options: [
       { label: "Consistently well", value: 0 },
       { label: "Mostly okay", value: 1 },
