@@ -13,12 +13,17 @@ import { ActivityLogs } from "@/components/compass/activity-logs"
 import { Resources, SiteFooter } from "@/components/compass/resources"
 
 const navItems = [
-  { id: "planning", label: "Plan & Check" },
+  { id: "course-planner", label: "Course Planner" },
+  { id: "prereq-tracker", label: "Prereq Tracker" },
   { id: "mcat-countdown", label: "MCAT Countdown" },
-  { id: "application-prep", label: "Application Prep" },
-  { id: "yearly-checklist", label: "Moravian Milestones" },
-  { id: "wellbeing", label: "Wellness & Hours" },
-  { id: "resources", label: "Resources & Contribute" },
+  { id: "application-tracker", label: "Application Tracker" },
+  { id: "school-list", label: "School List" },
+  { id: "essay-interview-prep", label: "Essays & Interviews" },
+  { id: "lor-tracker", label: "LOR Tracker" },
+  { id: "yearly-checklist", label: "Milestones" },
+  { id: "wellness-checkin", label: "Weekly Check-In" },
+  { id: "activity-logs", label: "Activity Logs" },
+  { id: "resources", label: "Resources" },
 ]
 
 function RecommendedFlow() {
@@ -94,17 +99,16 @@ export default function ToolsPage() {
           <strong>Browser storage only.</strong> Your data is saved locally and will be lost if you clear browser history or switch devices. Screenshot or copy your entries regularly.
         </p>
       </div>
-      <section id="planning" className="scroll-mt-20 border-b border-border py-14 md:py-20">
+      <section id="planning" className="scroll-mt-20 border-b border-border py-10 md:py-14">
         <div className="mx-auto w-full max-w-4xl px-5 md:px-8">
-          <header className="mb-8">
-            <p className="mb-2 text-sm font-semibold uppercase tracking-wider text-accent">Your Tools</p>
+          <div className="mb-8 space-y-3 rounded-3xl border border-border bg-card p-6">
             <h2 className="text-balance font-serif text-3xl font-semibold text-foreground md:text-4xl">
               Plan & check
             </h2>
-            <p className="mt-4 text-pretty text-lg leading-relaxed text-muted-foreground">
-              Plan your semesters and verify your courses against pre-med prerequisites in one workflow.
+            <p className="text-sm leading-relaxed text-muted-foreground">
+              Map semesters, checkpoints, and MCAT prep together without extra noise.
             </p>
-          </header>
+          </div>
         </div>
       </section>
 
@@ -112,17 +116,16 @@ export default function ToolsPage() {
       <PrereqTracker />
       <MCATCountdown />
 
-      <section id="application-prep" className="scroll-mt-20 border-b border-border py-14 md:py-20">
+      <section id="application-prep" className="scroll-mt-20 border-b border-border py-10 md:py-14">
         <div className="mx-auto w-full max-w-4xl px-5 md:px-8">
-          <header className="mb-8">
-            <p className="mb-2 text-sm font-semibold uppercase tracking-wider text-accent">Your Tools</p>
+          <div className="mb-8 space-y-3 rounded-3xl border border-border bg-card p-6">
             <h2 className="text-balance font-serif text-3xl font-semibold text-foreground md:text-4xl">
               Application Prep
             </h2>
-            <p className="mt-4 text-pretty text-lg leading-relaxed text-muted-foreground">
-              A single place for your school list, application progress, essay drafts, interview prep, and recommendation planning.
+            <p className="text-sm leading-relaxed text-muted-foreground">
+              Keep your school list, essays, interviews, and letters in one tidy workflow.
             </p>
-          </header>
+          </div>
         </div>
       </section>
 
@@ -132,17 +135,16 @@ export default function ToolsPage() {
       <LORTracker />
       <YearlyChecklist />
 
-      <section id="wellbeing" className="scroll-mt-20 border-b border-border py-14 md:py-20">
+      <section id="wellbeing" className="scroll-mt-20 border-b border-border py-10 md:py-14">
         <div className="mx-auto w-full max-w-4xl px-5 md:px-8">
-          <header className="mb-8">
-            <p className="mb-2 text-sm font-semibold uppercase tracking-wider text-accent">Your Tools</p>
+          <div className="mb-8 space-y-3 rounded-3xl border border-border bg-card p-6">
             <h2 className="text-balance font-serif text-3xl font-semibold text-foreground md:text-4xl">
               Wellness & Hours
             </h2>
-            <p className="mt-4 text-pretty text-lg leading-relaxed text-muted-foreground">
-              Keep your wellbeing visible while logging the experiences that matter for your application.
+            <p className="text-sm leading-relaxed text-muted-foreground">
+              Track your weekly check-ins and activity hours without distractions.
             </p>
-          </header>
+          </div>
         </div>
       </section>
 

@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { Compass, Menu, X, Info, ArrowLeft, Sun, Moon } from "lucide-react"
+import { Compass, Menu, X, Info, ArrowLeft } from "lucide-react"
 import Link from "next/link"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
@@ -13,7 +13,7 @@ const THEME_OPTIONS = [
   { value: "dark", label: "Dark" },
   { value: "red", label: "Red" },
   { value: "green", label: "Green" },
-  { value: "cafe", label: "Cafe" },
+  { value: "brown", label: "Brown" },
 ]
 
 export type PageNavItem = {
@@ -54,23 +54,6 @@ function ThemePicker() {
   )
 }
 
-function DarkModeToggle() {
-  const { theme, setTheme } = useTheme()
-  const [mounted, setMounted] = useState(false)
-  useEffect(() => setMounted(true), [])
-  if (!mounted) return <div className="h-8 w-8" />
-  return (
-    <Button
-      variant="ghost"
-      size="icon"
-      aria-label={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
-      onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-      className="h-8 w-8 text-muted-foreground hover:text-foreground"
-    >
-      {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
-    </Button>
-  )
-}
 
 export function PageLayout({ title, eyebrow, description, backHref = "/", navItems, children }: Props) {
   const [active, setActive] = useState(navItems[0]?.id ?? "")
@@ -108,7 +91,7 @@ export function PageLayout({ title, eyebrow, description, backHref = "/", navIte
           <span className="font-serif text-base font-semibold text-foreground">The Pre-Med Compass</span>
         </div>
         <div className="flex items-center gap-1">
-          <DarkModeToggle />
+          <ThemePicker />
           <Button
             variant="ghost"
             size="icon"
@@ -147,7 +130,6 @@ export function PageLayout({ title, eyebrow, description, backHref = "/", navIte
           </div>
           <div className="flex flex-wrap items-center gap-2">
             <ThemePicker />
-            <DarkModeToggle />
           </div>
         </div>
 
