@@ -13,6 +13,7 @@ const THEME_OPTIONS = [
   { value: "dark", label: "Dark" },
   { value: "red", label: "Red" },
   { value: "green", label: "Green" },
+  { value: "purple", label: "Purple" },
   { value: "brown", label: "Brown" },
 ]
 

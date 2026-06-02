@@ -39,44 +39,61 @@ function RecommendedFlow() {
         </Link>
       </div>
 
-      <div className="mt-6 grid gap-4 lg:grid-cols-4">
-        <div className="rounded-2xl border border-border bg-background p-5">
-          <p className="text-sm font-semibold text-foreground">Plan with confidence</p>
-          <p className="mt-2 text-sm text-muted-foreground">
-            Use Course Planner, then validate your course choices in Prereq Tracker.
-          </p>
-          <div className="mt-4 space-y-2 text-sm">
-            <Link href="#course-planner" className="block text-primary underline underline-offset-2">Course Planner</Link>
-            <Link href="#prereq-tracker" className="block text-primary underline underline-offset-2">Prereq Tracker</Link>
+      <div className="mt-6 grid gap-6 lg:grid-cols-[260px_minmax(0,1fr)]">
+        <div className="rounded-3xl border border-border bg-background p-5">
+          <p className="text-xs uppercase tracking-[0.24em] text-muted-foreground">Quick jump</p>
+          <div className="mt-4 space-y-3">
+            <Link
+              href="#planning"
+              className="block rounded-2xl border border-border bg-card px-4 py-3 text-sm font-medium text-foreground transition hover:border-primary hover:text-primary"
+            >
+              Plan & Check
+            </Link>
+            <Link
+              href="#application-prep"
+              className="block rounded-2xl border border-border bg-card px-4 py-3 text-sm font-medium text-foreground transition hover:border-primary hover:text-primary"
+            >
+              Application Prep
+            </Link>
+            <Link
+              href="#milestones"
+              className="block rounded-2xl border border-border bg-card px-4 py-3 text-sm font-medium text-foreground transition hover:border-primary hover:text-primary"
+            >
+              Milestones
+            </Link>
+            <Link
+              href="#wellbeing"
+              className="block rounded-2xl border border-border bg-card px-4 py-3 text-sm font-medium text-foreground transition hover:border-primary hover:text-primary"
+            >
+              Wellness & Hours
+            </Link>
           </div>
         </div>
-        <div className="rounded-2xl border border-border bg-background p-5">
-          <p className="text-sm font-semibold text-foreground">Prepare for the MCAT</p>
-          <p className="mt-2 text-sm text-muted-foreground">
-            Track your target date, practice scores, and weekly study hours in one place.
-          </p>
-          <div className="mt-4 space-y-2 text-sm">
-            <Link href="#mcat-countdown" className="block text-primary underline underline-offset-2">MCAT Countdown</Link>
-            <Link href="/milestones#mcat" className="block text-primary underline underline-offset-2">MCAT Deep Dive</Link>
+
+        <div className="grid gap-4 lg:grid-cols-2">
+          <div className="rounded-2xl border border-border bg-background p-5">
+            <p className="text-sm font-semibold text-foreground">Plan with confidence</p>
+            <p className="mt-2 text-sm text-muted-foreground">
+              Schedule semesters, validate prerequisites, and keep MCAT planning in one clean workflow.
+            </p>
           </div>
-        </div>
-        <div className="rounded-2xl border border-border bg-background p-5">
-          <p className="text-sm font-semibold text-foreground">Application prep</p>
-          <p className="mt-2 text-sm text-muted-foreground">
-            Build your school list, track applications, and keep essays, interviews, and letters organized.
-          </p>
-          <div className="mt-4 space-y-2 text-sm">
-            <Link href="#application-prep" className="block text-primary underline underline-offset-2">Jump to application prep</Link>
+          <div className="rounded-2xl border border-border bg-background p-5">
+            <p className="text-sm font-semibold text-foreground">Prepare for the MCAT</p>
+            <p className="mt-2 text-sm text-muted-foreground">
+              Track your target test date, practice pacing, and weekly prep hours without extra clutter.
+            </p>
           </div>
-        </div>
-        <div className="rounded-2xl border border-border bg-background p-5">
-          <p className="text-sm font-semibold text-foreground">Keep your wellbeing visible</p>
-          <p className="mt-2 text-sm text-muted-foreground">
-            Check in weekly and use a deeper Burnout Check when stress feels like too much.
-          </p>
-          <div className="mt-4 space-y-2 text-sm">
-            <Link href="#wellness-checkin" className="block text-primary underline underline-offset-2">Weekly Check-in</Link>
-            <Link href="/burnout-check" className="block text-primary underline underline-offset-2">Burnout Check</Link>
+          <div className="rounded-2xl border border-border bg-background p-5">
+            <p className="text-sm font-semibold text-foreground">Application prep</p>
+            <p className="mt-2 text-sm text-muted-foreground">
+              Keep school choices, deadlines, essays, interviews, and recommendations organized in one place.
+            </p>
+          </div>
+          <div className="rounded-2xl border border-border bg-background p-5">
+            <p className="text-sm font-semibold text-foreground">Keep your wellbeing visible</p>
+            <p className="mt-2 text-sm text-muted-foreground">
+              Track weekly check-ins and stay ahead of burnout before it becomes a surprise.
+            </p>
           </div>
         </div>
       </div>

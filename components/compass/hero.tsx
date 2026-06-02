@@ -19,6 +19,7 @@ const THEME_OPTIONS = [
   { value: "dark", label: "Dark" },
   { value: "red", label: "Red" },
   { value: "green", label: "Green" },
+  { value: "purple", label: "Purple" },
   { value: "brown", label: "Brown" },
 ]
 
@@ -143,7 +144,10 @@ export function Hero() {
     <section
       id="welcome"
       className="relative scroll-mt-20 overflow-hidden border-b border-border bg-primary text-primary-foreground"
-      style={{ background: "linear-gradient(135deg, oklch(0.32 0.25 264) 0%, oklch(0.42 0.22 264) 50%, oklch(0.38 0.2 240) 100%)" }}
+      style={{
+        backgroundColor: "var(--color-primary)",
+        backgroundImage: "linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 50%, var(--color-accent) 100%)",
+      }}
     >
       <ParticleCanvas />
 
@@ -159,7 +163,7 @@ export function Hero() {
         </div>
 
         {/* Main headline */}
-        <h1 className="text-balance font-serif text-4xl font-semibold leading-tight md:text-5xl lg:text-6xl">
+        <h1 className="text-balance font-serif text-4xl font-semibold leading-tight text-primary-foreground md:text-5xl lg:text-6xl">
           Navigate your pre-med journey with clarity and intention
         </h1>
 

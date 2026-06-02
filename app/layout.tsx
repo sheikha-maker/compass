@@ -56,7 +56,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning className={`bg-background ${sourceSans.variable} ${sourceSerif.variable}`}>
       <body className="font-sans antialiased">
-        <ThemeProvider attribute="class" defaultTheme="light" themes={["light", "dark", "red", "green", "brown"]}>
+        <ThemeProvider attribute="class" defaultTheme="light" themes={["light", "dark", "red", "green", "purple", "brown"]}>
           <ReadingProgress />
           <PageTransition>{children}</PageTransition>
           {process.env.NODE_ENV === 'production' && <Analytics />}
