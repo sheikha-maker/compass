@@ -13,7 +13,11 @@ const sectionLinks = [
   { href: "/burnout-check", label: "✦ Burnout Self-Check", group: "Sections" },
   { href: "/your-path", label: "Building Your Path", group: "Sections" },
   { href: "/milestones", label: "The Big Milestones", group: "Sections" },
-  { href: "/tools", label: "Your Tools", group: "Sections" },
+  { href: "/tools#planning", label: "Plan & Check", group: "Sections" },
+  { href: "/tools#application-prep", label: "Application Prep", group: "Sections" },
+  { href: "/tools#milestones", label: "Milestones", group: "Sections" },
+  { href: "/tools#wellbeing", label: "Wellness & Hours", group: "Sections" },
+  { href: "/tools#resources", label: "Resources", group: "Sections" },
   { href: "/about", label: "About this guide", group: "About" },
 ]
 
