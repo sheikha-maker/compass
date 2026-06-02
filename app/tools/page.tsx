@@ -3,6 +3,9 @@ import { PageLayout } from "@/components/compass/page-layout"
 import { CoursePlannerCalendar } from "./components/CoursePlannerCalendar"
 import { PrereqTracker } from "./components/PrereqTracker"
 import { MCATCountdown } from "./components/MCATCountdown"
+import { ApplicationTracker } from "./components/ApplicationTracker"
+import { SchoolList } from "./components/SchoolList"
+import { EssayInterviewPrep } from "./components/EssayInterviewPrep"
 import { YearlyChecklist } from "./components/YearlyChecklist"
 import { LORTracker } from "./components/LORTracker"
 import { WellnessCheckin } from "./components/WellnessCheckin"
@@ -10,13 +13,11 @@ import { ActivityLogs } from "@/components/compass/activity-logs"
 import { Resources, SiteFooter } from "@/components/compass/resources"
 
 const navItems = [
-  { id: "course-planner", label: "Course Planner" },
-  { id: "prereq-tracker", label: "Prerequisite Tracker" },
+  { id: "planning", label: "Plan & Check" },
   { id: "mcat-countdown", label: "MCAT Countdown" },
-  { id: "yearly-checklist", label: "Am I on track?" },
-  { id: "lor-tracker", label: "LOR Tracker" },
-  { id: "wellness-checkin", label: "Weekly Check-in" },
-  { id: "activity-logs", label: "Activity Logs" },
+  { id: "application-prep", label: "Application Prep" },
+  { id: "yearly-checklist", label: "Moravian Milestones" },
+  { id: "wellbeing", label: "Wellness & Hours" },
   { id: "resources", label: "Resources & Contribute" },
 ]
 
@@ -39,7 +40,7 @@ function RecommendedFlow() {
         </Link>
       </div>
 
-      <div className="mt-6 grid gap-4 md:grid-cols-3">
+      <div className="mt-6 grid gap-4 lg:grid-cols-4">
         <div className="rounded-2xl border border-border bg-background p-5">
           <p className="text-sm font-semibold text-foreground">Plan with confidence</p>
           <p className="mt-2 text-sm text-muted-foreground">
@@ -58,6 +59,15 @@ function RecommendedFlow() {
           <div className="mt-4 space-y-2 text-sm">
             <Link href="#mcat-countdown" className="block text-primary underline underline-offset-2">MCAT Countdown</Link>
             <Link href="/milestones#mcat" className="block text-primary underline underline-offset-2">MCAT Deep Dive</Link>
+          </div>
+        </div>
+        <div className="rounded-2xl border border-border bg-background p-5">
+          <p className="text-sm font-semibold text-foreground">Application prep</p>
+          <p className="mt-2 text-sm text-muted-foreground">
+            Build your school list, track applications, and keep essays, interviews, and letters organized.
+          </p>
+          <div className="mt-4 space-y-2 text-sm">
+            <Link href="#application-prep" className="block text-primary underline underline-offset-2">Jump to application prep</Link>
           </div>
         </div>
         <div className="rounded-2xl border border-border bg-background p-5">
@@ -84,11 +94,58 @@ export default function ToolsPage() {
           <strong>Browser storage only.</strong> Your data is saved locally and will be lost if you clear browser history or switch devices. Screenshot or copy your entries regularly.
         </p>
       </div>
+      <section id="planning" className="scroll-mt-20 border-b border-border py-14 md:py-20">
+        <div className="mx-auto w-full max-w-4xl px-5 md:px-8">
+          <header className="mb-8">
+            <p className="mb-2 text-sm font-semibold uppercase tracking-wider text-accent">Your Tools</p>
+            <h2 className="text-balance font-serif text-3xl font-semibold text-foreground md:text-4xl">
+              Plan & check
+            </h2>
+            <p className="mt-4 text-pretty text-lg leading-relaxed text-muted-foreground">
+              Plan your semesters and verify your courses against pre-med prerequisites in one workflow.
+            </p>
+          </header>
+        </div>
+      </section>
+
       <CoursePlannerCalendar />
       <PrereqTracker />
       <MCATCountdown />
-      <YearlyChecklist />
+
+      <section id="application-prep" className="scroll-mt-20 border-b border-border py-14 md:py-20">
+        <div className="mx-auto w-full max-w-4xl px-5 md:px-8">
+          <header className="mb-8">
+            <p className="mb-2 text-sm font-semibold uppercase tracking-wider text-accent">Your Tools</p>
+            <h2 className="text-balance font-serif text-3xl font-semibold text-foreground md:text-4xl">
+              Application Prep
+            </h2>
+            <p className="mt-4 text-pretty text-lg leading-relaxed text-muted-foreground">
+              A single place for your school list, application progress, essay drafts, interview prep, and recommendation planning.
+            </p>
+          </header>
+        </div>
+      </section>
+
+      <ApplicationTracker />
+      <SchoolList />
+      <EssayInterviewPrep />
       <LORTracker />
+      <YearlyChecklist />
+
+      <section id="wellbeing" className="scroll-mt-20 border-b border-border py-14 md:py-20">
+        <div className="mx-auto w-full max-w-4xl px-5 md:px-8">
+          <header className="mb-8">
+            <p className="mb-2 text-sm font-semibold uppercase tracking-wider text-accent">Your Tools</p>
+            <h2 className="text-balance font-serif text-3xl font-semibold text-foreground md:text-4xl">
+              Wellness & Hours
+            </h2>
+            <p className="mt-4 text-pretty text-lg leading-relaxed text-muted-foreground">
+              Keep your wellbeing visible while logging the experiences that matter for your application.
+            </p>
+          </header>
+        </div>
+      </section>
+
       <WellnessCheckin />
       <ActivityLogs />
       <Resources />

@@ -5,7 +5,16 @@ import { Compass, Menu, X, Info, ArrowLeft, Sun, Moon } from "lucide-react"
 import Link from "next/link"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { useTheme } from "next-themes"
+
+const THEME_OPTIONS = [
+  { value: "light", label: "Light" },
+  { value: "dark", label: "Dark" },
+  { value: "red", label: "Red" },
+  { value: "green", label: "Green" },
+  { value: "cafe", label: "Cafe" },
+]
 
 export type PageNavItem = {
   id: string
@@ -20,6 +29,29 @@ type Props = {
   backHref?: string
   navItems: PageNavItem[]
   children: React.ReactNode
+}
+
+function ThemePicker() {
+  const { theme, setTheme } = useTheme()
+  const [mounted, setMounted] = useState(false)
+  useEffect(() => setMounted(true), [])
+
+  if (!mounted) return <div className="h-8 w-24 rounded-full bg-border/20" />
+
+  return (
+    <Select value={theme ?? "light"} onValueChange={(value) => setTheme(value)}>
+      <SelectTrigger className="h-8 min-w-[104px] rounded-full text-sm">
+        <SelectValue placeholder="Theme" />
+      </SelectTrigger>
+      <SelectContent>
+        {THEME_OPTIONS.map((option) => (
+          <SelectItem key={option.value} value={option.value} className="text-xs">
+            {option.label}
+          </SelectItem>
+        ))}
+      </SelectContent>
+    </Select>
+  )
 }
 
 function DarkModeToggle() {
@@ -105,7 +137,7 @@ export function PageLayout({ title, eyebrow, description, backHref = "/", navIte
         )}
       >
         {/* Sidebar header */}
-        <div className="flex items-center justify-between border-b border-sidebar-border px-6 py-5">
+        <div className="flex flex-col gap-3 border-b border-sidebar-border px-6 py-5 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex items-center gap-2">
             <Compass className="h-6 w-6 text-primary" aria-hidden="true" />
             <div>
@@ -113,7 +145,10 @@ export function PageLayout({ title, eyebrow, description, backHref = "/", navIte
               <p className="text-xs text-muted-foreground">Moravian University</p>
             </div>
           </div>
-          <DarkModeToggle />
+          <div className="flex flex-wrap items-center gap-2">
+            <ThemePicker />
+            <DarkModeToggle />
+          </div>
         </div>
 
         <div className="px-3 py-4">
