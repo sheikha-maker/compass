@@ -2,11 +2,9 @@
 
 import { useState, useEffect, useCallback } from "react"
 import Link from "next/link"
-import { AlertTriangle } from "lucide-react"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
-
-// ─── Types ───────────────────────────────────────────────────────────────────
+import { MCAT_SECTIONS, MCAT_STORAGE_KEY, daysUntil } from "@/lib/mcat"
 
 interface MCATData {
   date: string
@@ -14,25 +12,14 @@ interface MCATData {
   hours: Record<string, string>
 }
 
-// ─── Constants ───────────────────────────────────────────────────────────────
-
-const SECTIONS = [
-  { id: "cp",   label: "C/P",  color: "bg-blue-500",   desc: "Chem/Physics" },
-  { id: "cars", label: "CARS", color: "bg-teal-500",   desc: "Critical Analysis" },
-  { id: "bb",   label: "B/B",  color: "bg-violet-500", desc: "Bio/Biochemistry" },
-  { id: "ps",   label: "P/S",  color: "bg-amber-500",  desc: "Psych/Sociology" },
-]
-
-const STORAGE_KEY = "pmc_mcat_v1"
+const SECTIONS = MCAT_SECTIONS.map((s) => ({
+  id: s.id,
+  label: s.short,
+  color: s.color,
+  desc: s.disciplines.split(",")[0] ?? s.name,
+}))
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────
-
-function daysUntil(dateStr: string): number {
-  const target = new Date(dateStr)
-  const today = new Date()
-  today.setHours(0, 0, 0, 0)
-  return Math.ceil((target.getTime() - today.getTime()) / (1000 * 60 * 60 * 24))
-}
 
 function scoreBar(score: string): number {
   const v = Number(score)
@@ -47,14 +34,14 @@ export function MCATCountdown() {
 
   useEffect(() => {
     try {
-      const stored = localStorage.getItem(STORAGE_KEY)
+      const stored = localStorage.getItem(MCAT_STORAGE_KEY)
       if (stored) setData(JSON.parse(stored))
     } catch {}
   }, [])
 
   const persist = useCallback((next: MCATData) => {
     setData(next)
-    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(next)) } catch {}
+    try { localStorage.setItem(MCAT_STORAGE_KEY, JSON.stringify(next)) } catch {}
   }, [])
 
   const days = data.date ? daysUntil(data.date) : null
@@ -77,10 +64,14 @@ export function MCATCountdown() {
           <p className="mt-4 text-pretty text-lg leading-relaxed text-muted-foreground">
             Set your target test date, log practice scores by section, and track weekly study hours.
             Pair this with the
-            <Link href="/milestones#mcat" className="underline underline-offset-2 text-primary transition-colors hover:text-primary/80">
+            <Link href="/milestones#mcat-overview" className="underline underline-offset-2 text-primary transition-colors hover:text-primary/80">
               MCAT Deep Dive
             </Link>
-            for section strategy and pacing.
+            for section breakdown, phased prep, and a{" "}
+            <Link href="/milestones#mcat-planner" className="underline underline-offset-2 text-primary transition-colors hover:text-primary/80">
+              personalized timeline
+            </Link>
+            .
           </p>
         </header>
 

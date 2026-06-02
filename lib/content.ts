@@ -403,36 +403,6 @@ export const mentorshipCaseStudies = [
   },
 ]
 
-export const mcatPhases = [
-  {
-    phase: "Phase 1, Content Review",
-    duration: "Roughly the first third of your prep",
-    detail:
-      "Rebuild your foundation across all subjects. Don't just re-read, turn each topic into active recall and flashcards. The goal is recognition turning into retrieval.",
-  },
-  {
-    phase: "Phase 2, Practice & Application",
-    duration: "The middle stretch",
-    detail:
-      "Shift to practice passages and question banks. The MCAT tests reasoning, not memorization. Review every wrong answer deeply enough to explain why each option is right or wrong.",
-  },
-  {
-    phase: "Phase 3, Full-Length Tests",
-    duration: "The final stretch",
-    detail:
-      "Take full-length exams under real conditions to build stamina and timing. Your review of each test matters more than the test itself. Track patterns in your mistakes.",
-  },
-]
-
-export const mcatTruths = [
-  "It's a marathon, not a sprint, plan months, not weeks.",
-  "Your practice-test review is worth more than the raw number of hours studied.",
-  "Protect your GPA while studying; a balanced applicant beats a lopsided one.",
-  "Rest days are part of the plan, not a betrayal of it. Burnout lowers scores.",
-  "A 510+ is competitive for most MD programs; 500+ for DO. But range matters less than fit, use the MSAR to research your target schools specifically.",
-  "Retaking is common and not a red flag. A meaningful score improvement with a clear explanation reads as resilience, not weakness.",
-]
-
 export const timelineSteps = [
   {
     window: "Spring before applying",
