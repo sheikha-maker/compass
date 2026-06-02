@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react"
 import Link from "next/link"
-import { Brain, Map, Trophy, Wrench, ArrowRight, Heart } from "lucide-react"
+import { Brain, Map, Trophy, ArrowRight, Heart } from "lucide-react"
 
 const sections = [
   {
@@ -34,24 +34,6 @@ const sections = [
     icon: Trophy,
     color: "bg-timeline-3/20 text-timeline-3",
     topics: ["MCAT Deep Dive", "Application Timeline", "Pre-Med FAQ"],
-  },
-  {
-    href: "/tools",
-    eyebrow: "Section 4",
-    title: "Your Tools",
-    description:
-      "Plan your semesters, track prerequisites, countdown to the MCAT, log wellness, and capture the tools that keep your pre-med path on track.",
-    icon: Wrench,
-    color: "bg-timeline-4/20 text-timeline-4",
-    topics: [
-      "Course Planner",
-      "Prereq Tracker",
-      "MCAT Countdown",
-      "LOR Tracker",
-      "Yearly Checklist",
-      "Weekly Check-in",
-      "Activity Logs",
-    ],
   },
 ]
 

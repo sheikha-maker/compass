@@ -129,13 +129,6 @@ function ParticleCanvas() {
 }
 
 export function Hero() {
-  const { theme, setTheme } = useTheme()
-  const [mounted, setMounted] = useState(false)
-
-  useEffect(() => {
-    setMounted(true)
-  }, [])
-
   function scrollTo(id: string) {
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" })
   }
@@ -145,15 +138,11 @@ export function Hero() {
       id="welcome"
       className="relative scroll-mt-20 overflow-hidden border-b border-border bg-primary text-black dark:text-white"
       style={{
-        backgroundColor: "var(--color-primary)",
-        backgroundImage: "linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 50%, var(--color-accent) 100%)",
+        backgroundColor: "var(--hero-start)",
+        backgroundImage: "linear-gradient(135deg, var(--hero-start) 0%, var(--hero-mid) 52%, var(--hero-end) 100%)",
       }}
     >
       <ParticleCanvas />
-
-      {/* Glowing orbs */}
-      <div className="pointer-events-none absolute -top-32 left-1/4 h-80 w-80 rounded-full opacity-20 blur-3xl" style={{background: "oklch(0.7 0.2 220)"}} aria-hidden="true" />
-      <div className="pointer-events-none absolute -bottom-20 right-1/4 h-64 w-64 rounded-full opacity-15 blur-3xl" style={{background: "oklch(0.65 0.18 45)"}} aria-hidden="true" />
 
       <div className="relative mx-auto w-full max-w-4xl px-5 py-16 md:px-8 md:py-24">
         {/* Badge */}

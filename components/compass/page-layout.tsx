@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react"
 import { Compass, Menu, X, ArrowLeft } from "lucide-react"
 import Link from "next/link"
+import { usePathname } from "next/navigation"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
@@ -67,6 +68,8 @@ function ThemePicker() {
 export function PageLayout({ title, eyebrow, description, backHref = "/", navItems, children }: Props) {
   const [active, setActive] = useState(navItems[0]?.id ?? "")
   const [open, setOpen] = useState(false)
+  const pathname = usePathname()
+  const otherToolLinks = TOOL_LINKS.filter((link) => link.href !== pathname)
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -212,7 +215,7 @@ export function PageLayout({ title, eyebrow, description, backHref = "/", navIte
             <p className="px-3 pb-1.5 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
               Other Sections
             </p>
-            {TOOL_LINKS.map((link) => (
+            {otherToolLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
