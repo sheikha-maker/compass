@@ -3,9 +3,6 @@ import { McatDeepDive, Timeline, Faq } from "@/components/compass/milestone-sect
 
 const navItems = [
   { id: "mcat", label: "MCAT Deep Dive" },
-  { id: "mcat-overview", label: "Exam structure" },
-  { id: "mcat-planner", label: "Prep timeline" },
-  { id: "mcat-readiness", label: "Readiness check" },
   { id: "timeline", label: "Application Timeline" },
   { id: "faq", label: "Pre-Med FAQ" },
 ]

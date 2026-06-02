@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { CheckCircle2, AlertTriangle, Users, BookOpen, Star, Calendar } from "lucide-react"
 import { experienceTools, yearCompass, courseGuides, mentorshipPoints, mentorshipCaseStudies } from "@/lib/content"
 import { Section } from "./section"
@@ -55,6 +55,18 @@ export function YearCompass() {
   const [active, setActive] = useState(0)
   const [animKey, setAnimKey] = useState(0)
   const current = yearCompass[active]
+
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search)
+    const year = params.get("year")
+    if (year !== null) {
+      const i = parseInt(year, 10)
+      if (!Number.isNaN(i) && i >= 0 && i < yearCompass.length) {
+        setActive(i)
+        setAnimKey((k) => k + 1)
+      }
+    }
+  }, [])
 
   function selectYear(i: number) {
     if (i === active) return

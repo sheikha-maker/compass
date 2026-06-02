@@ -32,7 +32,7 @@ export function StartHere() {
       id="start-here"
       eyebrow="New here? Start with this"
       title="How to Use This Guide"
-      intro="You don't have to read this top to bottom. Find the situation that sounds like you and start there. Ignore the rest until it's relevant."
+      intro="You don't have to read this top to bottom. Use the quiz above if you know your year, or find the situation that sounds like you below."
     >
       <div className="grid gap-4">
         {startPaths.map((path) => (

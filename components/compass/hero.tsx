@@ -143,7 +143,7 @@ export function Hero() {
               {timelineSteps.map((step, index) => (
                 <Link
                   key={step.year}
-                  href="/your-path#year-compass"
+                  href={`/your-path?year=${index}#year-compass`}
                   className="group relative flex items-start gap-4 rounded-xl p-3 text-left transition-all duration-200 hover:bg-primary-foreground/15 md:flex-col md:items-center md:text-center"
                 >
                   <div className={`relative z-10 flex h-12 w-12 shrink-0 items-center justify-center rounded-full ${step.color} text-white shadow-lg transition-all duration-300 group-hover:scale-115 group-hover:shadow-xl`}>
@@ -181,7 +181,7 @@ export function Hero() {
           <Button
             size="lg"
             variant="secondary"
-            onClick={() => scrollTo("start-here")}
+            onClick={() => scrollTo("onboarding-quiz")}
             className="gap-2 shadow-lg transition-all duration-200 hover:scale-105 hover:shadow-xl"
           >
             Get Started

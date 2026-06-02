@@ -1,6 +1,6 @@
 import { Section } from "./section"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
-import { timelineSteps, faqs } from "@/lib/content"
+import { faqs } from "@/lib/content"
 import { McatSectionsOverview } from "./mcat/mcat-sections-overview"
 import { McatScoreScale } from "./mcat/mcat-score-scale"
 import { McatPhaseStepper, McatHonestTruths } from "./mcat/mcat-phase-stepper"
@@ -70,26 +70,6 @@ export function Timeline() {
       intro="Knowing when things happen removes a lot of the anxiety around 'am I on track?' Here's the rough shape of a cycle. Treat it as a map, not a verdict."
     >
       <ApplicationTimelineVisual />
-      <div className="relative mt-8 space-y-4 pl-6">
-        <div className="absolute bottom-2 left-2 top-2 w-px bg-border" aria-hidden="true" />
-        {timelineSteps.map((step) => (
-          <div key={step.window} className="relative rounded-lg border border-border bg-card p-5">
-            <div
-              className="absolute -left-[1.35rem] top-6 h-3 w-3 rounded-full border-2 border-primary bg-background"
-              aria-hidden="true"
-            />
-            <p className="font-serif text-lg font-medium text-foreground">{step.window}</p>
-            <ul className="mt-2 space-y-1.5">
-              {step.items.map((item) => (
-                <li key={item} className="flex gap-2 leading-relaxed text-muted-foreground">
-                  <span className="mt-2 h-1 w-1 shrink-0 rounded-full bg-accent" aria-hidden="true" />
-                  {item}
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
-      </div>
     </Section>
   )
 }

@@ -17,12 +17,31 @@ const sourceSerif = Source_Serif_4({
   display: 'swap',
 })
 
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ??
+  (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'https://v0-premedcompass.vercel.app')
+
 export const metadata: Metadata = {
+  metadataBase: new URL(siteUrl),
   title: 'The Pre-Med Compass',
   description:
     'A sustainable, anxiety-aware pre-med guide for Moravian University students. Make intentional decisions, plan your path, and protect your well-being.',
   authors: [{ name: 'Ayaan Sheikh', url: 'mailto:sheikha@moravian.edu' }],
   keywords: ['pre-med', 'Moravian University', 'MCAT', 'medical school', 'burnout', 'pre-health'],
+  openGraph: {
+    title: 'The Pre-Med Compass',
+    description:
+      'A sustainable, anxiety-aware pre-med guide for Moravian University students. MCAT prep, application timeline, and wellness tools.',
+    siteName: 'The Pre-Med Compass',
+    type: 'website',
+    locale: 'en_US',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'The Pre-Med Compass',
+    description:
+      'Navigate your pre-med journey with clarity and intention — built for Moravian University students.',
+  },
 }
 
 export const viewport = {

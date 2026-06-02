@@ -2,7 +2,8 @@
 
 import { useState, useEffect, useCallback } from "react"
 import Link from "next/link"
-import { CheckCircle2, Circle, AlertTriangle } from "lucide-react"
+import { CheckCircle2, Circle } from "lucide-react"
+import { PrereqDonutChart } from "@/components/compass/prereq-donut-chart"
 import { Input } from "@/components/ui/input"
 
 // ─── Types ───────────────────────────────────────────────────────────────────
@@ -214,7 +215,6 @@ export function PrereqTracker() {
 
   // Overall stats
   const totalDone = PREREQS.reduce((s, p) => s + Math.min(p.required, data[p.id] ?? 0), 0)
-  const totalPct = Math.round((totalDone / TOTAL_REQUIRED) * 100)
   const satisfied = PREREQS.filter((p) => (data[p.id] ?? 0) >= p.required).length
 
   const sciPrereqs     = PREREQS.filter((p) => p.category === "science")
@@ -238,48 +238,14 @@ export function PrereqTracker() {
           </p>
         </header>
 
-        {/* Overall progress bar */}
         <div className="rounded-xl border border-border bg-card p-5 mb-8">
-          <div className="flex items-baseline justify-between mb-3">
-            <p className="text-sm font-semibold text-foreground">Overall prerequisite progress</p>
-            <span className="text-lg font-bold text-primary">{totalPct}%</span>
-          </div>
-
-          {/* Segmented bar */}
-          <div className="h-3 w-full rounded-full bg-secondary overflow-hidden flex gap-0.5">
-            {PREREQS.map((prereq) => {
-              const done = data[prereq.id] ?? 0
-              const segPct = (prereq.required / TOTAL_REQUIRED) * 100
-              const fill = Math.min(1, done / prereq.required)
-              return (
-                <div
-                  key={prereq.id}
-                  title={`${prereq.name}: ${done}/${prereq.required} credits`}
-                  className="relative h-full rounded-sm overflow-hidden bg-border/50 flex-shrink-0"
-                  style={{ width: `${segPct}%` }}
-                >
-                  <div
-                    className={`absolute inset-y-0 left-0 transition-all duration-500 ${
-                      fill >= 1 ? "bg-green-500" : fill > 0 ? "bg-primary" : ""
-                    }`}
-                    style={{ width: `${fill * 100}%` }}
-                  />
-                </div>
-              )
-            })}
-          </div>
-
-          {/* Sub-stats */}
-          <div className="flex gap-4 mt-3 flex-wrap">
-            <p className="text-xs text-muted-foreground">
-              <span className="font-semibold text-foreground">{satisfied}</span>/{PREREQS.length}{" "}
-              prerequisites satisfied
-            </p>
-            <p className="text-xs text-muted-foreground">
-              <span className="font-semibold text-foreground">{totalDone}</span>/{TOTAL_REQUIRED}{" "}
-              required credits covered
-            </p>
-          </div>
+          <p className="mb-4 text-sm font-semibold text-foreground">Overall prerequisite progress</p>
+          <PrereqDonutChart
+            totalDone={totalDone}
+            totalRequired={TOTAL_REQUIRED}
+            satisfied={satisfied}
+            totalCourses={PREREQS.length}
+          />
         </div>
 
         {/* Groups */}
