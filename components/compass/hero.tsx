@@ -143,7 +143,10 @@ export function Hero() {
   return (
     <section
       id="welcome"
-      className="relative scroll-mt-20 overflow-hidden border-b border-border bg-primary text-foreground"
+      className="relative scroll-mt-20 overflow-hidden border-b border-border bg-primary text-primary-foreground"
+      style={{
+        backgroundColor: "var(--color-primary)",
+        backgroundImage: "linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 50%, var(--color-accent) 100%)",
       }}
     >
       <ParticleCanvas />

@@ -110,34 +110,6 @@ export default function ToolsPage() {
           <strong>Browser storage only.</strong> Your data is saved locally and will be lost if you clear browser history or switch devices. Screenshot or copy your entries regularly.
         </p>
       </div>
-      <section className="mb-10 rounded-3xl border border-border bg-card p-6">
-        <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">Tools overview</p>
-            <h2 className="mt-2 text-2xl font-semibold text-foreground">Jump to the tools you need</h2>
-            <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-              Access Plan & Check, Application Prep, Milestones, Wellness & Hours, and Resources from the top level.
-            </p>
-          </div>
-        </div>
-        <div className="mt-6 grid gap-4 sm:grid-cols-2 xl:grid-cols-5">
-          <Link href="#planning" className="rounded-2xl border border-border bg-background px-4 py-4 text-sm font-medium text-foreground transition hover:border-primary hover:text-primary">
-            Plan & Check
-          </Link>
-          <Link href="#application-prep" className="rounded-2xl border border-border bg-background px-4 py-4 text-sm font-medium text-foreground transition hover:border-primary hover:text-primary">
-            Application Prep
-          </Link>
-          <Link href="#milestones" className="rounded-2xl border border-border bg-background px-4 py-4 text-sm font-medium text-foreground transition hover:border-primary hover:text-primary">
-            Milestones
-          </Link>
-          <Link href="#wellbeing" className="rounded-2xl border border-border bg-background px-4 py-4 text-sm font-medium text-foreground transition hover:border-primary hover:text-primary">
-            Wellness & Hours
-          </Link>
-          <Link href="#resources" className="rounded-2xl border border-border bg-background px-4 py-4 text-sm font-medium text-foreground transition hover:border-primary hover:text-primary">
-            Resources
-          </Link>
-        </div>
-      </section>
       <section id="planning" className="scroll-mt-20 border-b border-border py-10 md:py-14">
         <div className="mx-auto w-full max-w-4xl px-5 md:px-8">
           <div className="mb-8 space-y-3 rounded-3xl border border-border bg-card p-6">
@@ -147,6 +119,17 @@ export default function ToolsPage() {
             <p className="text-sm leading-relaxed text-muted-foreground">
               Map semesters, checkpoints, and MCAT prep together without extra noise.
             </p>
+            <div className="grid gap-3 sm:grid-cols-3">
+              <Link href="#course-planner" className="rounded-xl border border-border bg-background px-4 py-3 text-sm font-medium text-foreground transition hover:border-primary hover:text-primary">
+                Course Planner
+              </Link>
+              <Link href="#prereq-tracker" className="rounded-xl border border-border bg-background px-4 py-3 text-sm font-medium text-foreground transition hover:border-primary hover:text-primary">
+                Prereq Tracker
+              </Link>
+              <Link href="#mcat-countdown" className="rounded-xl border border-border bg-background px-4 py-3 text-sm font-medium text-foreground transition hover:border-primary hover:text-primary">
+                MCAT Countdown
+              </Link>
+            </div>
           </div>
         </div>
       </section>
@@ -164,6 +147,20 @@ export default function ToolsPage() {
             <p className="text-sm leading-relaxed text-muted-foreground">
               Keep your school list, essays, interviews, and letters in one tidy workflow.
             </p>
+            <div className="grid gap-3 sm:grid-cols-4">
+              <Link href="#application-tracker" className="rounded-xl border border-border bg-background px-4 py-3 text-sm font-medium text-foreground transition hover:border-primary hover:text-primary">
+                Application Tracker
+              </Link>
+              <Link href="#school-list" className="rounded-xl border border-border bg-background px-4 py-3 text-sm font-medium text-foreground transition hover:border-primary hover:text-primary">
+                School List
+              </Link>
+              <Link href="#essay-interview-prep" className="rounded-xl border border-border bg-background px-4 py-3 text-sm font-medium text-foreground transition hover:border-primary hover:text-primary">
+                Essays & Interviews
+              </Link>
+              <Link href="#lor-tracker" className="rounded-xl border border-border bg-background px-4 py-3 text-sm font-medium text-foreground transition hover:border-primary hover:text-primary">
+                LOR Tracker
+              </Link>
+            </div>
           </div>
         </div>
       </section>
@@ -182,6 +179,11 @@ export default function ToolsPage() {
             <p className="text-sm leading-relaxed text-muted-foreground">
               Keep your longer-term planning visible with key Moravian pre-med milestones and checkpoints.
             </p>
+            <div className="grid gap-3 sm:grid-cols-2">
+              <Link href="#yearly-checklist" className="rounded-xl border border-border bg-background px-4 py-3 text-sm font-medium text-foreground transition hover:border-primary hover:text-primary">
+                Moravian Milestones
+              </Link>
+            </div>
           </div>
         </div>
       </section>
@@ -197,6 +199,14 @@ export default function ToolsPage() {
             <p className="text-sm leading-relaxed text-muted-foreground">
               Track your weekly check-ins and activity hours without distractions.
             </p>
+            <div className="grid gap-3 sm:grid-cols-2">
+              <Link href="#wellness-checkin" className="rounded-xl border border-border bg-background px-4 py-3 text-sm font-medium text-foreground transition hover:border-primary hover:text-primary">
+                Weekly Check-In
+              </Link>
+              <Link href="#activity-logs" className="rounded-xl border border-border bg-background px-4 py-3 text-sm font-medium text-foreground transition hover:border-primary hover:text-primary">
+                Activity Logs
+              </Link>
+            </div>
           </div>
         </div>
       </section>
