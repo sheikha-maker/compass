@@ -105,7 +105,7 @@ export default function AboutPage() {
               <div key={i} className="rounded-xl border border-border bg-card p-5">
                 <Quote className="mb-3 h-5 w-5 text-primary/40" aria-hidden="true" />
                 <p className="leading-relaxed text-foreground">&ldquo;{t.quote}&rdquo;</p>
-                <p className="mt-3 text-sm text-muted-foreground">— {t.attribution}</p>
+                <p className="mt-3 text-sm text-muted-foreground">· {t.attribution}</p>
               </div>
             ))}
           </div>

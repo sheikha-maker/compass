@@ -133,7 +133,7 @@ export function LORTracker() {
                   className={`flex-1 h-3 rounded-sm transition-all duration-300 ${
                     lor ? (meta?.bg ?? "bg-border") : "bg-border/40"
                   }`}
-                  title={lor ? `${lor.name} — ${meta?.label}` : "Empty slot"}
+                  title={lor ? `${lor.name}, ${meta?.label}` : "Empty slot"}
                 />
               )
             })}
@@ -168,9 +168,9 @@ export function LORTracker() {
                   return (
                     <tr key={lor.id} className="border-b border-border last:border-0">
                       <td className="px-4 py-3 font-medium text-foreground">{lor.name}</td>
-                      <td className="px-4 py-3 text-muted-foreground">{lor.relationship || "—"}</td>
+                      <td className="px-4 py-3 text-muted-foreground">{lor.relationship || "N/A"}</td>
                       <td className={`px-4 py-3 text-sm ${isPast && lor.status !== "submitted" ? "text-red-600 dark:text-red-400 font-medium" : "text-muted-foreground"}`}>
-                        {lor.deadline || "—"}
+                        {lor.deadline || "N/A"}
                         {isPast && lor.status !== "submitted" && (
                           <span className="ml-1.5 text-[10px] text-red-500">overdue</span>
                         )}
@@ -284,7 +284,7 @@ export function LORTracker() {
           <p className="font-semibold text-foreground mb-1">💡 Who to ask</p>
           <p>
             Most MD programs want at least one science professor, one non-science professor, and one
-            clinical supervisor or physician. Ask early — give writers at least 4-6 weeks, and always
+            clinical supervisor or physician. Ask early, give writers at least 4-6 weeks, and always
             send them your CV, personal statement draft, and a list of your activities to help them
             write something specific.
           </p>

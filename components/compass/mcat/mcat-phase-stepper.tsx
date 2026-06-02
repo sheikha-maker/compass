@@ -25,7 +25,7 @@ export function McatPhaseStepper() {
             )}
           >
             <p className="text-xs font-semibold uppercase tracking-wider text-accent">Phase {i + 1}</p>
-            <p className="mt-1 font-serif text-sm font-medium text-foreground">{p.phase.replace(/^Phase \d+ — /, "")}</p>
+            <p className="mt-1 font-serif text-sm font-medium text-foreground">{p.phase.replace(/^Phase \d+: /, "")}</p>
             <p className="mt-1 text-xs text-muted-foreground">{p.weeklyHours}</p>
           </button>
         ))}
@@ -44,7 +44,7 @@ export function McatPhaseStepper() {
 
         <div className="mt-5 grid gap-4 sm:grid-cols-2">
           <div>
-            <p className="mb-2 text-sm font-semibold text-foreground">This phase — do this</p>
+            <p className="mb-2 text-sm font-semibold text-foreground">This phase, do this</p>
             <ul className="space-y-2">
               {phase.tasks.map((t) => (
                 <li key={t} className="flex gap-2 text-sm text-muted-foreground">

@@ -98,7 +98,7 @@ export function OnboardingQuiz() {
             Where are you in your journey?
           </h2>
           <p className="mt-4 text-lg leading-relaxed text-muted-foreground">
-            Pick the option closest to you — we&apos;ll point you to the right sections. No account needed.
+            Pick the option closest to you, we&apos;ll point you to the right sections. No account needed.
           </p>
         </header>
 
@@ -128,7 +128,7 @@ export function OnboardingQuiz() {
           >
             <p className="text-sm font-semibold uppercase tracking-wider text-accent">Your starting point</p>
             <p className="mt-2 font-serif text-xl font-semibold text-foreground">
-              {result.label} — here&apos;s where to begin
+              {result.label}: here&apos;s where to begin
             </p>
             <ul className="mt-4 space-y-3">
               {result.recommendations.map((link) => (
@@ -153,7 +153,7 @@ export function OnboardingQuiz() {
                 <Link href={result.href}>Go to main recommendation</Link>
               </Button>
               <Button variant="outline" onClick={handleDismiss}>
-                Got it — show full guide
+                Got it. Show full guide
               </Button>
             </div>
           </div>

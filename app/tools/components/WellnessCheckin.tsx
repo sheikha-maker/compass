@@ -115,7 +115,7 @@ export function WellnessCheckin() {
             Weekly Check-in
           </h2>
           <p className="mt-4 text-pretty text-lg leading-relaxed text-muted-foreground">
-            Three questions, once a week. No judgment — just an honest look at how you're doing.
+            Three questions, once a week. No judgment, just an honest look at how you're doing.
             Your trends are tracked over time.
           </p>
         </header>
@@ -132,7 +132,7 @@ export function WellnessCheckin() {
                 {avgStress >= 7
                   ? "Your stress has been running high the past few weeks."
                   : "Your energy levels have been low recently."}{" "}
-                This is exactly when it's worth pausing to check in with yourself — or someone you trust.{" "}
+                This is exactly when it's worth pausing to check in with yourself, or someone you trust.{" "}
                 <a
                   href="https://www.moravian.edu/counseling"
                   target="_blank"
@@ -268,7 +268,7 @@ export function WellnessCheckin() {
 
         {history.length === 0 && (
           <p className="text-sm text-muted-foreground text-center py-4">
-            Log your first check-in above — your trend will appear here after a couple of weeks.
+            Log your first check-in above, your trend will appear here after a couple of weeks.
           </p>
         )}
       </div>

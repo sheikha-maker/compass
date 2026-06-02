@@ -16,7 +16,7 @@ export function McatDeepDive() {
       id="mcat"
       eyebrow="The Big Milestones"
       title="MCAT Deep Dive"
-      intro="The MCAT is a marathon, not a sprint. Plan for it like one — understand the exam structure, build a phased study plan, and use the tools below to stay honest about readiness."
+      intro="The MCAT is a marathon, not a sprint. Plan for it like one. Understand the exam structure, build a phased study plan, and use the tools below to stay honest about readiness."
     >
       <div className="space-y-12">
         <div id="mcat-overview">
@@ -47,7 +47,7 @@ export function McatDeepDive() {
         </div>
 
         <div id="mcat-resources">
-          <h3 className="mb-4 font-serif text-xl font-semibold text-foreground">Resources — what to use when</h3>
+          <h3 className="mb-4 font-serif text-xl font-semibold text-foreground">Resources, what to use when</h3>
           <McatResourceMatrix />
         </div>
 

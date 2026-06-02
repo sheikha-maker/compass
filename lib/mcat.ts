@@ -67,11 +67,11 @@ export const MCAT_EXAM_STATS = {
 }
 
 export const MCAT_SCORE_BANDS = [
-  { min: 472, max: 495, label: "Below average", note: "Often signals content gaps or timing issues — a focused retake plan can help." },
+  { min: 472, max: 495, label: "Below average", note: "Often signals content gaps or timing issues, a focused retake plan can help." },
   { min: 496, max: 504, label: "Around average", note: "Competitive for some DO programs; MD may need improvement or strong holistic factors." },
   { min: 505, max: 508, label: "Competitive", note: "Solid for many MD programs when paired with strong GPA and experiences." },
   { min: 509, max: 512, label: "Strong", note: "Opens more MD options; still research fit with MSAR, not just the number." },
-  { min: 513, max: 528, label: "Very strong", note: "Top-tier range — but schools still care about fit, character, and consistency." },
+  { min: 513, max: 528, label: "Very strong", note: "Top-tier range, but schools still care about fit, character, and consistency." },
 ]
 
 export function daysUntil(dateStr: string): number {

@@ -1,4 +1,5 @@
 import { PageLayout } from "@/components/compass/page-layout"
+import { PathOverview } from "@/components/compass/path/path-overview"
 import {
   ExperienceTools,
   YearCompass,
@@ -15,7 +16,13 @@ const navItems = [
 
 export default function YourPathPage() {
   return (
-    <PageLayout title="Building Your Path" eyebrow="Building Your Path" navItems={navItems}>
+    <PageLayout
+      title="Building Your Path"
+      eyebrow="Building Your Path"
+      description="Plan experiences, semesters, and mentorship with depth. Moravian-specific guidance for each year of your pre-med journey."
+      navItems={navItems}
+    >
+      <PathOverview />
       <ExperienceTools />
       <YearCompass />
       <CourseGuides />

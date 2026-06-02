@@ -26,7 +26,7 @@ export const onboardingOptions: OnboardingOption[] = [
   {
     id: "year1",
     label: "Freshman",
-    subtitle: "Year 1 — Foundation",
+    subtitle: "Year 1, Foundation",
     href: "/your-path?year=0#year-compass",
     recommendations: [
       { href: "/your-path?year=0#year-compass", label: "Year-by-Year Compass", description: "Build habits and protect your GPA" },
@@ -37,7 +37,7 @@ export const onboardingOptions: OnboardingOption[] = [
   {
     id: "year2",
     label: "Sophomore",
-    subtitle: "Year 2 — Explore",
+    subtitle: "Year 2, Explore",
     href: "/your-path?year=1#year-compass",
     recommendations: [
       { href: "/your-path?year=1#year-compass", label: "Year-by-Year Compass" },
@@ -48,7 +48,7 @@ export const onboardingOptions: OnboardingOption[] = [
   {
     id: "year3",
     label: "Junior",
-    subtitle: "Year 3 — Prepare",
+    subtitle: "Year 3, Prepare",
     href: "/your-path?year=2#year-compass",
     recommendations: [
       { href: "/your-path?year=2#year-compass", label: "Year-by-Year Compass" },
@@ -59,7 +59,7 @@ export const onboardingOptions: OnboardingOption[] = [
   {
     id: "year4",
     label: "Senior / applying",
-    subtitle: "Year 4 — Apply",
+    subtitle: "Year 4, Apply",
     href: "/your-path?year=3#year-compass",
     recommendations: [
       { href: "/milestones#timeline", label: "Application Timeline" },

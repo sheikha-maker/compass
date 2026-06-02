@@ -56,9 +56,20 @@ function ToolFlow({ tool }: { tool: (typeof decisionTools)[number] }) {
     }
   }
 
+  const progressPct = Math.round((answers.filter((a) => a !== null).length / tool.questions.length) * 100)
+
   return (
     <div>
-      <p className="mb-5 leading-relaxed text-muted-foreground">{tool.intro}</p>
+      <p className="mb-4 leading-relaxed text-muted-foreground">{tool.intro}</p>
+      <div className="mb-5">
+        <div className="mb-1 flex justify-between text-xs text-muted-foreground">
+          <span>Progress</span>
+          <span>{answers.filter((a) => a !== null).length}/{tool.questions.length} answered</span>
+        </div>
+        <div className="h-1.5 overflow-hidden rounded-full bg-border">
+          <div className="h-full rounded-full bg-primary transition-all duration-300" style={{ width: `${progressPct}%` }} />
+        </div>
+      </div>
       <ol className="space-y-4">
         {tool.questions.map((q, i) => (
           <li key={i} className="rounded-lg border border-border bg-card p-4">
@@ -131,8 +142,8 @@ export function DecisionTools() {
       title="Decision Tools"
       intro="Use these when you're uncertain whether to add a new commitment, continue an existing one, or let one go. If you already feel calm and clear, you probably don't need them, and that's fine."
     >
-      <Tabs defaultValue="1" className="w-full">
-        <TabsList className="grid w-full grid-cols-3">
+      <Tabs defaultValue="1" className="w-full rounded-xl border border-border bg-card/50 p-4 md:p-6">
+        <TabsList className="grid w-full grid-cols-3 bg-muted/50">
           <TabsTrigger value="1">Add</TabsTrigger>
           <TabsTrigger value="2">Continue</TabsTrigger>
           <TabsTrigger value="3">Let go</TabsTrigger>

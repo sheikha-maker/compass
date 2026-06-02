@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { PageLayout } from "@/components/compass/page-layout"
+import { MindsetOverview } from "@/components/compass/mindset/mindset-overview"
 import { Mindfulness, Comparison, Balance } from "@/components/compass/mindset-sections"
 import { DecisionTools } from "@/components/compass/decision-tool"
 
@@ -12,7 +13,13 @@ const navItems = [
 
 export default function MindsetPage() {
   return (
-    <PageLayout title="Mindset" eyebrow="Mindset" navItems={navItems}>
+    <PageLayout
+      title="Mindset"
+      eyebrow="Mindset"
+      description="Protect your well-being while you build your application. Practices, decision tools, and habits that keep pre-med sustainable."
+      navItems={navItems}
+    >
+      <MindsetOverview />
       <div className="mx-auto max-w-4xl px-5 pt-8 md:px-8">
         <Link
           href="/burnout-check"

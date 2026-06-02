@@ -24,7 +24,7 @@ export function McatReadinessChecklist() {
         <div>
           <p className="font-serif text-lg font-medium text-foreground">Am I ready to register?</p>
           <p className="mt-1 text-sm text-muted-foreground">
-            Honest self-check before locking in your test date — not a guarantee, just guardrails.
+            Honest self-check before locking in your test date. Not a guarantee, just guardrails.
           </p>
         </div>
         <div className="text-right">
@@ -35,7 +35,7 @@ export function McatReadinessChecklist() {
       <Progress value={pct} className="mt-4 h-2" />
       {pct < 50 && (
         <p className="mt-2 text-sm text-accent">
-          Most students register with a plan, not perfection — but if burnout items are unchecked, visit the{" "}
+          Most students register with a plan, not perfection, but if burnout items are unchecked, visit the{" "}
           <Link href="/burnout-check" className="underline underline-offset-2">
             Burnout Self-Check
           </Link>{" "}

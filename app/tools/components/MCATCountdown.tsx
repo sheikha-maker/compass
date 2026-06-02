@@ -79,7 +79,7 @@ export function MCATCountdown() {
         {/* Countdown hero */}
         <div className="mb-6 rounded-xl border border-border bg-card p-6 text-center">
           <p className="font-serif text-7xl font-semibold text-foreground leading-none">
-            {days === null ? "—" : days > 0 ? days : "0"}
+            {days === null ? "N/A" : days > 0 ? days : "0"}
           </p>
           <p className="mt-2 text-sm text-muted-foreground">days until your MCAT</p>
           <div className="mt-5 flex items-center justify-center gap-3">
@@ -99,10 +99,10 @@ export function MCATCountdown() {
         {/* Stats row */}
         <div className="flex flex-wrap gap-3 mb-8">
           {[
-            { label: "Total score", value: totalScore ?? "—", sub: "out of 528" },
+            { label: "Total score", value: totalScore ?? "N/A", sub: "out of 528" },
             { label: "Total hrs/week", value: totalHrs, sub: "across sections" },
-            { label: "Weeks left", value: weeks ?? "—", sub: "to test day" },
-            { label: "Projected hours", value: projectedHrs ?? "—", sub: "total study hrs" },
+            { label: "Weeks left", value: weeks ?? "N/A", sub: "to test day" },
+            { label: "Projected hours", value: projectedHrs ?? "N/A", sub: "total study hrs" },
           ].map((s) => (
             <div key={s.label} className="flex-1 min-w-[100px] rounded-xl border border-border bg-card px-4 py-3">
               <p className="text-xs text-muted-foreground mb-1">{s.label}</p>

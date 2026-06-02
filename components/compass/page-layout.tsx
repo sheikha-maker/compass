@@ -16,6 +16,7 @@ export type PageNavItem = {
 type Props = {
   title: string
   eyebrow: string
+  description?: string
   backHref?: string
   navItems: PageNavItem[]
   children: React.ReactNode
@@ -39,7 +40,7 @@ function DarkModeToggle() {
   )
 }
 
-export function PageLayout({ title, eyebrow, backHref = "/", navItems, children }: Props) {
+export function PageLayout({ title, eyebrow, description, backHref = "/", navItems, children }: Props) {
   const [active, setActive] = useState(navItems[0]?.id ?? "")
   const [open, setOpen] = useState(false)
 
@@ -215,6 +216,9 @@ export function PageLayout({ title, eyebrow, backHref = "/", navItems, children 
           <div className="mx-auto max-w-4xl">
             <p className="text-sm font-medium uppercase tracking-wider text-primary-foreground/60">{eyebrow}</p>
             <h1 className="mt-2 font-serif text-3xl font-semibold md:text-4xl">{title}</h1>
+            {description && (
+              <p className="mt-4 max-w-2xl text-lg leading-relaxed text-primary-foreground/80">{description}</p>
+            )}
           </div>
         </div>
         {children}
