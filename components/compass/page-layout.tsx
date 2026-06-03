@@ -249,3 +249,4 @@ export function PageLayout({ title, eyebrow, description, backHref = "/", navIte
     </div>
   )
 }
+<AuthButton />
