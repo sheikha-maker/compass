@@ -8,6 +8,7 @@ import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { useTheme } from "next-themes"
+import { AuthButton } from "@/components/compass/auth-button"
 
 const THEME_OPTIONS = [
   { value: "light", label: "Light" },
@@ -210,8 +211,13 @@ export function PageLayout({ title, eyebrow, description, backHref = "/", navIte
             ))}
           </ul>
 
+          {/* Auth */}
+          <div className="mt-6 border-t border-sidebar-border pt-4 px-1">
+            <AuthButton />
+          </div>
+
           {/* Nav between pages */}
-          <div className="mt-6 border-t border-sidebar-border pt-4 space-y-0.5">
+          <div className="mt-4 border-t border-sidebar-border pt-4 space-y-0.5">
             <p className="px-3 pb-1.5 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
               Other Sections
             </p>
