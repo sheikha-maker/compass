@@ -12,6 +12,13 @@ const nextConfig = {
     "@node-rs/argon2",
     "@node-rs/bcrypt",
   ],
+  experimental: {
+    turbopack: {
+      resolveAlias: {
+        "@better-auth/kysely-adapter": "./lib/stub.js",
+      },
+    },
+  },
 }
 
 export default nextConfig
