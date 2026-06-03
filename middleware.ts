@@ -10,13 +10,11 @@ const PROTECTED = [
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl
   const isProtected = PROTECTED.some((p) => pathname.startsWith(p))
-  if (!isProtected) return NextResponse.next()
 
   const sessionCookie =
     request.cookies.get("better-auth.session_token") ??
     request.cookies.get("__Secure-better-auth.session_token")
 
-  if (!sessionCookie) {
     const signInUrl = new URL("/sign-in", request.url)
     signInUrl.searchParams.set("redirect", pathname)
     return NextResponse.redirect(signInUrl)
@@ -28,4 +26,3 @@ export async function middleware(request: NextRequest) {
 export const config = {
   matcher: ["/tools/:path*"],
 }
-EOF
