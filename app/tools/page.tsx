@@ -1,5 +1,7 @@
 import Link from "next/link"
 import { PageLayout } from "@/components/compass/page-layout"
+import { PrereqTracker } from "./components/PrereqTracker"
+import { CoursePlannerCalendar } from "./components/CoursePlannerCalendar"
 import { MCATCountdown } from "./components/MCATCountdown"
 import { ApplicationTracker } from "./components/ApplicationTracker"
 import { SchoolList } from "./components/SchoolList"
