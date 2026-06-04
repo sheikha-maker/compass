@@ -6,6 +6,7 @@ import Link from "next/link"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { usePathname } from "next/navigation"
+import { AuthButton } from "@/components/compass/auth-button"
 
 const sectionLinks = [
   { href: "/", label: "Home & Start Here", group: "Start" },
@@ -67,6 +68,10 @@ export function SidebarNav() {
             <p className="font-serif text-lg font-semibold leading-tight text-foreground">The Pre-Med Compass</p>
             <p className="text-xs text-muted-foreground">Moravian University</p>
           </div>
+        </div>
+
+        <div className="border-b border-sidebar-border px-4 py-3">
+          <AuthButton />
         </div>
 
         <div className="px-3 py-4">

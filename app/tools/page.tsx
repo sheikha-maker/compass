@@ -1,7 +1,5 @@
 import Link from "next/link"
 import { PageLayout } from "@/components/compass/page-layout"
-import { CoursePlannerCalendar } from "./components/CoursePlannerCalendar"
-import { PrereqTracker } from "./components/PrereqTracker"
 import { MCATCountdown } from "./components/MCATCountdown"
 import { ApplicationTracker } from "./components/ApplicationTracker"
 import { SchoolList } from "./components/SchoolList"
@@ -151,8 +149,6 @@ export default function ToolsPage() {
         </div>
       </section>
 
-      <CoursePlannerCalendar />
-      <PrereqTracker />
       <MCATCountdown />
 
       <section id="application-prep" className="scroll-mt-20 border-b border-border py-10 md:py-14">
