@@ -6,6 +6,8 @@ import { StorageWarning } from "@/components/compass/storage-warning"
 import { SiteFooter } from "@/components/compass/resources"
 
 const navItems = [
+  { id: "prereq-tracker", label: "Prerequisite Tracker" },
+  { id: "course-planner", label: "Course Planner" },
   { id: "mcat-countdown", label: "MCAT Countdown" },
 ]
 
