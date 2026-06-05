@@ -2,7 +2,7 @@ export const dynamic = 'force-dynamic'
 import type { Metadata } from 'next'
 import { Source_Sans_3, Source_Serif_4 } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
-import { ThemeProvider } from 'next-themes'
+import { ThemeProvider } from '@/components/theme-provider'
 import './globals.css'
 import { PageTransition } from '@/components/compass/page-transition'
 import { ReadingProgress } from '@/components/compass/progress-tracker'
@@ -57,7 +57,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning className={`bg-background ${sourceSans.variable} ${sourceSerif.variable}`}>
       <body className="font-sans antialiased">
-        <ThemeProvider attribute="class" defaultTheme="light" themes={["light", "dark", "red", "green", "purple", "brown"]}>
+        <ThemeProvider attribute="class" defaultTheme="light" themes={["light", "dark", "red", "green", "purple", "brown", "teal", "mauve"]}>
           <ReadingProgress />
           <PageTransition>{children}</PageTransition>
           {process.env.NODE_ENV === 'production' && <Analytics />}

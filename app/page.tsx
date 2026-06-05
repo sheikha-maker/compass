@@ -1,7 +1,6 @@
 import { SidebarNav } from "@/components/compass/sidebar-nav"
 import { Hero } from "@/components/compass/hero"
 import { OnboardingQuiz } from "@/components/compass/onboarding-quiz"
-import { StartHere } from "@/components/compass/start-here"
 import { SectionCards } from "@/components/compass/section-cards"
 import { SiteFooter } from "@/components/compass/resources"
 import Link from "next/link"
@@ -13,8 +12,7 @@ export default function Page() {
       <main className="lg:pl-72">
         <Hero />
         <OnboardingQuiz />
-        <StartHere />
-        <SectionCards />
+<SectionCards />
         {/* Tools Overview Section */}
         <section className="mx-auto max-w-4xl px-5 py-14 md:px-8">
           <p className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">Quick access</p>
