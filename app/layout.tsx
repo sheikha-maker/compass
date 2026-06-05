@@ -2,6 +2,7 @@ export const dynamic = 'force-dynamic'
 import type { Metadata } from 'next'
 import { Source_Sans_3, Source_Serif_4 } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 import { ThemeProvider } from '@/components/theme-provider'
 import './globals.css'
 import { PageTransition } from '@/components/compass/page-transition'
@@ -60,7 +61,12 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="light" themes={["light", "dark", "red", "green", "purple", "brown", "teal", "mauve"]}>
           <ReadingProgress />
           <PageTransition>{children}</PageTransition>
-          {process.env.NODE_ENV === 'production' && <Analytics />}
+          {process.env.NODE_ENV === 'production' && (
+            <>
+              <Analytics />
+              <SpeedInsights />
+            </>
+          )}
         </ThemeProvider>
       </body>
     </html>
