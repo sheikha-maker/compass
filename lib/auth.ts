@@ -10,12 +10,14 @@ const baseURL =
 export const auth = betterAuth({
   secret: process.env.BETTER_AUTH_SECRET!,
   baseURL,
- trustedOrigins: [
-  baseURL,
-  "https://v0-premedcompass.vercel.app",
-  "http://localhost:3000",
-  "https://*.vusercontent.net",
-]
+
+  trustedOrigins: [
+    baseURL,
+    "https://v0-premedcompass.vercel.app",
+    "http://localhost:3000",
+    "https://*.vusercontent.net",
+  ], // ✅ FIXED: comma added here
+
   database: dbAvailable
     ? drizzleAdapter(db, {
         provider: "pg",
@@ -27,10 +29,12 @@ export const auth = betterAuth({
         },
       })
     : undefined,
+
   emailAndPassword: {
     enabled: true,
     requireEmailVerification: false,
   },
+
   user: {
     additionalFields: {
       moravianEmail: {
