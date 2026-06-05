@@ -3,7 +3,9 @@ import { drizzleAdapter } from "better-auth/adapters/drizzle"
 import { db, dbAvailable } from "./db"
 import * as schema from "./db/schema"
 
-const baseURL = process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000"
+const baseURL =
+  process.env.NEXT_PUBLIC_SITE_URL ||
+  (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "http://localhost:3000")
 
 export const auth = betterAuth({
   secret: process.env.BETTER_AUTH_SECRET ?? "fallback-secret-change-me",
