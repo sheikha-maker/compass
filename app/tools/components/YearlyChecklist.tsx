@@ -1,13 +1,9 @@
 "use client"
 
 import { useState, useEffect, useCallback } from "react"
-import { Check, AlertTriangle } from "lucide-react"
-
-// ─── Types ───────────────────────────────────────────────────────────────────
+import { Check } from "lucide-react"
 
 type CheckData = Record<string, boolean>
-
-// ─── Constants ───────────────────────────────────────────────────────────────
 
 const YEARS = [
   {
@@ -17,20 +13,14 @@ const YEARS = [
     border: "border-blue-200 dark:border-blue-900/40",
     headBg: "bg-blue-50 dark:bg-blue-950/20",
     items: [
-      "Develop strong study habits and time-management skills",
-      "Meet with your academic advisor and discuss medical school goals",
-      "Complete introductory science coursework (Biology, Chemistry, etc.)",
+      "Meet with your pre-health advisor and share your medical school goals",
+      "Complete introductory science coursework (Biology, Chemistry)",
       "Maintain a competitive GPA (aim for 3.5+)",
-      "Join the Pre-Health Club and other campus organizations",
-      "Attend pre-health workshops and information sessions",
-      "Begin exploring healthcare careers through shadowing opportunities",
-      "Volunteer in a healthcare or community service setting",
-      "Create a résumé/CV and begin tracking experiences",
-      "Establish relationships with professors and mentors",
-      "Start reflecting on motivations for medicine through journaling or portfolio-building",
-      "Have at least one clinical exposure experience",
-      "Have established relationships with at least two faculty members",
-      "Have a plan for summer activities",
+      "Join the Pre-Health Club and attend workshops",
+      "Begin shadowing or clinical volunteering — even a few hours counts",
+      "Establish relationships with at least two professors",
+      "Start tracking your experiences and hours",
+      "Make a plan for your first summer",
     ],
   },
   {
@@ -40,20 +30,14 @@ const YEARS = [
     border: "border-teal-200 dark:border-teal-900/40",
     headBg: "bg-teal-50 dark:bg-teal-950/20",
     items: [
-      "Continue completing prerequisite coursework",
-      "Evaluate academic strengths and areas for improvement",
-      "Meet regularly with pre-health advising resources",
-      "Increase clinical exposure hours",
-      "Continue physician shadowing across multiple specialties",
-      "Explore opportunities as a medical assistant, EMT, scribe, or hospital volunteer",
-      "Seek research opportunities with faculty",
-      "Pursue leadership positions in student organizations",
-      "Participate in service initiatives that demonstrate commitment to others",
-      "Update résumé/CV regularly",
-      "Attend medical school admissions presentations and networking events",
-      "Accumulate meaningful clinical and service experiences",
-      "Begin considering potential letter-of-recommendation writers",
-      "Create a preliminary medical school preparation plan",
+      "Continue prerequisite coursework and monitor GPA",
+      "Increase clinical exposure — shadowing across multiple specialties",
+      "Explore research opportunities with a faculty member",
+      "Take on a leadership role in at least one organization",
+      "Begin identifying potential letter-of-recommendation writers",
+      "Attend a medical school admissions info session",
+      "Update your résumé/CV and experience tracker",
+      "Draft a preliminary medical school preparation plan",
     ],
   },
   {
@@ -64,22 +48,13 @@ const YEARS = [
     headBg: "bg-violet-50 dark:bg-violet-950/20",
     items: [
       "Complete most prerequisite coursework",
-      "Maintain or improve GPA performance",
-      "Meet with advisors to assess application readiness",
-      "Develop an MCAT study timeline",
-      "Register for the MCAT",
-      "Complete full-length practice exams",
-      "Take the MCAT",
-      "Continue clinical, service, research, and leadership activities",
-      "Seek experiences that demonstrate maturity, teamwork, and resilience",
-      "Identify potential recommendation letter writers",
-      "Request letters well in advance",
-      "Draft and revise personal statement",
-      "Research medical schools and admissions requirements",
-      "MCAT completed or scheduled",
-      "Personal statement draft underway",
-      "Letters of recommendation secured or requested",
-      "School list developed",
+      "Meet with your advisor to assess application readiness",
+      "Build and begin your MCAT study plan",
+      "Register for and take the MCAT",
+      "Request letters of recommendation — give writers plenty of time",
+      "Begin drafting your personal statement",
+      "Research and develop your medical school list",
+      "Continue clinical, research, and service commitments",
     ],
   },
   {
@@ -89,29 +64,19 @@ const YEARS = [
     border: "border-amber-200 dark:border-amber-900/40",
     headBg: "bg-amber-50 dark:bg-amber-950/20",
     items: [
-      "Submit AMCAS/AACOMAS/TMDSAS applications early",
-      "Complete secondary applications promptly",
-      "Prepare for interviews",
-      "Participate in mock interviews",
-      "Practice traditional and MMI interview formats",
-      "Refine ability to discuss experiences and motivations",
-      "Maintain academic performance",
-      "Continue service, clinical, leadership, and research involvement",
-      "Update schools on significant achievements if appropriate",
-      "Review acceptance offers and financial aid packages",
-      "Finalize medical school selection",
-      "Complete graduation requirements",
-      "Prepare for transition to medical school",
-      "Application cycle completed",
-      "Medical school plans finalized",
-      "Ready for successful transition into medical training",
+      "Submit primary applications (AMCAS/AACOMAS) as early as possible",
+      "Complete secondary applications within 2 weeks of receiving them",
+      "Prepare for interviews — practice both traditional and MMI formats",
+      "Maintain your GPA and stay active in commitments",
+      "Update schools on any significant new achievements",
+      "Review acceptance offers and financial aid packages carefully",
+      "Finalize your medical school choice by April 30",
+      "Complete graduation requirements and prepare for the transition",
     ],
   },
 ]
 
 const STORAGE_KEY = "pmc_checks_v1"
-
-// ─── Main Component ───────────────────────────────────────────────────────────
 
 export function YearlyChecklist() {
   const [checks, setChecks] = useState<CheckData>({})
@@ -144,10 +109,9 @@ export function YearlyChecklist() {
             Moravian University Pre-Med Milestone Checklist
           </h2>
           <p className="mt-4 text-pretty text-lg leading-relaxed text-muted-foreground">
-            A Moravian University pre-med milestone checklist for each year of your journey. Check things off as you go.
+            The key milestones for each year of your pre-med journey, kept focused. Check things off as you go.
           </p>
         </header>
-
 
         {/* Overall progress */}
         <div className="rounded-xl border border-border bg-card p-5 mb-8">
@@ -175,7 +139,7 @@ export function YearlyChecklist() {
             return (
               <div
                 key={yr.label}
-                className={`rounded-xl border bg-card overflow-hidden ${yr.border}`}
+                className={`rounded-xl border bg-card overflow-hidden transition-shadow hover:shadow-md ${yr.border}`}
               >
                 {/* Year header */}
                 <div className={`px-4 py-3 border-b ${yr.border} ${yr.headBg}`}>

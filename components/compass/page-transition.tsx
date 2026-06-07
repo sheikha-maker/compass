@@ -5,23 +5,21 @@ import { useEffect, useRef, useState } from "react"
 
 export function PageTransition({ children }: { children: React.ReactNode }) {
   const pathname = usePathname()
-  const [visible, setVisible] = useState(false)
+  const [phase, setPhase] = useState<"in" | "out">("in")
   const prevPathname = useRef(pathname)
 
   useEffect(() => {
     // Fade in on mount
-    const t = requestAnimationFrame(() => setVisible(true))
-    return () => cancelAnimationFrame(t)
+    setPhase("in")
   }, [])
 
   useEffect(() => {
     if (prevPathname.current !== pathname) {
-      // Brief fade out then back in on route change
-      setVisible(false)
+      setPhase("out")
       const t = setTimeout(() => {
-        setVisible(true)
+        setPhase("in")
         prevPathname.current = pathname
-      }, 80)
+      }, 120)
       return () => clearTimeout(t)
     }
   }, [pathname])
@@ -29,9 +27,12 @@ export function PageTransition({ children }: { children: React.ReactNode }) {
   return (
     <div
       style={{
-        opacity: visible ? 1 : 0,
-        transform: visible ? "translateY(0)" : "translateY(6px)",
-        transition: "opacity 0.25s ease, transform 0.25s ease",
+        opacity: phase === "in" ? 1 : 0,
+        transform: phase === "in" ? "translateY(0) scale(1)" : "translateY(8px) scale(0.995)",
+        transition: phase === "in"
+          ? "opacity 0.35s ease, transform 0.35s ease"
+          : "opacity 0.12s ease, transform 0.12s ease",
+        willChange: "opacity, transform",
       }}
     >
       {children}
