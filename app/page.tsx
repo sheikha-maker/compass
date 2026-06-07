@@ -1,21 +1,16 @@
-import dynamic from "next/dynamic"
 import { SidebarNav } from "@/components/compass/sidebar-nav"
+import { HeroClient } from "@/components/compass/hero-client"
 import { OnboardingQuiz } from "@/components/compass/onboarding-quiz"
 import { SectionCards } from "@/components/compass/section-cards"
 import { SiteFooter } from "@/components/compass/resources"
 import Link from "next/link"
-
-const Hero = dynamic(
-  () => import("@/components/compass/hero").then((m) => ({ default: m.Hero })),
-  { ssr: false, loading: () => <div className="h-[480px] bg-primary" /> }
-)
 
 export default function Page() {
   return (
     <div className="min-h-screen bg-background">
       <SidebarNav />
       <main className="lg:pl-72">
-        <Hero />
+        <HeroClient />
         <OnboardingQuiz />
         <SectionCards />
         {/* Tools Overview Section */}
