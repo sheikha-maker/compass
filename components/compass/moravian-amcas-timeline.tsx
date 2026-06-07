@@ -162,40 +162,6 @@ export function MoravianAmcasTimeline() {
           )
         })}
       </div>
-
-      {/* LVHN volunteer link */}
-      <div className="rounded-xl border border-border bg-card p-4 text-sm">
-        <p className="font-semibold text-foreground mb-2">Moravian-area clinical hours</p>
-        <p className="text-muted-foreground mb-3 leading-relaxed">
-          Lehigh Valley Health Network (LVHN) has a dedicated college volunteer application. Volunteers get meal vouchers and free parking. Contact Volunteer Services at 610-969-2850 with questions.
-        </p>
-        <a
-          href="https://www.lvhn.org/become-volunteer/college-volunteer-application-process"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-1.5 font-medium text-primary underline underline-offset-2"
-        >
-          LVHN College Volunteer Application
-          <ExternalLink className="h-3.5 w-3.5" />
-        </a>
-      </div>
-
-      {/* Academic calendar link */}
-      <div className="rounded-xl border border-border bg-card p-4 text-sm">
-        <p className="font-semibold text-foreground mb-1">Moravian Academic Calendar</p>
-        <p className="text-muted-foreground mb-2 text-xs leading-relaxed">
-          Verify semester dates, registration windows, and finals schedules each year.
-        </p>
-        <a
-          href="https://www.moravian.edu/registrar/academic-calendars"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-1.5 font-medium text-primary underline underline-offset-2"
-        >
-          View Academic Calendars
-          <ExternalLink className="h-3.5 w-3.5" />
-        </a>
-      </div>
     </div>
   )
 }

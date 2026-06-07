@@ -547,6 +547,12 @@ export const usefulLinks = [
     category: "Moravian Resources"
   },
   {
+    label: "Moravian Academic Calendar",
+    href: "https://www.moravian.edu/registrar/academic-calendars",
+    desc: "Verify semester dates, registration windows, and finals schedules each year. Essential for MCAT and application timing.",
+    category: "Moravian Resources"
+  },
+  {
     label: "Active Minds",
     href: "https://www.activeminds.org/",
     desc: "A national student mental health organization with resources for pre-med stress and burnout.",
@@ -562,6 +568,12 @@ export const usefulLinks = [
     label: "St. Luke's Volunteer Services",
     href: "https://www.slhn.org/volunteer",
     desc: "Information on hospital volunteering and observership programs with our local health network.",
+    category: "Clinical Opportunities"
+  },
+  {
+    label: "LVHN College Volunteer Application",
+    href: "https://www.lvhn.org/become-volunteer/college-volunteer-application-process",
+    desc: "Lehigh Valley Health Network's dedicated college volunteer program. Volunteers receive meal vouchers and free parking. Questions? Call 610-969-2850.",
     category: "Clinical Opportunities"
   },
   {
