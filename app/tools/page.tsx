@@ -1,5 +1,7 @@
 import Link from "next/link"
 import { PageLayout } from "@/components/compass/page-layout"
+import { PrereqTracker } from "./components/PrereqTracker"
+import { CoursePlannerCalendar } from "./components/CoursePlannerCalendar"
 import { MCATCountdown } from "./components/MCATCountdown"
 import { ApplicationTracker } from "./components/ApplicationTracker"
 import { SchoolList } from "./components/SchoolList"
@@ -9,6 +11,7 @@ import { LORTracker } from "./components/LORTracker"
 import { WellnessCheckin } from "./components/WellnessCheckin"
 import { ActivityLogs } from "@/components/compass/activity-logs"
 import { Resources, SiteFooter } from "@/components/compass/resources"
+import { ProgressDashboard } from "./components/ProgressDashboard"
 
 const navItems = [
   { id: "planning", label: "Plan & Check" },
@@ -102,6 +105,7 @@ function RecommendedFlow() {
 export default function ToolsPage() {
   return (
     <PageLayout title="Your Tools" eyebrow="Your Tools" navItems={navItems}>
+      <ProgressDashboard />
       <RecommendedFlow />
       <div className="mb-8 rounded-2xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900 dark:border-amber-900/50 dark:bg-amber-950/20 dark:text-amber-200">
         <p>
