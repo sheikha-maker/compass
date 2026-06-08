@@ -17,9 +17,13 @@ const timelineSteps = [
 const THEME_OPTIONS = [
   { value: "light", label: "Light" },
   { value: "dark", label: "Dark" },
-  { value: "red", label: "Red" },
+  { value: "navy", label: "Navy" },
+  { value: "teal", label: "Teal" },
   { value: "green", label: "Green" },
+  { value: "gold", label: "Gold" },
+  { value: "red", label: "Red" },
   { value: "purple", label: "Purple" },
+  { value: "mauve", label: "Mauve" },
   { value: "brown", label: "Brown" },
 ]
 
