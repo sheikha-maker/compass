@@ -3,38 +3,32 @@
 import { usePathname } from "next/navigation"
 import { useEffect, useRef, useState } from "react"
 
+// Spring-like easing: fast in, gentle settle
+const EASE_IN  = "cubic-bezier(0.32, 0, 0.67, 0)"
+const EASE_OUT = "cubic-bezier(0.16, 1, 0.3, 1)"
+
 export function PageTransition({ children }: { children: React.ReactNode }) {
   const pathname = usePathname()
-  const [phase, setPhase] = useState<"in" | "out">("in")
+  const [phase, setPhase] = useState<"idle" | "out" | "in">("in")
   const prevPathname = useRef(pathname)
 
   useEffect(() => {
-    // Fade in on mount
-    setPhase("in")
-  }, [])
-
-  useEffect(() => {
-    if (prevPathname.current !== pathname) {
-      setPhase("out")
-      const t = setTimeout(() => {
-        setPhase("in")
-        prevPathname.current = pathname
-      }, 120)
-      return () => clearTimeout(t)
-    }
+    if (prevPathname.current === pathname) return
+    setPhase("out")
+    const t = setTimeout(() => {
+      setPhase("in")
+      prevPathname.current = pathname
+    }, 100)
+    return () => clearTimeout(t)
   }, [pathname])
 
+  const style =
+    phase === "out"
+      ? { opacity: 0, transform: "translateY(6px) scale(0.993)", transition: `opacity 0.1s ${EASE_IN}, transform 0.1s ${EASE_IN}` }
+      : { opacity: 1, transform: "translateY(0) scale(1)",        transition: `opacity 0.45s ${EASE_OUT}, transform 0.45s ${EASE_OUT}` }
+
   return (
-    <div
-      style={{
-        opacity: phase === "in" ? 1 : 0,
-        transform: phase === "in" ? "translateY(0) scale(1)" : "translateY(8px) scale(0.995)",
-        transition: phase === "in"
-          ? "opacity 0.35s ease, transform 0.35s ease"
-          : "opacity 0.12s ease, transform 0.12s ease",
-        willChange: "opacity, transform",
-      }}
-    >
+    <div style={{ ...style, willChange: "opacity, transform" }}>
       {children}
     </div>
   )
