@@ -221,11 +221,30 @@ export const yearCompass = [
     theme: "Adjust. Build habits. Protect your GPA.",
     focus: [
       "Prioritize adjusting to college and building strong study systems above all else.",
-      "Get to know your pre-med advisor early, before you 'need' anything.",
+      "Get to know your pre-med advisor early — before you 'need' anything.",
       "Explore one or two clubs that genuinely interest you. Don't over-commit.",
       "Start light, occasional volunteering if you have the bandwidth, no pressure.",
+      "Build your GPA foundation — it's far easier to protect than to recover.",
+      "Find two or three study partners you trust and actually show up for each other.",
     ],
     avoid: "Don't compare your start to upperclassmen who are years ahead. You are not behind.",
+    experiences: [
+      "Join one club or organization that genuinely interests you",
+      "Log 5–15 hours of community service or light volunteering",
+      "Shadow a physician once, even briefly — just to see if it resonates",
+      "Attend at least one pre-health advising meeting",
+    ],
+    advisorTopics: [
+      "Course sequencing and which prereqs to take first",
+      "What a competitive GPA looks like and how to protect it",
+      "What experiences matter most in freshman year (hint: very few)",
+      "Getting involved with the pre-health club",
+    ],
+    reflections: [
+      "Why do I want medicine, and where did that feeling come from?",
+      "What kind of student do I want to be — and what habits do I need to build?",
+      "What am I most afraid of this year, and is that fear worth listening to?",
+    ],
     sampleSchedule: {
       fall: ["General Chemistry I", "Calculus I or Statistics", "First-Year Writing", "Elective/Gen Ed"],
       spring: ["General Chemistry II", "Calculus II or Elective", "Intro Biology I", "Gen Ed"],
@@ -240,8 +259,27 @@ export const yearCompass = [
       "Begin clinical exposure or shadowing if you feel ready and stable.",
       "Consider reaching out for a research position if a topic genuinely excites you.",
       "Deepen one or two commitments instead of adding many new ones.",
+      "Start identifying professors who might write you strong letters of recommendation.",
+      "Ask yourself honestly: is medicine the right path, or am I running on momentum?",
     ],
     avoid: "Don't pile on activities out of panic. Depth is the goal this year.",
+    experiences: [
+      "Accumulate 20–50 clinical hours through volunteering or shadowing",
+      "Shadow at least one additional specialty beyond what you saw freshman year",
+      "Pursue one research opportunity if the bandwidth exists",
+      "Take on a small leadership role in a club or organization",
+    ],
+    advisorTopics: [
+      "MCAT timing — when does it make sense given your course schedule?",
+      "Balancing research, clinical hours, and coursework without burning out",
+      "Which professors to approach for letters of recommendation (and when)",
+      "Your honest gut check: is medicine still the right path?",
+    ],
+    reflections: [
+      "Am I building experiences I genuinely care about, or ones that just look good?",
+      "Which specialty interests me most after my clinical exposure — and why?",
+      "Where am I putting depth, and where am I spreading myself too thin?",
+    ],
     sampleSchedule: {
       fall: ["Organic Chemistry I", "Intro Biology II", "Physics I", "Gen Ed/Elective"],
       spring: ["Organic Chemistry II", "Physics II", "Psychology or Sociology", "Gen Ed"],
@@ -252,12 +290,31 @@ export const yearCompass = [
     year: "Junior Year",
     theme: "Consolidate. Plan the MCAT and timeline.",
     focus: [
-      "Map out your MCAT timeline based on your coursework and energy, not your friends'.",
+      "Map out your MCAT timeline based on your coursework and energy — not your friends'.",
       "Build relationships with professors for future letters of recommendation.",
       "Keep your strongest clinical and service commitments steady.",
       "Start drafting your story: why medicine, and what shaped that.",
+      "Begin researching medical schools — understand what different programs value.",
+      "Have an honest conversation with your advisor about application readiness.",
     ],
     avoid: "Don't let MCAT prep blow up your GPA. Both matter; balance them deliberately.",
+    experiences: [
+      "Reach 50–100+ clinical hours with genuine depth in at least one setting",
+      "Formalize at least one research commitment if you haven't already",
+      "Request letters of recommendation from 3–4 writers by end of junior year",
+      "Begin drafting your personal statement — rough is fine, just start",
+    ],
+    advisorTopics: [
+      "Honest assessment: am I ready to apply this cycle or next?",
+      "Building your school list — reach, target, and safety schools",
+      "MCAT target score based on your school list and current GPA",
+      "Letter of recommendation strategy — who, when, and how to ask",
+    ],
+    reflections: [
+      "What is my 'why medicine' story, and can I tell it clearly and honestly?",
+      "Am I applying because I'm ready, or because I feel like I should be?",
+      "What would a gap year give me — and is that worth it?",
+    ],
     sampleSchedule: {
       fall: ["Biochemistry", "Upper-level Biology elective", "Major requirements", "MCAT prep begins"],
       spring: ["Genetics or Molecular Biology", "Major electives", "Continue clinical hours", "MCAT in late spring/early summer"],
@@ -271,9 +328,28 @@ export const yearCompass = [
       "Submit your primary application early in the cycle if you're truly ready.",
       "Be honest about whether a gap year would make you a stronger, calmer applicant.",
       "Lean on mentors and your advisor through interviews and secondaries.",
-      "Keep living your life, your activities don't stop the moment you apply.",
+      "Keep living your life — your activities don't stop the moment you apply.",
+      "Maintain your GPA; schools do check senior year transcripts.",
+      "Give yourself permission to feel the weight of this — and then take it one step at a time.",
     ],
     avoid: "Don't apply before you're ready just because of the calendar. A gap year is not a setback.",
+    experiences: [
+      "Maintain clinical and service commitments throughout the application cycle",
+      "Complete secondary applications within two weeks of receiving them",
+      "Interview at every school that invites you — treat each as practice and opportunity",
+      "If gap year: line up meaningful work, research, or service before graduation",
+    ],
+    advisorTopics: [
+      "Committee letter process — what Moravian requires and the timeline",
+      "Gap year decision: what would genuinely strengthen your application?",
+      "How to evaluate acceptance offers (fit, finances, culture — not just prestige)",
+      "What to do if the cycle doesn't go as planned",
+    ],
+    reflections: [
+      "Am I applying for the right reasons — or to resolve anxiety about my future?",
+      "What kind of physician do I want to be, and does this school reflect that?",
+      "Regardless of how this cycle goes, what am I proud of from these four years?",
+    ],
     sampleSchedule: {
       fall: ["Capstone/Senior seminar", "Remaining major requirements", "Interview prep", "Secondaries if applying"],
       spring: ["Light course load if possible", "Interviews continue", "Decision time", "Plan for gap year activities if needed"],
@@ -547,12 +623,6 @@ export const usefulLinks = [
     category: "Moravian Resources"
   },
   {
-    label: "Moravian Academic Calendar",
-    href: "https://www.moravian.edu/registrar/academic-calendars",
-    desc: "Verify semester dates, registration windows, and finals schedules each year. Essential for MCAT and application timing.",
-    category: "Moravian Resources"
-  },
-  {
     label: "Active Minds",
     href: "https://www.activeminds.org/",
     desc: "A national student mental health organization with resources for pre-med stress and burnout.",
@@ -568,12 +638,6 @@ export const usefulLinks = [
     label: "St. Luke's Volunteer Services",
     href: "https://www.slhn.org/volunteer",
     desc: "Information on hospital volunteering and observership programs with our local health network.",
-    category: "Clinical Opportunities"
-  },
-  {
-    label: "LVHN College Volunteer Application",
-    href: "https://www.lvhn.org/become-volunteer/college-volunteer-application-process",
-    desc: "Lehigh Valley Health Network's dedicated college volunteer program. Volunteers receive meal vouchers and free parking. Questions? Call 610-969-2850.",
     category: "Clinical Opportunities"
   },
   {
