@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect, useCallback } from "react"
-import { Plus, Trash2, AlertTriangle } from "lucide-react"
+import { Plus, Trash2, AlertTriangle, FileText } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -212,8 +212,13 @@ export function LORTracker() {
             </table>
           </div>
         ) : (
-          <div className="rounded-xl border border-dashed border-border p-8 text-center text-muted-foreground text-sm mb-6">
-            No writers added yet. Add your first one below.
+          <div className="empty-state mb-6">
+            <FileText className="h-10 w-10" />
+            <p className="empty-title">No letter writers added yet</p>
+            <p className="empty-body">
+              Most MD programs require 3 letters — typically two science faculty and one non-science.
+              Add your writers below and track their progress here.
+            </p>
           </div>
         )}
 

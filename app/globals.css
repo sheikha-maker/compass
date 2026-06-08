@@ -547,3 +547,141 @@ html {
 ::-webkit-scrollbar-thumb:hover {
   background: oklch(0.5 0.15 264);
 }
+
+/* ─── Typography enhancements ────────────────────────────────────────────── */
+
+/* Pull quote — serif, larger, accented left border */
+.pullquote {
+  font-family: var(--font-serif, Georgia, serif);
+  font-size: 1.2rem;
+  font-style: italic;
+  line-height: 1.6;
+  color: oklch(var(--foreground));
+  border-left: 3px solid oklch(var(--primary));
+  padding-left: 1.25rem;
+  margin: 1.5rem 0;
+}
+
+/* Lead paragraph — slightly larger intro text */
+.lead {
+  font-size: 1.125rem;
+  line-height: 1.75;
+  color: oklch(var(--muted-foreground));
+}
+
+/* Stat callout — big number + label */
+.stat-callout {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+}
+.stat-callout .stat-value {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1;
+  color: oklch(var(--primary));
+  font-variant-numeric: tabular-nums;
+}
+.stat-callout .stat-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: oklch(var(--muted-foreground));
+}
+
+/* ─── Empty state ─────────────────────────────────────────────────────────── */
+
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 3rem 1.5rem;
+  border-radius: 1rem;
+  border: 2px dashed oklch(var(--border));
+  background: oklch(var(--card) / 0.5);
+  gap: 0.75rem;
+}
+.empty-state svg {
+  color: oklch(var(--muted-foreground));
+  opacity: 0.5;
+}
+.empty-state .empty-title {
+  font-weight: 600;
+  font-size: 0.9375rem;
+  color: oklch(var(--foreground));
+}
+.empty-state .empty-body {
+  font-size: 0.875rem;
+  color: oklch(var(--muted-foreground));
+  max-width: 28rem;
+  line-height: 1.6;
+}
+
+/* ─── Mobile layout fixes ────────────────────────────────────────────────── */
+
+/* Prevent tool tables from overflowing on mobile */
+@media (max-width: 640px) {
+  /* GPA calculator: stack to single column on small screens */
+  .gpa-table-row {
+    grid-template-columns: 1fr !important;
+    gap: 0.5rem;
+  }
+
+  /* Tool section headers: smaller on mobile */
+  section h2 {
+    font-size: 1.75rem !important;
+  }
+
+  /* Reduce section padding on mobile */
+  section.scroll-mt-20 {
+    padding-top: 2.5rem;
+    padding-bottom: 2.5rem;
+  }
+
+  /* Stat cards: 2 col max on mobile */
+  .grid-cols-3 {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  /* Progress dashboard: 2 col on mobile */
+  .lg\:grid-cols-6 {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+
+  /* Prevent horizontal scroll from dense tables */
+  table {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* Tablet (sm–md) adjustments */
+@media (max-width: 768px) {
+  .lg\:pl-72 {
+    padding-left: 0 !important;
+  }
+}
+
+/* ─── Skeleton loading ────────────────────────────────────────────────────── */
+
+@keyframes shimmer {
+  0%   { background-position: -600px 0; }
+  100% { background-position: 600px 0; }
+}
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    oklch(var(--muted) / 0.5) 25%,
+    oklch(var(--muted) / 0.8) 50%,
+    oklch(var(--muted) / 0.5) 75%
+  );
+  background-size: 600px 100%;
+  animation: shimmer 1.4s ease infinite;
+  border-radius: 0.5rem;
+}
