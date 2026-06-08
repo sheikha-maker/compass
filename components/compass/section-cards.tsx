@@ -60,24 +60,7 @@ export function SectionCards() {
         Each section lives on its own page so you can focus on what matters right now without the noise.
       </p>
 
-      {/* Burnout check callout */}
-      <Link
-        href="/burnout-check"
-        className="group mt-8 flex items-center justify-between rounded-2xl border-2 border-primary/30 bg-primary/5 px-6 py-5 transition-all duration-200 hover:border-primary/60 hover:bg-primary/10 hover:-translate-y-0.5 hover:shadow-lg"
-      >
-        <div className="flex items-center gap-4">
-          <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary/15">
-            <Heart className="h-5 w-5 text-primary" />
-          </div>
-          <div>
-            <p className="font-semibold text-foreground">Not sure how you're doing?</p>
-            <p className="text-sm text-muted-foreground">Take the 3-minute Burnout Self-Check. Honest reflection, scored feedback, and next-step guidance.</p>
-          </div>
-        </div>
-        <ArrowRight className="h-5 w-5 shrink-0 text-primary transition-transform duration-200 group-hover:translate-x-1.5" />
-      </Link>
-
-      <div className="mt-5 grid gap-4 sm:grid-cols-2">
+      <div className="mt-8 grid gap-4 sm:grid-cols-2">
         {sections.map((s, i) => {
           const Icon = s.icon
           return (

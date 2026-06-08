@@ -91,6 +91,7 @@ export function ExperienceTools() {
 export function YearCompass() {
   const [active, setActive] = useState(0)
   const [animKey, setAnimKey] = useState(0)
+  const [tab, setTab] = useState<"focus" | "experiences" | "advisor" | "reflections" | "schedule">("focus")
   const current = yearCompass[active]
 
   useEffect(() => {
@@ -104,6 +105,231 @@ export function YearCompass() {
       }
     }
   }, [])
+
+  function selectYear(i: number) {
+    if (i === active) return
+    setActive(i)
+    setAnimKey((k) => k + 1)
+    setTab("focus")
+  }
+
+  const yearColors = [
+    "border-timeline-1 bg-timeline-1",
+    "border-timeline-2 bg-timeline-2",
+    "border-timeline-3 bg-timeline-3",
+    "border-timeline-4 bg-timeline-4",
+  ]
+
+  const yearAccents = ["text-timeline-1", "text-timeline-2", "text-timeline-3", "text-timeline-4"]
+  const yearBgs = ["bg-timeline-1/10", "bg-timeline-2/10", "bg-timeline-3/10", "bg-timeline-4/10"]
+  const yearBorders = ["border-timeline-1/30", "border-timeline-2/30", "border-timeline-3/30", "border-timeline-4/30"]
+
+  const tabs = [
+    { id: "focus", label: "Focus" },
+    { id: "experiences", label: "Experiences" },
+    { id: "advisor", label: "Advisor Topics" },
+    { id: "reflections", label: "Reflections" },
+    { id: "schedule", label: "Sample Schedule" },
+  ] as const
+
+  return (
+    <Section
+      id="year-compass"
+      eyebrow="Building Your Path"
+      title="Year-by-Year Compass"
+      intro="Not everything here is for you. Just use the parts that apply to where you're at right now. Click your year."
+    >
+      {/* Year selector */}
+      <div className="mb-6 grid grid-cols-2 gap-3 sm:grid-cols-4">
+        {yearCompass.map((y, i) => (
+          <button
+            key={y.year}
+            onClick={() => selectYear(i)}
+            className={cn(
+              "group relative flex flex-col items-center rounded-xl border-2 px-3 py-4 text-center transition-all duration-200",
+              active === i
+                ? `${yearColors[i]} text-white shadow-lg scale-105`
+                : "border-border bg-card text-foreground hover:border-primary/40 hover:shadow-md"
+            )}
+            aria-pressed={active === i}
+          >
+            <span className="text-xs font-bold uppercase tracking-widest opacity-70">{y.year}</span>
+            <span className="mt-1 text-sm font-semibold leading-tight">{y.theme.split(".")[0]}</span>
+          </button>
+        ))}
+      </div>
+
+      {/* Content card */}
+      <div
+        key={animKey}
+        className="rounded-2xl border border-border bg-card shadow-sm overflow-hidden"
+        style={{ animation: "fadeSlideIn 0.3s ease forwards" }}
+      >
+        {/* Header */}
+        <div className={cn("px-6 py-5 border-b border-border", yearBgs[active])}>
+          <div className="flex items-start justify-between gap-4">
+            <div>
+              <p className={cn("text-xs font-bold uppercase tracking-widest", yearAccents[active])}>
+                Year {active + 1} of 4
+              </p>
+              <p className="mt-1 font-serif text-2xl font-semibold text-foreground">{current.year}</p>
+              <p className={cn("mt-1 font-medium text-sm", yearAccents[active])}>{current.theme}</p>
+            </div>
+          </div>
+
+          {/* Watch out banner */}
+          <div className="mt-4 flex gap-2.5 rounded-xl border border-amber-200/60 bg-amber-50/80 px-4 py-3 dark:border-amber-800/30 dark:bg-amber-950/20">
+            <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0 text-amber-600 dark:text-amber-400" aria-hidden />
+            <p className="text-sm leading-relaxed text-amber-800 dark:text-amber-300">{current.avoid}</p>
+          </div>
+        </div>
+
+        {/* Tabs */}
+        <div className="flex overflow-x-auto border-b border-border bg-background">
+          {tabs.map((t) => (
+            <button
+              key={t.id}
+              onClick={() => setTab(t.id)}
+              className={cn(
+                "shrink-0 px-4 py-3 text-sm font-medium transition-colors whitespace-nowrap border-b-2 -mb-px",
+                tab === t.id
+                  ? cn("border-primary text-primary", )
+                  : "border-transparent text-muted-foreground hover:text-foreground"
+              )}
+            >
+              {t.label}
+            </button>
+          ))}
+        </div>
+
+        {/* Tab content */}
+        <div className="p-6" style={{ animation: "fadeSlideIn 0.2s ease forwards" }} key={tab}>
+          {tab === "focus" && (
+            <ul className="space-y-3">
+              {current.focus.map((f, fi) => (
+                <li
+                  key={f}
+                  className="flex gap-2.5 leading-relaxed text-foreground"
+                  style={{ animation: `fadeSlideIn 0.3s ease ${fi * 0.06}s both` }}
+                >
+                  <CheckCircle2 className={cn("mt-1 h-4 w-4 shrink-0", yearAccents[active])} aria-hidden />
+                  {f}
+                </li>
+              ))}
+            </ul>
+          )}
+
+          {tab === "experiences" && (current as any).experiences && (
+            <div>
+              <p className="mb-4 text-sm text-muted-foreground">Realistic experience targets for this year — depth over quantity.</p>
+              <ul className="space-y-3">
+                {(current as any).experiences.map((e: string, ei: number) => (
+                  <li
+                    key={e}
+                    className="flex gap-2.5 text-sm leading-relaxed text-foreground"
+                    style={{ animation: `fadeSlideIn 0.3s ease ${ei * 0.06}s both` }}
+                  >
+                    <Star className={cn("mt-0.5 h-4 w-4 shrink-0", yearAccents[active])} aria-hidden />
+                    {e}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          {tab === "advisor" && (current as any).advisorTopics && (
+            <div>
+              <p className="mb-4 text-sm text-muted-foreground">Bring these to your next advising meeting. Advisors can only help if they know what's on your mind.</p>
+              <ul className="space-y-3">
+                {(current as any).advisorTopics.map((t: string, ti: number) => (
+                  <li
+                    key={t}
+                    className="flex gap-2.5 text-sm leading-relaxed text-foreground"
+                    style={{ animation: `fadeSlideIn 0.3s ease ${ti * 0.06}s both` }}
+                  >
+                    <Users className={cn("mt-0.5 h-4 w-4 shrink-0", yearAccents[active])} aria-hidden />
+                    {t}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          {tab === "reflections" && (current as any).reflections && (
+            <div>
+              <p className="mb-4 text-sm text-muted-foreground">Questions worth sitting with. No right answers — just honest ones.</p>
+              <div className="space-y-3">
+                {(current as any).reflections.map((r: string, ri: number) => (
+                  <div
+                    key={r}
+                    className={cn("rounded-xl border p-4 text-sm leading-relaxed text-foreground italic", yearBorders[active], yearBgs[active])}
+                    style={{ animation: `fadeSlideIn 0.3s ease ${ri * 0.08}s both` }}
+                  >
+                    "{r}"
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {tab === "schedule" && current.sampleSchedule && (
+            <div>
+              <div className="grid gap-5 sm:grid-cols-2">
+                <div>
+                  <p className="mb-3 text-sm font-semibold text-foreground">Fall Semester</p>
+                  <ul className="space-y-2">
+                    {current.sampleSchedule.fall.map((course) => (
+                      <li key={course} className="flex items-start gap-2 text-sm text-muted-foreground">
+                        <span className={cn("mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full", `bg-timeline-${active + 1}`)} aria-hidden />
+                        {course}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div>
+                  <p className="mb-3 text-sm font-semibold text-foreground">Spring Semester</p>
+                  <ul className="space-y-2">
+                    {current.sampleSchedule.spring.map((course) => (
+                      <li key={course} className="flex items-start gap-2 text-sm text-muted-foreground">
+                        <span className={cn("mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary")} aria-hidden />
+                        {course}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+              <p className={cn("mt-5 rounded-lg border px-4 py-3 text-sm font-medium", yearBorders[active], yearAccents[active])}>
+                💡 {current.sampleSchedule.tips}
+              </p>
+            </div>
+          )}
+        </div>
+      </div>
+
+      {/* Prev / Next */}
+      <div className="mt-4 flex justify-between">
+        <button
+          type="button"
+          onClick={() => selectYear(Math.max(0, active - 1))}
+          disabled={active === 0}
+          className="rounded-lg border border-border px-4 py-2 text-sm font-medium text-muted-foreground transition-all hover:border-primary/40 hover:text-foreground disabled:cursor-not-allowed disabled:opacity-30"
+        >
+          ← Previous year
+        </button>
+        <button
+          type="button"
+          onClick={() => selectYear(Math.min(yearCompass.length - 1, active + 1))}
+          disabled={active === yearCompass.length - 1}
+          className="rounded-lg border border-border px-4 py-2 text-sm font-medium text-muted-foreground transition-all hover:border-primary/40 hover:text-foreground disabled:cursor-not-allowed disabled:opacity-30"
+        >
+          Next year →
+        </button>
+      </div>
+    </Section>
+  )
+}
+
+
 
   function selectYear(i: number) {
     if (i === active) return

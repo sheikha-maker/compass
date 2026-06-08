@@ -17,13 +17,9 @@ const timelineSteps = [
 const THEME_OPTIONS = [
   { value: "light", label: "Light" },
   { value: "dark", label: "Dark" },
-  { value: "navy", label: "Navy" },
-  { value: "teal", label: "Teal" },
-  { value: "green", label: "Green" },
-  { value: "gold", label: "Gold" },
   { value: "red", label: "Red" },
+  { value: "green", label: "Green" },
   { value: "purple", label: "Purple" },
-  { value: "mauve", label: "Mauve" },
   { value: "brown", label: "Brown" },
 ]
 
@@ -217,7 +213,7 @@ export function Hero() {
             Get Started
             <ArrowDown className="h-4 w-4" />
           </Button>
-          <Link href="/tools">
+          <Link href="/#tools-overview">
             <Button
               size="lg"
               variant="outline"
