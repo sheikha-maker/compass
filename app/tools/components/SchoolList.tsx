@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect, useCallback } from "react"
-import { Plus, Trash2 } from "lucide-react"
+import { Plus, Trash2, School } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -149,6 +149,17 @@ export function SchoolList() {
             <p className="text-sm text-muted-foreground">Add schools below to populate deadlines and compare your list.</p>
           )}
         </div>
+
+        {schools.length === 0 && (
+          <div className="empty-state mb-8">
+            <School className="h-10 w-10" />
+            <p className="empty-title">No schools on your list yet</p>
+            <p className="empty-body">
+              Most applicants apply to 15–25 schools across reach, target, and safety categories.
+              Add schools above and track deadlines, interview notes, and status here.
+            </p>
+          </div>
+        )}
 
         {schools.length > 0 && (
           <div className="rounded-xl border border-border bg-card overflow-hidden mb-8">
