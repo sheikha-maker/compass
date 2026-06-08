@@ -4,6 +4,7 @@ import { OnboardingQuiz } from "@/components/compass/onboarding-quiz"
 import { SectionCards } from "@/components/compass/section-cards"
 import { SiteFooter } from "@/components/compass/resources"
 import { ProgressDashboard } from "@/app/tools/components/ProgressDashboard"
+import { DeadlineAlerts } from "@/components/compass/deadline-alerts"
 import Link from "next/link"
 
 export default function Page() {
@@ -12,6 +13,7 @@ export default function Page() {
       <SidebarNav />
       <main className="lg:pl-72">
         <HeroClient />
+        <DeadlineAlerts />
         <OnboardingQuiz />
 <SectionCards />
         {/* Progress Dashboard */}
