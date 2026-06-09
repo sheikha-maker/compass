@@ -23,8 +23,8 @@ function daysUntil(dateStr: string): number | null {
   return Math.ceil(diff / 86_400_000)
 }
 
-function totalHours(logs: { hours?: string }[]): number {
-  return logs.reduce((sum, l) => sum + (parseFloat(l.hours ?? "0") || 0), 0)
+function totalHours(logs: { hours?: number | string | null }[]): number {
+  return logs.reduce((sum, l) => sum + (parseFloat(String(l.hours ?? 0)) || 0), 0)
 }
 
 // ─── Types ───────────────────────────────────────────────────────────────────
