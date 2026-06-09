@@ -91,15 +91,19 @@ export const userToolData = pgTable(
   (t) => [unique().on(t.userId, t.toolKey)]
 )
 
-export const wellnessCheckin = pgTable("wellness_checkin", {
-  id: text("id").primaryKey(),
-  userId: text("user_id")
-    .notNull()
-    .references(() => user.id, { onDelete: "cascade" }),
-  weekKey: text("week_key").notNull(),
-  dateLabel: text("date_label").notNull(),
-  energy: integer("energy").notNull(),
-  motivation: integer("motivation").notNull(),
-  stress: integer("stress").notNull(),
-  loggedAt: timestamp("logged_at").defaultNow().notNull(),
-})
+export const wellnessCheckin = pgTable(
+  "wellness_checkin",
+  {
+    id: text("id").primaryKey(),
+    userId: text("user_id")
+      .notNull()
+      .references(() => user.id, { onDelete: "cascade" }),
+    weekKey: text("week_key").notNull(),
+    dateLabel: text("date_label").notNull(),
+    energy: integer("energy").notNull(),
+    motivation: integer("motivation").notNull(),
+    stress: integer("stress").notNull(),
+    loggedAt: timestamp("logged_at").defaultNow().notNull(),
+  },
+  (t) => [unique().on(t.userId, t.weekKey)]
+)
