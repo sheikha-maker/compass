@@ -1,4 +1,3 @@
-export const dynamic = 'force-dynamic'
 import type { Metadata } from 'next'
 import { Source_Sans_3, Source_Serif_4 } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
