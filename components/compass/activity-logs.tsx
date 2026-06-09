@@ -117,7 +117,13 @@ export function ActivityLogs() {
     fetch("/api/logs")
       .then((r) => r.json())
       .then(({ logs: data }) => {
-        if (Array.isArray(data)) setCloudLogs(data)
+        if (Array.isArray(data)) {
+          // hours is stored as a real number in the DB; normalise to string for LogEntry
+          setCloudLogs(data.map((l: LogEntry & { hours: number | null }) => ({
+            ...l,
+            hours: l.hours != null ? String(l.hours) : "",
+          })))
+        }
       })
       .finally(() => setCloudLoading(false))
   }, [isLoggedIn])

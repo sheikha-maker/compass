@@ -4,6 +4,7 @@ import {
   timestamp,
   boolean,
   integer,
+  real,
   unique,
 } from "drizzle-orm/pg-core"
 
@@ -68,7 +69,7 @@ export const activityLog = pgTable("activity_log", {
     .references(() => user.id, { onDelete: "cascade" }),
   category: text("category").notNull(),
   title: text("title").notNull(),
-  hours: text("hours"),
+  hours: real("hours"),
   date: text("date").notNull(),
   endDate: text("end_date"),
   note: text("note"),
