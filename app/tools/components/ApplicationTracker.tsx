@@ -1,7 +1,8 @@
 "use client"
 
-import { useState, useEffect, useCallback } from "react"
+import { useState } from "react"
 import { Plus, Trash2 } from "lucide-react"
+import { useToolData } from "@/hooks/use-tool-data"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -38,7 +39,8 @@ interface Application {
 }
 
 export function ApplicationTracker() {
-  const [apps, setApps] = useState<Application[]>([])
+  const [apps, setApps] = useToolData<Application[]>(STORAGE_KEY, [])
+  const persist = setApps
   const [form, setForm] = useState({
     school: "",
     type: "MD",
@@ -46,18 +48,6 @@ export function ApplicationTracker() {
     status: "planning",
     note: "",
   })
-
-  useEffect(() => {
-    try {
-      const stored = localStorage.getItem(STORAGE_KEY)
-      if (stored) setApps(JSON.parse(stored))
-    } catch {}
-  }, [])
-
-  const persist = useCallback((next: Application[]) => {
-    setApps(next)
-    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(next)) } catch {}
-  }, [])
 
   const addApplication = () => {
     if (!form.school.trim()) return

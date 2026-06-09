@@ -1,8 +1,9 @@
 "use client"
 
-import { useState, useEffect, useCallback } from "react"
+import { useState } from "react"
 import Link from "next/link"
 import { Plus, X, BookOpen, FlaskConical, Brain, GraduationCap, Layers, AlertTriangle } from "lucide-react"
+import { useToolData } from "@/hooks/use-tool-data"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -209,28 +210,14 @@ function SemesterColumn({
 // ─── Main Component ───────────────────────────────────────────────────────────
 
 export function CoursePlannerCalendar() {
-  const [data, setData] = useState<PlannerData>({})
+  const [data, setData] = useToolData<PlannerData>(STORAGE_KEY, {})
+  const persist = setData
   const [addingSem, setAddingSem] = useState<string | null>(null)
   const [form, setForm] = useState({
     name: "",
     credits: "4",
     category: "science" as CourseCategory,
   })
-
-  // Load from localStorage
-  useEffect(() => {
-    try {
-      const stored = localStorage.getItem(STORAGE_KEY)
-      if (stored) setData(JSON.parse(stored))
-    } catch {}
-  }, [])
-
-  const persist = useCallback((next: PlannerData) => {
-    setData(next)
-    try {
-      localStorage.setItem(STORAGE_KEY, JSON.stringify(next))
-    } catch {}
-  }, [])
 
   const addCourse = () => {
     if (!addingSem || !form.name.trim()) return

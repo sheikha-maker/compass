@@ -1,8 +1,9 @@
 "use client"
 
-import { useState, useEffect, useCallback } from "react"
+import { useCallback } from "react"
 import Link from "next/link"
 import { CheckCircle2, Circle } from "lucide-react"
+import { useToolData } from "@/hooks/use-tool-data"
 import { PrereqDonutChart } from "@/components/compass/prereq-donut-chart"
 import { Input } from "@/components/ui/input"
 
@@ -194,24 +195,11 @@ function CategoryGroup({
 // ─── Main Component ───────────────────────────────────────────────────────────
 
 export function PrereqTracker() {
-  const [data, setData] = useState<PrereqData>({})
-
-  useEffect(() => {
-    try {
-      const stored = localStorage.getItem(STORAGE_KEY)
-      if (stored) setData(JSON.parse(stored))
-    } catch {}
-  }, [])
+  const [data, setData] = useToolData<PrereqData>(STORAGE_KEY, {})
 
   const handleChange = useCallback((id: string, val: number) => {
-    setData((prev) => {
-      const next = { ...prev, [id]: val }
-      try {
-        localStorage.setItem(STORAGE_KEY, JSON.stringify(next))
-      } catch {}
-      return next
-    })
-  }, [])
+    setData({ ...data, [id]: val })
+  }, [data, setData])
 
   // Overall stats
   const totalDone = PREREQS.reduce((s, p) => s + Math.min(p.required, data[p.id] ?? 0), 0)

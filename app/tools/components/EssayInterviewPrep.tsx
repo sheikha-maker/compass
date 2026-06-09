@@ -1,8 +1,9 @@
 "use client"
 
-import { useState, useEffect, useCallback } from "react"
+import { useState } from "react"
 import { Plus, Trash2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { useToolData } from "@/hooks/use-tool-data"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
@@ -78,7 +79,8 @@ const initialState: PrepState = {
 }
 
 export function EssayInterviewPrep() {
-  const [data, setData] = useState<PrepState>(initialState)
+  const [data, setData] = useToolData<PrepState>(STORAGE_KEY, initialState)
+  const persist = setData
   const [essayForm, setEssayForm] = useState({
     school: "",
     prompt: "",
@@ -93,20 +95,6 @@ export function EssayInterviewPrep() {
     status: "planned",
     note: "",
   })
-
-  useEffect(() => {
-    try {
-      const stored = localStorage.getItem(STORAGE_KEY)
-      if (stored) {
-        setData(JSON.parse(stored))
-      }
-    } catch {}
-  }, [])
-
-  const persist = useCallback((next: PrepState) => {
-    setData(next)
-    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(next)) } catch {}
-  }, [])
 
   const updatePersonal = (personal: PrepState["personal"]) =>
     persist({ ...data, personal })

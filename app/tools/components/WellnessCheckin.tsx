@@ -4,6 +4,7 @@ import { useState, useEffect, useCallback } from "react"
 import Link from "next/link"
 import { AlertTriangle, CheckCircle2, TrendingUp, TrendingDown, Minus, Trash2 } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { useToolData } from "@/hooks/use-tool-data"
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -38,17 +39,6 @@ function weekKey() {
 
 function shortDate() {
   return new Date().toLocaleDateString("en-US", { month: "short", day: "numeric" })
-}
-
-function load(): CheckinEntry[] {
-  try {
-    const s = localStorage.getItem(STORAGE_KEY)
-    return s ? JSON.parse(s) : []
-  } catch { return [] }
-}
-
-function save(entries: CheckinEntry[]) {
-  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(entries)) } catch {}
 }
 
 function trendIcon(curr: number, prev: number | undefined) {
@@ -151,21 +141,20 @@ function LineChart({ data }: { data: CheckinEntry[] }) {
 // ─── Main Component ───────────────────────────────────────────────────────────
 
 export function WellnessCheckin() {
-  const [history, setHistory] = useState<CheckinEntry[]>([])
+  const [history, setHistory] = useToolData<CheckinEntry[]>(STORAGE_KEY, [])
   const [values, setValues] = useState<Record<SliderKey, number>>({ energy: 5, motivation: 5, stress: 5 })
   const [logged, setLogged] = useState(false)
   const [alreadyThisWeek, setAlreadyThisWeek] = useState(false)
   const [confirmDelete, setConfirmDelete] = useState<string | null>(null)
 
+  // Initialise slider values from last check-in if it was this week
   useEffect(() => {
-    const parsed = load()
-    setHistory(parsed)
-    const last = parsed[parsed.length - 1]
+    const last = history[history.length - 1]
     if (last?.date === weekKey()) {
       setAlreadyThisWeek(true)
       setValues({ energy: last.energy, motivation: last.motivation, stress: last.stress })
     }
-  }, [])
+  }, []) // eslint-disable-line react-hooks/exhaustive-deps
 
   const logCheckin = useCallback(() => {
     const entry: CheckinEntry = {
@@ -175,25 +164,19 @@ export function WellnessCheckin() {
       motivation: values.motivation,
       stress: values.stress,
     }
-    setHistory((prev) => {
-      const next = [...prev.filter((e) => e.date !== entry.date), entry].slice(-16)
-      save(next)
-      return next
-    })
+    const next = [...history.filter((e) => e.date !== entry.date), entry].slice(-16)
+    setHistory(next)
     setLogged(true)
     setAlreadyThisWeek(true)
     setTimeout(() => setLogged(false), 2500)
-  }, [values])
+  }, [values, history, setHistory])
 
   const deleteEntry = useCallback((date: string) => {
-    setHistory((prev) => {
-      const next = prev.filter((e) => e.date !== date)
-      save(next)
-      if (date === weekKey()) setAlreadyThisWeek(false)
-      return next
-    })
+    const next = history.filter((e) => e.date !== date)
+    setHistory(next)
+    if (date === weekKey()) setAlreadyThisWeek(false)
     setConfirmDelete(null)
-  }, [])
+  }, [history, setHistory])
 
   // ── Derived stats ──────────────────────────────────────────────────────────
 
