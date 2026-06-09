@@ -1,10 +1,11 @@
 "use client"
 
-import { useState, useEffect, useCallback } from "react"
+import { useState } from "react"
 import Link from "next/link"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { MCAT_SECTIONS, MCAT_STORAGE_KEY, daysUntil } from "@/lib/mcat"
+import { useToolData } from "@/hooks/use-tool-data"
 
 interface MCATData {
   date: string
@@ -30,26 +31,8 @@ function scoreBar(score: string): number {
 // ─── Main Component ───────────────────────────────────────────────────────────
 
 export function MCATCountdown() {
-  const [data, setData] = useState<MCATData>({ date: "", scores: {}, hours: {} })
-
-  useEffect(() => {
-    try {
-      const stored = localStorage.getItem(MCAT_STORAGE_KEY)
-      if (stored) {
-        const parsed = JSON.parse(stored)
-        setData({
-          date: parsed.date ?? "",
-          scores: parsed.scores ?? {},
-          hours: parsed.hours ?? {},
-        })
-      }
-    } catch {}
-  }, [])
-
-  const persist = useCallback((next: MCATData) => {
-    setData(next)
-    try { localStorage.setItem(MCAT_STORAGE_KEY, JSON.stringify(next)) } catch {}
-  }, [])
+  const [data, setData] = useToolData<MCATData>(MCAT_STORAGE_KEY, { date: "", scores: {}, hours: {} })
+  const persist = setData
 
   const days = data.date ? daysUntil(data.date) : null
   const weeks = days !== null && days > 0 ? Math.ceil(days / 7) : null

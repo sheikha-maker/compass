@@ -1,7 +1,8 @@
 "use client"
 
-import { useState, useCallback, useEffect } from "react"
+import { useState } from "react"
 import { Plus, Trash2, Info } from "lucide-react"
+import { useToolData } from "@/hooks/use-tool-data"
 import { Button } from "@/components/ui/button"
 
 // ─── Types & constants ────────────────────────────────────────────────────────
@@ -75,20 +76,9 @@ function gpaLabel(gpa: number | null): string {
 // ─── Main component ───────────────────────────────────────────────────────────
 
 export function GPACalculator() {
-  const [courses, setCourses] = useState<Course[]>([blankCourse()])
+  const [courses, setCourses] = useToolData<Course[]>(STORAGE_KEY, [blankCourse()])
+  const persist = setCourses
   const [showInfo, setShowInfo] = useState(false)
-
-  useEffect(() => {
-    try {
-      const s = localStorage.getItem(STORAGE_KEY)
-      if (s) setCourses(JSON.parse(s))
-    } catch {}
-  }, [])
-
-  const persist = useCallback((next: Course[]) => {
-    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(next)) } catch {}
-    setCourses(next)
-  }, [])
 
   const addCourse = () => persist([...courses, blankCourse()])
 

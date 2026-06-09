@@ -4,6 +4,7 @@ import {
   timestamp,
   boolean,
   integer,
+  unique,
 } from "drizzle-orm/pg-core"
 
 // ─── better-auth required tables ─────────────────────────────────────────────
@@ -74,15 +75,35 @@ export const activityLog = pgTable("activity_log", {
   createdAt: timestamp("created_at").defaultNow().notNull(),
 })
 
-export const wellnessCheckin = pgTable("wellness_checkin", {
-  id: text("id").primaryKey(),
-  userId: text("user_id")
-    .notNull()
-    .references(() => user.id, { onDelete: "cascade" }),
-  weekKey: text("week_key").notNull(),
-  dateLabel: text("date_label").notNull(),
-  energy: integer("energy").notNull(),
-  motivation: integer("motivation").notNull(),
-  stress: integer("stress").notNull(),
-  loggedAt: timestamp("logged_at").defaultNow().notNull(),
-})
+// Generic per-user tool state (applications, LORs, GPA courses, checklist, MCAT, etc.)
+// Each row holds one tool's full JSON payload, keyed by (userId, toolKey).
+export const userToolData = pgTable(
+  "user_tool_data",
+  {
+    id: text("id").primaryKey(),
+    userId: text("user_id")
+      .notNull()
+      .references(() => user.id, { onDelete: "cascade" }),
+    toolKey: text("tool_key").notNull(),   // e.g. "pmc_app_tracker_v1"
+    value: text("value").notNull(),        // JSON-serialized payload
+    updatedAt: timestamp("updated_at").defaultNow().notNull(),
+  },
+  (t) => [unique().on(t.userId, t.toolKey)]
+)
+
+export const wellnessCheckin = pgTable(
+  "wellness_checkin",
+  {
+    id: text("id").primaryKey(),
+    userId: text("user_id")
+      .notNull()
+      .references(() => user.id, { onDelete: "cascade" }),
+    weekKey: text("week_key").notNull(),
+    dateLabel: text("date_label").notNull(),
+    energy: integer("energy").notNull(),
+    motivation: integer("motivation").notNull(),
+    stress: integer("stress").notNull(),
+    loggedAt: timestamp("logged_at").defaultNow().notNull(),
+  },
+  (t) => [unique().on(t.userId, t.weekKey)]
+)

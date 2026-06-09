@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server"
 import { auth } from "@/lib/auth"
 import { db, dbAvailable } from "@/lib/db"
 import { wellnessCheckin } from "@/lib/db/schema"
-import { eq, asc } from "drizzle-orm"
+import { eq, asc, and } from "drizzle-orm"
 import { headers } from "next/headers"
 
 async function getUser() {
@@ -34,19 +34,33 @@ export async function POST(req: NextRequest) {
   const body = await req.json()
   const { weekKey, dateLabel, energy, motivation, stress } = body
 
-  // Upsert — one entry per week per user
+  // Basic validation
+  if (
+    typeof weekKey !== "string" ||
+    typeof dateLabel !== "string" ||
+    typeof energy !== "number" ||
+    typeof motivation !== "number" ||
+    typeof stress !== "number"
+  ) {
+    return NextResponse.json({ error: "Invalid payload" }, { status: 400 })
+  }
+
+  // Upsert — filter by weekKey in the query, not in JS
   const existing = await db
-    .select()
+    .select({ id: wellnessCheckin.id })
     .from(wellnessCheckin)
-    .where(eq(wellnessCheckin.userId, user.id))
+    .where(
+      and(
+        eq(wellnessCheckin.userId, user.id),
+        eq(wellnessCheckin.weekKey, weekKey)
+      )
+    )
 
-  const match = existing.find((e) => e.weekKey === weekKey)
-
-  if (match) {
+  if (existing.length > 0) {
     await db
       .update(wellnessCheckin)
       .set({ energy, motivation, stress, dateLabel, loggedAt: new Date() })
-      .where(eq(wellnessCheckin.id, match.id))
+      .where(eq(wellnessCheckin.id, existing[0].id))
   } else {
     await db.insert(wellnessCheckin).values({
       id: crypto.randomUUID(),

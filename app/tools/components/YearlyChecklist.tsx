@@ -1,7 +1,8 @@
 "use client"
 
-import { useState, useEffect, useCallback } from "react"
+import { useCallback } from "react"
 import { Check } from "lucide-react"
+import { useToolData } from "@/hooks/use-tool-data"
 
 type CheckData = Record<string, boolean>
 
@@ -79,22 +80,11 @@ const YEARS = [
 const STORAGE_KEY = "pmc_checks_v1"
 
 export function YearlyChecklist() {
-  const [checks, setChecks] = useState<CheckData>({})
-
-  useEffect(() => {
-    try {
-      const stored = localStorage.getItem(STORAGE_KEY)
-      if (stored) setChecks(JSON.parse(stored))
-    } catch {}
-  }, [])
+  const [checks, setChecks] = useToolData<CheckData>(STORAGE_KEY, {})
 
   const toggle = useCallback((key: string) => {
-    setChecks((prev) => {
-      const next = { ...prev, [key]: !prev[key] }
-      try { localStorage.setItem(STORAGE_KEY, JSON.stringify(next)) } catch {}
-      return next
-    })
-  }, [])
+    setChecks({ ...checks, [key]: !checks[key] })
+  }, [checks, setChecks])
 
   const totalItems = YEARS.reduce((s, y) => s + y.items.length, 0)
   const totalDone = Object.values(checks).filter(Boolean).length

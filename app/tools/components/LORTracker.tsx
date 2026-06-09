@@ -1,7 +1,8 @@
 "use client"
 
-import { useState, useEffect, useCallback } from "react"
+import { useState } from "react"
 import { Plus, Trash2, AlertTriangle, FileText } from "lucide-react"
+import { useToolData } from "@/hooks/use-tool-data"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -45,20 +46,9 @@ function statusMeta(status: LORStatus) {
 // ─── Main Component ───────────────────────────────────────────────────────────
 
 export function LORTracker() {
-  const [lors, setLors] = useState<LOR[]>([])
+  const [lors, setLors] = useToolData<LOR[]>(STORAGE_KEY, [])
+  const persist = setLors
   const [form, setForm] = useState({ name: "", relationship: "", deadline: "", status: "planning" as LORStatus })
-
-  useEffect(() => {
-    try {
-      const stored = localStorage.getItem(STORAGE_KEY)
-      if (stored) setLors(JSON.parse(stored))
-    } catch {}
-  }, [])
-
-  const persist = useCallback((next: LOR[]) => {
-    setLors(next)
-    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(next)) } catch {}
-  }, [])
 
   const addLOR = () => {
     if (!form.name.trim()) return
