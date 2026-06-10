@@ -8,8 +8,15 @@ import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { useTheme } from "next-themes"
-import { AuthButton } from "@/components/compass/auth-button"
+import dynamic from "next/dynamic"
 
+const AuthButton = dynamic(
+  () =>
+    import("@/components/compass/auth-button").then((m) => ({
+      default: m.AuthButton,
+    })),
+  { ssr: false }
+)
 const THEME_OPTIONS = [
   { value: "light", label: "Light" },
   { value: "dark", label: "Dark" },

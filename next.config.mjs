@@ -4,7 +4,6 @@ const nextConfig = {
   images: { unoptimized: true },
   serverExternalPackages: [
     "better-auth",
-    "better-auth/react",
     "@better-auth/core",
     "@better-auth/kysely-adapter",
     "kysely",

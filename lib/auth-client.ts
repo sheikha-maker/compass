@@ -6,8 +6,13 @@
 // to first browser use. The module import itself is safe; it's the function
 // call that triggers the hook execution.
 
-import { createAuthClient } from "better-auth/react"
+async function getClient() {
+  const { createAuthClient } = await import("better-auth/react")
 
+  return createAuthClient({
+    baseURL: window.location.origin,
+  })
+}
 type AuthClient = ReturnType<typeof createAuthClient>
 
 let _client: AuthClient | null = null
