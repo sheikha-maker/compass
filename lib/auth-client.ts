@@ -1,29 +1,31 @@
-// better-auth/react calls useRef at module evaluation time, which crashes
-// during Next.js server-side prerendering (React is null in that context).
+// better-auth/react is an ESM package — top-level import is required.
+// However, createAuthClient() calls useRef internally, which crashes during
+// Next.js server-side prerendering (React is null in that context).
 //
-// The fix: don't import better-auth/react at the top level. Instead, use
-// require() inside a function so the module only loads in the browser.
+// Fix: import the module normally, but defer the createAuthClient() CALL
+// to first browser use. The module import itself is safe; it's the function
+// call that triggers the hook execution.
 
-// eslint-disable-next-line @typescript-eslint/no-require-imports
-type AuthClient = ReturnType<typeof import("better-auth/react").createAuthClient>
+import { createAuthClient } from "better-auth/react"
+
+type AuthClient = ReturnType<typeof createAuthClient>
 
 let _client: AuthClient | null = null
 
 function getClient(): AuthClient {
-  if (typeof window === "undefined") {
-    // Should never be called on the server, but return a no-op guard
-    // rather than crashing if something slips through.
-    throw new Error("auth-client must only be used in the browser")
-  }
   if (!_client) {
-    // eslint-disable-next-line @typescript-eslint/no-require-imports
-    const { createAuthClient } = require("better-auth/react") as typeof import("better-auth/react")
     _client = createAuthClient({
-      baseURL: window.location.origin,
+      baseURL:
+        typeof window !== "undefined"
+          ? window.location.origin
+          : process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
     })
   }
   return _client
 }
+
+// Each export is a wrapper that only calls getClient() when invoked —
+// never at module evaluation time.
 
 export const signIn = {
   email: (...args: Parameters<AuthClient["signIn"]["email"]>) =>
