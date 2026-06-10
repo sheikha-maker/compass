@@ -1,28 +1,29 @@
-import { createAuthClient } from "better-auth/react"
+// better-auth/react calls useRef at module evaluation time, which crashes
+// during Next.js server-side prerendering (React is null in that context).
+//
+// The fix: don't import better-auth/react at the top level. Instead, use
+// require() inside a function so the module only loads in the browser.
 
-// createAuthClient internally calls useRef, which crashes if invoked during
-// server-side prerendering (React is null in that context). We defer
-// initialisation to the first actual call, which only ever happens in the browser.
-
-type AuthClient = ReturnType<typeof createAuthClient>
+// eslint-disable-next-line @typescript-eslint/no-require-imports
+type AuthClient = ReturnType<typeof import("better-auth/react").createAuthClient>
 
 let _client: AuthClient | null = null
 
 function getClient(): AuthClient {
+  if (typeof window === "undefined") {
+    // Should never be called on the server, but return a no-op guard
+    // rather than crashing if something slips through.
+    throw new Error("auth-client must only be used in the browser")
+  }
   if (!_client) {
+    // eslint-disable-next-line @typescript-eslint/no-require-imports
+    const { createAuthClient } = require("better-auth/react") as typeof import("better-auth/react")
     _client = createAuthClient({
-      baseURL:
-        typeof window !== "undefined"
-          ? window.location.origin
-          : process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
+      baseURL: window.location.origin,
     })
   }
   return _client
 }
-
-// Wrap only the pieces the codebase actually uses.
-// These are safe to export at module level because none are invoked until
-// a user interaction or component render — never during static generation.
 
 export const signIn = {
   email: (...args: Parameters<AuthClient["signIn"]["email"]>) =>
@@ -38,8 +39,6 @@ export function signOut(...args: Parameters<AuthClient["signOut"]>) {
   return getClient().signOut(...args)
 }
 
-// useSession is a React hook — only ever called inside client components,
-// never during prerendering, so deferring via getClient() is safe.
 export function useSession() {
   return getClient().useSession()
 }
