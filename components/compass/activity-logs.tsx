@@ -99,7 +99,7 @@ function exportCSV(logs: LogEntry[]) {
   URL.revokeObjectURL(url)
 }
 
-export function ActivityLogs() {
+function ActivityLogsImpl() {
   const { data: session } = useSession()
   const isLoggedIn = !!session?.user
 
@@ -412,3 +412,6 @@ export function ActivityLogs() {
     </Section>
   )
 }
+
+import dynamic from "next/dynamic"
+export const ActivityLogs = dynamic(() => Promise.resolve(ActivityLogsImpl), { ssr: false })

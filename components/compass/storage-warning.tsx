@@ -2,7 +2,7 @@
 
 import { useSession } from "@/lib/auth-client"
 
-export function StorageWarning() {
+function StorageWarningImpl() {
   const { data: session, isPending } = useSession()
   if (isPending || session?.user) return null
   return (
@@ -15,3 +15,9 @@ export function StorageWarning() {
     </div>
   )
 }
+
+// Re-export as a dynamic component so it never renders during SSR.
+// This prevents better-auth/react (imported via auth-client) from loading
+// on the server and crashing with a useRef error.
+import dynamic from "next/dynamic"
+export const StorageWarning = dynamic(() => Promise.resolve(StorageWarningImpl), { ssr: false })
