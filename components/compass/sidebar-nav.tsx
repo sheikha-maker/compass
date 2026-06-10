@@ -10,14 +10,7 @@ import Link from "next/link"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { usePathname } from "next/navigation"
-import dynamic from "next/dynamic"
-
-// AuthButton imports better-auth/react which calls useRef at module-eval time.
-// ssr:false ensures it never loads during server-side prerendering.
-const AuthButton = dynamic(
-  () => import("@/components/compass/auth-button").then((m) => ({ default: m.AuthButton })),
-  { ssr: false }
-)
+import { AuthButton } from "@/components/compass/auth-button"
 
 const sectionLinks = [
   { href: "/",                      label: "Home",                group: "Start",    icon: Home         },
