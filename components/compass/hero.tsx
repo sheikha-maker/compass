@@ -1,15 +1,15 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import { Compass, ArrowDown, BookOpen, Stethoscope, GraduationCap, Rocket } from "lucide-react"
+import { Compass, ArrowDown, ArrowRight, BookOpen, Stethoscope, GraduationCap, Rocket } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import Link from "next/link"
 
 const timelineSteps = [
-  { year: "Year 1", label: "Foundation", icon: BookOpen, color: "bg-timeline-1" },
-  { year: "Year 2", label: "Explore", icon: Stethoscope, color: "bg-timeline-2" },
-  { year: "Year 3", label: "Prepare", icon: GraduationCap, color: "bg-timeline-3" },
-  { year: "Year 4", label: "Apply", icon: Rocket, color: "bg-timeline-4" },
+  { year: "Year 1", label: "Foundation", subtitle: "Adjust. Build habits. Protect your GPA.", icon: BookOpen,     color: "bg-timeline-1", href: "/your-path?year=0#year-compass" },
+  { year: "Year 2", label: "Explore",    subtitle: "Deepen. Start exploring experiences.",   icon: Stethoscope,  color: "bg-timeline-2", href: "/your-path?year=1#year-compass" },
+  { year: "Year 3", label: "Prepare",    subtitle: "Consolidate. Plan the MCAT and timeline.", icon: GraduationCap, color: "bg-timeline-3", href: "/your-path?year=2#year-compass" },
+  { year: "Year 4", label: "Apply",      subtitle: "Apply. Reflect. Decide on timing honestly.", icon: Rocket,    color: "bg-timeline-4", href: "/your-path?year=3#year-compass" },
 ]
 
 
@@ -135,16 +135,18 @@ export function Hero() {
               {timelineSteps.map((step, index) => (
                 <Link
                   key={step.year}
-                  href={`/your-path?year=${index}#year-compass`}
+                  href={step.href}
                   className="group relative flex items-start gap-4 rounded-xl p-3 text-left transition-all duration-200 hover:bg-primary-foreground/15 md:flex-col md:items-center md:text-center"
                 >
                   <div className={`relative z-10 flex h-12 w-12 shrink-0 items-center justify-center rounded-full ${step.color} text-white shadow-lg transition-all duration-300 group-hover:scale-115 group-hover:shadow-xl`}>
                     <step.icon className="h-5 w-5" aria-hidden="true" />
                   </div>
-                  <div className="md:mt-3">
+                  <div className="md:mt-3 flex-1 md:flex-none">
                     <p className="text-xs font-semibold uppercase tracking-wider text-primary-foreground/60">{step.year}</p>
                     <p className="mt-0.5 font-medium text-primary-foreground">{step.label}</p>
+                    <p className="mt-1 text-xs leading-snug text-primary-foreground/50 group-hover:text-primary-foreground/70 transition-colors hidden md:block">{step.subtitle}</p>
                   </div>
+                  <ArrowRight className="h-3.5 w-3.5 shrink-0 text-primary-foreground/30 transition-all duration-200 group-hover:translate-x-0.5 group-hover:text-primary-foreground/60 md:hidden" aria-hidden="true" />
                   {index < timelineSteps.length - 1 && (
                     <div className="absolute left-6 top-14 h-4 w-0.5 bg-primary-foreground/20 md:hidden" aria-hidden="true" />
                   )}
