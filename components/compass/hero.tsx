@@ -17,10 +17,16 @@ function ParticleCanvas() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
 
   useEffect(() => {
+    // Respect prefers-reduced-motion
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return
+
     const canvas = canvasRef.current
     if (!canvas) return
     const ctx = canvas.getContext("2d")
     if (!ctx) return
+
+    // Fewer particles on small screens to avoid jank
+    const COUNT = window.innerWidth < 768 ? 16 : 38
 
     let animId: number
     const particles: { x: number; y: number; r: number; dx: number; dy: number; alpha: number }[] = []
@@ -33,7 +39,7 @@ function ParticleCanvas() {
 
     function spawn() {
       if (!canvas) return
-      for (let i = 0; i < 38; i++) {
+      for (let i = 0; i < COUNT; i++) {
         particles.push({
           x: Math.random() * canvas.width,
           y: Math.random() * canvas.height,
