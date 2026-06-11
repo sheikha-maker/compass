@@ -1,11 +1,29 @@
+import dynamic from "next/dynamic"
 import { SidebarNav } from "@/components/compass/sidebar-nav"
 import { HeroClient } from "@/components/compass/hero-client"
 import { OnboardingQuiz } from "@/components/compass/onboarding-quiz"
-import { SectionCards } from "@/components/compass/section-cards"
 import { SiteFooter } from "@/components/compass/resources"
 import { ProgressDashboard } from "@/app/tools/components/ProgressDashboard"
 import { DeadlineAlerts } from "@/components/compass/deadline-alerts"
 import Link from "next/link"
+
+// SectionCards uses useRef + IntersectionObserver — must be client-only in Next 15 / React 19
+const SectionCards = dynamic(
+  () => import("@/components/compass/section-cards").then((m) => ({ default: m.SectionCards })),
+  {
+    ssr: false,
+    loading: () => (
+      <div className="mx-auto max-w-4xl px-5 py-14 md:px-8">
+        <div className="h-8 w-48 animate-pulse rounded-lg bg-muted/40" />
+        <div className="mt-8 grid gap-4 sm:grid-cols-2">
+          <div className="h-48 animate-pulse rounded-2xl bg-muted/40" />
+          <div className="h-48 animate-pulse rounded-2xl bg-muted/40" />
+          <div className="h-48 animate-pulse rounded-2xl bg-muted/40" />
+        </div>
+      </div>
+    ),
+  }
+)
 
 export default function Page() {
   return (
@@ -15,7 +33,7 @@ export default function Page() {
         <HeroClient />
         <DeadlineAlerts />
         <OnboardingQuiz />
-<SectionCards />
+        <SectionCards />
         {/* Progress Dashboard */}
         <div className="mx-auto max-w-4xl px-5 pt-10 md:px-8">
           <ProgressDashboard />
