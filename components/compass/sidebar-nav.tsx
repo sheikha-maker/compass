@@ -11,6 +11,7 @@ import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { usePathname } from "next/navigation"
 import { AuthButton } from "@/components/compass/auth-button"
+import { ThemePicker } from "@/components/compass/theme-picker"
 
 const sectionLinks = [
   { href: "/",                      label: "Home",                group: "Start",    icon: Home         },
@@ -126,8 +127,9 @@ export function SidebarNav() {
           })}
         </div>
 
-        {/* Auth */}
-        <div className="border-t border-border px-4 py-3">
+        {/* Theme + Auth */}
+        <div className="border-t border-border px-4 py-3 space-y-2">
+          <ThemePicker />
           <AuthButton />
         </div>
       </nav>
