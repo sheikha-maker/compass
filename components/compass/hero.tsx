@@ -3,8 +3,6 @@
 import { useEffect, useRef, useState } from "react"
 import { Compass, ArrowDown, BookOpen, Stethoscope, GraduationCap, Rocket } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { useTheme } from "next-themes"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import Link from "next/link"
 
 const timelineSteps = [
@@ -14,42 +12,6 @@ const timelineSteps = [
   { year: "Year 4", label: "Apply", icon: Rocket, color: "bg-timeline-4" },
 ]
 
-const THEME_OPTIONS = [
-  { value: "light", label: "Light" },
-  { value: "dark", label: "Dark" },
-  { value: "navy", label: "Navy" },
-  { value: "teal", label: "Teal" },
-  { value: "green", label: "Green" },
-  { value: "gold", label: "Gold" },
-  { value: "red", label: "Red" },
-  { value: "purple", label: "Purple" },
-  { value: "mauve", label: "Mauve" },
-  { value: "brown", label: "Brown" },
-]
-
-function ThemePicker() {
-  const { theme, setTheme } = useTheme()
-  const [mounted, setMounted] = useState(false)
-
-  useEffect(() => setMounted(true), [])
-
-  if (!mounted) return <div className="h-9 w-28 rounded-full bg-white/10" />
-
-  return (
-    <Select value={theme ?? "light"} onValueChange={(value) => setTheme(value)}>
-      <SelectTrigger className="h-9 min-w-[112px] rounded-full text-sm">
-        <SelectValue placeholder="Theme" />
-      </SelectTrigger>
-      <SelectContent>
-        {THEME_OPTIONS.map((option) => (
-          <SelectItem key={option.value} value={option.value} className="text-xs">
-            {option.label}
-          </SelectItem>
-        ))}
-      </SelectContent>
-    </Select>
-  )
-}
 
 function ParticleCanvas() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
@@ -226,7 +188,6 @@ export function Hero() {
               Jump to Tools
             </Button>
           </Link>
-          <ThemePicker />
           <Link href="/about" className="sm:ml-auto">
             <Button
               variant="ghost"
