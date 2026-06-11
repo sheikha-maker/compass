@@ -4,7 +4,7 @@ import { useState } from "react"
 import {
   Compass, Menu, X, Home, Brain, Map, BookOpen,
   ClipboardList, FileText, CheckSquare, HeartPulse,
-  Library, Info
+  Library, Info, Activity
 } from "lucide-react"
 import Link from "next/link"
 import { cn } from "@/lib/utils"
@@ -22,6 +22,7 @@ const sectionLinks = [
   { href: "/tools/application-prep",label: "Application Prep",    group: "Tools",    icon: FileText     },
   { href: "/tools/milestones",      label: "Milestone Checklist", group: "Tools",    icon: CheckSquare  },
   { href: "/tools/wellness-hours",  label: "Wellness & Hours",    group: "Tools",    icon: HeartPulse   },
+  { href: "/burnout-check",         label: "Burnout Check",        group: "Tools",    icon: Activity     },
   { href: "/tools/resources",       label: "Resources",           group: "Tools",    icon: Library      },
   { href: "/about",                 label: "About this guide",    group: "About",    icon: Info         },
 ]
