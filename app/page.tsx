@@ -1,7 +1,7 @@
 import { SidebarNav } from "@/components/compass/sidebar-nav"
 import { HeroClient } from "@/components/compass/hero-client"
 import { OnboardingQuiz } from "@/components/compass/onboarding-quiz"
-import { SectionCards } from "@/components/compass/section-cards"
+import { SectionCardsClient } from "@/components/compass/section-cards-client"
 import { SiteFooter } from "@/components/compass/resources"
 import { ProgressDashboard } from "@/app/tools/components/ProgressDashboard"
 import { DeadlineAlerts } from "@/components/compass/deadline-alerts"
@@ -15,7 +15,7 @@ export default function Page() {
         <HeroClient />
         <DeadlineAlerts />
         <OnboardingQuiz />
-<SectionCards />
+        <SectionCardsClient />
         {/* Progress Dashboard */}
         <div className="mx-auto max-w-4xl px-5 pt-10 md:px-8">
           <ProgressDashboard />

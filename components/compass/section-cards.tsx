@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react"
 import Link from "next/link"
-import { Brain, Map, Trophy, ArrowRight, Heart } from "lucide-react"
+import { Brain, Map, Trophy, ArrowRight } from "lucide-react"
 
 const sections = [
   {
@@ -42,11 +42,21 @@ export function SectionCards() {
   const ref = useRef<HTMLElement>(null)
 
   useEffect(() => {
+    // Guard: IntersectionObserver is browser-only
+    if (typeof window === "undefined" || !("IntersectionObserver" in window)) {
+      setVisible(true)
+      return
+    }
+    const node = ref.current
+    if (!node) {
+      setVisible(true)
+      return
+    }
     const observer = new IntersectionObserver(
       ([entry]) => { if (entry.isIntersecting) setVisible(true) },
       { threshold: 0.1 }
     )
-    if (ref.current) observer.observe(ref.current)
+    observer.observe(node)
     return () => observer.disconnect()
   }, [])
 
@@ -60,7 +70,7 @@ export function SectionCards() {
         Each section lives on its own page so you can focus on what matters right now without the noise.
       </p>
 
-      <div className="mt-8 grid gap-4 sm:grid-cols-2">
+      <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {sections.map((s, i) => {
           const Icon = s.icon
           return (
