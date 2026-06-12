@@ -13,6 +13,14 @@ const testimonials = [
     quote: "I found it helpful that it was easy to navigate, and the guide had very helpful information.",
     attribution: "Karl Adriano",
   },
+  {
+    quote: "A lot of people think burnout is just overworking, but a main driver of it is lack of clarity. All the advice and tools, especially the ones specific to Moravian, are very nice.",
+    attribution: "Sriman Goli",
+  },
+  {
+    quote: "The resources provided are very helpful for Pre-Med students.",
+    attribution: "Sophie Katz",
+  },
 ]
 
 export default function AboutPage() {
