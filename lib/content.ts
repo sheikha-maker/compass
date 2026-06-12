@@ -537,7 +537,7 @@ export const faqs = [
   },
   {
     q: "How many shadowing hours do I really need?",
-    a: "Fewer than the internet implies. Roughly 40-50 thoughtful hours across a couple of specialties is plenty for most applications. What matters is what you understood, not the count.",
+    a: "Fewer than the internet implies. Roughly 40–50 thoughtful hours across a couple of specialties is plenty for most applications. What matters is what you understood, not the count.",
   },
   {
     q: "Do my grades from freshman year ruin everything?",
@@ -546,6 +546,38 @@ export const faqs = [
   {
     q: "What if I'm not sure medicine is for me?",
     a: "That uncertainty is healthy and worth exploring honestly through shadowing and clinical work. It's far better to find clarity now than to push forward on momentum alone. This guide is here to help you decide intentionally, either way.",
+  },
+  {
+    q: "How early should I start studying for the MCAT?",
+    a: "Most successful students study 3–6 months full-time, or longer if studying part-time during a semester. The key is starting with a diagnostic to know where you actually are, then building a phased plan. Starting 'early' without a plan wastes time; starting on time with a solid structure is what matters.",
+  },
+  {
+    q: "How many schools should I apply to?",
+    a: "Most advisors suggest 15–25 schools across reach, target, and safety tiers. Below 12 is risky. Above 30 and the quality of your secondary essays usually suffers. A thoughtful, researched list of 18–22 beats a shotgun approach every time.",
+  },
+  {
+    q: "Does it matter which medical school I go to?",
+    a: "Less than you think for most career paths. Residency match rates, board pass rates, and the culture of a school matter far more than its ranking. Research specific programs rather than chasing prestige — you'll spend four years there.",
+  },
+  {
+    q: "Can I still get in with a C in orgo?",
+    a: "Yes, especially if it's isolated and surrounded by strong grades elsewhere. Schools look at your full science GPA, your trend, and your MCAT science scores together. One poor grade in context rarely kills an application. Explain it briefly in your application if asked, and let the rest of your record speak louder.",
+  },
+  {
+    q: "Do I need research to get into medical school?",
+    a: "It depends on the school. MD/PhD and top research-focused programs expect it. Many solid MD programs value clinical depth and service just as much. If research genuinely interests you, pursue it meaningfully. If not, build real depth in clinical and service work instead — admissions committees can tell the difference.",
+  },
+  {
+    q: "When should I ask for letters of recommendation?",
+    a: "Ask at least 3–4 months before you need them, ideally at the end of a semester when the relationship is fresh. Give your writers your CV, personal statement draft, and a brief note on why you chose medicine. The more context you give, the stronger the letter.",
+  },
+  {
+    q: "What makes a personal statement stand out?",
+    a: "Specificity and honesty. Admissions readers review thousands of essays about 'wanting to help people.' What stands out is a concrete moment, an honest reflection on what you learned, and a clear thread connecting your experiences to medicine. Avoid listing your resume in prose — that's what the activities section is for.",
+  },
+  {
+    q: "Is it bad to apply to DO schools?",
+    a: "No. Osteopathic medicine is a full medical degree with the same licensure and residency access as MD programs. DO schools often have holistic admissions processes and serve underserved communities at high rates. Apply to both if they fit your goals — treating DO schools as a fallback rather than a real option is an outdated take.",
   },
 ]
 

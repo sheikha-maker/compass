@@ -61,3 +61,18 @@ export const breathingExercise = {
     "Repeat. When your mind wanders, name it ('planning,' 'worrying') and return to the breath.",
   ],
 }
+
+export const comparisonReframePrompts = [
+  {
+    prompt: "What's one thing I've built or learned this semester that someone else doesn't have?",
+    why: "Shifts focus from what you lack to what's genuinely yours.",
+  },
+  {
+    prompt: "If I removed all comparison from my decision-making, what would I actually do next?",
+    why: "Reveals whether your current plan is yours or borrowed from anxiety.",
+  },
+  {
+    prompt: "What does my own version of success look like — not a ranking, not a score, but a life?",
+    why: "Reconnects you to your original motivation for medicine.",
+  },
+]
