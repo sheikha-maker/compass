@@ -1,6 +1,6 @@
 import { Section } from "./section"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
-import { faqs } from "@/lib/content"
+import { faqs, lastReviewed } from "@/lib/content"
 import { McatSectionsOverview } from "./mcat/mcat-sections-overview"
 import { McatScoreScale } from "./mcat/mcat-score-scale"
 import { McatPhaseStepper, McatHonestTruths } from "./mcat/mcat-phase-stepper"
@@ -16,6 +16,7 @@ export function McatDeepDive() {
       id="mcat"
       eyebrow="The Big Milestones"
       title="MCAT Deep Dive"
+      lastReviewed={lastReviewed}
       intro="The MCAT is a marathon, not a sprint. Plan for it like one. Understand the exam structure, build a phased study plan, and use the tools below to stay honest about readiness."
     >
       <div className="space-y-12">

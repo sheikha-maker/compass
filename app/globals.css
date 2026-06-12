@@ -693,3 +693,31 @@ html {
   animation: shimmer 1.4s ease infinite;
   border-radius: 0.5rem;
 }
+
+/* ─── Print styles (milestone checklist) ─────────────────────────────────── */
+@media print {
+  /* Hide all navigation, sidebar, and chrome */
+  nav, aside, header, footer,
+  [data-sidebar], .print\:hidden { display: none !important; }
+
+  /* Remove sidebar offset */
+  main { padding-left: 0 !important; margin-left: 0 !important; }
+  .lg\:pl-72 { padding-left: 0 !important; }
+
+  /* Remove page hero banner — checklist content only */
+  main > div:first-child { display: none !important; }
+
+  /* Clean up backgrounds and borders for paper */
+  body { background: white !important; color: black !important; }
+  .border, [class*="border-"] { border-color: #e5e7eb !important; }
+  [class*="bg-card"], [class*="bg-muted"] { background: white !important; }
+
+  /* Prevent checklist years from breaking across pages */
+  section, .rounded-2xl { break-inside: avoid; }
+
+  /* Page setup */
+  @page {
+    margin: 1.5cm;
+    size: A4;
+  }
+}
