@@ -18,11 +18,19 @@ export type ExperienceTool = {
   }
 }
 
+export type GapYearCallout = {
+  heading: string
+  body: string
+  activities: string[]
+  framingTip: string
+}
+
 export type YearCompassItem = {
   year: string
   theme: string
   focus: string[]
   avoid: string
+  gapYearCallout?: GapYearCallout
   sampleSchedule?: {
     fall: string[]
     spring: string[]
@@ -172,7 +180,6 @@ export const experienceTools = [
       description: "Moravian has active research labs across the sciences that regularly take undergraduate students. A few examples: Dr. Fox runs a neuroscience lab — a natural fit if you're a neuro major or curious about brain science. Dr. Jones studies the genetics of behavior using Drosophila melanogaster (fruit flies), a classic and powerful model organism. Dr. Fucci's lab investigates how the RET receptor tyrosine kinase functions in healthy neuronal development and in diseases like cancer. These are just starting points — explore faculty pages across Biology, Chemistry, Neuroscience, and Psychology to find a question that genuinely interests you.",
       actionItem: "Browse faculty research pages on the Moravian website, identify one project that excites you, then email that professor with a specific question about their work — not a generic 'I want experience' message.",
     },
-  },
   {
     id: "clinical",
     title: "Clinical Experience",
@@ -202,7 +209,6 @@ export const experienceTools = [
       description: "Moravian sits in the middle of one of Pennsylvania's largest healthcare corridors. St. Luke's University Health Network and Lehigh Valley Health Network both have facilities close to campus and have historically hosted Moravian students. Private practices in Bethlehem and Allentown are also worth cold-emailing — many solo and group practices are receptive to pre-med students who reach out professionally and specifically. Don't limit yourself to one specialty: try to shadow a primary care physician and at least one specialist to get a rounded picture of medicine.",
       actionItem: "Start with your pre-health advisor for structured programs, then branch out to cold-emailing local practices with a brief, specific message about who you are and what you're hoping to observe.",
     },
-  },
   {
     id: "leadership",
     title: "Leadership",
@@ -343,6 +349,18 @@ export const yearCompass = [
       "Give yourself permission to feel the weight of this — and then take it one step at a time.",
     ],
     avoid: "Don't apply before you're ready just because of the calendar. A gap year is not a setback.",
+    gapYearCallout: {
+      heading: "If you're considering a gap year",
+      body: "Roughly 40–45% of medical school matriculants take at least one gap year, so you'd be in very good company. The question isn't whether a gap year is acceptable — it is — but whether you'd use the time intentionally. A gap year spent drifting looks different on an application than one spent doing something meaningful.",
+      activities: [
+        "Clinical work with more responsibility — scribing, EMT, CNA, medical assisting",
+        "Research, especially if you want to strengthen a thin research record",
+        "AmeriCorps, Peace Corps, or City Year if service is central to your story",
+        "Post-baccalaureate coursework if GPA or science prerequisites need strengthening",
+        "Working in public health, healthcare policy, or a health-adjacent field",
+      ],
+      framingTip: "In your application, frame the gap year as a deliberate choice, not a fallback. 'I wanted one more year of clinical depth before committing to four years of medical school' is a strong answer. 'I wasn't ready' without more context is not.",
+    },
     experiences: [
       "Maintain clinical and service commitments throughout the application cycle",
       "Complete secondary applications within two weeks of receiving them",
@@ -754,5 +772,136 @@ export const usefulLinks = [
     href: "https://www.reddit.com/r/Mcat/",
     desc: "MCAT-specific community with study schedules, resource reviews, and score reactions.",
     category: "Communities"
+  },
+]
+
+// ─── Sources & References ─────────────────────────────────────────────────────
+
+export type Source = {
+  title: string
+  author: string
+  url: string
+  note: string
+}
+
+export type SourceCategory = {
+  category: string
+  sources: Source[]
+}
+
+export const sources: SourceCategory[] = [
+  {
+    category: "MCAT",
+    sources: [
+      {
+        title: "MCAT Essentials — Content Outline & Test Structure",
+        author: "AAMC",
+        url: "https://students-residents.aamc.org/mcat-essentials",
+        note: "The official guide to what's tested, how it's scored, and how to register.",
+      },
+      {
+        title: "MCAT Score Percentile Ranks",
+        author: "AAMC",
+        url: "https://www.aamc.org/students/applying/mcat/scores",
+        note: "Used for the score scale and section breakdowns in the MCAT Deep Dive.",
+      },
+      {
+        title: "How Much Time Should I Spend Studying for the MCAT?",
+        author: "AAMC",
+        url: "https://students-residents.aamc.org/prepare-mcat-exam/how-much-time-should-i-spend-studying-mcat-exam",
+        note: "Basis for the 3–6 month / 300–350 hour study time recommendation.",
+      },
+    ],
+  },
+  {
+    category: "Applications",
+    sources: [
+      {
+        title: "AMCAS Applicant Guide",
+        author: "AAMC",
+        url: "https://students-residents.aamc.org/applying-medical-school-amcas/amcas-applicant-guide",
+        note: "Official guide to the primary application process, timeline, and requirements.",
+      },
+      {
+        title: "Medical School Admission Requirements (MSAR)",
+        author: "AAMC",
+        url: "https://students-residents.aamc.org/applying-medical-school/taking-mcat-exam/medical-school-admission-requirements",
+        note: "School-specific GPA, MCAT, and acceptance data — the primary source for application stats.",
+      },
+      {
+        title: "AAMC Matriculating Student Questionnaire",
+        author: "AAMC",
+        url: "https://www.aamc.org/data-reports/students-residents/interactive-data/matriculating-student-questionnaire-msq",
+        note: "Source for clinical hours, shadowing hours, and research experience averages among admitted students.",
+      },
+      {
+        title: "Holistic Review in Medical School Admissions",
+        author: "AAMC",
+        url: "https://www.aamc.org/services/member-capacity-building/holistic-review",
+        note: "Explains how schools weigh experience, attributes, and academics together — basis for 'more than a GPA' framing.",
+      },
+    ],
+  },
+  {
+    category: "Gap Years",
+    sources: [
+      {
+        title: "AAMC 2024 Matriculating Student Questionnaire — Time Between Undergraduate and Medical School",
+        author: "AAMC",
+        url: "https://www.aamc.org/data-reports/students-residents/interactive-data/matriculating-student-questionnaire-msq",
+        note: "Source for the ~40–45% gap year matriculant statistic.",
+      },
+    ],
+  },
+  {
+    category: "Burnout & Wellness",
+    sources: [
+      {
+        title: "Burnout and Satisfaction with Work-Life Balance Among US Physicians Relative to the General US Working Population",
+        author: "Shanafelt TD, et al. — Archives of Internal Medicine, 2012",
+        url: "https://jamanetwork.com/journals/jamainternalmedicine/fullarticle/1351351",
+        note: "Landmark study on physician burnout rates that informs the urgency of early prevention.",
+      },
+      {
+        title: "Prevalence of Depression, Depressive Symptoms, and Suicidal Ideation Among Medical Students",
+        author: "Rotenstein LS, et al. — JAMA, 2016",
+        url: "https://jamanetwork.com/journals/jama/fullarticle/2589340",
+        note: "Basis for the burnout and mental health statistics cited in the guide.",
+      },
+      {
+        title: "Burnout Among U.S. Medical Students, Residents, and Early Career Physicians Relative to the General U.S. Population",
+        author: "Dyrbye LN, et al. — Academic Medicine, 2014",
+        url: "https://journals.lww.com/academicmedicine/fulltext/2014/03000/burnout_among_u_s__medical_students,_residents,.21.aspx",
+        note: "Core reference for the Burnout Check section.",
+      },
+    ],
+  },
+  {
+    category: "Osteopathic Medicine",
+    sources: [
+      {
+        title: "Osteopathic Medical Education",
+        author: "American Association of Colleges of Osteopathic Medicine (AACOM)",
+        url: "https://www.aacom.org/become-a-doctor/about-osteopathic-medicine",
+        note: "Basis for the DO schools section in the FAQ — equivalency of licensure and residency access.",
+      },
+    ],
+  },
+  {
+    category: "Moravian University",
+    sources: [
+      {
+        title: "Moravian University Pre-Health Advising",
+        author: "Moravian University",
+        url: "https://www.moravian.edu/pre-health",
+        note: "Primary institutional source for Moravian-specific requirements and advising resources.",
+      },
+      {
+        title: "Moravian University Faculty Research",
+        author: "Moravian University",
+        url: "https://www.moravian.edu/research",
+        note: "Source for the faculty research highlights in Building Your Path.",
+      },
+    ],
   },
 ]
