@@ -34,14 +34,17 @@ export const metadata: Metadata = {
     description:
       'A sustainable, anxiety-aware pre-med guide for Moravian University students. MCAT prep, application timeline, and wellness tools.',
     siteName: 'The Pre-Med Compass',
+    url: 'https://v0-premedcompass.vercel.app',
     type: 'website',
     locale: 'en_US',
+    images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'The Pre-Med Compass' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'The Pre-Med Compass',
     description:
       'Navigate your pre-med journey with clarity and intention, built for Moravian University students.',
+    images: ['/opengraph-image'],
   },
 }
 

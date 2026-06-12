@@ -67,7 +67,7 @@ export const mcatSectionTopics: {
     sectionId: "cp",
     title: "C/P high-yield topics",
     topics: [
-      "Acid–base, buffers, titrations",
+      "Acid-base, buffers, titrations",
       "Electrochemistry & redox",
       "Thermodynamics, kinetics, equilibrium",
       "Fluids, circuits, optics, forces",
