@@ -172,6 +172,7 @@ export const experienceTools = [
       description: "Moravian has active research labs across the sciences that regularly take undergraduate students. A few examples: Dr. Fox runs a neuroscience lab — a natural fit if you're a neuro major or curious about brain science. Dr. Jones studies the genetics of behavior using Drosophila melanogaster (fruit flies), a classic and powerful model organism. Dr. Fucci's lab investigates how the RET receptor tyrosine kinase functions in healthy neuronal development and in diseases like cancer. These are just starting points — explore faculty pages across Biology, Chemistry, Neuroscience, and Psychology to find a question that genuinely interests you.",
       actionItem: "Browse faculty research pages on the Moravian website, identify one project that excites you, then email that professor with a specific question about their work — not a generic 'I want experience' message.",
     },
+  },
   {
     id: "clinical",
     title: "Clinical Experience",
@@ -201,6 +202,7 @@ export const experienceTools = [
       description: "Moravian sits in the middle of one of Pennsylvania's largest healthcare corridors. St. Luke's University Health Network and Lehigh Valley Health Network both have facilities close to campus and have historically hosted Moravian students. Private practices in Bethlehem and Allentown are also worth cold-emailing — many solo and group practices are receptive to pre-med students who reach out professionally and specifically. Don't limit yourself to one specialty: try to shadow a primary care physician and at least one specialist to get a rounded picture of medicine.",
       actionItem: "Start with your pre-health advisor for structured programs, then branch out to cold-emailing local practices with a brief, specific message about who you are and what you're hoping to observe.",
     },
+  },
   {
     id: "leadership",
     title: "Leadership",
