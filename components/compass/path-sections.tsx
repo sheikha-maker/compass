@@ -211,6 +211,27 @@ export function YearCompass() {
             </p>
           </div>
         )}
+
+        {current.gapYearCallout && (
+          <div className="mt-6 rounded-xl border border-timeline-4/30 bg-timeline-4/5 p-5">
+            <div className="mb-3 flex items-center gap-2">
+              <BookOpen className="h-4 w-4 text-timeline-4 shrink-0" aria-hidden />
+              <p className="font-semibold text-foreground">{current.gapYearCallout.heading}</p>
+            </div>
+            <p className="text-sm leading-relaxed text-muted-foreground">{current.gapYearCallout.body}</p>
+            <ul className="mt-4 space-y-2">
+              {current.gapYearCallout.activities.map((a) => (
+                <li key={a} className="flex items-start gap-2 text-sm text-foreground">
+                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-timeline-4" aria-hidden />
+                  {a}
+                </li>
+              ))}
+            </ul>
+            <p className="mt-4 border-t border-timeline-4/20 pt-3 text-sm italic text-muted-foreground">
+              {current.gapYearCallout.framingTip}
+            </p>
+          </div>
+        )}
       </div>
 
       <div className="mt-4 flex justify-between">
