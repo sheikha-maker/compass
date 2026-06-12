@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import { CheckCircle2, AlertTriangle, Users, BookOpen, Star, Calendar } from "lucide-react"
-import { experienceTools, yearCompass, courseGuides, mentorshipPoints, mentorshipCaseStudies } from "@/lib/content"
+import { experienceTools, yearCompass, courseGuides, mentorshipPoints, mentorshipCaseStudies, lastReviewed } from "@/lib/content"
 import { experienceTypeCards } from "@/lib/path-content"
 import { Section } from "./section"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
@@ -24,6 +24,7 @@ export function ExperienceTools() {
       id="experience-tools"
       eyebrow="Building Your Path"
       title="Experience-Specific Tools"
+      lastReviewed={lastReviewed}
       intro="Research, clinical work, shadowing, leadership, and service each have a different purpose and a different right time. Here's how to think about each one without turning it into a checklist."
     >
       <div className="mb-6 grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-5">

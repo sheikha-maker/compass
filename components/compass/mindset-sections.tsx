@@ -1,5 +1,5 @@
 import { Heart, Scale, GitCompare, Wind } from "lucide-react"
-import { mindfulnessPractices } from "@/lib/content"
+import { mindfulnessPractices, lastReviewed } from "@/lib/content"
 import { comparisonInsights, breathingExercise } from "@/lib/mindset-content"
 import { Section } from "./section"
 import { WeeklyWellnessRhythm } from "./mindset/weekly-wellness-rhythm"
@@ -12,6 +12,7 @@ export function Mindfulness() {
       id="mindfulness"
       eyebrow="Mindset"
       title="Mindfulness"
+      lastReviewed={lastReviewed}
       intro="Most pre-med guidance overlooks mental well-being, and its effects can snowball. The students who burn out aren't the least capable; they're the ones who never built a way to carry the pressure. Start here."
     >
       <div className="mb-8 rounded-xl border border-primary/20 bg-gradient-to-br from-primary/8 to-accent/5 p-5 md:p-6">
