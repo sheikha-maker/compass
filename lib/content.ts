@@ -167,7 +167,11 @@ export const experienceTools = [
       "It's okay to start with lab tasks; understanding comes with time.",
       "One strong, lasting research relationship beats several shallow ones.",
     ],
-  },
+    moravianHighlight: {
+      title: "Faculty Research at Moravian",
+      description: "Moravian has active research labs across the sciences that regularly take undergraduate students. A few examples: Dr. Fox runs a neuroscience lab — a natural fit if you're a neuro major or curious about brain science. Dr. Jones studies the genetics of behavior using Drosophila melanogaster (fruit flies), a classic and powerful model organism. Dr. Fucci's lab investigates how the RET receptor tyrosine kinase functions in healthy neuronal development and in diseases like cancer. These are just starting points — explore faculty pages across Biology, Chemistry, Neuroscience, and Psychology to find a question that genuinely interests you.",
+      actionItem: "Browse faculty research pages on the Moravian website, identify one project that excites you, then email that professor with a specific question about their work — not a generic 'I want experience' message.",
+    },
   {
     id: "clinical",
     title: "Clinical Experience",
@@ -190,9 +194,13 @@ export const experienceTools = [
     tips: [
       "Shadow a few different specialties, including at least one primary care.",
       "Ask physicians what they'd tell their pre-med selves.",
-      "40-50 thoughtful hours is plenty for most applications.",
+      "40–50 thoughtful hours is plenty for most applications.",
     ],
-  },
+    moravianHighlight: {
+      title: "Shadowing in the Lehigh Valley",
+      description: "Moravian sits in the middle of one of Pennsylvania's largest healthcare corridors. St. Luke's University Health Network and Lehigh Valley Health Network both have facilities close to campus and have historically hosted Moravian students. Private practices in Bethlehem and Allentown are also worth cold-emailing — many solo and group practices are receptive to pre-med students who reach out professionally and specifically. Don't limit yourself to one specialty: try to shadow a primary care physician and at least one specialist to get a rounded picture of medicine.",
+      actionItem: "Start with your pre-health advisor for structured programs, then branch out to cold-emailing local practices with a brief, specific message about who you are and what you're hoping to observe.",
+    },
   {
     id: "leadership",
     title: "Leadership",
@@ -418,6 +426,19 @@ export const courseGuides = [
       "Use Anki or flashcards for amino acids and pathway regulation.",
       "Biochem is heavily tested on the MCAT, treat this as preview."
     ]
+  },
+  {
+    course: "Anatomy & Physiology",
+    strategy:
+      "A&P rewards systems thinking over brute memorization. For every structure you learn, ask immediately: what does it do, what happens when it fails, and how does it connect to the systems around it? Build a mental map of the body — anatomy and function together — rather than treating them as separate lists.",
+    survival:
+      "The volume is relentless and cumulative. A concept map per unit is non-negotiable. If you fall behind by even one unit, the next one won't make sense. Prioritize catching up over moving forward.",
+    moravianTips: [
+      "The lab component is where A&P clicks — take it seriously and arrive prepared.",
+      "This content is heavily tested on the MCAT; treat it as preview, not a one-time course.",
+      "Pair your studying with Khan Academy's organ systems videos for a second explanation of tough concepts.",
+      "Form a study group specifically for anatomy — quizzing each other on structures out loud is far more effective than re-reading.",
+    ],
   },
   {
     course: "Psychology & Sociology",
