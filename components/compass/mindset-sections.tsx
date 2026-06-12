@@ -1,6 +1,6 @@
-import { Heart, Scale, GitCompare, Wind } from "lucide-react"
+import { Heart, Scale, GitCompare, Wind, RefreshCw } from "lucide-react"
 import { mindfulnessPractices, lastReviewed } from "@/lib/content"
-import { comparisonInsights, breathingExercise } from "@/lib/mindset-content"
+import { comparisonInsights, comparisonReframePrompts, breathingExercise } from "@/lib/mindset-content"
 import { Section } from "./section"
 import { WeeklyWellnessRhythm } from "./mindset/weekly-wellness-rhythm"
 
@@ -73,6 +73,32 @@ export function Comparison() {
             <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{item.body}</p>
           </div>
         ))}
+      </div>
+
+      {/* Reframe exercise */}
+      <div className="mt-8 rounded-xl border border-primary/20 bg-gradient-to-br from-primary/5 to-accent/5 p-5 md:p-6">
+        <div className="mb-4 flex items-center gap-2">
+          <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary/10">
+            <RefreshCw className="h-4 w-4 text-primary" aria-hidden />
+          </div>
+          <div>
+            <p className="font-serif font-medium text-foreground">When comparison hits — try this</p>
+            <p className="text-sm text-muted-foreground">Three prompts that redirect comparison into clarity. Pick one and sit with it for five minutes.</p>
+          </div>
+        </div>
+        <ol className="space-y-4">
+          {comparisonReframePrompts.map((item, i) => (
+            <li key={i} className="flex gap-4">
+              <span className="mt-0.5 flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-primary/15 text-xs font-bold text-primary">
+                {i + 1}
+              </span>
+              <div>
+                <p className="font-medium text-foreground">&ldquo;{item.prompt}&rdquo;</p>
+                <p className="mt-1 text-sm text-muted-foreground">{item.why}</p>
+              </div>
+            </li>
+          ))}
+        </ol>
       </div>
     </Section>
   )
