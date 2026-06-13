@@ -12,7 +12,7 @@ const THEME_OPTIONS = [
   { value: "teal",   label: "Teal"   },
   { value: "green",  label: "Green"  },
   { value: "gold",   label: "Gold"   },
-  { value: "red",    label: "Red"    },
+  { value: "red",    label: "Maroon"  },
   { value: "purple", label: "Purple" },
   { value: "mauve",  label: "Mauve"  },
   { value: "brown",  label: "Brown"  },

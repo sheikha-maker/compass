@@ -232,6 +232,57 @@ export function YearCompass() {
             </p>
           </div>
         )}
+
+        {/* Experiences */}
+        {current.experiences && current.experiences.length > 0 && (
+          <div className="mt-6 rounded-xl border border-border bg-card p-5">
+            <div className="mb-3 flex items-center gap-2">
+              <Users className="h-4 w-4 text-primary shrink-0" aria-hidden />
+              <p className="font-semibold text-foreground">Experiences to aim for this year</p>
+            </div>
+            <ul className="space-y-2">
+              {current.experiences.map((e) => (
+                <li key={e} className="flex items-start gap-2 text-sm text-muted-foreground">
+                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" aria-hidden />
+                  {e}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        {/* Advisor topics */}
+        {current.advisorTopics && current.advisorTopics.length > 0 && (
+          <div className="mt-4 rounded-xl border border-border bg-card p-5">
+            <div className="mb-3 flex items-center gap-2">
+              <Star className="h-4 w-4 text-accent shrink-0" aria-hidden />
+              <p className="font-semibold text-foreground">Bring these to your advisor meeting</p>
+            </div>
+            <ul className="space-y-2">
+              {current.advisorTopics.map((t) => (
+                <li key={t} className="flex items-start gap-2 text-sm text-muted-foreground">
+                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" aria-hidden />
+                  {t}
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        {/* Reflections */}
+        {current.reflections && current.reflections.length > 0 && (
+          <div className="mt-4 rounded-xl border border-border bg-secondary/40 p-5">
+            <p className="mb-3 font-semibold text-foreground">Questions worth sitting with</p>
+            <ul className="space-y-3">
+              {current.reflections.map((r) => (
+                <li key={r} className="flex items-start gap-2.5 text-sm italic text-muted-foreground">
+                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-muted-foreground/40" aria-hidden />
+                  &ldquo;{r}&rdquo;
+                </li>
+              ))}
+            </ul>
+          </div>
+        )}
       </div>
 
       <div className="mt-4 flex justify-between">
