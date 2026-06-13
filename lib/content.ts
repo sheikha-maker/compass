@@ -30,6 +30,9 @@ export type YearCompassItem = {
   theme: string
   focus: string[]
   avoid: string
+  experiences?: string[]
+  advisorTopics?: string[]
+  reflections?: string[]
   gapYearCallout?: GapYearCallout
   sampleSchedule?: {
     fall: string[]
