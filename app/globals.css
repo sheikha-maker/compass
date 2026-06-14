@@ -645,3 +645,47 @@ html {
     size: A4;
   }
 }
+
+/* ─── Micro-interactions ─────────────────────────────────────────────────────── */
+
+/* Icon bounce — add class to any icon wrapper */
+@keyframes icon-bounce {
+  0%, 100% { transform: translateY(0) scale(1); }
+  40%       { transform: translateY(-4px) scale(1.1); }
+  70%       { transform: translateY(-1px) scale(1.05); }
+}
+
+.icon-bounce {
+  display: inline-flex;
+  transition: transform 0.2s ease;
+}
+.group:hover .icon-bounce {
+  animation: icon-bounce 0.45s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Icon spin — for rotating icons (e.g. settings, refresh) */
+@keyframes icon-spin-once {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+.icon-spin {
+  display: inline-flex;
+}
+.group:hover .icon-spin {
+  animation: icon-spin-once 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Button press — satisfying scale + shadow on active */
+.btn-press {
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+}
+.btn-press:active {
+  transform: scale(0.96);
+  box-shadow: 0 1px 4px rgba(0,0,0,0.15);
+}
+
+/* Tag pill pop — topic tags that scale on parent hover */
+.group:hover .tag-pop {
+  transform: translateY(-1px);
+  transition: transform 0.15s ease;
+}
