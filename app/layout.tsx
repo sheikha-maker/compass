@@ -66,7 +66,7 @@ export default function RootLayout({
         >
           Skip to content
         </a>
-        <ThemeProvider attribute="class" defaultTheme="light" themes={["light", "dark", "red", "green", "purple", "brown", "teal", "mauve", "gold", "navy"]}>
+        <ThemeProvider attribute="class" defaultTheme="light" themes={["light", "dark", "red", "green", "purple", "teal", "gold", "navy"]}>
           <ReadingProgress />
           <PageTransition>{children}</PageTransition>
           {process.env.NODE_ENV === 'production' && <Analytics />}

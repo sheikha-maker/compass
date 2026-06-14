@@ -5,94 +5,74 @@ import { SectionCardsClient } from "@/components/compass/section-cards-client"
 import { SiteFooter } from "@/components/compass/resources"
 import { ProgressDashboard } from "@/app/tools/components/ProgressDashboard"
 import { DeadlineAlerts } from "@/components/compass/deadline-alerts"
+import { Reveal } from "@/components/compass/reveal"
 import Link from "next/link"
 import { ClipboardList, FileText, CheckSquare, HeartPulse, Library } from "lucide-react"
+
+const tools = [
+  { href: "/tools/plan-check",        icon: ClipboardList, label: "Plan & Check",      desc: "Prerequisite tracker, course planner, GPA calculator, and MCAT countdown."             },
+  { href: "/tools/application-prep",  icon: FileText,      label: "Application Prep",  desc: "Track applications, manage your school list, prep essays and interviews, and log LORs." },
+  { href: "/tools/milestones",        icon: CheckSquare,   label: "Milestones",         desc: "Year-by-year checklist of key Moravian pre-med milestones to keep you on track."       },
+  { href: "/tools/wellness-hours",    icon: HeartPulse,    label: "Wellness & Hours",   desc: "Weekly wellness check-ins and activity logs to track clinical and volunteer hours."    },
+  { href: "/tools/resources",         icon: Library,       label: "Resources",          desc: "Curated links and recommendations to support every stage of your pre-med journey.", span: true },
+]
 
 export default function Page() {
   return (
     <div className="min-h-screen bg-background">
       <SidebarNav />
-      <main className="lg:pl-72">
+      <main id="main-content" className="lg:pl-72">
         <HeroClient />
+
+        {/* Deadline alerts */}
         <DeadlineAlerts />
+
+        {/* Onboarding */}
         <OnboardingQuiz />
+
+        {/* Section cards — has its own internal stagger via IntersectionObserver */}
         <SectionCardsClient />
-        {/* Progress Dashboard */}
-        <div className="mx-auto max-w-4xl px-5 pt-10 md:px-8">
+
+        {/* Progress dashboard */}
+        <Reveal delay={0} className="mx-auto max-w-4xl px-5 pt-10 md:px-8">
           <ProgressDashboard />
-        </div>
-        {/* Tools Overview Section */}
+        </Reveal>
+
+        {/* Tools Overview */}
         <section id="tools-overview" className="mx-auto max-w-4xl px-5 py-14 md:px-8">
-          <p className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">Quick access</p>
-          <h2 className="mt-2 font-serif text-2xl font-semibold text-foreground md:text-3xl">
-            Your essential tools
-          </h2>
-          <p className="mt-3 max-w-2xl text-muted-foreground">
-            Plan your coursework, track your applications, and stay on top of your milestones and wellness.
-          </p>
+          <Reveal>
+            <p className="text-sm font-semibold uppercase tracking-wider text-muted-foreground">Quick access</p>
+            <h2 className="mt-2 font-serif text-2xl font-semibold text-foreground md:text-3xl">
+              Your essential tools
+            </h2>
+            <p className="mt-3 max-w-2xl text-muted-foreground">
+              Plan your coursework, track your applications, and stay on top of your milestones and wellness.
+            </p>
+          </Reveal>
+
           <div className="mt-6 grid gap-4 sm:grid-cols-2">
-            <Link
-              href="/tools/plan-check"
-              className="group flex items-start gap-4 rounded-2xl border border-border bg-card p-5 transition-all duration-200 hover:border-primary/50 hover:shadow-lg hover:-translate-y-0.5"
-            >
-              <div className="rounded-xl bg-primary/10 p-2.5 transition-transform duration-200 group-hover:scale-110">
-                <ClipboardList className="h-5 w-5 text-primary" aria-hidden="true" />
-              </div>
-              <div>
-                <p className="font-semibold text-foreground">Plan & Check</p>
-                <p className="mt-0.5 text-sm text-muted-foreground">Prerequisite tracker, course planner, GPA calculator, and MCAT countdown.</p>
-              </div>
-            </Link>
-            <Link
-              href="/tools/application-prep"
-              className="group flex items-start gap-4 rounded-2xl border border-border bg-card p-5 transition-all duration-200 hover:border-primary/50 hover:shadow-lg hover:-translate-y-0.5"
-            >
-              <div className="rounded-xl bg-primary/10 p-2.5 transition-transform duration-200 group-hover:scale-110">
-                <FileText className="h-5 w-5 text-primary" aria-hidden="true" />
-              </div>
-              <div>
-                <p className="font-semibold text-foreground">Application Prep</p>
-                <p className="mt-0.5 text-sm text-muted-foreground">Track applications, manage your school list, prep essays and interviews, and log LORs.</p>
-              </div>
-            </Link>
-            <Link
-              href="/tools/milestones"
-              className="group flex items-start gap-4 rounded-2xl border border-border bg-card p-5 transition-all duration-200 hover:border-primary/50 hover:shadow-lg hover:-translate-y-0.5"
-            >
-              <div className="rounded-xl bg-primary/10 p-2.5 transition-transform duration-200 group-hover:scale-110">
-                <CheckSquare className="h-5 w-5 text-primary" aria-hidden="true" />
-              </div>
-              <div>
-                <p className="font-semibold text-foreground">Milestones</p>
-                <p className="mt-0.5 text-sm text-muted-foreground">Year-by-year checklist of key Moravian pre-med milestones to keep you on track.</p>
-              </div>
-            </Link>
-            <Link
-              href="/tools/wellness-hours"
-              className="group flex items-start gap-4 rounded-2xl border border-border bg-card p-5 transition-all duration-200 hover:border-primary/50 hover:shadow-lg hover:-translate-y-0.5"
-            >
-              <div className="rounded-xl bg-primary/10 p-2.5 transition-transform duration-200 group-hover:scale-110">
-                <HeartPulse className="h-5 w-5 text-primary" aria-hidden="true" />
-              </div>
-              <div>
-                <p className="font-semibold text-foreground">Wellness & Hours</p>
-                <p className="mt-0.5 text-sm text-muted-foreground">Weekly wellness check-ins and activity logs to track clinical and volunteer hours.</p>
-              </div>
-            </Link>
-            <Link
-              href="/tools/resources"
-              className="group flex items-start gap-4 rounded-2xl border border-border bg-card p-5 transition-all duration-200 hover:border-primary/50 hover:shadow-lg hover:-translate-y-0.5 sm:col-span-2"
-            >
-              <div className="rounded-xl bg-primary/10 p-2.5 transition-transform duration-200 group-hover:scale-110">
-                <Library className="h-5 w-5 text-primary" aria-hidden="true" />
-              </div>
-              <div>
-                <p className="font-semibold text-foreground">Resources</p>
-                <p className="mt-0.5 text-sm text-muted-foreground">Curated links and recommendations to support every stage of your pre-med journey.</p>
-              </div>
-            </Link>
+            {tools.map((tool, i) => {
+              const Icon = tool.icon
+              return (
+                <Reveal key={tool.href} delay={i * 80} className={tool.span ? "sm:col-span-2" : ""}>
+                  <Link
+                    href={tool.href}
+                    className="group flex h-full items-start gap-4 rounded-2xl border border-border bg-card p-5 transition-all duration-200 hover:border-primary/50 hover:shadow-lg hover:-translate-y-0.5"
+                  >
+                    <div className="rounded-xl bg-primary/10 p-2.5 transition-transform duration-200 group-hover:scale-110">
+                      <Icon className="h-5 w-5 text-primary" aria-hidden="true" />
+                    </div>
+                    <div>
+                      <p className="font-semibold text-foreground">{tool.label}</p>
+                      <p className="mt-0.5 text-sm text-muted-foreground">{tool.desc}</p>
+                    </div>
+                  </Link>
+                </Reveal>
+              )
+            })}
           </div>
         </section>
+
         <SiteFooter />
       </main>
     </div>
