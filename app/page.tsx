@@ -6,6 +6,8 @@ import { SiteFooter } from "@/components/compass/resources"
 import { ProgressDashboard } from "@/app/tools/components/ProgressDashboard"
 import { DeadlineAlerts } from "@/components/compass/deadline-alerts"
 import { Reveal } from "@/components/compass/reveal"
+import { McatHomepageBanner } from "@/components/compass/mcat-homepage-banner"
+import { YearSpotlight } from "@/components/compass/year-spotlight"
 import Link from "next/link"
 import { ClipboardList, FileText, CheckSquare, HeartPulse, Library } from "lucide-react"
 
@@ -23,12 +25,16 @@ export default function Page() {
       <SidebarNav />
       <main id="main-content" className="lg:pl-72">
         <HeroClient />
+        <McatHomepageBanner />
 
         {/* Deadline alerts */}
         <DeadlineAlerts />
 
         {/* Onboarding */}
         <OnboardingQuiz />
+
+        {/* Year-aware spotlight */}
+        <YearSpotlight />
 
         {/* Section cards — has its own internal stagger via IntersectionObserver */}
         <SectionCardsClient />
