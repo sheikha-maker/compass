@@ -6,6 +6,7 @@ import { SiteFooter } from "@/components/compass/resources"
 import { ProgressDashboard } from "@/app/tools/components/ProgressDashboard"
 import { DeadlineAlerts } from "@/components/compass/deadline-alerts"
 import { Reveal } from "@/components/compass/reveal"
+import { TiltCard } from "@/components/compass/tilt-card"
 import { McatHomepageBanner } from "@/components/compass/mcat-homepage-banner"
 import { YearSpotlight } from "@/components/compass/year-spotlight"
 import Link from "next/link"
@@ -61,18 +62,20 @@ export default function Page() {
               const Icon = tool.icon
               return (
                 <Reveal key={tool.href} delay={i * 80} className={tool.span ? "sm:col-span-2" : ""}>
-                  <Link
-                    href={tool.href}
-                    className="group flex h-full items-start gap-4 rounded-2xl border border-border bg-card p-5 transition-all duration-200 hover:border-primary/50 hover:shadow-lg hover:-translate-y-0.5"
-                  >
-                    <div className="rounded-xl bg-primary/10 p-2.5 transition-transform duration-200 group-hover:scale-110">
-                      <Icon className="h-5 w-5 text-primary" aria-hidden="true" />
-                    </div>
-                    <div>
-                      <p className="font-semibold text-foreground">{tool.label}</p>
-                      <p className="mt-0.5 text-sm text-muted-foreground">{tool.desc}</p>
-                    </div>
-                  </Link>
+                  <TiltCard className="rounded-2xl h-full" intensity={5}>
+                    <Link
+                      href={tool.href}
+                      className="group flex h-full items-start gap-4 rounded-2xl border border-border bg-card p-5 transition-all duration-200 hover:border-primary/50 hover:shadow-lg"
+                    >
+                      <div className="icon-bounce rounded-xl bg-primary/10 p-2.5">
+                        <Icon className="h-5 w-5 text-primary" aria-hidden="true" />
+                      </div>
+                      <div>
+                        <p className="font-semibold text-foreground">{tool.label}</p>
+                        <p className="mt-0.5 text-sm text-muted-foreground">{tool.desc}</p>
+                      </div>
+                    </Link>
+                  </TiltCard>
                 </Reveal>
               )
             })}

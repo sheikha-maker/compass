@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react"
 import Link from "next/link"
 import { Brain, Map, Trophy, ArrowRight } from "lucide-react"
+import { TiltCard } from "@/components/compass/tilt-card"
 
 const sections = [
   {
@@ -42,16 +43,12 @@ export function SectionCards() {
   const ref = useRef<HTMLElement>(null)
 
   useEffect(() => {
-    // Guard: IntersectionObserver is browser-only
     if (typeof window === "undefined" || !("IntersectionObserver" in window)) {
       setVisible(true)
       return
     }
     const node = ref.current
-    if (!node) {
-      setVisible(true)
-      return
-    }
+    if (!node) { setVisible(true); return }
     const observer = new IntersectionObserver(
       ([entry]) => { if (entry.isIntersecting) setVisible(true) },
       { threshold: 0.1 }
@@ -74,36 +71,41 @@ export function SectionCards() {
         {sections.map((s, i) => {
           const Icon = s.icon
           return (
-            <Link
+            <TiltCard
               key={s.href}
-              href={s.href}
-              className="group relative flex flex-col rounded-2xl border border-border bg-card p-6 transition-all duration-300 hover:border-primary/50 hover:shadow-xl hover:-translate-y-1"
+              intensity={6}
+              className="rounded-2xl"
               style={{
                 opacity: visible ? 1 : 0,
-                transform: visible ? "translateY(0)" : "translateY(20px)",
-                transition: `opacity 0.4s ease ${i * 0.08}s, transform 0.4s ease ${i * 0.08}s, box-shadow 0.2s ease, border-color 0.2s ease`,
+                transform: visible ? undefined : "translateY(20px)",
+                transition: `opacity 0.4s ease ${i * 0.08}s, transform 0.4s ease ${i * 0.08}s`,
               }}
             >
-              <div className="flex items-start justify-between">
-                <div className={`inline-flex rounded-xl p-3 ${s.color} transition-transform duration-200 group-hover:scale-110`}>
-                  <Icon className="h-5 w-5" aria-hidden="true" />
+              <Link
+                href={s.href}
+                className="group relative flex flex-col rounded-2xl border border-border bg-card p-6 transition-all duration-300 hover:border-primary/50 hover:shadow-xl"
+              >
+                <div className="flex items-start justify-between">
+                  <div className={`icon-bounce inline-flex rounded-xl p-3 ${s.color}`}>
+                    <Icon className="h-5 w-5" aria-hidden="true" />
+                  </div>
+                  <ArrowRight className="h-4 w-4 text-muted-foreground transition-all duration-200 group-hover:translate-x-1.5 group-hover:text-primary" />
                 </div>
-                <ArrowRight className="h-4 w-4 text-muted-foreground transition-all duration-200 group-hover:translate-x-1.5 group-hover:text-primary" />
-              </div>
-              <p className="mt-4 text-xs font-semibold uppercase tracking-wider text-muted-foreground">{s.eyebrow}</p>
-              <h3 className="mt-1 font-serif text-xl font-semibold text-foreground">{s.title}</h3>
-              <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.description}</p>
-              <ul className="mt-4 flex flex-wrap gap-1.5">
-                {s.topics.map((t) => (
-                  <li
-                    key={t}
-                    className="rounded-full border border-border bg-secondary px-2.5 py-0.5 text-xs text-muted-foreground transition-colors group-hover:border-primary/20 group-hover:bg-primary/5"
-                  >
-                    {t}
-                  </li>
-                ))}
-              </ul>
-            </Link>
+                <p className="mt-4 text-xs font-semibold uppercase tracking-wider text-muted-foreground">{s.eyebrow}</p>
+                <h3 className="mt-1 font-serif text-xl font-semibold text-foreground">{s.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.description}</p>
+                <ul className="mt-4 flex flex-wrap gap-1.5">
+                  {s.topics.map((t) => (
+                    <li
+                      key={t}
+                      className="tag-pop rounded-full border border-border bg-secondary px-2.5 py-0.5 text-xs text-muted-foreground transition-colors group-hover:border-primary/20 group-hover:bg-primary/5"
+                    >
+                      {t}
+                    </li>
+                  ))}
+                </ul>
+              </Link>
+            </TiltCard>
           )
         })}
       </div>
