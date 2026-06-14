@@ -6,6 +6,7 @@ import { ThemeProvider } from '@/components/theme-provider'
 import './globals.css'
 import { PageTransition } from '@/components/compass/page-transition'
 import { ReadingProgress } from '@/components/compass/progress-tracker'
+import { BackToTop } from '@/components/compass/back-to-top'
 
 const sourceSans = Source_Sans_3({
   subsets: ['latin'],
@@ -69,6 +70,7 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="light" themes={["light", "dark", "red", "green", "purple", "teal", "gold", "navy"]}>
           <ReadingProgress />
           <PageTransition>{children}</PageTransition>
+          <BackToTop />
           {process.env.NODE_ENV === 'production' && <Analytics />}
         </ThemeProvider>
       </body>
