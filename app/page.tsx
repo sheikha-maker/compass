@@ -8,6 +8,7 @@ import { DeadlineAlerts } from "@/components/compass/deadline-alerts"
 import { Reveal } from "@/components/compass/reveal"
 import { TiltCard } from "@/components/compass/tilt-card"
 import { McatHomepageBanner } from "@/components/compass/mcat-homepage-banner"
+import { StatsBar } from "@/components/compass/stats-bar"
 import { YearSpotlight } from "@/components/compass/year-spotlight"
 import Link from "next/link"
 import { ClipboardList, FileText, CheckSquare, HeartPulse, Library } from "lucide-react"
@@ -37,8 +38,11 @@ export default function Page() {
         {/* Year-aware spotlight */}
         <YearSpotlight />
 
-        {/* Section cards — has its own internal stagger via IntersectionObserver */}
+        {/* Section cards */}
         <SectionCardsClient />
+
+        {/* Stats bar */}
+        <StatsBar />
 
         {/* Progress dashboard */}
         <Reveal delay={0} className="mx-auto max-w-4xl px-5 pt-10 md:px-8">
