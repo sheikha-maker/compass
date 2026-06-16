@@ -6,14 +6,16 @@ import { cn } from "@/lib/utils"
 type TiltCardProps = {
   children: React.ReactNode
   className?: string
-  intensity?: number   // tilt degrees max (default 8)
-  scale?: number       // scale on hover (default 1.015)
+  style?: React.CSSProperties
+  intensity?: number
+  scale?: number
   as?: "div" | "article"
 }
 
 export function TiltCard({
   children,
   className,
+  style: styleProp,
   intensity = 8,
   scale = 1.015,
   as: Tag = "div",
@@ -55,7 +57,7 @@ export function TiltCard({
     window.matchMedia("(prefers-reduced-motion: reduce)").matches
 
   if (prefersReduced) {
-    return <Tag className={cn(className)}>{children}</Tag>
+    return <Tag className={cn(className)} style={styleProp}>{children}</Tag>
   }
 
   return (
@@ -65,10 +67,15 @@ export function TiltCard({
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       style={{
-        transform,
-        transition: transform.includes("scale(1)") ? "transform 0.5s cubic-bezier(0.23,1,0.32,1)" : "transform 0.1s linear",
+        ...styleProp,
+        transform: transform || styleProp?.transform,
+        transition: transform.includes("scale(1)")
+          ? "transform 0.5s cubic-bezier(0.23,1,0.32,1)"
+          : transform
+          ? "transform 0.1s linear"
+          : styleProp?.transition,
         transformStyle: "preserve-3d",
-        willChange: "transform",
+        willChange: "opacity, transform",
       }}
     >
       {/* Glare overlay */}
