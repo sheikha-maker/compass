@@ -1,7 +1,7 @@
 "use client"
 
 import { useEffect, useState } from "react"
-import { Compass, Menu, X, ArrowLeft } from "lucide-react"
+import { Compass, Menu, X, ArrowLeft, ClipboardList, FileText, CheckSquare, HeartPulse, Library, Activity } from "lucide-react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { cn } from "@/lib/utils"
@@ -10,12 +10,12 @@ import { AuthButton } from "@/components/compass/auth-button"
 import { ThemePicker } from "@/components/compass/theme-picker"
 
 const TOOL_LINKS = [
-  { href: "/tools/plan-check",       label: "Plan & Check"       },
-  { href: "/tools/application-prep", label: "Application Prep"   },
-  { href: "/tools/milestones",       label: "Milestones"         },
-  { href: "/tools/wellness-hours",   label: "Wellness & Hours"   },
-  { href: "/burnout-check",          label: "Burnout Check"      },
-  { href: "/tools/resources",        label: "Resources"          },
+  { href: "/tools/plan-check",       label: "Plan & Check",      icon: ClipboardList },
+  { href: "/tools/application-prep", label: "Application Prep",  icon: FileText      },
+  { href: "/tools/milestones",       label: "Milestones",        icon: CheckSquare   },
+  { href: "/tools/wellness-hours",   label: "Wellness & Hours",  icon: HeartPulse    },
+  { href: "/burnout-check",          label: "Burnout Check",     icon: Activity      },
+  { href: "/tools/resources",        label: "Resources",         icon: Library       },
 ]
 
 export type PageNavItem = {
@@ -178,15 +178,19 @@ export function PageLayout({ title, eyebrow, description, backHref = "/", navIte
             <p className="px-3 pb-1.5 text-xs font-semibold uppercase tracking-wider text-muted-foreground">
               Other Tools
             </p>
-            {otherToolLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm text-muted-foreground transition-colors hover:bg-sidebar-accent/60 hover:text-foreground"
-              >
-                {link.label}
-              </Link>
-            ))}
+            {otherToolLinks.map((link) => {
+              const Icon = link.icon
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="flex w-full items-center gap-2 rounded-md px-3 py-2 text-sm text-muted-foreground transition-colors hover:bg-sidebar-accent/60 hover:text-foreground"
+                >
+                  <Icon className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
+                  {link.label}
+                </Link>
+              )
+            })}
           </div>
         </div>
 
