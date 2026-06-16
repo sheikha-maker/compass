@@ -6,7 +6,6 @@ import { cn } from "@/lib/utils"
 type TiltCardProps = {
   children: React.ReactNode
   className?: string
-  style?: React.CSSProperties
   intensity?: number
   scale?: number
   as?: "div" | "article"
@@ -15,7 +14,6 @@ type TiltCardProps = {
 export function TiltCard({
   children,
   className,
-  style: styleProp,
   intensity = 8,
   scale = 1.015,
   as: Tag = "div",
@@ -57,7 +55,7 @@ export function TiltCard({
     window.matchMedia("(prefers-reduced-motion: reduce)").matches
 
   if (prefersReduced) {
-    return <Tag className={cn(className)} style={styleProp}>{children}</Tag>
+    return <Tag className={cn(className)}>{children}</Tag>
   }
 
   return (
@@ -67,15 +65,12 @@ export function TiltCard({
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       style={{
-        ...styleProp,
-        transform: transform || styleProp?.transform,
+        transform,
         transition: transform.includes("scale(1)")
           ? "transform 0.5s cubic-bezier(0.23,1,0.32,1)"
-          : transform
-          ? "transform 0.1s linear"
-          : styleProp?.transition,
+          : "transform 0.1s linear",
         transformStyle: "preserve-3d",
-        willChange: "opacity, transform",
+        willChange: "transform",
       }}
     >
       {/* Glare overlay */}

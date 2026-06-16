@@ -71,41 +71,41 @@ export function SectionCards() {
         {sections.map((s, i) => {
           const Icon = s.icon
           return (
-            <TiltCard
+            <div
               key={s.href}
-              intensity={6}
-              className="rounded-2xl"
               style={{
                 opacity: visible ? 1 : 0,
-                transform: visible ? undefined : "translateY(20px)",
+                transform: visible ? "translateY(0)" : "translateY(20px)",
                 transition: `opacity 0.4s ease ${i * 0.08}s, transform 0.4s ease ${i * 0.08}s`,
               }}
             >
-              <Link
-                href={s.href}
-                className="group relative flex flex-col rounded-2xl border border-border bg-card p-6 transition-all duration-300 hover:border-primary/50 hover:shadow-xl"
-              >
-                <div className="flex items-start justify-between">
-                  <div className={`icon-bounce inline-flex rounded-xl p-3 ${s.color}`}>
-                    <Icon className="h-5 w-5" aria-hidden="true" />
+              <TiltCard intensity={6} className="rounded-2xl h-full">
+                <Link
+                  href={s.href}
+                  className="group relative flex flex-col rounded-2xl border border-border bg-card p-6 transition-all duration-300 hover:border-primary/50 hover:shadow-xl"
+                >
+                  <div className="flex items-start justify-between">
+                    <div className={`icon-bounce inline-flex rounded-xl p-3 ${s.color}`}>
+                      <Icon className="h-5 w-5" aria-hidden="true" />
+                    </div>
+                    <ArrowRight className="h-4 w-4 text-muted-foreground transition-all duration-200 group-hover:translate-x-1.5 group-hover:text-primary" />
                   </div>
-                  <ArrowRight className="h-4 w-4 text-muted-foreground transition-all duration-200 group-hover:translate-x-1.5 group-hover:text-primary" />
-                </div>
-                <p className="mt-4 text-xs font-semibold uppercase tracking-wider text-muted-foreground">{s.eyebrow}</p>
-                <h3 className="mt-1 font-serif text-xl font-semibold text-foreground">{s.title}</h3>
-                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.description}</p>
-                <ul className="mt-4 flex flex-wrap gap-1.5">
-                  {s.topics.map((t) => (
-                    <li
-                      key={t}
-                      className="tag-pop rounded-full border border-border bg-secondary px-2.5 py-0.5 text-xs text-muted-foreground transition-colors group-hover:border-primary/20 group-hover:bg-primary/5"
-                    >
-                      {t}
-                    </li>
-                  ))}
-                </ul>
-              </Link>
-            </TiltCard>
+                  <p className="mt-4 text-xs font-semibold uppercase tracking-wider text-muted-foreground">{s.eyebrow}</p>
+                  <h3 className="mt-1 font-serif text-xl font-semibold text-foreground">{s.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{s.description}</p>
+                  <ul className="mt-4 flex flex-wrap gap-1.5">
+                    {s.topics.map((t) => (
+                      <li
+                        key={t}
+                        className="tag-pop rounded-full border border-border bg-secondary px-2.5 py-0.5 text-xs text-muted-foreground transition-colors group-hover:border-primary/20 group-hover:bg-primary/5"
+                      >
+                        {t}
+                      </li>
+                    ))}
+                  </ul>
+                </Link>
+              </TiltCard>
+            </div>
           )
         })}
       </div>
