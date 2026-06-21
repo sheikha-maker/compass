@@ -1,25 +1,18 @@
 import { Heart, Mail, Quote, ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { SidebarNav } from "@/components/compass/sidebar-nav"
+import { SiteFooter } from "@/components/compass/resources"
 import Image from "next/image"
 import Link from "next/link"
 
 const testimonials = [
   {
-    quote: "Very tailored to pre-med students, and provides an organized way for students to keep track of their hours.",
-    attribution: "Arun Purewal",
-  },
-  {
-    quote: "I found it helpful that it was easy to navigate, and the guide had very helpful information.",
-    attribution: "Karl Adriano",
-  },
-  {
     quote: "A lot of people think burnout is just overworking, but a main driver of it is lack of clarity. All the advice and tools, especially the ones specific to Moravian, are very nice.",
     attribution: "Sriman Goli",
   },
   {
-    quote: "The resources provided are very helpful for Pre-Med students.",
-    attribution: "Sophie Katz",
+    quote: "Very tailored to pre-med students, and provides an organized way for students to keep track of their hours.",
+    attribution: "Arun Purewal",
   },
 ]
 
@@ -99,9 +92,9 @@ export default function AboutPage() {
           {/* Testimonials */}
           <div className="mt-10">
             <h2 className="font-serif text-xl font-semibold text-foreground">What students are saying</h2>
-            <div className="mt-4 grid gap-4 sm:grid-cols-2">
+            <div className="mt-4 grid gap-4 grid-cols-1 sm:grid-cols-2">
               {testimonials.map((t, i) => (
-                <div key={i} className="rounded-xl border border-border bg-card p-5">
+                <div key={i} className="flex flex-col rounded-xl border border-border bg-card p-5 min-h-[140px]">
                   <Quote className="mb-3 h-5 w-5 text-primary/40" aria-hidden="true" />
                   <p className="leading-relaxed text-foreground">&ldquo;{t.quote}&rdquo;</p>
                   <p className="mt-3 text-sm text-muted-foreground">· {t.attribution}</p>
@@ -126,11 +119,7 @@ export default function AboutPage() {
         </div>
 
         {/* Footer */}
-        <footer className="border-t border-border bg-muted/30 py-8">
-          <div className="mx-auto max-w-3xl px-5 text-center text-sm text-muted-foreground md:px-8">
-            <p>Made with care for Moravian University pre-med students.</p>
-          </div>
-        </footer>
+        <SiteFooter />
       </main>
     </div>
   )

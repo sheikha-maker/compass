@@ -108,7 +108,7 @@ export function Hero() {
   return (
     <section
       id="welcome"
-      className="relative scroll-mt-20 overflow-hidden border-b border-border bg-primary text-black dark:text-white"
+      className="relative scroll-mt-20 overflow-hidden border-b border-border bg-primary text-primary-foreground"
       style={{
         backgroundColor: "var(--hero-start)",
         backgroundImage: "linear-gradient(135deg, var(--hero-start) 0%, var(--hero-mid) 52%, var(--hero-end) 100%)",
@@ -125,11 +125,11 @@ export function Hero() {
 
         {/* Main headline */}
         <h1 className="text-balance font-serif text-4xl font-semibold leading-tight text-primary-foreground md:text-5xl lg:text-6xl">
-          Navigate your pre-med journey with clarity and intention
+          Pre-med at Moravian is hard. It doesn&apos;t have to be chaotic.
         </h1>
 
         <p className="mt-6 max-w-2xl text-pretty text-lg leading-relaxed text-primary-foreground/85 md:text-xl">
-          A comprehensive resource designed to help you make thoughtful decisions, build meaningful experiences, and protect your well-being along the way.
+          A resource designed to help you make thoughtful decisions, build meaningful experiences, and protect your well-being along the way.
         </p>
 
         {/* Timeline Visual */}
@@ -144,7 +144,7 @@ export function Hero() {
                   href={step.href}
                   className="group relative flex items-start gap-4 rounded-xl p-3 text-left transition-all duration-200 hover:bg-primary-foreground/15 md:flex-col md:items-center md:text-center"
                 >
-                  <div className={`relative z-10 flex h-12 w-12 shrink-0 items-center justify-center rounded-full ${step.color} text-white shadow-lg transition-all duration-300 group-hover:scale-115 group-hover:shadow-xl`}>
+                  <div className={`relative z-10 flex h-12 w-12 shrink-0 items-center justify-center rounded-full ${step.color} text-white shadow-lg transition-all duration-300 group-hover:scale-110 group-hover:shadow-xl`}>
                     <step.icon className="h-5 w-5" aria-hidden="true" />
                   </div>
                   <div className="md:mt-3 flex-1 md:flex-none">
@@ -196,10 +196,10 @@ export function Hero() {
               Jump to Tools
             </Button>
           </Link>
-          <Link href="/about" className="sm:ml-auto">
+          <Link href="/about" className="sm:ml-auto w-auto">
             <Button
               variant="ghost"
-              className="text-primary-foreground/80 hover:bg-primary-foreground/15 hover:text-primary-foreground transition-all duration-200"
+              className="w-auto text-primary-foreground/80 hover:bg-primary-foreground/15 hover:text-primary-foreground transition-all duration-200"
             >
               About this guide
             </Button>

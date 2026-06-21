@@ -56,9 +56,7 @@ export function Resources() {
       <div className="mt-8 rounded-lg border border-primary/20 bg-primary/5 p-6">
         <h3 className="font-serif text-lg font-medium text-foreground">Want to contribute to this guide?</h3>
         <p className="mt-2 leading-relaxed text-muted-foreground">
-          This resource grows stronger with more Moravian voices in it. If you&apos;re a current or former pre-med
-          student at Moravian and want to share advice, a perspective, or something you wish you&apos;d known, feel free
-          to reach out.
+          If you&apos;re a current or former Moravian pre-med and want to share something you wish you&apos;d known, reach out.
         </p>
         <a
           href="mailto:sheikha@moravian.edu"
