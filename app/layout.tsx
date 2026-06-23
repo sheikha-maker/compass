@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'The Pre-Med Compass',
     description:
-      'Navigate your pre-med journey with clarity and intention, built for Moravian University students.',
+      'Pre-med at Moravian is hard. It doesn\'t have to be chaotic. A guide built for Moravian University students.',
     images: ['/opengraph-image'],
   },
 }
