@@ -14,11 +14,11 @@ import Link from "next/link"
 import { ClipboardList, FileText, CheckSquare, HeartPulse, Library } from "lucide-react"
 
 const tools = [
-  { href: "/tools/plan-check",        icon: ClipboardList, label: "Plan & Check",      desc: "Prerequisite tracker, course planner, GPA calculator, and MCAT countdown."             },
-  { href: "/tools/application-prep",  icon: FileText,      label: "Application Prep",  desc: "Track applications, manage your school list, prep essays and interviews, and log LORs." },
-  { href: "/tools/milestones",        icon: CheckSquare,   label: "Milestones",         desc: "Year-by-year checklist of key Moravian pre-med milestones to keep you on track."       },
-  { href: "/tools/wellness-hours",    icon: HeartPulse,    label: "Wellness & Hours",   desc: "Weekly wellness check-ins and activity logs to track clinical and volunteer hours."    },
-  { href: "/tools/resources",         icon: Library,       label: "Resources",          desc: "Curated links and recommendations to support every stage of your pre-med journey.", span: true },
+  { href: "/tools/plan-check",        icon: ClipboardList, label: "Plan & Check",      desc: "Stay on top of prerequisites, GPA, and your MCAT countdown all in one place."          },
+  { href: "/tools/application-prep",  icon: FileText,      label: "Application Prep",  desc: "Build your school list, draft essays, prep for interviews, and track letters of rec."   },
+  { href: "/tools/milestones",        icon: CheckSquare,   label: "Milestones",         desc: "A year-by-year checklist of key Moravian pre-med milestones to keep you on track."     },
+  { href: "/tools/wellness-hours",    icon: HeartPulse,    label: "Wellness & Hours",   desc: "Log clinical and volunteer hours, and check in on your wellbeing weekly."              },
+  { href: "/tools/resources",         icon: Library,       label: "Resources",          desc: "Curated links and recommendations for every stage of your pre-med journey.", span: true },
 ]
 
 export default function Page() {
