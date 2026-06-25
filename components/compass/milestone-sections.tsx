@@ -1,6 +1,7 @@
 import { Section } from "./section"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { faqs, lastReviewed } from "@/lib/content"
+import { AlertTriangle } from "lucide-react"
 import { McatSectionsOverview } from "./mcat/mcat-sections-overview"
 import { McatScoreScale } from "./mcat/mcat-score-scale"
 import { McatPhaseStepper, McatHonestTruths } from "./mcat/mcat-phase-stepper"
@@ -89,6 +90,15 @@ export function Faq() {
             <AccordionTrigger className="text-left font-serif text-lg">{faq.q}</AccordionTrigger>
             <AccordionContent>
               <p className="leading-relaxed text-muted-foreground">{faq.a}</p>
+              {faq.mistake && (
+                <div className="mt-3 flex gap-2.5 rounded-lg border border-destructive/20 bg-destructive/5 px-4 py-3">
+                  <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0 text-destructive/70" aria-hidden />
+                  <p className="text-sm leading-relaxed text-foreground">
+                    <span className="font-semibold">Common mistake: </span>
+                    {faq.mistake}
+                  </p>
+                </div>
+              )}
             </AccordionContent>
           </AccordionItem>
         ))}

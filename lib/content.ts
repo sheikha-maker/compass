@@ -39,6 +39,10 @@ export type YearCompassItem = {
     spring: string[]
     tips: string
   }
+  summer?: {
+    heading: string
+    items: string[]
+  }
 }
 
 export type CourseGuide = {
@@ -270,10 +274,16 @@ export const yearCompass = [
       fall: ["General Chemistry I", "Calculus I or Statistics", "First-Year Writing", "Elective/Gen Ed"],
       spring: ["General Chemistry II", "Calculus II or Elective", "Intro Biology I", "Gen Ed"],
       tips: "Keep it at 14-16 credits. Your GPA foundation matters more than speed."
+    },
+    summer: {
+      heading: "What to do this summer",
+      items: [
+        "Line up your first real clinical experience — hospital volunteering, scribing, or EMT training are all strong options.",
+        "If a professor offered a research position, this is the time to take it.",
+        "Read something entirely outside of medicine. Burnout starts earlier than most students expect.",
+        "Rest intentionally. A recovered, motivated sophomore outperforms an exhausted one every time.",
+      ],
     }
-  },
-  {
-    year: "Sophomore Year",
     theme: "Deepen. Start exploring experiences.",
     focus: [
       "Continue strong academics through the harder prerequisite courses.",
@@ -305,10 +315,16 @@ export const yearCompass = [
       fall: ["Organic Chemistry I", "Intro Biology II", "Physics I", "Gen Ed/Elective"],
       spring: ["Organic Chemistry II", "Physics II", "Psychology or Sociology", "Gen Ed"],
       tips: "This is the 'hard semester' for many. Plan lighter extracurriculars."
+    },
+    summer: {
+      heading: "What to do this summer",
+      items: [
+        "Commit to a research project if you haven't yet — summer is the most productive window for it.",
+        "Ramp up clinical hours. Many students log their highest counts over the summer.",
+        "Consider EMT certification if you're interested — the schedule fits naturally between sophomore and junior year.",
+        "Start informal MCAT content review if you plan to test junior spring. Light reading, not drilling.",
+      ],
     }
-  },
-  {
-    year: "Junior Year",
     theme: "Consolidate. Plan the MCAT and timeline.",
     focus: [
       "Map out your MCAT timeline based on your coursework and energy — not your friends'.",
@@ -340,10 +356,17 @@ export const yearCompass = [
       fall: ["Biochemistry", "Upper-level Biology elective", "Major requirements", "MCAT prep begins"],
       spring: ["Genetics or Molecular Biology", "Major electives", "Continue clinical hours", "MCAT in late spring/early summer"],
       tips: "If taking MCAT in spring, start content review winter break."
+    },
+    summer: {
+      heading: "What to do this summer",
+      items: [
+        "Sit the MCAT if you haven't yet — May through July is the most common window for junior applicants.",
+        "Draft your personal statement. A rough first draft is infinitely better than a blank page in August.",
+        "Finalize your school list with your advisor before AMCAS opens.",
+        "Secure any remaining letter of recommendation writers before they get busy in the fall.",
+        "If applying this cycle, be ready — AMCAS opens in May and the earliest submitters have a real advantage.",
+      ],
     }
-  },
-  {
-    year: "Senior Year / Application Year",
     theme: "Apply. Reflect. Decide on timing honestly.",
     focus: [
       "Submit your primary application early in the cycle if you're truly ready.",
@@ -387,9 +410,16 @@ export const yearCompass = [
       fall: ["Capstone/Senior seminar", "Remaining major requirements", "Interview prep", "Secondaries if applying"],
       spring: ["Light course load if possible", "Interviews continue", "Decision time", "Plan for gap year activities if needed"],
       tips: "If doing a gap year, use senior spring to line up meaningful work or research."
+    },
+    summer: {
+      heading: "What to do this summer",
+      items: [
+        "Submit your primary application as early as possible — AMCAS opens in May, and timing matters more than most students realize.",
+        "Complete secondary applications within two weeks of receiving them. Speed signals genuine interest.",
+        "Don't let the cycle consume everything. Keep up with commitments; schools check in on your activities.",
+        "If you're taking a gap year, this is the moment to lock in what you'll be doing — not figure it out later.",
+      ],
     }
-  },
-]
 
 export const courseGuides = [
   {
@@ -576,6 +606,7 @@ export const faqs = [
   {
     q: "What GPA do I need?",
     a: "Higher is better, but there's no magic cutoff that defines you. Aim to do well in the courses in front of you rather than chasing a number. An upward trend and a genuine recovery from a rough semester can tell a powerful story.",
+    mistake: "Taking an artificially easy course load to protect your GPA. Admissions committees notice a schedule that avoids difficulty, and it raises questions about how you'll handle medical school.",
   },
   {
     q: "Should I take a gap year?",
@@ -584,6 +615,7 @@ export const faqs = [
   {
     q: "How many shadowing hours do I really need?",
     a: "Fewer than the internet implies. Roughly 40–50 thoughtful hours across a couple of specialties is plenty for most applications. What matters is what you understood, not the count.",
+    mistake: "Logging 200+ hours with a single physician in one setting. Depth in one place is fine, but breadth across specialties tells a more compelling story about your genuine exploration of medicine.",
   },
   {
     q: "Do my grades from freshman year ruin everything?",
@@ -600,6 +632,7 @@ export const faqs = [
   {
     q: "How many schools should I apply to?",
     a: "Most advisors suggest 15–25 schools across reach, target, and safety tiers. Below 12 is risky. Above 30 and the quality of your secondary essays usually suffers. A thoughtful, researched list of 18–22 beats a shotgun approach every time.",
+    mistake: "Applying to only reach schools, or applying to 30+ without tailoring secondaries. Both strategies hurt. Generic secondaries are easy to spot, and a list without safeties leaves no floor.",
   },
   {
     q: "Does it matter which medical school I go to?",
@@ -616,10 +649,12 @@ export const faqs = [
   {
     q: "When should I ask for letters of recommendation?",
     a: "Ask at least 3–4 months before you need them, ideally at the end of a semester when the relationship is fresh. Give your writers your CV, personal statement draft, and a brief note on why you chose medicine. The more context you give, the stronger the letter.",
+    mistake: "Asking professors who barely know you because they gave you an A. A warm, specific letter from a less prominent writer beats a generic one from a recognizable name every time.",
   },
   {
     q: "What makes a personal statement stand out?",
     a: "Specificity and honesty. Admissions readers review thousands of essays about 'wanting to help people.' What stands out is a concrete moment, an honest reflection on what you learned, and a clear thread connecting your experiences to medicine. Avoid listing your resume in prose — that's what the activities section is for.",
+    mistake: "Opening with a childhood memory of a sick relative. It's the most common personal statement opener — readers have seen it thousands of times. Start closer to medicine, with a moment that actually changed how you thought.",
   },
   {
     q: "Is it bad to apply to DO schools?",
