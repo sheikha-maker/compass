@@ -283,7 +283,10 @@ export const yearCompass = [
         "Read something entirely outside of medicine. Burnout starts earlier than most students expect.",
         "Rest intentionally. A recovered, motivated sophomore outperforms an exhausted one every time.",
       ],
-    }
+    },
+  },
+  {
+    year: "Sophomore Year",
     theme: "Deepen. Start exploring experiences.",
     focus: [
       "Continue strong academics through the harder prerequisite courses.",
@@ -324,7 +327,10 @@ export const yearCompass = [
         "Consider EMT certification if you're interested — the schedule fits naturally between sophomore and junior year.",
         "Start informal MCAT content review if you plan to test junior spring. Light reading, not drilling.",
       ],
-    }
+    },
+  },
+  {
+    year: "Junior Year",
     theme: "Consolidate. Plan the MCAT and timeline.",
     focus: [
       "Map out your MCAT timeline based on your coursework and energy — not your friends'.",
@@ -366,7 +372,10 @@ export const yearCompass = [
         "Secure any remaining letter of recommendation writers before they get busy in the fall.",
         "If applying this cycle, be ready — AMCAS opens in May and the earliest submitters have a real advantage.",
       ],
-    }
+    },
+  },
+  {
+    year: "Senior Year / Application Year",
     theme: "Apply. Reflect. Decide on timing honestly.",
     focus: [
       "Submit your primary application early in the cycle if you're truly ready.",
@@ -419,7 +428,9 @@ export const yearCompass = [
         "Don't let the cycle consume everything. Keep up with commitments; schools check in on your activities.",
         "If you're taking a gap year, this is the moment to lock in what you'll be doing — not figure it out later.",
       ],
-    }
+    },
+  },
+]
 
 export const courseGuides = [
   {
