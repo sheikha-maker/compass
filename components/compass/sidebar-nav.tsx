@@ -14,20 +14,20 @@ import { AuthButton } from "@/components/compass/auth-button"
 import { ThemePicker } from "@/components/compass/theme-picker"
 
 const sectionLinks = [
-  { href: "/",                      label: "Home",                group: "Start",    icon: Home         },
-  { href: "/mindset",               label: "Mindset",             group: "Sections", icon: Brain        },
-  { href: "/your-path",             label: "Building Your Path",  group: "Sections", icon: Map          },
-  { href: "/milestones",            label: "MCAT & Key Info",     group: "Sections", icon: BookOpen     },
-  { href: "/tools/plan-check",      label: "Plan & Check",        group: "Tools",    icon: ClipboardList},
-  { href: "/tools/application-prep",label: "Application Prep",    group: "Tools",    icon: FileText     },
-  { href: "/tools/milestones",      label: "Milestone Checklist", group: "Tools",    icon: CheckSquare  },
-  { href: "/tools/wellness-hours",  label: "Wellness & Hours",    group: "Tools",    icon: HeartPulse   },
-  { href: "/burnout-check",         label: "Burnout Check",        group: "Tools",    icon: Activity     },
-  { href: "/tools/resources",       label: "Resources",           group: "Tools",    icon: Library      },
-  { href: "/about",                 label: "About this guide",    group: "About",    icon: Info         },
+  { href: "/",                       label: "Home",                group: "Start",     icon: Home         },
+  { href: "/mindset",                label: "Mindset",             group: "Sections",  icon: Brain        },
+  { href: "/your-path",              label: "Building Your Path",  group: "Sections",  icon: Map          },
+  { href: "/milestones",             label: "The Big Milestones",  group: "Sections",  icon: BookOpen     },
+  { href: "/tools/plan-check",       label: "Plan & Check",        group: "Plan",      icon: ClipboardList},
+  { href: "/tools/application-prep", label: "Application Prep",    group: "Plan",      icon: FileText     },
+  { href: "/tools/milestones",       label: "Milestone Checklist", group: "Plan",      icon: CheckSquare  },
+  { href: "/tools/resources",        label: "Resources",           group: "Plan",      icon: Library      },
+  { href: "/tools/wellness-hours",   label: "Wellness & Hours",    group: "Wellbeing", icon: HeartPulse   },
+  { href: "/burnout-check",          label: "Burnout Check",       group: "Wellbeing", icon: Activity     },
+  { href: "/about",                  label: "About this guide",    group: "About",     icon: Info         },
 ]
 
-const groups = ["Start", "Sections", "Tools", "About"]
+const groups = ["Start", "Sections", "Plan", "Wellbeing", "About"]
 
 export function SidebarNav() {
   const [open, setOpen] = useState(false)

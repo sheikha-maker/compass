@@ -2,7 +2,7 @@ export default function Loading() {
   return (
     <div className="min-h-screen bg-background lg:pl-72">
       {/* Hero skeleton */}
-      <div className="relative h-[420px] animate-pulse bg-primary/20 md:h-[480px]">
+      <div className="relative h-[600px] animate-pulse bg-primary/20 md:h-[640px]">
         <div className="absolute inset-0 flex flex-col items-start justify-center px-5 py-16 md:px-8">
           <div className="h-3 w-24 rounded-full bg-white/20" />
           <div className="mt-4 h-10 w-72 rounded-xl bg-white/20 md:w-96" />

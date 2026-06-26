@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { CheckCircle2, AlertTriangle, Users, BookOpen, Star, Calendar } from "lucide-react"
+import { CheckCircle2, AlertTriangle, Users, BookOpen, Star, Calendar, Sun } from "lucide-react"
 import { experienceTools, yearCompass, courseGuides, mentorshipPoints, mentorshipCaseStudies, lastReviewed } from "@/lib/content"
 import { experienceTypeCards } from "@/lib/path-content"
 import { Section } from "./section"
@@ -230,6 +230,23 @@ export function YearCompass() {
             <p className="mt-4 border-t border-timeline-4/20 pt-3 text-sm italic text-muted-foreground">
               {current.gapYearCallout.framingTip}
             </p>
+          </div>
+        )}
+
+        {current.summer && (
+          <div className="mt-6 rounded-xl border border-amber-200 dark:border-amber-900/40 bg-amber-50 dark:bg-amber-950/20 p-5">
+            <div className="mb-3 flex items-center gap-2">
+              <Sun className="h-4 w-4 text-amber-500 shrink-0" aria-hidden />
+              <p className="font-semibold text-foreground">{current.summer.heading}</p>
+            </div>
+            <ul className="space-y-2">
+              {current.summer.items.map((item) => (
+                <li key={item} className="flex items-start gap-2 text-sm text-foreground">
+                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-amber-400" aria-hidden />
+                  {item}
+                </li>
+              ))}
+            </ul>
           </div>
         )}
 

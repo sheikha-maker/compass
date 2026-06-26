@@ -49,7 +49,7 @@ export default function OgImage() {
               letterSpacing: "-0.02em",
             }}
           >
-            Navigate pre-med with clarity.
+            Pre-med at Moravian is hard. It doesn't have to be chaotic.
           </div>
           <div
             style={{
@@ -75,7 +75,7 @@ export default function OgImage() {
           }}
         >
           <span style={{ color: "rgba(255,255,255,0.8)", fontSize: "18px" }}>
-            v0-premedcompass.vercel.app
+            {process.env.NEXT_PUBLIC_SITE_URL ?? "v0-premedcompass.vercel.app"}
           </span>
         </div>
       </div>
