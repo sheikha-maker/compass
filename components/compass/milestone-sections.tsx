@@ -1,6 +1,7 @@
 import { Section } from "./section"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
-import { faqs, lastReviewed } from "@/lib/content"
+import { faqs as fallbackFaqs, lastReviewed } from "@/lib/content"
+import type { NotionFaq } from "@/lib/notion"
 import { AlertTriangle } from "lucide-react"
 import { McatSectionsOverview } from "./mcat/mcat-sections-overview"
 import { McatScoreScale } from "./mcat/mcat-score-scale"
@@ -76,7 +77,7 @@ export function Timeline() {
   )
 }
 
-export function Faq() {
+export function Faq({ faqs = fallbackFaqs }: { faqs?: NotionFaq[] }) {
   return (
     <Section
       id="faq"

@@ -9,6 +9,9 @@ import {
 import { AdvisorCard } from "@/components/compass/advisor-card"
 import { MoravianAmcasTimeline } from "@/components/compass/moravian-amcas-timeline"
 import { Section } from "@/components/compass/section"
+import { getCourseGuides, getYearCompass } from "@/lib/notion"
+
+export const revalidate = 3600
 
 const navItems = [
   { id: "your-advisor", label: "Your Advisor" },
@@ -19,7 +22,12 @@ const navItems = [
   { id: "application-timeline", label: "Application Timeline" },
 ]
 
-export default function YourPathPage() {
+export default async function YourPathPage() {
+  const [yearCompass, courseGuides] = await Promise.all([
+    getYearCompass(),
+    getCourseGuides(),
+  ])
+
   return (
     <PageLayout
       title="Building Your Path"
@@ -40,8 +48,8 @@ export default function YourPathPage() {
       </Section>
 
       <ExperienceTools />
-      <YearCompass />
-      <CourseGuides />
+      <YearCompass items={yearCompass} />
+      <CourseGuides guides={courseGuides} />
       <Mentorship />
 
       {/* AAMC + Moravian calendar */}

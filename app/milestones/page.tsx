@@ -1,5 +1,8 @@
 import { PageLayout } from "@/components/compass/page-layout"
 import { McatDeepDive, Timeline, Faq } from "@/components/compass/milestone-sections"
+import { getFaqs } from "@/lib/notion"
+
+export const revalidate = 3600
 
 const navItems = [
   { id: "mcat",     label: "MCAT Deep Dive"             },
@@ -7,7 +10,9 @@ const navItems = [
   { id: "faq",      label: "Pre-Med FAQ"                },
 ]
 
-export default function MilestonesPage() {
+export default async function MilestonesPage() {
+  const faqs = await getFaqs()
+
   return (
     <PageLayout
       title="The Big Milestones"
@@ -17,7 +22,7 @@ export default function MilestonesPage() {
     >
       <McatDeepDive />
       <Timeline />
-      <Faq />
+      <Faq faqs={faqs} />
     </PageLayout>
   )
 }

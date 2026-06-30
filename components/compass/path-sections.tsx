@@ -2,7 +2,8 @@
 
 import { useState, useEffect } from "react"
 import { CheckCircle2, AlertTriangle, Users, BookOpen, Star, Calendar, Sun } from "lucide-react"
-import { experienceTools, yearCompass, courseGuides, mentorshipPoints, mentorshipCaseStudies, lastReviewed } from "@/lib/content"
+import { experienceTools, yearCompass as fallbackYearCompass, courseGuides as fallbackCourseGuides, mentorshipPoints, mentorshipCaseStudies, lastReviewed } from "@/lib/content"
+import type { NotionYearCompassItem, NotionCourseGuide } from "@/lib/notion"
 import { experienceTypeCards } from "@/lib/path-content"
 import { Section } from "./section"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
@@ -85,7 +86,7 @@ export function ExperienceTools() {
   )
 }
 
-export function YearCompass() {
+export function YearCompass({ items: yearCompass = fallbackYearCompass }: { items?: NotionYearCompassItem[] }) {
   const [active, setActive] = useState(0)
   const [animKey, setAnimKey] = useState(0)
   const current = yearCompass[active]
@@ -333,7 +334,7 @@ const courseDifficulty: Record<string, string> = {
   "Psychology & Sociology": "MCAT-friendly",
 }
 
-export function CourseGuides() {
+export function CourseGuides({ guides: courseGuides = fallbackCourseGuides }: { guides?: NotionCourseGuide[] }) {
   return (
     <Section
       id="course-guides"
