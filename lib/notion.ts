@@ -136,9 +136,62 @@ export async function getYearCompass(): Promise<NotionYearCompassItem[]> {
   }
 }
 
+// ─── Content freshness ─────────────────────────────────────────────────────────
+
+import { lastReviewed } from './content'
+
+export type ContentArea = 'faqs' | 'courseGuides' | 'yearCompass'
+
+/** Format an ISO timestamp as e.g. "June 2026". */
+function freshnessLabel(iso: string): string {
+  return new Date(iso).toLocaleDateString('en-US', { month: 'long', year: 'numeric' })
+}
+
+/** Most recent `last_edited_time` across a database's published rows. */
+async function latestEdit(dbId: string): Promise<string | null> {
+  const pages = await queryDatabase(dbId)
+  const times = pages
+    .map(p => p.last_edited_time)
+    .filter((t): t is string => Boolean(t))
+    .sort()
+  const newest = times[times.length - 1]
+  return newest ? freshnessLabel(newest) : null
+}
+
+/**
+ * Returns a display label of when each content area was last updated.
+ * Pulls from Notion's `last_edited_time` when available; otherwise falls back
+ * to the static `lastReviewed` label so the UI always has something honest.
+ */
+export async function getContentFreshness(): Promise<Record<ContentArea, string>> {
+  const fallback: Record<ContentArea, string> = {
+    faqs: lastReviewed,
+    courseGuides: lastReviewed,
+    yearCompass: lastReviewed,
+  }
+  if (!process.env.NOTION_API_KEY) return fallback
+
+  try {
+    const [faqs, courseGuides, yearCompass] = await Promise.all([
+      latestEdit(DB.faqs),
+      latestEdit(DB.courseGuides),
+      latestEdit(DB.yearCompass),
+    ])
+    return {
+      faqs: faqs ?? fallback.faqs,
+      courseGuides: courseGuides ?? fallback.courseGuides,
+      yearCompass: yearCompass ?? fallback.yearCompass,
+    }
+  } catch (err) {
+    console.error('[notion] getContentFreshness failed — using static fallback:', err)
+    return fallback
+  }
+}
+
 // ─── Internal Notion API types ────────────────────────────────────────────────
 
 type NotionPage = {
+  last_edited_time?: string
   properties: Record<string, {
     title?:      { plain_text: string }[]
     rich_text?:  { plain_text: string }[]

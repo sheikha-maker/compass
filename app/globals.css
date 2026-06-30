@@ -689,3 +689,70 @@ html {
   transform: translateY(-1px);
   transition: transform 0.15s ease;
 }
+
+/* ─── Freshness signals (active, living resource) ────────────────────────────── */
+
+/* Pulsing dot — signals recently updated content. Hue follows the active theme accent. */
+@keyframes fresh-pulse {
+  0%   { box-shadow: 0 0 0 0 oklch(var(--accent) / 0.5); }
+  70%  { box-shadow: 0 0 0 6px oklch(var(--accent) / 0); }
+  100% { box-shadow: 0 0 0 0 oklch(var(--accent) / 0); }
+}
+
+.fresh-dot {
+  position: relative;
+  display: inline-block;
+  height: 0.5rem;
+  width: 0.5rem;
+  border-radius: 9999px;
+  background-color: oklch(var(--accent));
+  animation: fresh-pulse 2.2s ease-out infinite;
+}
+
+/* Consistent accent gradient treatment for "new"/"updated" badges.
+   Monochromatic on the accent hue so it stays on-palette across every theme. */
+.badge-fresh {
+  background-image: linear-gradient(
+    135deg,
+    oklch(var(--accent) / 0.18) 0%,
+    oklch(var(--accent) / 0.08) 100%
+  );
+  border-color: oklch(var(--accent) / 0.35);
+  color: oklch(var(--accent));
+}
+
+.dark .badge-fresh {
+  color: oklch(var(--accent-foreground));
+  background-image: linear-gradient(
+    135deg,
+    oklch(var(--accent) / 0.32) 0%,
+    oklch(var(--accent) / 0.16) 100%
+  );
+}
+
+/* Soft sheen sweep on the "new" badge — subtle sign of life, not a distraction */
+@keyframes badge-sheen {
+  0%   { transform: translateX(-120%); }
+  60%, 100% { transform: translateX(220%); }
+}
+.badge-fresh-sheen { position: relative; overflow: hidden; }
+.badge-fresh-sheen::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(110deg, transparent 30%, oklch(1 0 0 / 0.35) 50%, transparent 70%);
+  transform: translateX(-120%);
+  animation: badge-sheen 4.5s ease-in-out infinite;
+}
+
+/* Respect reduced-motion preference for all freshness motion */
+@media (prefers-reduced-motion: reduce) {
+  .fresh-dot { animation: none; }
+  .badge-fresh-sheen::after { animation: none; display: none; }
+  .float-soft { animation: none !important; }
+}
+
+/* Gentle floating — for layered/parallax depth accents */
+.float-soft {
+  animation: float 6s ease-in-out infinite;
+}

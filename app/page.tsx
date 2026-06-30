@@ -10,6 +10,9 @@ import { TiltCard } from "@/components/compass/tilt-card"
 import { McatHomepageBanner } from "@/components/compass/mcat-homepage-banner"
 import { StatsBar } from "@/components/compass/stats-bar"
 import { YearSpotlight } from "@/components/compass/year-spotlight"
+import { SeasonalCallout } from "@/components/compass/seasonal-callout"
+import { StudentSpotlight } from "@/components/compass/student-spotlight"
+import { WhatsNew } from "@/components/compass/whats-new"
 import Link from "next/link"
 import { ClipboardList, FileText, CheckSquare, HeartPulse, Library } from "lucide-react"
 
@@ -32,6 +35,9 @@ export default function Page() {
         {/* Deadline alerts */}
         <DeadlineAlerts />
 
+        {/* Seasonal "This week in pre-med" callout */}
+        <SeasonalCallout />
+
         {/* Onboarding */}
         <OnboardingQuiz />
 
@@ -43,6 +49,9 @@ export default function Page() {
 
         {/* Stats bar */}
         <StatsBar />
+
+        {/* Student spotlight — where are they now */}
+        <StudentSpotlight />
 
         {/* Progress dashboard */}
         <Reveal delay={0} className="mx-auto max-w-4xl px-5 pt-10 md:px-8">
@@ -85,6 +94,9 @@ export default function Page() {
             })}
           </div>
         </section>
+
+        {/* What's new — recent changes, reinforcing an active resource */}
+        <WhatsNew />
 
         <SiteFooter />
       </main>
