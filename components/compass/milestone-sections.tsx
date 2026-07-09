@@ -11,14 +11,24 @@ import { McatResourceMatrix } from "./mcat/mcat-resource-matrix"
 import { McatReadinessChecklist } from "./mcat/mcat-readiness-checklist"
 import { McatStudyPlanner } from "./mcat/mcat-study-planner"
 import { ApplicationTimelineVisual } from "./mcat/application-timeline-visual"
+import { changelog, formatChangeDate, isRecent } from "@/lib/updates"
+
+/** Find the most recent changelog entry for a given area tag. */
+function latestForArea(area: string): { date: string; recent: boolean } | undefined {
+  const entry = changelog.find(e => e.area === area)
+  if (!entry) return undefined
+  return { date: formatChangeDate(entry.date), recent: isRecent(entry.date) }
+}
 
 export function McatDeepDive() {
+  const mcat = latestForArea("MCAT") ?? { date: lastReviewed, recent: false }
   return (
     <Section
       id="mcat"
       eyebrow="The Big Milestones"
       title="MCAT Deep Dive"
-      lastReviewed={lastReviewed}
+      updatedAt={mcat.date}
+      recentlyUpdated={mcat.recent}
       intro="The MCAT is a marathon, not a sprint. Plan for it like one. Understand the exam structure, build a phased study plan, and use the tools below to stay honest about readiness."
     >
       <div className="space-y-12">
@@ -78,11 +88,14 @@ export function Timeline() {
 }
 
 export function Faq({ faqs = fallbackFaqs }: { faqs?: NotionFaq[] }) {
+  const faq = latestForArea("FAQ") ?? { date: lastReviewed, recent: false }
   return (
     <Section
       id="faq"
       eyebrow="The Big Milestones"
       title="Helpful Pre-Med FAQ"
+      updatedAt={faq.date}
+      recentlyUpdated={faq.recent}
       intro="These are the questions pre-med students ask most, and the honest answers, not the anxious ones."
     >
       <Accordion type="single" collapsible defaultValue="faq-5" className="w-full">
