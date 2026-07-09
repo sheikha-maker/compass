@@ -4,10 +4,17 @@ import { useState, useEffect } from "react"
 import { CheckCircle2, AlertTriangle, Users, BookOpen, Star, Calendar, Sun } from "lucide-react"
 import { experienceTools, yearCompass as fallbackYearCompass, courseGuides as fallbackCourseGuides, mentorshipPoints, mentorshipCaseStudies, lastReviewed } from "@/lib/content"
 import type { NotionYearCompassItem, NotionCourseGuide } from "@/lib/notion"
+import { changelog, formatChangeDate, isRecent } from "@/lib/updates"
 import { experienceTypeCards } from "@/lib/path-content"
 import { Section } from "./section"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { PathDepthChecklist } from "./path/path-depth-checklist"
+
+function latestForArea(area: string): { date: string; recent: boolean } | undefined {
+  const entry = changelog.find(e => e.area === area)
+  if (!entry) return undefined
+  return { date: formatChangeDate(entry.date), recent: isRecent(entry.date) }
+}
 import { cn } from "@/lib/utils"
 
 export function ExperienceTools() {
@@ -20,12 +27,15 @@ export function ExperienceTools() {
     }, 50)
   }
 
+  const exp = latestForArea("Your Path") ?? { date: lastReviewed, recent: false }
+
   return (
     <Section
       id="experience-tools"
       eyebrow="Building Your Path"
       title="Experience-Specific Tools"
-      lastReviewed={lastReviewed}
+      updatedAt={exp.date}
+      recentlyUpdated={exp.recent}
       intro="Research, clinical work, shadowing, leadership, and service each have a different purpose and a different right time. Here's how to think about each one without turning it into a checklist."
     >
       <div className="mb-6 grid grid-cols-2 gap-3 sm:grid-cols-3 md:grid-cols-5">
@@ -116,11 +126,15 @@ export function YearCompass({ items: yearCompass = fallbackYearCompass }: { item
     "border-timeline-4 bg-timeline-4",
   ]
 
+  const compass = latestForArea("Your Path") ?? { date: lastReviewed, recent: false }
+
   return (
     <Section
       id="year-compass"
       eyebrow="Building Your Path"
       title="Year-by-Year Compass"
+      updatedAt={compass.date}
+      recentlyUpdated={compass.recent}
       intro="Not everything here is for you. Just use the parts that apply to where you're at right now. Click your year."
     >
       <div className="mb-6 grid grid-cols-2 gap-3 sm:grid-cols-4">
@@ -335,11 +349,14 @@ const courseDifficulty: Record<string, string> = {
 }
 
 export function CourseGuides({ guides: courseGuides = fallbackCourseGuides }: { guides?: NotionCourseGuide[] }) {
+  const guides = latestForArea("Course Guides") ?? { date: lastReviewed, recent: false }
   return (
     <Section
       id="course-guides"
       eyebrow="Building Your Path"
       title="Course Survival Guides"
+      updatedAt={guides.date}
+      recentlyUpdated={guides.recent}
       intro="When times are rough, these give you strategies for mastering the hard pre-med courses without burning out. Includes Moravian-specific tips from students who've been there."
     >
       <div className="mb-4 flex flex-wrap gap-2">
