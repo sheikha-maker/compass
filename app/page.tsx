@@ -1,13 +1,12 @@
 import { SidebarNav } from "@/components/compass/sidebar-nav"
 import { HeroClient } from "@/components/compass/hero-client"
 import { OnboardingQuiz } from "@/components/compass/onboarding-quiz"
+import { PersonalizedDashboard } from "@/components/compass/personalized-dashboard"
 import { SectionCardsClient } from "@/components/compass/section-cards-client"
 import { SiteFooter } from "@/components/compass/resources"
-import { DeadlineAlerts } from "@/components/compass/deadline-alerts"
 import { Reveal } from "@/components/compass/reveal"
 import { TiltCard } from "@/components/compass/tilt-card"
 import { McatHomepageBanner } from "@/components/compass/mcat-homepage-banner"
-import { YearSpotlight } from "@/components/compass/year-spotlight"
 import { SeasonalCallout } from "@/components/compass/seasonal-callout"
 import { WhatsNew } from "@/components/compass/whats-new"
 import Link from "next/link"
@@ -29,17 +28,14 @@ export default function Page() {
         <HeroClient />
         <McatHomepageBanner />
 
-        {/* Deadline alerts */}
-        <DeadlineAlerts />
-
         {/* Seasonal "This week in pre-med" callout */}
         <SeasonalCallout />
 
-        {/* Onboarding */}
+        {/* Onboarding — new users only; returning users see PersonalizedDashboard */}
         <OnboardingQuiz />
 
-        {/* Year-aware spotlight */}
-        <YearSpotlight />
+        {/* Personalized dashboard — greeting, priorities, alerts, stats */}
+        <PersonalizedDashboard />
 
         {/* Section cards */}
         <SectionCardsClient />
