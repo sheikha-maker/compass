@@ -2,6 +2,8 @@ import { Heart, Mail, Quote, ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { SidebarNav } from "@/components/compass/sidebar-nav"
 import { SiteFooter } from "@/components/compass/resources"
+import { StudentSpotlight } from "@/components/compass/student-spotlight"
+import { StatsBar } from "@/components/compass/stats-bar"
 import Image from "next/image"
 import Link from "next/link"
 
@@ -89,6 +91,11 @@ export default function AboutPage() {
             </p>
           </div>
 
+          {/* By the numbers */}
+          <div className="mt-10">
+            <StatsBar />
+          </div>
+
           {/* Testimonials */}
           <div className="mt-10">
             <h2 className="font-serif text-xl font-semibold text-foreground">What students are saying</h2>
@@ -101,6 +108,11 @@ export default function AboutPage() {
                 </div>
               ))}
             </div>
+          </div>
+
+          {/* Where are they now */}
+          <div className="mt-10">
+            <StudentSpotlight />
           </div>
 
           {/* CTA */}

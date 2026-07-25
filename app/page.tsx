@@ -3,15 +3,12 @@ import { HeroClient } from "@/components/compass/hero-client"
 import { OnboardingQuiz } from "@/components/compass/onboarding-quiz"
 import { SectionCardsClient } from "@/components/compass/section-cards-client"
 import { SiteFooter } from "@/components/compass/resources"
-import { ProgressDashboard } from "@/app/tools/components/ProgressDashboard"
 import { DeadlineAlerts } from "@/components/compass/deadline-alerts"
 import { Reveal } from "@/components/compass/reveal"
 import { TiltCard } from "@/components/compass/tilt-card"
 import { McatHomepageBanner } from "@/components/compass/mcat-homepage-banner"
-import { StatsBar } from "@/components/compass/stats-bar"
 import { YearSpotlight } from "@/components/compass/year-spotlight"
 import { SeasonalCallout } from "@/components/compass/seasonal-callout"
-import { StudentSpotlight } from "@/components/compass/student-spotlight"
 import { WhatsNew } from "@/components/compass/whats-new"
 import Link from "next/link"
 import { ClipboardList, FileText, CheckSquare, HeartPulse, Library } from "lucide-react"
@@ -46,17 +43,6 @@ export default function Page() {
 
         {/* Section cards */}
         <SectionCardsClient />
-
-        {/* Stats bar */}
-        <StatsBar />
-
-        {/* Student spotlight — where are they now */}
-        <StudentSpotlight />
-
-        {/* Progress dashboard */}
-        <Reveal delay={0} className="mx-auto max-w-4xl px-5 pt-10 md:px-8">
-          <ProgressDashboard />
-        </Reveal>
 
         {/* Tools Overview */}
         <section id="tools-overview" className="mx-auto max-w-4xl px-5 py-14 md:px-8">
