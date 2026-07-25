@@ -49,7 +49,7 @@ export default function OgImage() {
               letterSpacing: "-0.02em",
             }}
           >
-            Pre-med at Moravian is hard. It doesn't have to be chaotic.
+            Pre-med is hard. It doesn't have to be chaotic.
           </div>
           <div
             style={{
