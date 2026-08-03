@@ -3,6 +3,14 @@ import { PageLayout } from "@/components/compass/page-layout"
 import { MindsetOverview } from "@/components/compass/mindset/mindset-overview"
 import { Mindfulness, Comparison, Balance } from "@/components/compass/mindset-sections"
 import { DecisionTools } from "@/components/compass/decision-tool"
+import { pageMetadata } from "@/lib/seo"
+
+export const metadata = pageMetadata({
+  title: "Mindset",
+  description:
+    "Protect your well-being while you build your application. Mindfulness practices, decision tools, and habits that keep pre-med sustainable instead of chaotic.",
+  path: "/mindset",
+})
 
 const navItems = [
   { id: "mindfulness", label: "Mindfulness" },

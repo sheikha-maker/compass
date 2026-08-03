@@ -3,6 +3,16 @@ import { YearlyChecklist } from "../components/YearlyChecklist"
 import { StorageWarning } from "@/components/compass/storage-warning"
 import { SiteFooter } from "@/components/compass/resources"
 import { PrintButton } from "@/components/compass/print-button"
+import { pageMetadata } from "@/lib/seo"
+
+// Sign-in required (see middleware.ts) — noindex so crawlers don't log soft-404s.
+export const metadata = pageMetadata({
+  title: "Milestones Checklist",
+  description:
+    "A year-by-year checklist of Moravian pre-med milestones. Check items off as you finish them and track your progress across all four years.",
+  path: "/tools/milestones",
+  noindex: true,
+})
 
 const navItems = [
   { id: "yearly-checklist", label: "Moravian Milestones" },

@@ -5,6 +5,16 @@ import { MCATCountdown } from "../components/MCATCountdown"
 import { GPACalculator } from "../components/GPACalculator"
 import { StorageWarning } from "@/components/compass/storage-warning"
 import { SiteFooter } from "@/components/compass/resources"
+import { pageMetadata } from "@/lib/seo"
+
+// Sign-in required (see middleware.ts) — noindex so crawlers don't log soft-404s.
+export const metadata = pageMetadata({
+  title: "Plan & Check",
+  description:
+    "Track pre-med prerequisites, plan your semesters, calculate your science GPA, and count down to your MCAT date — all saved to your account.",
+  path: "/tools/plan-check",
+  noindex: true,
+})
 
 const navItems = [
   { id: "prereq-tracker",  label: "Prerequisite Tracker" },

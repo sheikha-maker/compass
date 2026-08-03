@@ -48,6 +48,36 @@ async function serverWrite(key: string, value: unknown) {
   })
 }
 
+/**
+ * Coalesce rapid writes (typing in a tool input fires one per keystroke) into a
+ * single request per key. Keeps the tools well inside the API rate limit and
+ * cuts needless DB round-trips; localStorage stays the instant, optimistic layer.
+ */
+const SYNC_DEBOUNCE_MS = 800
+const pendingWrites = new Map<string, { timer: ReturnType<typeof setTimeout>; value: unknown }>()
+
+function flushWrite(key: string) {
+  const pending = pendingWrites.get(key)
+  if (!pending) return
+  clearTimeout(pending.timer)
+  pendingWrites.delete(key)
+  void serverWrite(key, pending.value).catch(() => {})
+}
+
+function queueServerWrite(key: string, value: unknown) {
+  const existing = pendingWrites.get(key)
+  if (existing) clearTimeout(existing.timer)
+  const timer = setTimeout(() => flushWrite(key), SYNC_DEBOUNCE_MS)
+  pendingWrites.set(key, { timer, value })
+}
+
+// Don't lose the last edit if the tab closes mid-debounce.
+if (typeof window !== "undefined") {
+  window.addEventListener("pagehide", () => {
+    for (const key of Array.from(pendingWrites.keys())) flushWrite(key)
+  })
+}
+
 export function useToolData<T>(
   key: string,
   defaultValue: T
@@ -80,7 +110,7 @@ export function useToolData<T>(
       setDataState(next)
       lsWrite(key, next)
       if (isAuthedRef.current) {
-        serverWrite(key, next) // fire-and-forget; localStorage is the optimistic layer
+        queueServerWrite(key, next) // debounced; localStorage is the optimistic layer
       }
     },
     [key]

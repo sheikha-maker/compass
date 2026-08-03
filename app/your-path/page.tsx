@@ -11,6 +11,14 @@ import { OpportunitiesBoard } from "@/components/compass/opportunities-board"
 import { MoravianAmcasTimeline } from "@/components/compass/moravian-amcas-timeline"
 import { Section } from "@/components/compass/section"
 import { getCourseGuides, getYearCompass, getOpportunities } from "@/lib/notion"
+import { pageMetadata } from "@/lib/seo"
+
+export const metadata = pageMetadata({
+  title: "Building Your Path",
+  description:
+    "A year-by-year plan for Moravian pre-meds: course survival guides, research and clinical opportunities on and near campus, advisor prep, and the AMCAS application timeline.",
+  path: "/your-path",
+})
 
 export const revalidate = 3600
 

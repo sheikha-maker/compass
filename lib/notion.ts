@@ -16,6 +16,8 @@ import {
 
 const NOTION_VERSION = '2022-06-28'
 const REVALIDATE_SECONDS = 3600 // 1 hour
+/** Hard ceiling on any single Notion request so a slow API can't hang a page render. */
+const FETCH_TIMEOUT_MS = 6000
 
 const DB = {
   faqs:        '57f35a3f-7ad0-41c9-93b0-e21f12874b48',
@@ -68,9 +70,26 @@ function select(prop: { select?: { name: string } } | undefined): string {
   return prop?.select?.name ?? ''
 }
 
+/**
+ * Reject if `work` hasn't settled within `ms`.
+ *
+ * We deliberately race a timer instead of passing an AbortSignal to `fetch`:
+ * a signal opts the request out of Next.js's fetch cache, which would turn every
+ * page render into a live Notion call. Racing keeps ISR intact while guaranteeing
+ * the caller never waits longer than the budget — the losing fetch is simply
+ * abandoned, and every caller falls back to static content on rejection.
+ */
+function withTimeout<T>(work: Promise<T>, ms: number, label: string): Promise<T> {
+  let timer: ReturnType<typeof setTimeout>
+  const timeout = new Promise<never>((_, reject) => {
+    timer = setTimeout(() => reject(new Error(`${label} timed out after ${ms}ms`)), ms)
+  })
+  return Promise.race([work, timeout]).finally(() => clearTimeout(timer)) as Promise<T>
+}
+
 /** Query a Notion database, filtering to Published rows sorted by Order. */
 async function queryDatabase(dbId: string): Promise<NotionPage[]> {
-  const res = await fetch(`https://api.notion.com/v1/databases/${dbId}/query`, {
+  const request = fetch(`https://api.notion.com/v1/databases/${dbId}/query`, {
     method: 'POST',
     headers: headers(),
     body: JSON.stringify({
@@ -80,11 +99,17 @@ async function queryDatabase(dbId: string): Promise<NotionPage[]> {
     next: { revalidate: REVALIDATE_SECONDS },
   })
 
+  const res = await withTimeout(request, FETCH_TIMEOUT_MS, `Notion query ${dbId}`)
+
   if (!res.ok) {
     throw new Error(`Notion query failed for ${dbId}: HTTP ${res.status}`)
   }
 
-  const data = await res.json() as { results: NotionPage[] }
+  const data = await withTimeout(
+    res.json() as Promise<{ results: NotionPage[] }>,
+    FETCH_TIMEOUT_MS,
+    `Notion body ${dbId}`,
+  )
   return data.results
 }
 

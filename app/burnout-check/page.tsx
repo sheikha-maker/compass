@@ -3,6 +3,14 @@ import { SidebarNav } from "@/components/compass/sidebar-nav"
 import { SiteFooter } from "@/components/compass/resources"
 import { Activity, BookOpen, HeartPulse, MessageCircle } from "lucide-react"
 import Link from "next/link"
+import { pageMetadata } from "@/lib/seo"
+
+export const metadata = pageMetadata({
+  title: "Burnout Self-Check",
+  description:
+    "A private, five-question burnout self-check for pre-med students. Get a reflection score and next-step resources — no account, no diagnosis, nothing leaves your device.",
+  path: "/burnout-check",
+})
 
 const signsList = [
   "Studying but nothing sticking, even after hours",

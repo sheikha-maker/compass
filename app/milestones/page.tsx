@@ -1,6 +1,14 @@
 import { PageLayout } from "@/components/compass/page-layout"
 import { McatDeepDive, Timeline, Faq } from "@/components/compass/milestone-sections"
 import { getFaqs } from "@/lib/notion"
+import { pageMetadata } from "@/lib/seo"
+
+export const metadata = pageMetadata({
+  title: "The Big Milestones",
+  description:
+    "An MCAT deep dive, the medical school application timeline, and honest answers to the questions pre-meds ask most — gap years, GPA, research timing, and more.",
+  path: "/milestones",
+})
 
 export const revalidate = 3600
 
