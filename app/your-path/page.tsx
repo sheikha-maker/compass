@@ -7,14 +7,16 @@ import {
   Mentorship,
 } from "@/components/compass/path-sections"
 import { AdvisorCard } from "@/components/compass/advisor-card"
+import { OpportunitiesBoard } from "@/components/compass/opportunities-board"
 import { MoravianAmcasTimeline } from "@/components/compass/moravian-amcas-timeline"
 import { Section } from "@/components/compass/section"
-import { getCourseGuides, getYearCompass } from "@/lib/notion"
+import { getCourseGuides, getYearCompass, getOpportunities } from "@/lib/notion"
 
 export const revalidate = 3600
 
 const navItems = [
   { id: "your-advisor", label: "Your Advisor" },
+  { id: "moravian-opportunities", label: "Moravian Opportunities" },
   { id: "experience-tools", label: "Experience-Specific Tools" },
   { id: "year-compass", label: "Year-by-Year Compass" },
   { id: "course-guides", label: "Course Survival Guides" },
@@ -23,9 +25,10 @@ const navItems = [
 ]
 
 export default async function YourPathPage() {
-  const [yearCompass, courseGuides] = await Promise.all([
+  const [yearCompass, courseGuides, opportunities] = await Promise.all([
     getYearCompass(),
     getCourseGuides(),
+    getOpportunities(),
   ])
 
   return (
@@ -46,6 +49,9 @@ export default async function YourPathPage() {
       >
         <AdvisorCard />
       </Section>
+
+      {/* Moravian-specific opportunities — SOAR, LVHN, St. Luke's, faculty research */}
+      <OpportunitiesBoard opportunities={opportunities} />
 
       <ExperienceTools />
       <YearCompass items={yearCompass} />

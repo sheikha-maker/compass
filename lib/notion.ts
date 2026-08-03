@@ -21,6 +21,7 @@ const DB = {
   faqs:        '57f35a3f-7ad0-41c9-93b0-e21f12874b48',
   courseGuides: '59253998-69e3-46f1-99c5-72e40ef6434a',
   yearCompass:  'c3cfcb50-3ea2-4931-9bc7-3d0a8b5d7309',
+  opportunities: '9b1e18c0-afeb-4e20-a3f8-6187754045ec',
 } as const
 
 // ─── Types ────────────────────────────────────────────────────────────────────
@@ -28,6 +29,17 @@ const DB = {
 export type NotionFaq = { q: string; a: string; mistake?: string }
 export type NotionCourseGuide = typeof fallbackCourseGuides[number]
 export type NotionYearCompassItem = YearCompassItem
+
+export type OpportunityCategory = 'Research' | 'Clinical' | 'Shadowing' | 'Leadership' | 'Service'
+
+export type NotionOpportunity = {
+  name: string
+  category: OpportunityCategory
+  description: string
+  howToApply: string
+  timeline: string
+  contact: string
+}
 
 // ─── Helpers ──────────────────────────────────────────────────────────────────
 
@@ -49,6 +61,11 @@ function text(prop: { title?: { plain_text: string }[]; rich_text?: { plain_text
 /** Split newline-delimited text into a trimmed, non-empty string array. */
 function lines(raw: string): string[] {
   return raw.split('\n').map(s => s.trim()).filter(Boolean)
+}
+
+/** Extract the selected option name from a Notion select property. */
+function select(prop: { select?: { name: string } } | undefined): string {
+  return prop?.select?.name ?? ''
 }
 
 /** Query a Notion database, filtering to Published rows sorted by Order. */
@@ -136,7 +153,74 @@ export async function getYearCompass(): Promise<NotionYearCompassItem[]> {
   }
 }
 
-// ─── Content freshness ─────────────────────────────────────────────────────────
+// ─── Static fallback (used until Notion is reachable/populated) ──────────────
+
+const fallbackOpportunities: NotionOpportunity[] = [
+  {
+    name: 'SOAR (Summer Opportunities for Advanced Research)',
+    category: 'Research',
+    description: "Moravian's Summer Opportunities for Advanced Research program, open to students across departments.",
+    howToApply: 'Contact the SOAR office directly for the current cycle\'s application.',
+    timeline: 'Applications typically open in early spring for a summer start.',
+    contact: 'Moravian SOAR Office',
+  },
+  {
+    name: 'Faculty Research Positions',
+    category: 'Research',
+    description: 'Faculty across biology, chemistry, psychology, and other departments often take on student research assistants.',
+    howToApply: "Email the professor directly, referencing specific interest in their research and asking about openings.",
+    timeline: 'Varies by faculty member — many onboard students at the start of fall or spring semester.',
+    contact: 'Contact your department directly',
+  },
+  {
+    name: 'LVHN (Lehigh Valley Health Network)',
+    category: 'Clinical',
+    description: 'LVHN offers volunteer and shadowing opportunities close to campus.',
+    howToApply: "Apply through LVHN's volunteer services portal, followed by an orientation.",
+    timeline: 'Rolling admission for volunteers.',
+    contact: 'LVHN Volunteer Services',
+  },
+  {
+    name: "St. Luke's University Health Network — Observership",
+    category: 'Shadowing',
+    description: "St. Luke's offers physician observership opportunities across several specialties.",
+    howToApply: 'Submit a formal observership application, including a background check and health clearance.',
+    timeline: 'Processing can take several weeks — apply well before you want to start.',
+    contact: "St. Luke's Observership Coordinator",
+  },
+  {
+    name: 'Pre-Health Club Leadership',
+    category: 'Leadership',
+    description: "Moravian's Pre-Health Club offers leadership roles, event planning, and peer mentorship experience.",
+    howToApply: 'Attend meetings, then ask current officers about open positions.',
+    timeline: 'Officer elections typically happen in spring for the following academic year.',
+    contact: 'Current Pre-Health Club officers',
+  },
+]
+
+export async function getOpportunities(): Promise<NotionOpportunity[]> {
+  if (!process.env.NOTION_API_KEY) return fallbackOpportunities
+
+  try {
+    const pages = await queryDatabase(DB.opportunities)
+    if (pages.length === 0) return fallbackOpportunities
+
+    return pages.map(p => {
+      const props = p.properties
+      return {
+        name:        text(props['Name']),
+        category:    (select(props['Category']) || 'Research') as OpportunityCategory,
+        description: text(props['Description']),
+        howToApply:  text(props['How to Apply']),
+        timeline:    text(props['Typical Timeline']),
+        contact:     text(props['Contact or Link']),
+      }
+    })
+  } catch (err) {
+    console.error('[notion] getOpportunities failed — using static fallback:', err)
+    return fallbackOpportunities
+  }
+}
 
 import { lastReviewed } from './content'
 
@@ -197,5 +281,6 @@ type NotionPage = {
     rich_text?:  { plain_text: string }[]
     number?:     number
     checkbox?:   boolean
+    select?:     { name: string }
   }>
 }
