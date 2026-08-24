@@ -47,6 +47,23 @@ export async function POST(req: NextRequest) {
   const body = await req.json()
   const { id, category, title, hours, date, endDate, note } = body
 
+  // Basic validation — mirrors the check already done in /api/wellness
+  if (typeof category !== "string" || !category.trim()) {
+    return NextResponse.json({ error: "category is required" }, { status: 400 })
+  }
+  if (typeof title !== "string" || !title.trim()) {
+    return NextResponse.json({ error: "title is required" }, { status: 400 })
+  }
+  if (typeof date !== "string" || !date.trim()) {
+    return NextResponse.json({ error: "date is required" }, { status: 400 })
+  }
+  if (endDate !== undefined && endDate !== null && typeof endDate !== "string") {
+    return NextResponse.json({ error: "endDate must be a string" }, { status: 400 })
+  }
+  if (note !== undefined && note !== null && typeof note !== "string") {
+    return NextResponse.json({ error: "note must be a string" }, { status: 400 })
+  }
+
   // Parse hours from string (form input) to float, clamping to a sane range
   let parsedHours: number | null = null
   if (hours !== undefined && hours !== null && hours !== "") {

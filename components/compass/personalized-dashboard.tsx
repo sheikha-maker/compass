@@ -297,16 +297,20 @@ export function PersonalizedDashboard() {
   const option = getOnboardingOption(yearId)
   if (!option) return null
 
-  const milestonePct = Math.round((stats?.milestoneDone ?? 0) / 32 * 100)
+  // stats is always set in the same effect that flips `mounted` to true,
+  // so by this point it can't be null — this just makes that explicit for TS.
+  if (!stats) return null
+
+  const milestonePct = Math.round((stats.milestoneDone ?? 0) / 32 * 100)
 
   const mcatValue =
-    stats?.mcatDays === null  ? "—" :
+    stats.mcatDays === null  ? "—" :
     stats.mcatDays < 0        ? "Done" :
     stats.mcatDays === 0      ? "Today!" :
     `${stats.mcatDays}d`
 
   const mcatAccent =
-    stats?.mcatDays === null ? "default" :
+    stats.mcatDays === null ? "default" :
     stats.mcatDays < 30     ? "red" :
     stats.mcatDays < 90     ? "amber" : "green"
 

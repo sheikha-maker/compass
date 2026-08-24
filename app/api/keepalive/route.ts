@@ -1,6 +1,7 @@
 import { NextResponse } from "next/server"
 import { db, dbAvailable } from "@/lib/db"
 import { sql } from "drizzle-orm"
+import { timingSafeEqual } from "crypto"
 
 /**
  * GET /api/keepalive
@@ -8,9 +9,19 @@ import { sql } from "drizzle-orm"
  * Triggered daily by Vercel Cron (see vercel.json).
  * Also protected by CRON_SECRET so it can't be triggered by anyone else.
  */
+
+/** Constant-time string compare so a mistimed guess can't leak the secret byte-by-byte. */
+function safeEqual(a: string, b: string): boolean {
+  const bufA = Buffer.from(a)
+  const bufB = Buffer.from(b)
+  if (bufA.length !== bufB.length) return false
+  return timingSafeEqual(bufA, bufB)
+}
+
 export async function GET(req: Request) {
-  const authHeader = req.headers.get("authorization")
-  if (authHeader !== `Bearer ${process.env.CRON_SECRET}`) {
+  const authHeader = req.headers.get("authorization") ?? ""
+  const expected = `Bearer ${process.env.CRON_SECRET ?? ""}`
+  if (!process.env.CRON_SECRET || !safeEqual(authHeader, expected)) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 })
   }
 
