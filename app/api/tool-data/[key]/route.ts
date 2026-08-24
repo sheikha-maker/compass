@@ -4,6 +4,7 @@ import { db, dbAvailable } from "@/lib/db"
 import { userToolData } from "@/lib/db/schema"
 import { eq, and } from "drizzle-orm"
 import { headers } from "next/headers"
+import { enforceRateLimit, LIMITS } from "@/lib/rate-limit"
 
 async function getUser() {
   const session = await auth.api.getSession({ headers: await headers() })
@@ -12,13 +13,19 @@ async function getUser() {
 
 // GET /api/tool-data/[key]  → { value: string | null }
 export async function GET(
-  _req: NextRequest,
+  req: NextRequest,
   { params }: { params: Promise<{ key: string }> }
 ) {
+  const burst = enforceRateLimit(req, null, "tool-data:burst", LIMITS.burst)
+  if (burst) return burst
+
   if (!dbAvailable) return NextResponse.json({ value: null })
 
   const user = await getUser()
   if (!user) return NextResponse.json({ error: "Unauthorized" }, { status: 401 })
+
+  const limited = enforceRateLimit(req, user.id, "tool-data:read", LIMITS.read)
+  if (limited) return limited
 
   const { key } = await params
   const rows = await db
@@ -34,16 +41,28 @@ export async function PUT(
   req: NextRequest,
   { params }: { params: Promise<{ key: string }> }
 ) {
+  const burst = enforceRateLimit(req, null, "tool-data:burst", LIMITS.burst)
+  if (burst) return burst
+
   if (!dbAvailable) return NextResponse.json({ error: "DB not configured" }, { status: 503 })
 
   const user = await getUser()
   if (!user) return NextResponse.json({ error: "Unauthorized" }, { status: 401 })
+
+  const limited = enforceRateLimit(req, user.id, "tool-data:write", LIMITS.sync)
+  if (limited) return limited
 
   const { key } = await params
   const { value } = await req.json() as { value: string }
 
   if (typeof value !== "string") {
     return NextResponse.json({ error: "value must be a JSON string" }, { status: 400 })
+  }
+
+  // Guard against a single row being used to dump megabytes into Postgres.
+  const MAX_VALUE_BYTES = 100_000
+  if (value.length > MAX_VALUE_BYTES) {
+    return NextResponse.json({ error: "value is too large" }, { status: 413 })
   }
 
   // Upsert: update if row exists, insert otherwise

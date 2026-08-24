@@ -4,17 +4,24 @@ import { db, dbAvailable } from "@/lib/db"
 import { wellnessCheckin } from "@/lib/db/schema"
 import { eq, asc, and } from "drizzle-orm"
 import { headers } from "next/headers"
+import { enforceRateLimit, LIMITS } from "@/lib/rate-limit"
 
 async function getUser() {
   const session = await auth.api.getSession({ headers: await headers() })
   return session?.user ?? null
 }
 
-export async function GET() {
+export async function GET(req: NextRequest) {
+  const burst = enforceRateLimit(req, null, "wellness:burst", LIMITS.burst)
+  if (burst) return burst
+
   if (!dbAvailable) return NextResponse.json({ checkins: [] })
 
   const user = await getUser()
   if (!user) return NextResponse.json({ error: "Unauthorized" }, { status: 401 })
+
+  const limited = enforceRateLimit(req, user.id, "wellness:read", LIMITS.read)
+  if (limited) return limited
 
   const checkins = await db
     .select()
@@ -26,10 +33,16 @@ export async function GET() {
 }
 
 export async function POST(req: NextRequest) {
+  const burst = enforceRateLimit(req, null, "wellness:burst", LIMITS.burst)
+  if (burst) return burst
+
   if (!dbAvailable) return NextResponse.json({ error: "DB not configured" }, { status: 503 })
 
   const user = await getUser()
   if (!user) return NextResponse.json({ error: "Unauthorized" }, { status: 401 })
+
+  const limited = enforceRateLimit(req, user.id, "wellness:write", LIMITS.write)
+  if (limited) return limited
 
   const body = await req.json()
   const { weekKey, dateLabel, energy, motivation, stress } = body
