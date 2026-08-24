@@ -6,6 +6,7 @@ import { experienceTools, yearCompass as fallbackYearCompass, courseGuides as fa
 import type { NotionYearCompassItem, NotionCourseGuide } from "@/lib/notion"
 import { changelog, formatChangeDate, isRecent } from "@/lib/updates"
 import { experienceTypeCards } from "@/lib/path-content"
+import { majors, majorSampleSchedules, type MajorId } from "@/lib/major-schedules"
 import { Section } from "./section"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { PathDepthChecklist } from "./path/path-depth-checklist"
@@ -99,7 +100,13 @@ export function ExperienceTools() {
 export function YearCompass({ items: yearCompass = fallbackYearCompass }: { items?: NotionYearCompassItem[] }) {
   const [active, setActive] = useState(0)
   const [animKey, setAnimKey] = useState(0)
+  const [selectedMajor, setSelectedMajor] = useState<MajorId | "general">("general")
   const current = yearCompass[active]
+
+  // Swap in the major-specific schedule for the same year index, when one is selected
+  // and available (senior year only has 4 entries same as general, so index maps 1:1).
+  const displaySchedule =
+    selectedMajor !== "general" ? majorSampleSchedules[selectedMajor][active] : current.sampleSchedule
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search)
@@ -191,17 +198,57 @@ export function YearCompass({ items: yearCompass = fallbackYearCompass }: { item
           <p className="text-sm leading-relaxed text-foreground">{current.avoid}</p>
         </div>
 
-        {current.sampleSchedule && (
+        {displaySchedule && (
           <div className="mt-6 rounded-xl border border-accent/20 bg-accent/5 p-5">
-            <div className="mb-4 flex items-center gap-2">
-              <Calendar className="h-4 w-4 text-accent" aria-hidden />
-              <p className="font-semibold text-foreground">Sample Schedule</p>
+            <div className="mb-4 flex flex-wrap items-center justify-between gap-3">
+              <div className="flex items-center gap-2">
+                <Calendar className="h-4 w-4 text-accent" aria-hidden />
+                <p className="font-semibold text-foreground">Sample Schedule</p>
+              </div>
+              <div className="flex flex-wrap gap-1.5" role="group" aria-label="Filter sample schedule by major">
+                <button
+                  type="button"
+                  onClick={() => setSelectedMajor("general")}
+                  className={cn(
+                    "rounded-full px-2.5 py-1 text-xs font-semibold transition-colors",
+                    selectedMajor === "general"
+                      ? "bg-accent text-accent-foreground"
+                      : "bg-card text-muted-foreground hover:text-foreground",
+                  )}
+                  aria-pressed={selectedMajor === "general"}
+                >
+                  General
+                </button>
+                {majors.map((m) => (
+                  <button
+                    key={m.id}
+                    type="button"
+                    onClick={() => setSelectedMajor(m.id)}
+                    className={cn(
+                      "rounded-full px-2.5 py-1 text-xs font-semibold transition-colors",
+                      selectedMajor === m.id
+                        ? "bg-accent text-accent-foreground"
+                        : "bg-card text-muted-foreground hover:text-foreground",
+                    )}
+                    aria-pressed={selectedMajor === m.id}
+                  >
+                    {m.label}
+                  </button>
+                ))}
+              </div>
             </div>
+            {selectedMajor !== "general" && (
+              <p className="mb-4 text-xs text-muted-foreground">
+                {majors.find((m) => m.id === selectedMajor)?.blurb}
+                {!majors.find((m) => m.id === selectedMajor)?.official &&
+                  " Moravian doesn't publish an official semester-by-semester plan for this major — this sequence is built from their published course requirements, so confirm it with your advisor."}
+              </p>
+            )}
             <div className="grid gap-4 sm:grid-cols-2">
               <div>
                 <p className="mb-2.5 text-sm font-semibold text-foreground">Fall Semester</p>
                 <ul className="space-y-1.5">
-                  {current.sampleSchedule.fall.map((course) => (
+                  {displaySchedule.fall.map((course) => (
                     <li key={course} className="flex items-start gap-2 text-sm text-muted-foreground">
                       <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent" aria-hidden />
                       {course}
@@ -212,7 +259,7 @@ export function YearCompass({ items: yearCompass = fallbackYearCompass }: { item
               <div>
                 <p className="mb-2.5 text-sm font-semibold text-foreground">Spring Semester</p>
                 <ul className="space-y-1.5">
-                  {current.sampleSchedule.spring.map((course) => (
+                  {displaySchedule.spring.map((course) => (
                     <li key={course} className="flex items-start gap-2 text-sm text-muted-foreground">
                       <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" aria-hidden />
                       {course}
@@ -222,7 +269,7 @@ export function YearCompass({ items: yearCompass = fallbackYearCompass }: { item
               </div>
             </div>
             <p className="mt-4 border-t border-accent/20 pt-3 text-sm font-medium text-accent">
-              {current.sampleSchedule.tips}
+              {displaySchedule.tips}
             </p>
           </div>
         )}
