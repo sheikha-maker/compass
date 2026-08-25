@@ -1,4 +1,4 @@
-import { Quote, GraduationCap } from "lucide-react"
+import { Quote, GraduationCap, Linkedin } from "lucide-react"
 import { studentSpotlights, type StudentSpotlight } from "@/lib/spotlights"
 import { Reveal } from "@/components/compass/reveal"
 import { TiltCard } from "@/components/compass/tilt-card"
@@ -32,7 +32,12 @@ export function StudentSpotlight() {
         </p>
       </Reveal>
 
-      <div className="mt-8 grid gap-4 md:grid-cols-3">
+      <div
+        className={cn(
+          "mt-8 grid gap-4",
+          studentSpotlights.length === 1 ? "mx-auto max-w-sm" : "md:grid-cols-3",
+        )}
+      >
         {studentSpotlights.map((s, i) => (
           <Reveal key={s.name} delay={i * 90}>
             <TiltCard intensity={5} className="h-full rounded-2xl">
@@ -58,15 +63,31 @@ export function StudentSpotlight() {
                 </p>
                 <p className="mt-3 text-sm font-medium text-primary">{s.now}</p>
 
-                <div className="mt-4 flex gap-2 border-l-2 border-accent/40 pl-3">
-                  <Quote className="h-3.5 w-3.5 shrink-0 text-accent" aria-hidden="true" />
-                  <p className="text-sm italic leading-relaxed text-muted-foreground">{s.quote}</p>
-                </div>
+                {s.quote && (
+                  <div className="mt-4 flex gap-2 border-l-2 border-accent/40 pl-3">
+                    <Quote className="h-3.5 w-3.5 shrink-0 text-accent" aria-hidden="true" />
+                    <p className="text-sm italic leading-relaxed text-muted-foreground">{s.quote}</p>
+                  </div>
+                )}
 
-                <p className="mt-auto pt-4 text-sm leading-relaxed text-foreground">
-                  <span className="font-semibold">Their advice: </span>
-                  {s.advice}
-                </p>
+                {s.advice && (
+                  <p className="mt-4 text-sm leading-relaxed text-foreground">
+                    <span className="font-semibold">Their advice: </span>
+                    {s.advice}
+                  </p>
+                )}
+
+                {s.linkedin && (
+                  <a
+                    href={s.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-auto inline-flex items-center gap-1.5 pt-4 text-sm font-medium text-primary hover:underline"
+                  >
+                    <Linkedin className="h-3.5 w-3.5" aria-hidden="true" />
+                    Connect on LinkedIn
+                  </a>
+                )}
               </article>
             </TiltCard>
           </Reveal>

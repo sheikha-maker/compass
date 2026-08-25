@@ -10,7 +10,7 @@ export const metadata = pageMetadata({
   title: "Milestones Checklist",
   description:
     "A year-by-year checklist of Moravian pre-med milestones. Check items off as you finish them and track your progress across all four years.",
-  path: "/tools/milestones",
+  path: "/tools/checklist",
   noindex: true,
 })
 

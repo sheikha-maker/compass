@@ -162,7 +162,7 @@ function buildAlerts(): Alert[] {
       severity: "warning",
       title: "Milestone progress is low for your year",
       body: "You've completed under 25% of milestones. Review your year's key priorities now.",
-      href: "/tools/milestones",
+      href: "/tools/checklist",
       linkLabel: "View milestones",
     })
   } else if (pct >= 75) {

@@ -20,7 +20,7 @@ const sectionLinks = [
   { href: "/milestones",             label: "The Big Milestones",  group: "Sections",  icon: BookOpen     },
   { href: "/tools/plan-check",       label: "Plan & Check",        group: "Plan",      icon: ClipboardList},
   { href: "/tools/application-prep", label: "Application Prep",    group: "Plan",      icon: FileText     },
-  { href: "/tools/milestones",       label: "Milestone Checklist", group: "Plan",      icon: CheckSquare  },
+  { href: "/tools/checklist",       label: "Milestone Checklist", group: "Plan",      icon: CheckSquare  },
   { href: "/tools/resources",        label: "Resources",           group: "Plan",      icon: Library      },
   { href: "/tools/wellness-hours",   label: "Wellness & Hours",    group: "Wellbeing", icon: HeartPulse   },
   { href: "/burnout-check",          label: "Burnout Check",       group: "Wellbeing", icon: Activity     },
