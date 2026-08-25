@@ -417,7 +417,7 @@ export function PersonalizedDashboard() {
                 icon={<BookCheck className="h-4 w-4" />}
                 label={`${stats.milestoneDone}/32 milestones · ${milestonePct}%`}
                 value={`${milestonePct}%`}
-                href="/tools/milestones"
+                href="/tools/checklist"
                 accent={milestonePct >= 75 ? "green" : milestonePct >= 40 ? "amber" : "default"}
               />
               <StatPill

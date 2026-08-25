@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from "next/server"
 const PROTECTED = [
   "/tools/wellness-hours",
   "/tools/application-prep",
-  "/tools/milestones",
+  "/tools/checklist",
   "/tools/plan-check",
 ]
 

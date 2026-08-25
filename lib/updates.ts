@@ -26,12 +26,19 @@ export type ChangelogEntry = {
 
 export const changelog: ChangelogEntry[] = [
   {
+    date: "2026-08-24",
+    type: "updated",
+    title: "Student spotlights paused",
+    description:
+      "The 'Where are they now' section is paused until we have real, consented alumni stories to feature — the placeholder profiles read too much like verified outcomes. Reach out to your pre-health advisor if you'd like to be featured.",
+    area: "Community",
+  },
+  {
     date: "2026-06-20",
     type: "new",
     title: "Student spotlights are here",
     description:
       "Added a 'Where are they now' section featuring past Moravian pre-meds and where their paths led — from MD programs to gap-year research.",
-    href: "/#student-spotlight",
     area: "Community",
   },
   {

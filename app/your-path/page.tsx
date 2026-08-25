@@ -8,7 +8,6 @@ import {
 } from "@/components/compass/path-sections"
 import { AdvisorCard } from "@/components/compass/advisor-card"
 import { OpportunitiesBoard } from "@/components/compass/opportunities-board"
-import { MoravianAmcasTimeline } from "@/components/compass/moravian-amcas-timeline"
 import { Section } from "@/components/compass/section"
 import { getCourseGuides, getYearCompass, getOpportunities } from "@/lib/notion"
 import { pageMetadata } from "@/lib/seo"
@@ -16,7 +15,7 @@ import { pageMetadata } from "@/lib/seo"
 export const metadata = pageMetadata({
   title: "Building Your Path",
   description:
-    "A year-by-year plan for Moravian pre-meds: course survival guides, research and clinical opportunities on and near campus, advisor prep, and the AMCAS application timeline.",
+    "A year-by-year plan for Moravian pre-meds: course survival guides, research and clinical opportunities on and near campus, and advisor prep.",
   path: "/your-path",
 })
 
@@ -29,7 +28,6 @@ const navItems = [
   { id: "year-compass", label: "Year-by-Year Compass" },
   { id: "course-guides", label: "Course Survival Guides" },
   { id: "mentorship", label: "Peers & Mentorship" },
-  { id: "application-timeline", label: "Application Timeline" },
 ]
 
 export default async function YourPathPage() {
@@ -65,16 +63,6 @@ export default async function YourPathPage() {
       <YearCompass items={yearCompass} />
       <CourseGuides guides={courseGuides} />
       <Mentorship />
-
-      {/* AAMC + Moravian calendar */}
-      <Section
-        id="application-timeline"
-        eyebrow="Moravian + AMCAS"
-        title="Application Timeline"
-        intro="AMCAS deadlines mapped to your Moravian academic calendar. Know the bottlenecks before they hit you."
-      >
-        <MoravianAmcasTimeline />
-      </Section>
     </PageLayout>
   )
 }

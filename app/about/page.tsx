@@ -2,8 +2,8 @@ import { Heart, Mail, Quote, ArrowRight } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { SidebarNav } from "@/components/compass/sidebar-nav"
 import { SiteFooter } from "@/components/compass/resources"
-import { StudentSpotlight } from "@/components/compass/student-spotlight"
 import { StatsBar } from "@/components/compass/stats-bar"
+import { StudentSpotlight } from "@/components/compass/student-spotlight"
 import Image from "next/image"
 import Link from "next/link"
 
@@ -110,10 +110,9 @@ export default function AboutPage() {
             </div>
           </div>
 
-          {/* Where are they now */}
-          <div className="mt-10">
-            <StudentSpotlight />
-          </div>
+          {/* Where are they now — real, consented alumni profiles only.
+              See components/compass/student-spotlight.tsx and lib/spotlights.ts. */}
+          <StudentSpotlight />
 
           {/* CTA */}
           <div className="mt-12 rounded-xl border border-primary/20 bg-primary/5 p-6 md:p-8">
