@@ -116,6 +116,51 @@ export const mcatSectionTopics: {
   },
 ]
 
+export const mcatResources = [
+  {
+    name: "AAMC official materials",
+    type: "Essential",
+    bestFor: "Full-lengths, section banks, official practice",
+    note: "The only source that mirrors real exam construction. Budget for these first.",
+    href: "https://students-residents.aamc.org/taking-mcat-exam/practice-materials",
+  },
+  {
+    name: "UWorld",
+    type: "Question bank",
+    bestFor: "Phase 2, detailed explanations, passage practice",
+    note: "Strong for C/P and B/B; pair with error log discipline.",
+    href: "https://www.uworld.com",
+  },
+  {
+    name: "Khan Academy",
+    type: "Free content",
+    bestFor: "Phase 1, content gaps, P/S foundations",
+    note: "Free AAMC-partnered videos; great supplement, not a full plan alone.",
+    href: "https://www.khanacademy.org/test-prep/mcat",
+  },
+  {
+    name: "Anki (MCAT decks)",
+    type: "Flashcards",
+    bestFor: "Daily active recall across all sections",
+    note: "Use a reputable deck; don't collect cards without reviewing daily.",
+    href: "https://apps.ankiweb.net",
+  },
+  {
+    name: "Jack Westin",
+    type: "Free / paid",
+    bestFor: "CARS daily passages",
+    note: "Useful for CARS habit; still prioritize AAMC CARS materials later.",
+    href: "https://jackwestin.com",
+  },
+  {
+    name: "AAMC Fee Assistance Program",
+    type: "Financial aid",
+    bestFor: "Registration + study bundle costs",
+    note: "Apply early if eligible, covers MCAT fees and official prep materials.",
+    href: "https://students-residents.aamc.org/fee-assistance-program",
+  },
+]
+
 export const mcatReadinessItems = [
   { id: "fl-count", label: "Completed at least 3 AAMC full-length exams under timed conditions" },
   { id: "fl-review", label: "Reviewed every missed question with written explanations" },

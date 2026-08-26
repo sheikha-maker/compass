@@ -59,6 +59,11 @@ export function McatDeepDive() {
           <McatTopicsAccordion />
         </div>
 
+        <div id="mcat-resources">
+          <h3 className="mb-4 font-serif text-xl font-semibold text-foreground">Resources, what to use when</h3>
+          <McatResourceMatrix />
+        </div>
+
         <div id="mcat-readiness">
           <McatReadinessChecklist />
         </div>
