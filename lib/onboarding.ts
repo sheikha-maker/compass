@@ -31,7 +31,7 @@ export const onboardingOptions: OnboardingOption[] = [
     recommendations: [
       { href: "/your-path?year=0#year-compass", label: "Year-by-Year Compass", description: "Build habits and protect your GPA" },
       { href: "/mindset#balance", label: "Balance & Sustainability" },
-      { href: "/tools#prereq-tracker", label: "Prerequisite Tracker", description: "See what’s ahead" },
+      { href: "/tools/plan-check#prereq-tracker", label: "Prerequisite Tracker", description: "See what’s ahead" },
     ],
   },
   {
@@ -42,7 +42,7 @@ export const onboardingOptions: OnboardingOption[] = [
     recommendations: [
       { href: "/your-path?year=1#year-compass", label: "Year-by-Year Compass" },
       { href: "/your-path#experience-tools", label: "Experience-Specific Tools" },
-      { href: "/tools#course-planner", label: "Course Planner" },
+      { href: "/tools/plan-check#course-planner", label: "Course Planner" },
     ],
   },
   {
@@ -53,7 +53,7 @@ export const onboardingOptions: OnboardingOption[] = [
     recommendations: [
       { href: "/your-path?year=2#year-compass", label: "Year-by-Year Compass" },
       { href: "/milestones#mcat-planner", label: "MCAT prep timeline" },
-      { href: "/tools#mcat-countdown", label: "MCAT Countdown" },
+      { href: "/tools/plan-check#mcat-countdown", label: "MCAT Countdown" },
     ],
   },
   {
@@ -63,7 +63,7 @@ export const onboardingOptions: OnboardingOption[] = [
     href: "/your-path?year=3#year-compass",
     recommendations: [
       { href: "/milestones#timeline", label: "Application Timeline" },
-      { href: "/tools#lor-tracker", label: "LOR Tracker" },
+      { href: "/tools/application-prep#lor-tracker", label: "LOR Tracker" },
       { href: "/milestones#faq", label: "Pre-Med FAQ" },
     ],
   },

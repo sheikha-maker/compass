@@ -286,43 +286,43 @@
   --hero-end: oklch(0.65 0.12 72);
 }
 
-/* Deep navy — clean, professional, clinical */
-.navy {
-  --background: oklch(0.97 0.015 235);
-  --foreground: oklch(0.16 0.06 235);
-  --card: oklch(0.99 0.01 235);
-  --card-foreground: oklch(0.16 0.06 235);
-  --popover: oklch(0.99 0.01 235);
-  --popover-foreground: oklch(0.16 0.06 235);
-  --primary: oklch(0.34 0.14 238);
-  --primary-foreground: oklch(0.99 0.01 235);
-  --secondary: oklch(0.90 0.04 235);
-  --secondary-foreground: oklch(0.20 0.06 235);
-  --muted: oklch(0.93 0.025 235);
-  --muted-foreground: oklch(0.46 0.06 235);
-  --accent: oklch(0.46 0.11 235);
-  --accent-foreground: oklch(0.14 0.05 235);
+/* Grey / Silver — Moravian's other official color, paired with the default blue */
+.slate {
+  --background: oklch(0.97 0.003 235);
+  --foreground: oklch(0.16 0.006 235);
+  --card: oklch(0.99 0.002 235);
+  --card-foreground: oklch(0.16 0.006 235);
+  --popover: oklch(0.99 0.002 235);
+  --popover-foreground: oklch(0.16 0.006 235);
+  --primary: oklch(0.32 0.015 235);
+  --primary-foreground: oklch(0.99 0.002 235);
+  --secondary: oklch(0.90 0.006 235);
+  --secondary-foreground: oklch(0.20 0.01 235);
+  --muted: oklch(0.93 0.005 235);
+  --muted-foreground: oklch(0.46 0.01 235);
+  --accent: oklch(0.55 0.02 235);
+  --accent-foreground: oklch(0.99 0.002 235);
   --destructive: oklch(0.52 0.16 25);
   --destructive-foreground: oklch(0.99 0.01 235);
-  --border: oklch(0.88 0.03 235);
-  --input: oklch(0.95 0.02 235);
-  --ring: oklch(0.34 0.14 238);
-  --chart-1: oklch(0.34 0.14 238);
-  --chart-2: oklch(0.50 0.10 225);
-  --chart-3: oklch(0.44 0.09 248);
-  --chart-4: oklch(0.52 0.08 215);
-  --chart-5: oklch(0.62 0.07 240);
-  --sidebar: oklch(0.95 0.02 235);
-  --sidebar-foreground: oklch(0.16 0.06 235);
-  --sidebar-primary: oklch(0.34 0.14 238);
-  --sidebar-primary-foreground: oklch(0.99 0.01 235);
-  --sidebar-accent: oklch(0.91 0.03 235);
-  --sidebar-accent-foreground: oklch(0.22 0.06 235);
-  --sidebar-border: oklch(0.88 0.03 235);
-  --sidebar-ring: oklch(0.34 0.14 238);
-  --hero-start: oklch(0.30 0.15 240);
-  --hero-mid: oklch(0.36 0.12 236);
-  --hero-end: oklch(0.44 0.09 230);
+  --border: oklch(0.85 0.006 235);
+  --input: oklch(0.95 0.004 235);
+  --ring: oklch(0.32 0.015 235);
+  --chart-1: oklch(0.32 0.015 235);
+  --chart-2: oklch(0.46 0.012 235);
+  --chart-3: oklch(0.58 0.01 235);
+  --chart-4: oklch(0.68 0.008 235);
+  --chart-5: oklch(0.78 0.006 235);
+  --sidebar: oklch(0.95 0.004 235);
+  --sidebar-foreground: oklch(0.16 0.006 235);
+  --sidebar-primary: oklch(0.32 0.015 235);
+  --sidebar-primary-foreground: oklch(0.99 0.002 235);
+  --sidebar-accent: oklch(0.91 0.006 235);
+  --sidebar-accent-foreground: oklch(0.22 0.01 235);
+  --sidebar-border: oklch(0.85 0.006 235);
+  --sidebar-ring: oklch(0.32 0.015 235);
+  --hero-start: oklch(0.28 0.012 235);
+  --hero-mid: oklch(0.42 0.01 235);
+  --hero-end: oklch(0.58 0.008 235);
 }
 
 @theme inline {

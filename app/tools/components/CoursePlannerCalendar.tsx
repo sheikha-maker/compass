@@ -276,7 +276,7 @@ export function CoursePlannerCalendar() {
           <div className="mt-5 rounded-xl border border-border bg-card px-4 py-3 text-sm text-muted-foreground">
             <p>
               <span className="font-semibold text-foreground">Pro tip:</span> Use the
-              <Link href="/tools#prereq-tracker" className="ml-1 underline underline-offset-2 text-primary transition-colors hover:text-primary/80">
+              <Link href="/tools/plan-check#prereq-tracker" className="ml-1 underline underline-offset-2 text-primary transition-colors hover:text-primary/80">
                 Prerequisite Tracker
               </Link>
               to cross-check the requirements behind the classes you're planning.

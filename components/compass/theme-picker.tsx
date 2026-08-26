@@ -8,7 +8,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 const THEME_OPTIONS = [
   { value: "light",  label: "Light"  },
   { value: "dark",   label: "Dark"   },
-  { value: "navy",   label: "Navy"   },
+  { value: "slate",  label: "Grey"   },
   { value: "teal",   label: "Teal"   },
   { value: "green",  label: "Green"  },
   { value: "gold",   label: "Gold"   },

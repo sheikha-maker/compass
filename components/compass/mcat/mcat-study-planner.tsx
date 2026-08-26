@@ -82,7 +82,7 @@ export function McatStudyPlanner() {
           <p className="font-serif text-lg font-medium text-foreground">Your prep timeline</p>
           <p className="mt-1 text-sm text-muted-foreground">
             Syncs with your{" "}
-            <Link href="/tools#mcat-countdown" className="text-primary underline underline-offset-2">
+            <Link href="/tools/plan-check#mcat-countdown" className="text-primary underline underline-offset-2">
               MCAT Countdown
             </Link>{" "}
             test date. Add when you started (or plan to start) studying.

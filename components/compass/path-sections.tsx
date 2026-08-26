@@ -100,13 +100,10 @@ export function ExperienceTools() {
 export function YearCompass({ items: yearCompass = fallbackYearCompass }: { items?: NotionYearCompassItem[] }) {
   const [active, setActive] = useState(0)
   const [animKey, setAnimKey] = useState(0)
-  const [selectedMajor, setSelectedMajor] = useState<MajorId | "general">("general")
+  const [selectedMajor, setSelectedMajor] = useState<MajorId>("biology")
   const current = yearCompass[active]
 
-  // Swap in the major-specific schedule for the same year index, when one is selected
-  // and available (senior year only has 4 entries same as general, so index maps 1:1).
-  const displaySchedule =
-    selectedMajor !== "general" ? majorSampleSchedules[selectedMajor][active] : current.sampleSchedule
+  const displaySchedule = majorSampleSchedules[selectedMajor][active]
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search)
@@ -205,20 +202,7 @@ export function YearCompass({ items: yearCompass = fallbackYearCompass }: { item
                 <Calendar className="h-4 w-4 text-accent" aria-hidden />
                 <p className="font-semibold text-foreground">Sample Schedule</p>
               </div>
-              <div className="flex flex-wrap gap-1.5" role="group" aria-label="Filter sample schedule by major">
-                <button
-                  type="button"
-                  onClick={() => setSelectedMajor("general")}
-                  className={cn(
-                    "rounded-full px-2.5 py-1 text-xs font-semibold transition-colors",
-                    selectedMajor === "general"
-                      ? "bg-accent text-accent-foreground"
-                      : "bg-card text-muted-foreground hover:text-foreground",
-                  )}
-                  aria-pressed={selectedMajor === "general"}
-                >
-                  General
-                </button>
+              <div className="flex flex-wrap gap-1.5" role="group" aria-label="Choose your major">
                 {majors.map((m) => (
                   <button
                     key={m.id}
@@ -237,13 +221,11 @@ export function YearCompass({ items: yearCompass = fallbackYearCompass }: { item
                 ))}
               </div>
             </div>
-            {selectedMajor !== "general" && (
-              <p className="mb-4 text-xs text-muted-foreground">
-                {majors.find((m) => m.id === selectedMajor)?.blurb}
-                {!majors.find((m) => m.id === selectedMajor)?.official &&
-                  " Moravian doesn't publish an official semester-by-semester plan for this major — this sequence is built from their published course requirements, so confirm it with your advisor."}
-              </p>
-            )}
+            <p className="mb-4 text-xs text-muted-foreground">
+              {majors.find((m) => m.id === selectedMajor)?.blurb}
+              {!majors.find((m) => m.id === selectedMajor)?.official &&
+                " Moravian doesn't publish an official semester-by-semester plan for this major — this sequence is built from their published course requirements, so confirm it with your advisor."}
+            </p>
             <div className="grid gap-4 sm:grid-cols-2">
               <div>
                 <p className="mb-2.5 text-sm font-semibold text-foreground">Fall Semester</p>

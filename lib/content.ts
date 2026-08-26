@@ -34,11 +34,6 @@ export type YearCompassItem = {
   advisorTopics?: string[]
   reflections?: string[]
   gapYearCallout?: GapYearCallout
-  sampleSchedule?: {
-    fall: string[]
-    spring: string[]
-    tips: string
-  }
   summer?: {
     heading: string
     items: string[]
@@ -86,29 +81,6 @@ export const navGroups = [
   "Building Your Path",
   "The Big Milestones",
   "Your Tools",
-]
-
-export const startPaths = [
-  {
-    situation: "You're a freshman or just starting out",
-    action: "Go to the Year-by-Year Compass (Freshman Year) and Balance & Sustainability. Ignore everything else for now.",
-    targets: ["year-compass", "balance"],
-  },
-  {
-    situation: "You're feeling overwhelmed",
-    action: "Start with Mindfulness and Decision Tools, then check your stress with the Weekly Check-in or Burnout Check.",
-    targets: ["mindfulness", "decision-tools", "wellness-checkin", "burnout-check"],
-  },
-  {
-    situation: "You're planning your path",
-    action: "Go to your year in the Year-by-Year Compass, then Experience-Specific Tools.",
-    targets: ["year-compass", "experience-tools"],
-  },
-  {
-    situation: "You're thinking about the MCAT or applications",
-    action: "Go to the MCAT Deep Dive and the Application Timeline.",
-    targets: ["mcat", "timeline"],
-  },
 ]
 
 export const mindfulnessPractices = [
@@ -270,11 +242,6 @@ export const yearCompass = [
       "What kind of student do I want to be — and what habits do I need to build?",
       "What am I most afraid of this year, and is that fear worth listening to?",
     ],
-    sampleSchedule: {
-      fall: ["General Chemistry I", "Calculus I or Statistics", "First-Year Writing", "Elective/Gen Ed"],
-      spring: ["General Chemistry II", "Calculus II or Elective", "Intro Biology I", "Gen Ed"],
-      tips: "Keep it at 14-16 credits. Your GPA foundation matters more than speed."
-    },
     summer: {
       heading: "What to do this summer",
       items: [
@@ -314,11 +281,6 @@ export const yearCompass = [
       "Which specialty interests me most after my clinical exposure — and why?",
       "Where am I putting depth, and where am I spreading myself too thin?",
     ],
-    sampleSchedule: {
-      fall: ["Organic Chemistry I", "Intro Biology II", "Physics I", "Gen Ed/Elective"],
-      spring: ["Organic Chemistry II", "Physics II", "Psychology or Sociology", "Gen Ed"],
-      tips: "This is the 'hard semester' for many. Plan lighter extracurriculars."
-    },
     summer: {
       heading: "What to do this summer",
       items: [
@@ -358,11 +320,6 @@ export const yearCompass = [
       "Am I applying because I'm ready, or because I feel like I should be?",
       "What would a gap year give me — and is that worth it?",
     ],
-    sampleSchedule: {
-      fall: ["Biochemistry", "Upper-level Biology elective", "Major requirements", "MCAT prep begins"],
-      spring: ["Genetics or Molecular Biology", "Major electives", "Continue clinical hours", "MCAT in late spring/early summer"],
-      tips: "If taking MCAT in spring, start content review winter break."
-    },
     summer: {
       heading: "What to do this summer",
       items: [
@@ -415,11 +372,6 @@ export const yearCompass = [
       "What kind of physician do I want to be, and does this school reflect that?",
       "Regardless of how this cycle goes, what am I proud of from these four years?",
     ],
-    sampleSchedule: {
-      fall: ["Capstone/Senior seminar", "Remaining major requirements", "Interview prep", "Secondaries if applying"],
-      spring: ["Light course load if possible", "Interviews continue", "Decision time", "Plan for gap year activities if needed"],
-      tips: "If doing a gap year, use senior spring to line up meaningful work or research."
-    },
     summer: {
       heading: "What to do this summer",
       items: [
