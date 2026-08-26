@@ -7,7 +7,6 @@ import { McatSectionsOverview } from "./mcat/mcat-sections-overview"
 import { McatScoreScale } from "./mcat/mcat-score-scale"
 import { McatPhaseStepper, McatHonestTruths } from "./mcat/mcat-phase-stepper"
 import { McatTopicsAccordion } from "./mcat/mcat-topics-accordion"
-import { McatResourceMatrix } from "./mcat/mcat-resource-matrix"
 import { McatReadinessChecklist } from "./mcat/mcat-readiness-checklist"
 import { McatStudyPlanner } from "./mcat/mcat-study-planner"
 import { ApplicationTimelineVisual } from "./mcat/application-timeline-visual"
@@ -57,11 +56,6 @@ export function McatDeepDive() {
         <div id="mcat-topics">
           <h3 className="mb-4 font-serif text-xl font-semibold text-foreground">High-yield by section</h3>
           <McatTopicsAccordion />
-        </div>
-
-        <div id="mcat-resources">
-          <h3 className="mb-4 font-serif text-xl font-semibold text-foreground">Resources, what to use when</h3>
-          <McatResourceMatrix />
         </div>
 
         <div id="mcat-readiness">
