@@ -263,7 +263,7 @@ export function PrereqTracker() {
             Enter credits you have <em>completed</em> or are <em>currently enrolled in</em>.
             Planning a course for next semester? Count it here.
             Use this alongside the
-            <Link href="/tools#course-planner" className="mx-1 underline underline-offset-2 text-primary transition-colors hover:text-primary/80">
+            <Link href="/tools/plan-check#course-planner" className="mx-1 underline underline-offset-2 text-primary transition-colors hover:text-primary/80">
               Course Planner
             </Link>
             to make sure every prerequisite is covered before you apply.

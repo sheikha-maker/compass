@@ -262,7 +262,7 @@ export function BurnoutCheck() {
               <p className="font-semibold text-foreground mb-2">Keep these in sync</p>
               <p>
                 Use the
-                <Link href="/tools#wellness-checkin" className="mx-1 font-semibold text-primary underline underline-offset-2">
+                <Link href="/tools/wellness-hours#wellness-checkin" className="mx-1 font-semibold text-primary underline underline-offset-2">
                   Weekly Check-in
                 </Link>
                 to track your stress and energy over time, then revisit this Burnout Check if your pattern feels persistent.

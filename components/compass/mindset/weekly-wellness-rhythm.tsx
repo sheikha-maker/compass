@@ -23,7 +23,7 @@ export function WeeklyWellnessRhythm() {
       <p className="font-serif text-lg font-medium text-foreground">This week&apos;s wellness rhythm</p>
       <p className="mt-1 text-sm text-muted-foreground">
         A quick reset on Sunday or Monday. Not a grade, just a mirror. Pair with the{" "}
-        <Link href="/tools#wellness-checkin" className="text-primary underline underline-offset-2">
+        <Link href="/tools/wellness-hours#wellness-checkin" className="text-primary underline underline-offset-2">
           Weekly Check-in
         </Link>{" "}
         tool for trends over time.
