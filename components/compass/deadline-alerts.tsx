@@ -4,7 +4,6 @@ import { useEffect, useState } from "react"
 import Link from "next/link"
 import { X, AlertTriangle, Info, Zap, ChevronRight } from "lucide-react"
 import { MCAT_STORAGE_KEY } from "@/lib/mcat"
-import { ONBOARDING_STORAGE_KEY } from "@/lib/onboarding"
 
 // ─── Types ────────────────────────────────────────────────────────────────────
 
@@ -150,47 +149,7 @@ function buildAlerts(): Alert[] {
     }
   }
 
-  // ── Milestones ──────────────────────────────────────────────────────────────
-  const checks = read<Record<string, boolean>>("pmc_checks_v1", {})
-  const onboarding = read<{ yearId?: string }>(ONBOARDING_STORAGE_KEY, {})
-  const totalDone = Object.values(checks).filter(Boolean).length
-  const pct = Math.round((totalDone / 32) * 100)
-
-  if (pct < 25 && onboarding.yearId && ["year3", "year4"].includes(onboarding.yearId)) {
-    alerts.push({
-      id: "milestones-low-late",
-      severity: "warning",
-      title: "Milestone progress is low for your year",
-      body: "You've completed under 25% of milestones. Review your year's key priorities now.",
-      href: "/tools/checklist",
-      linkLabel: "View milestones",
-    })
-  } else if (pct >= 75) {
-    alerts.push({
-      id: "milestones-high",
-      severity: "info",
-      title: `Strong milestone progress — ${pct}% complete`,
-      body: "You've covered most of the major milestones. Make sure your application materials are keeping pace.",
-      href: "/tools/application-prep",
-      linkLabel: "Check application prep",
-    })
-  }
-
-  // ── LOR reminder ───────────────────────────────────────────────────────────
-  const lors = read<{ status?: string }[]>("pmc_lors_v1", [])
-  const lorSubmitted = lors.filter(l => l.status === "submitted").length
-  if (lorSubmitted === 0 && onboarding.yearId && ["year3", "year4"].includes(onboarding.yearId)) {
-    alerts.push({
-      id: "lor-none-late",
-      severity: "warning",
-      title: "No letters of recommendation submitted yet",
-      body: "Junior and senior year applicants should have at least one LOR conversation underway.",
-      href: "/tools/application-prep",
-      linkLabel: "Go to LOR tracker",
-    })
-  }
-
-  // ── Application cycle timing ────────────────────────────────────────────────
+  // ── Application cycle timing ───��────────────────────────────────────────────
   // Day ~120 = late April, day ~150 = late May
   if (doy >= 100 && doy <= 135) {
     alerts.push({
