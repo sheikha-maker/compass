@@ -23,7 +23,7 @@ export function AdvisorCard() {
 
       {/* First action prompt */}
       <div className="rounded-lg border border-primary/20 bg-background px-4 py-3 text-sm leading-relaxed text-foreground">
-        Before you do anything else on this site, introduce yourself to Dr. Fox. She advises every pre-health student at Moravian, oversees the Pre-Health Club and Brain Club, and runs the SOAR summer research program. One office hours visit in your first semester is worth more than most resources on this page.
+        Before you do anything else on this site, introduce yourself to Dr. Fox. She advises every pre-health student at Moravian, and oversees both the Pre-Health Club and Brain Club. One office hours visit in your first semester is worth more than most resources on this page.
       </div>
 
       {/* Contact details */}
@@ -59,7 +59,6 @@ export function AdvisorCard() {
             "Course sequencing",
             "MCAT planning",
             "Med school applications",
-            "SOAR research",
             "Pre-Health Club",
             "Brain Club",
             "Letters of recommendation",
