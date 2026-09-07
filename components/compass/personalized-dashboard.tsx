@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react"
 import Link from "next/link"
 import {
-  ArrowRight, CalendarDays, BookCheck, Clock,
+  ArrowRight, CalendarDays, Clock,
   HeartPulse, AlertTriangle, Zap, Info, X,
   RotateCcw, ChevronRight,
 } from "lucide-react"
@@ -68,8 +68,6 @@ interface Alert {
 interface Stats {
   mcatDays: number | null
   mcatDate: string
-  milestoneDone: number
-  milestoneTotal: number
   activityHours: number
   lastWellness: string | null
   stressHigh: boolean
@@ -126,20 +124,6 @@ function buildAlerts(yearId: OnboardingYearId | null): Alert[] {
         linkLabel: "Log now",
       })
     }
-  }
-
-  // LOR gap for late-stage students
-  const lors = read<{ status?: string }[]>("pmc_lors_v1", [])
-  const lorsDone = lors.filter(l => l.status === "submitted").length
-  if (lorsDone === 0 && yearId && ["year3", "year4"].includes(yearId)) {
-    alerts.push({
-      id: "lor-none-late",
-      severity: "warning",
-      title: "No letters of recommendation submitted yet",
-      body: "At your stage, at least one LOR conversation should be underway.",
-      href: "/tools/application-prep",
-      linkLabel: "Go to LOR tracker",
-    })
   }
 
   // AMCAS timing
@@ -220,7 +204,7 @@ function StatPill({
   )
 }
 
-// ─── Main component ───────────────────────────────────────────────────────────
+// ─── Main component ────────────────────────────��──────────────────────────────
 
 export function PersonalizedDashboard() {
   const [yearId, setYearId] = useState<OnboardingYearId | null>(null)
@@ -246,9 +230,6 @@ export function PersonalizedDashboard() {
         })
       : ""
 
-    const checks = read<Record<string, boolean>>("pmc_checks_v1", {})
-    const milestoneDone = Object.values(checks).filter(Boolean).length
-
     const logs = read<{ hours?: string }[]>("compass-activity-logs", [])
     const activityHours = logs.reduce(
       (s, l) => s + (parseFloat(String(l.hours ?? 0)) || 0), 0
@@ -270,8 +251,6 @@ export function PersonalizedDashboard() {
     setStats({
       mcatDays,
       mcatDate,
-      milestoneDone,
-      milestoneTotal: 32,
       activityHours,
       lastWellness,
       stressHigh: recent3.length >= 2 && avgStress >= 7.5,
@@ -300,8 +279,6 @@ export function PersonalizedDashboard() {
   // stats is always set in the same effect that flips `mounted` to true,
   // so by this point it can't be null — this just makes that explicit for TS.
   if (!stats) return null
-
-  const milestonePct = Math.round((stats.milestoneDone ?? 0) / 32 * 100)
 
   const mcatValue =
     stats.mcatDays === null  ? "—" :
@@ -412,13 +389,6 @@ export function PersonalizedDashboard() {
                 value={mcatValue}
                 href="/tools/plan-check"
                 accent={mcatAccent as any}
-              />
-              <StatPill
-                icon={<BookCheck className="h-4 w-4" />}
-                label={`${stats.milestoneDone}/32 milestones · ${milestonePct}%`}
-                value={`${milestonePct}%`}
-                href="/tools/checklist"
-                accent={milestonePct >= 75 ? "green" : milestonePct >= 40 ? "amber" : "default"}
               />
               <StatPill
                 icon={<Clock className="h-4 w-4" />}

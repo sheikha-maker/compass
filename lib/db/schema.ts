@@ -76,7 +76,7 @@ export const activityLog = pgTable("activity_log", {
   createdAt: timestamp("created_at").defaultNow().notNull(),
 })
 
-// Generic per-user tool state (applications, LORs, GPA courses, checklist, MCAT, etc.)
+// Generic per-user tool state for the remaining authenticated tools (applications, GPA courses, MCAT, wellness, etc.)
 // Each row holds one tool's full JSON payload, keyed by (userId, toolKey).
 export const userToolData = pgTable(
   "user_tool_data",

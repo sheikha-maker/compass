@@ -63,7 +63,6 @@ export const onboardingOptions: OnboardingOption[] = [
     href: "/your-path?year=3#year-compass",
     recommendations: [
       { href: "/milestones#timeline", label: "Application Timeline" },
-      { href: "/tools/application-prep#lor-tracker", label: "LOR Tracker" },
       { href: "/milestones#faq", label: "Pre-Med FAQ" },
     ],
   },
