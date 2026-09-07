@@ -56,7 +56,7 @@ export const majorSampleSchedules: Record<MajorId, MajorScheduleYear[]> = {
   // one math course; PHYS109–110 or 111–112 recommended for med-school-bound students.
   biology: [
     {
-      fall: ["General Chemistry I (CHEM113)", "Calculus I or Statistics (MATH170 or 107)", "First-Year Writing", "Elective/Gen Ed"],
+      fall: ["General Chemistry I (CHEM113)", "Calculus I or Statistics (MATH170 or 107)", "First-Year Bioscience Seminar (BIOL 110.)", "Elective/Gen Ed"],
       spring: ["General Chemistry II (CHEM114)", "Foundations of Biology (BIOL111)", "Gen Ed", "Elective"],
       tips: "BIOL 110.2 (First-Year Bioscience Seminar) is strongly recommended before BIOL111 — take it this fall if it's offered.",
     },

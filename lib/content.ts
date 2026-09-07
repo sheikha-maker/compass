@@ -163,7 +163,7 @@ export const experienceTools = [
   {
     id: "clinical",
     title: "Clinical Experience",
-    body: "Clinical experience is about being near patients and confirming you actually want this life, not just the idea of it. Scribing, EMT work, CNA roles, hospice volunteering, and medical assisting all count. What matters is sustained, direct exposure to patient care and your reflection on it.",
+    body: "Clinical experience is about being near patients and confirming you actually want this life, not just the idea of it. EMT work, CNA roles, hospice volunteering, and medical assisting all count. What matters is sustained, direct exposure to patient care and your reflection on it.",
     tips: [
       "Aim for consistency over a big number of one-time events.",
       "Keep short notes after shifts, they become your application reflections.",
@@ -245,7 +245,7 @@ export const yearCompass = [
     summer: {
       heading: "What to do this summer",
       items: [
-        "Line up your first real clinical experience — hospital volunteering, scribing, or EMT training are all strong options.",
+        "Line up your first real clinical experience — hospital volunteering, or EMT training are all strong options.",
         "If a professor offered a research position, this is the time to take it.",
         "Read something entirely outside of medicine. Burnout starts earlier than most students expect.",
         "Rest intentionally. A recovered, motivated sophomore outperforms an exhausted one every time.",
@@ -347,7 +347,7 @@ export const yearCompass = [
       heading: "If you're considering a gap year",
       body: "Roughly 40–45% of medical school matriculants take at least one gap year, so you'd be in very good company. The question isn't whether a gap year is acceptable — it is — but whether you'd use the time intentionally. A gap year spent drifting looks different on an application than one spent doing something meaningful.",
       activities: [
-        "Clinical work with more responsibility — scribing, EMT, CNA, medical assisting",
+        "Clinical work with more responsibility — EMT, CNA, medical assisting",
         "Research, especially if you want to strengthen a thin research record",
         "AmeriCorps, Peace Corps, or City Year if service is central to your story",
         "Post-baccalaureate coursework if GPA or science prerequisites need strengthening",
