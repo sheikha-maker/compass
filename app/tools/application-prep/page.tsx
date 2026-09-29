@@ -38,7 +38,7 @@ export default function ApplicationPrepPage() {
             <div className="rounded-xl bg-muted/50 p-4"><p className="font-semibold text-foreground">Tests and services</p><p className="mt-1 text-sm text-muted-foreground">Set aside money for MCAT registration, CASPer or other program-specific assessments.</p></div>
             <div className="rounded-xl bg-muted/50 p-4"><p className="font-semibold text-foreground">Travel and time</p><p className="mt-1 text-sm text-muted-foreground">Interviews may add transportation, lodging, meals, and time away from work or class.</p></div>
           </div>
-          <p className="mt-5 text-sm leading-relaxed text-muted-foreground">If cost is a barrier, check the <a className="font-medium text-primary underline underline-offset-4" href="https://students-residents.aamc.org/applying-medical-school/applying-medical-school" target="_blank" rel="noreferrer">AAMC Fee Assistance Program</a> early. Recheck every amount before submitting an application.</p>
+          <p className="mt-5 text-sm leading-relaxed text-muted-foreground">If cost is a barrier, check the <a className="font-medium text-primary underline underline-offset-4" href="https://students-residents.aamc.org/applying-medical-school/applying-medical-school-fee-assistance-program" target="_blank" rel="noreferrer">AAMC Fee Assistance Program</a> early. Recheck every amount before submitting an application.</p>
         </div>
       </section>
       <ApplicationTracker />
