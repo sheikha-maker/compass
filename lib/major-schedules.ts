@@ -56,7 +56,7 @@ export const majorSampleSchedules: Record<MajorId, MajorScheduleYear[]> = {
   // one math course; PHYS109–110 or 111–112 recommended for med-school-bound students.
   biology: [
     {
-      fall: ["General Chemistry I (CHEM113)", "Calculus I or Statistics (MATH170 or 107)", "First-Year Bioscience Seminar (BIOL 110.)", "Elective/Gen Ed"],
+      fall: ["General Chemistry I (CHEM113)", "Calculus I or Statistics (MATH170 or 107)", "Bioscience Seminar", "Elective/Gen Ed"],
       spring: ["General Chemistry II (CHEM114)", "Foundations of Biology (BIOL111)", "Gen Ed", "Elective"],
       tips: "BIOL 110.2 (First-Year Bioscience Seminar) is strongly recommended before BIOL111 — take it this fall if it's offered.",
     },
@@ -81,7 +81,7 @@ export const majorSampleSchedules: Record<MajorId, MajorScheduleYear[]> = {
   // Senior spring wasn't specified on their page — filled in with the standard application-year pattern.
   biochemistry: [
     {
-      fall: ["General Chemistry I (CHEM113)", "Calculus I (MATH170)", "First-Year Writing", "Elective/Gen Ed"],
+      fall: ["General Chemistry I (CHEM113)", "Calculus I (MATH170)", "Bioscience Seminar", "Elective/Gen Ed"],
       spring: ["General Chemistry II (CHEM114)", "Calculus II (MATH171)", "Foundations of Biology (BIOL111)", "Gen Ed"],
       tips: "This exact sequence — Chem113/114, Math170/171, Bio111 — is Moravian's own published plan for Biochemistry majors.",
     },
@@ -109,7 +109,7 @@ export const majorSampleSchedules: Record<MajorId, MajorScheduleYear[]> = {
   // Organic Chemistry). The Cognitive Neuroscience track swaps CHEM211–212 for CS120–121.
   neuroscience: [
     {
-      fall: ["General Chemistry I (CHEM113)", "Calculus I (MATH170) or Statistics", "Intro to Psychology (PSYC120)", "First-Year Writing"],
+      fall: ["General Chemistry I (CHEM113)", "Calculus I (MATH170) or Statistics", "Intro to Psychology (PSYC120)", "Bioscience Seminar"],
       spring: ["General Chemistry II (CHEM114)", "Foundations of Biology (BIOL111)", "Gen Ed", "Elective"],
       tips: "Pick your track (Cellular, Behavioral, or Cognitive) as early as you can — it changes whether you need Organic Chemistry or Computer Science as a co-requisite.",
     },
