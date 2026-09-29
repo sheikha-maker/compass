@@ -47,14 +47,10 @@ export default function AboutPage() {
               <p className="font-serif text-2xl font-semibold text-foreground">Ayaan Sheikh</p>
               <p className="mt-1 text-sm font-medium text-primary">Sophomore · Neuroscience · Moravian University</p>
               <p className="mt-4 leading-relaxed text-muted-foreground">
-                I&apos;m a sophomore neuroscience major who noticed burnout running through the pre-med community here
-                at Moravian, and honestly, I experienced it myself. What I learned is that stability and intentional
-                planning make an enormous difference. I built this guide because I wanted to share that with everyone
-                else who might be struggling the same way.
-              </p>
-              <p className="mt-3 leading-relaxed text-muted-foreground">
-                The advice I needed wasn&apos;t really out there, or at least not in a form that was sustainable, or
-                written by someone who understood the specific workload Moravian pre-meds carry. So I wrote it myself.
+                I&apos;m a sophomore neuroscience major who experienced the burnout running through Moravian&apos;s pre-med
+                community. I built this guide because the advice I needed was hard to find: practical, sustainable,
+                and grounded in the workload Moravian students actually carry. Stability and intentional planning make
+                an enormous difference, and I wanted to share what I&apos;ve learned with students navigating the same path.
               </p>
               <a
                 href="mailto:sheikha@moravian.edu"
