@@ -67,7 +67,7 @@ export default function RootLayout({
         >
           Skip to content
         </a>
-        <ThemeProvider attribute="class" defaultTheme="light" themes={["light", "dark", "red", "green", "purple", "teal", "gold", "slate"]}>
+        <ThemeProvider attribute="class" defaultTheme="light" themes={["light", "dark", "green", "purple", "teal", "slate"]}>
           <ReadingProgress />
           <PageTransition>{children}</PageTransition>
           <BackToTop />

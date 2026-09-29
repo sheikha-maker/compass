@@ -4,14 +4,19 @@ import { useState } from "react"
 import {
   Compass, Menu, X, Home, Brain, Map, BookOpen,
   ClipboardList, FileText, HeartPulse,
-  Library, Info, Activity, Users
+  Library, Info, Activity, Users, Search
 } from "lucide-react"
 import Link from "next/link"
+import dynamic from "next/dynamic"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { usePathname } from "next/navigation"
-import { AuthButton } from "@/components/compass/auth-button"
 import { ThemePicker } from "@/components/compass/theme-picker"
+
+const AuthButton = dynamic(
+  () => import("@/components/compass/auth-button").then((mod) => mod.AuthButton),
+  { ssr: false, loading: () => <div className="h-9 w-full animate-pulse rounded-md bg-sidebar-accent/30" /> },
+)
 
 const sectionLinks = [
   { href: "/",                       label: "Home",                group: "Start",     icon: Home         },
@@ -21,6 +26,7 @@ const sectionLinks = [
   { href: "/tools/plan-check",       label: "Plan & Check",        group: "Plan",      icon: ClipboardList},
   { href: "/tools/application-prep", label: "Application Prep",    group: "Plan",      icon: FileText     },
   { href: "/tools/resources",        label: "Resources",           group: "Plan",      icon: Library      },
+  { href: "/search",                 label: "Search the guide",    group: "Plan",      icon: Search       },
   { href: "/pre-health-club",        label: "Pre-Health Club",      group: "About",     icon: Users        },
   { href: "/tools/wellness-hours",   label: "Wellness & Hours",    group: "Wellbeing", icon: HeartPulse  },
   { href: "/burnout-check",          label: "Burnout Check",       group: "Wellbeing", icon: Activity     },

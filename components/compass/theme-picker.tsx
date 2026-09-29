@@ -11,8 +11,6 @@ const THEME_OPTIONS = [
   { value: "slate",  label: "Grey"   },
   { value: "teal",   label: "Teal"   },
   { value: "green",  label: "Green"  },
-  { value: "gold",   label: "Gold"   },
-  { value: "red",    label: "Maroon" },
   { value: "purple", label: "Purple" },
 ]
 
