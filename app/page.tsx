@@ -47,7 +47,7 @@ export default function Page() {
               Your essential tools
             </h2>
             <p className="mt-3 max-w-2xl text-muted-foreground">
-              Plan your coursework, track your applications, and stay on top of your milestones and wellness.
+              A focused set of tools for planning coursework, preparing applications, and caring for your wellbeing.
             </p>
           </Reveal>
 

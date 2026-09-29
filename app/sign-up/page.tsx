@@ -143,6 +143,13 @@ function SignUpForm() {
           </Link>
         </p>
 
+        <p className="mt-4 text-center text-xs leading-relaxed text-muted-foreground">
+          By creating an account, you agree to our{" "}
+          <Link href="/terms" className="text-primary underline underline-offset-2">Terms of Service</Link>{" "}
+          and acknowledge our{" "}
+          <Link href="/privacy" className="text-primary underline underline-offset-2">Privacy Policy</Link>.
+        </p>
+
         <p className="mt-4 text-center text-sm text-muted-foreground">
           <Link href="/" className="underline underline-offset-2">
             Back to home

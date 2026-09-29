@@ -11,8 +11,6 @@ const THEME_OPTIONS = [
   { value: "slate",  label: "Grey"   },
   { value: "teal",   label: "Teal"   },
   { value: "green",  label: "Green"  },
-  { value: "gold",   label: "Gold"   },
-  { value: "red",    label: "Maroon" },
   { value: "purple", label: "Purple" },
 ]
 
@@ -20,7 +18,12 @@ export function ThemePicker() {
   const { theme, setTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
 
-  useEffect(() => setMounted(true), [])
+  useEffect(() => {
+    setMounted(true)
+    // Older builds exposed maroon and gold; normalize those saved preferences
+    // so removed options never leave the app in an unsupported theme state.
+    if (theme === "maroon" || theme === "gold") setTheme("light")
+  }, [setTheme, theme])
 
   if (!mounted) return <div className="h-8 w-full animate-pulse rounded-md bg-sidebar-accent/30" />
 

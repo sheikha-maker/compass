@@ -82,9 +82,12 @@ export function SiteFooter() {
           A student-made guide for Moravian University pre-meds. Not affiliated with official advising, always confirm
           requirements with your pre-health advisor. Built with care, by Ayaan.
         </p>
-        <p className="text-xs text-primary-foreground/50 mt-1">
-          Last reviewed: {lastReviewed}
-        </p>
+        <div className="mt-2 flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-primary-foreground/60">
+          <span>Last reviewed: {lastReviewed}</span>
+          <a href="/privacy" className="underline-offset-2 hover:text-primary-foreground hover:underline">Privacy</a>
+          <a href="/terms" className="underline-offset-2 hover:text-primary-foreground hover:underline">Terms</a>
+          <a href="mailto:sheikha@moravian.edu?subject=Pre-Med%20Compass%20issue" className="underline-offset-2 hover:text-primary-foreground hover:underline">Report an issue</a>
+        </div>
       </div>
     </footer>
   )

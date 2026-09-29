@@ -12,7 +12,7 @@ type Stat = {
 
 const STATS: Stat[] = [
   { value: 4,  suffix: "",  label: "Years covered",       description: "Freshman through senior year, with gap year guidance" },
-  { value: 32, label: "Milestone checkboxes", description: "A year-by-year checklist built for Moravian students"  },
+  { value: 4,  label: "Student tools",       description: "Practical tools for planning, applications, resources, and wellbeing" },
   { value: 7,  label: "Course guides",        description: "Survival strategies for the hardest pre-med courses"   },
   { value: 14, label: "FAQ answers",          description: "Honest answers to the questions pre-meds ask most"     },
 ]
