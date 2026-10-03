@@ -67,9 +67,9 @@ export default function AlphaEpsilonDeltaPage() {
           </div>
 
           <section className="mt-12 grid gap-6 md:grid-cols-2" aria-labelledby="overview-heading">
-            <Card className="border-border/80 bg-card/80 shadow-sm">
+            <Card className="rounded-2xl border-border/80 bg-card/80 shadow-none">
               <CardHeader>
-                <p className="text-sm font-semibold uppercase tracking-wider text-primary">About AED</p>
+                <p className="text-sm font-semibold uppercase tracking-wider text-accent">About AED</p>
                 <CardTitle id="overview-heading" className="font-serif text-2xl">A national tradition of service</CardTitle>
               </CardHeader>
               <CardContent className="space-y-4 text-sm leading-relaxed text-muted-foreground">
@@ -84,9 +84,9 @@ export default function AlphaEpsilonDeltaPage() {
               </CardContent>
             </Card>
 
-            <Card className="border-border/80 bg-card/80 shadow-sm">
+            <Card className="rounded-2xl border-border/80 bg-card/80 shadow-none">
               <CardHeader>
-                <p className="text-sm font-semibold uppercase tracking-wider text-primary">Who can qualify</p>
+                <p className="text-sm font-semibold uppercase tracking-wider text-accent">Who can qualify</p>
                 <CardTitle className="font-serif text-2xl">Membership requirements</CardTitle>
               </CardHeader>
               <CardContent>
@@ -107,12 +107,12 @@ export default function AlphaEpsilonDeltaPage() {
 
           <section className="mt-12" aria-labelledby="offerings-heading">
             <div className="max-w-2xl">
-              <p className="text-sm font-semibold uppercase tracking-wider text-primary">What AED supports</p>
+              <p className="text-sm font-semibold uppercase tracking-wider text-accent">What AED supports</p>
               <h2 id="offerings-heading" className="mt-1 font-serif text-2xl font-semibold text-foreground md:text-3xl">Learn, serve, and connect</h2>
             </div>
             <div className="mt-6 grid gap-4 md:grid-cols-3">
               {offerings.map(({ icon: Icon, title, description }) => (
-                <Card key={title} className="h-full border-border/80 bg-card/80 shadow-sm">
+                <Card key={title} className="h-full rounded-2xl border-border/80 bg-card/80 shadow-none">
                   <CardHeader>
                     <Icon className="h-5 w-5 text-primary" aria-hidden="true" />
                     <CardTitle className="font-serif text-xl">{title}</CardTitle>

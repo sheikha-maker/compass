@@ -13,8 +13,8 @@ export default function PrivacyPage() {
       <SidebarNav />
       <main className="lg:pl-72">
         <article className="mx-auto max-w-3xl px-5 py-12 md:px-8 md:py-20">
-          <p className="text-sm font-semibold uppercase tracking-wider text-primary">Your data</p>
-          <h1 className="mt-2 font-serif text-4xl font-semibold text-foreground">Privacy Policy</h1>
+          <p className="text-sm font-semibold uppercase tracking-wider text-accent">Your data</p>
+          <h1 className="mt-2 font-serif text-3xl font-semibold text-foreground md:text-4xl">Privacy Policy</h1>
           <p className="mt-4 text-sm text-muted-foreground">Last updated September 2026</p>
           <div className="mt-10 flex flex-col gap-8 leading-relaxed text-muted-foreground">
             <section>
