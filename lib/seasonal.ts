@@ -60,7 +60,7 @@ export const seasonalCallouts: SeasonalCallout[] = [
     title: "Use winter break to reset, not just grind",
     body: "Finals are heavy and the new year invites pressure. Plan next semester's course load deliberately, then actually rest — a recovered student outperforms an exhausted one.",
     icon: Snowflake,
-    cta: { label: "Check in on your wellbeing", href: "/tools/wellness-hours" },
+    cta: { label: "Check in on your wellbeing", href: "/tools/wellness" },
   },
 ]
 

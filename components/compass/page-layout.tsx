@@ -12,8 +12,9 @@ import { ThemePicker } from "@/components/compass/theme-picker"
 const TOOL_LINKS = [
   { href: "/tools/plan-check",       label: "Plan & Check",      icon: ClipboardList },
   { href: "/tools/application-prep", label: "Application Prep",  icon: FileText      },
-  { href: "/tools/wellness-hours",   label: "Wellness & Hours",  icon: HeartPulse    },
-  { href: "/burnout-check",          label: "Burnout Check",     icon: Activity      },
+  { href: "/tools/wellness",         label: "Wellness",           icon: HeartPulse    },
+  { href: "/tools/hours",            label: "Hours Tracker",       icon: ClipboardList },
+  { href: "/burnout-check",          label: "Burnout Check",       icon: Activity      },
   { href: "/tools/resources",        label: "Resources",         icon: Library       },
 ]
 

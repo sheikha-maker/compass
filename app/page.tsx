@@ -14,7 +14,7 @@ import { ClipboardList, FileText, HeartPulse, Library } from "lucide-react"
 const tools = [
   { href: "/tools/plan-check",        icon: ClipboardList, label: "Plan & Check",      desc: "Stay on top of prerequisites, GPA, and your MCAT countdown all in one place."          },
   { href: "/tools/application-prep",  icon: FileText,      label: "Application Prep",  desc: "Build your school list, shape your story, and prepare for essays, interviews, and secondaries."   },
-  { href: "/tools/wellness-hours",    icon: HeartPulse,    label: "Wellness & Hours",   desc: "Log clinical and volunteer hours, and check in on your wellbeing weekly."              },
+  { href: "/tools/wellness",    icon: HeartPulse,    label: "Wellness & Hours",   desc: "Log clinical and volunteer hours, and check in on your wellbeing weekly."              },
   { href: "/tools/resources",         icon: Library,       label: "Resources",          desc: "Curated links and recommendations for every stage of your pre-med journey.", span: true },
 ]
 

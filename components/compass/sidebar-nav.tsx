@@ -4,7 +4,7 @@ import { useState } from "react"
 import {
   Compass, Menu, X, Home, Brain, Map, BookOpen,
   ClipboardList, FileText, HeartPulse,
-  Library, Info, Activity, Users, Search, Landmark
+  Library, Info, Activity, Users, Landmark
 } from "lucide-react"
 import Link from "next/link"
 import dynamic from "next/dynamic"
@@ -25,13 +25,13 @@ const sectionLinks = [
   { href: "/milestones",             label: "The Big Milestones",  group: "Sections",  icon: BookOpen     },
   { href: "/tools/plan-check",       label: "Plan & Check",        group: "Plan",      icon: ClipboardList},
   { href: "/tools/application-prep", label: "Application Prep",    group: "Plan",      icon: FileText     },
-  { href: "/tools/resources",        label: "Resources",           group: "Plan",      icon: Library      },
-  { href: "/search",                 label: "Search the guide",    group: "Plan",      icon: Search       },
+  { href: "/tools/hours",            label: "Hours Tracker",       group: "Plan",      icon: ClipboardList},
   { href: "/pre-health-club",        label: "Pre-Health Club",      group: "Campus Community", icon: Users    },
   { href: "/alpha-epsilon-delta",    label: "Alpha Epsilon Delta",  group: "Campus Community", icon: Landmark },
-  { href: "/tools/wellness-hours",   label: "Wellness & Hours",    group: "Wellbeing", icon: HeartPulse  },
+  { href: "/tools/wellness",         label: "Wellness",             group: "Wellbeing", icon: HeartPulse  },
   { href: "/burnout-check",          label: "Burnout Check",       group: "Wellbeing", icon: Activity     },
   { href: "/about",                  label: "About this guide",    group: "About",     icon: Info         },
+  { href: "/tools/resources",        label: "Resources",           group: "About",     icon: Library      },
 ]
 
 const groups = ["Start", "Sections", "Plan", "Wellbeing", "Campus Community", "About"]

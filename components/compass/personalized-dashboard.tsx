@@ -110,7 +110,7 @@ function buildAlerts(yearId: OnboardingYearId | null): Alert[] {
       severity: "info",
       title: "You haven't done a wellness check-in yet",
       body: "Three questions, two minutes. Catch burnout before it catches you.",
-      href: "/tools/wellness-hours",
+      href: "/tools/wellness",
       linkLabel: "Log a check-in",
     })
   } else {
@@ -121,7 +121,7 @@ function buildAlerts(yearId: OnboardingYearId | null): Alert[] {
         severity: "warning",
         title: "No wellness check-in in 2+ weeks",
         body: "You haven't checked in on yourself recently.",
-        href: "/tools/wellness-hours",
+        href: "/tools/wellness",
         linkLabel: "Log now",
       })
     }
@@ -411,13 +411,13 @@ export function PersonalizedDashboard() {
                 icon={<Clock className="h-4 w-4" />}
                 label="Activity hours logged"
                 value={stats.activityHours > 0 ? `${stats.activityHours.toFixed(0)}h` : "—"}
-                href="/tools/wellness-hours"
+                href="/tools/wellness"
               />
               <StatPill
                 icon={<HeartPulse className="h-4 w-4" />}
                 label={stats.stressHigh ? "Stress running high" : "Last wellness check"}
                 value={stats.lastWellness ?? "—"}
-                href="/tools/wellness-hours"
+                href="/tools/wellness"
                 accent={stats.stressHigh ? "red" : stats.lastWellness ? "green" : "default"}
               />
             </div>

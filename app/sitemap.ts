@@ -50,7 +50,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
-      url: `${BASE_URL}/tools/wellness-hours`,
+      url: `${BASE_URL}/tools/wellness`,
+      lastModified: now,
+      changeFrequency: "monthly",
+      priority: 0.7,
+    },
+    {
+      url: `${BASE_URL}/tools/hours`,
       lastModified: now,
       changeFrequency: "monthly",
       priority: 0.7,

@@ -12,7 +12,7 @@ import { Label } from "@/components/ui/label"
 function SignInForm() {
   const router = useRouter()
   const searchParams = useSearchParams()
-  const redirect = searchParams.get("redirect") ?? "/tools/wellness-hours"
+  const redirect = searchParams.get("redirect") ?? "/tools/wellness"
 
   const [email, setEmail] = useState("")
   const [password, setPassword] = useState("")

@@ -18,7 +18,7 @@ const perks = [
 function SignUpForm() {
   const router = useRouter()
   const searchParams = useSearchParams()
-  const redirect = searchParams.get("redirect") ?? "/tools/wellness-hours"
+  const redirect = searchParams.get("redirect") ?? "/tools/wellness"
 
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
