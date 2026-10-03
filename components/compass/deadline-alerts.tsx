@@ -115,7 +115,7 @@ function buildAlerts(): Alert[] {
       severity: "info",
       title: "You haven't logged a wellness check-in yet",
       body: "Three questions, two minutes. Knowing your trends early makes it easier to catch burnout before it hits.",
-      href: "/tools/wellness-hours",
+      href: "/tools/wellness",
       linkLabel: "Go to wellness check-in",
     })
   } else {
@@ -126,7 +126,7 @@ function buildAlerts(): Alert[] {
         severity: "warning",
         title: "No wellness check-in in over 2 weeks",
         body: "You haven't checked in on yourself recently. It only takes two minutes.",
-        href: "/tools/wellness-hours",
+        href: "/tools/wellness",
         linkLabel: "Log a check-in",
       })
     }

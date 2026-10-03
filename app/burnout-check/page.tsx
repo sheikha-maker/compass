@@ -24,8 +24,8 @@ const betweenCheckins = [
   {
     icon: HeartPulse,
     title: "Log your weekly wellness",
-    desc: "The Wellness & Hours tool tracks your energy and stress over time so you can spot patterns before they become problems.",
-    href: "/tools/wellness-hours",
+    desc: "The Wellness tool tracks your energy and stress over time so you can spot patterns before they become problems.",
+    href: "/tools/wellness",
   },
   {
     icon: BookOpen,
