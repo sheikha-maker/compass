@@ -4,7 +4,7 @@ import { useState } from "react"
 import {
   Compass, Menu, X, Home, Brain, Map, BookOpen,
   ClipboardList, FileText, HeartPulse,
-  Library, Info, Activity, Users, Search
+  Library, Info, Activity, Users, Search, Landmark
 } from "lucide-react"
 import Link from "next/link"
 import dynamic from "next/dynamic"
@@ -28,6 +28,7 @@ const sectionLinks = [
   { href: "/tools/resources",        label: "Resources",           group: "Plan",      icon: Library      },
   { href: "/search",                 label: "Search the guide",    group: "Plan",      icon: Search       },
   { href: "/pre-health-club",        label: "Pre-Health Club",      group: "About",     icon: Users        },
+  { href: "/alpha-epsilon-delta",    label: "Alpha Epsilon Delta",  group: "About",     icon: Landmark     },
   { href: "/tools/wellness-hours",   label: "Wellness & Hours",    group: "Wellbeing", icon: HeartPulse  },
   { href: "/burnout-check",          label: "Burnout Check",       group: "Wellbeing", icon: Activity     },
   { href: "/about",                  label: "About this guide",    group: "About",     icon: Info         },
