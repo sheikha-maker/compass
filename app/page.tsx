@@ -8,7 +8,6 @@ import { Reveal } from "@/components/compass/reveal"
 import { TiltCard } from "@/components/compass/tilt-card"
 import { McatHomepageBanner } from "@/components/compass/mcat-homepage-banner"
 import { SeasonalCallout } from "@/components/compass/seasonal-callout"
-import { WhatsNew } from "@/components/compass/whats-new"
 import Link from "next/link"
 import { ClipboardList, FileText, HeartPulse, Library } from "lucide-react"
 
@@ -75,9 +74,6 @@ export default function Page() {
             })}
           </div>
         </section>
-
-        {/* What's new — recent changes, reinforcing an active resource */}
-        <WhatsNew />
 
         <SiteFooter />
       </main>

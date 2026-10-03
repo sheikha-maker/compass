@@ -5,6 +5,7 @@ import { SidebarNav } from "@/components/compass/sidebar-nav"
 import { SiteFooter } from "@/components/compass/resources"
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { ReviewedSource } from "@/components/compass/next-step-card"
 
 export const metadata: Metadata = {
   title: "Alpha Epsilon Delta",
@@ -61,6 +62,9 @@ export default function AlphaEpsilonDeltaPage() {
               We are building Moravian&apos;s pre-med honor society now. More information about chapter leadership, meetings, and how to join will be available soon.
             </AlertDescription>
           </Alert>
+          <div className="mt-2">
+            <ReviewedSource reviewed="Summer 2026" source="Alpha Epsilon Delta national overview" />
+          </div>
 
           <section className="mt-12 grid gap-6 md:grid-cols-2" aria-labelledby="overview-heading">
             <Card className="border-border/80 bg-card/80 shadow-sm">
