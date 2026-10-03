@@ -29,7 +29,7 @@ export default function ApplicationPrepPage() {
       </div>
       <section className="mx-auto w-full max-w-4xl px-5 pt-8 md:px-8" aria-labelledby="application-costs">
         <div className="rounded-2xl border border-border bg-card p-6 md:p-8">
-          <p className="text-sm font-semibold uppercase tracking-wider text-primary">Plan the investment</p>
+          <p className="text-sm font-semibold uppercase tracking-wider text-accent">Plan the investment</p>
           <h2 id="application-costs" className="mt-2 font-serif text-2xl font-semibold text-foreground">Budget for the application cycle</h2>
           <p className="mt-3 max-w-2xl leading-relaxed text-muted-foreground">The application is more than one fee. Use these ranges as a planning conversation with your advisor, then confirm current prices with each official program.</p>
           <div className="mt-6 grid gap-3 sm:grid-cols-2">
@@ -46,7 +46,7 @@ export default function ApplicationPrepPage() {
       <EssayInterviewPrep />
       <section className="mx-auto w-full max-w-4xl px-5 pb-12 md:px-8" aria-labelledby="application-next-step">
         <div className="rounded-2xl border border-primary/20 bg-primary/5 p-6 md:p-8">
-          <p className="text-sm font-semibold uppercase tracking-wider text-primary">A calmer application workflow</p>
+          <p className="text-sm font-semibold uppercase tracking-wider text-accent">A calmer application workflow</p>
           <h2 id="application-next-step" className="mt-2 font-serif text-2xl font-semibold text-foreground">
             Turn preparation into a weekly habit
           </h2>

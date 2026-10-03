@@ -41,7 +41,7 @@ export default function PreHealthClubPage() {
           <section className="mt-12" aria-labelledby="board-heading">
             <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
               <div>
-                <p className="text-sm font-semibold uppercase tracking-wider text-primary">2026–27 board</p>
+                <p className="text-sm font-semibold uppercase tracking-wider text-accent">2026–27 board</p>
                 <h2 id="board-heading" className="mt-1 font-serif text-2xl font-semibold text-foreground md:text-3xl">
                   Meet the team
                 </h2>
@@ -54,7 +54,7 @@ export default function PreHealthClubPage() {
 
             <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {positions.map((position) => (
-                <Card key={position.title} className="h-full border-border/80 bg-card/80 shadow-sm transition-shadow hover:shadow-md">
+                <Card key={position.title} className="h-full rounded-2xl border-border/80 bg-card/80 shadow-none transition-shadow hover:shadow-md">
                   <CardHeader>
                     <div className="flex items-center justify-between gap-4">
                       <CardTitle className="font-serif text-xl">{position.title}</CardTitle>
@@ -77,7 +77,7 @@ export default function PreHealthClubPage() {
             <div className="flex items-start gap-4">
               <Landmark className="mt-1 h-5 w-5 shrink-0 text-primary" aria-hidden="true" />
               <div>
-                <p className="text-sm font-semibold uppercase tracking-wider text-primary">Coming soon</p>
+                <p className="text-sm font-semibold uppercase tracking-wider text-accent">Coming soon</p>
                 <h2 id="aed-heading" className="mt-1 font-serif text-2xl font-semibold text-foreground">Alpha Epsilon Delta</h2>
                 <p className="mt-2 max-w-2xl leading-relaxed text-muted-foreground">
                   Moravian is in the process of building a chapter of this national pre-health honor society. More information about membership and chapter activities will be available soon.
