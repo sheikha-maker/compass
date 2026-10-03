@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { Users, Mail, ArrowRight } from "lucide-react"
+import { Users, Mail, ArrowRight, Landmark } from "lucide-react"
 import Link from "next/link"
 import { SidebarNav } from "@/components/compass/sidebar-nav"
 import { SiteFooter } from "@/components/compass/resources"
@@ -66,6 +66,23 @@ export default function PreHealthClubPage() {
                   </CardContent>
                 </Card>
               ))}
+            </div>
+          </section>
+
+          <section className="mt-8 rounded-2xl border border-border bg-muted/40 p-6 md:p-8" aria-labelledby="aed-heading">
+            <div className="flex items-start gap-4">
+              <Landmark className="mt-1 h-5 w-5 shrink-0 text-primary" aria-hidden="true" />
+              <div>
+                <p className="text-sm font-semibold uppercase tracking-wider text-primary">Coming soon</p>
+                <h2 id="aed-heading" className="mt-1 font-serif text-2xl font-semibold text-foreground">Alpha Epsilon Delta</h2>
+                <p className="mt-2 max-w-2xl leading-relaxed text-muted-foreground">
+                  Moravian is in the process of building a chapter of this national pre-health honor society. More information about membership and chapter activities will be available soon.
+                </p>
+                <Link href="/alpha-epsilon-delta" className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-primary hover:underline">
+                  Learn about AED
+                  <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                </Link>
+              </div>
             </div>
           </section>
 
