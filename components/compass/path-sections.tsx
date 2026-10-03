@@ -106,6 +106,9 @@ export function YearCompass({ items: yearCompass = fallbackYearCompass }: { item
   const displaySchedule = majorSampleSchedules[selectedMajor][active]
 
   useEffect(() => {
+    const savedMajor = window.localStorage.getItem("pmc_major_v1") as MajorId | null
+    if (savedMajor && majors.some((major) => major.id === savedMajor)) setSelectedMajor(savedMajor)
+
     const params = new URLSearchParams(window.location.search)
     const year = params.get("year")
     if (year !== null) {
@@ -207,7 +210,10 @@ export function YearCompass({ items: yearCompass = fallbackYearCompass }: { item
                   <button
                     key={m.id}
                     type="button"
-                    onClick={() => setSelectedMajor(m.id)}
+                    onClick={() => {
+              setSelectedMajor(m.id)
+              window.localStorage.setItem("pmc_major_v1", m.id)
+            }}
                     className={cn(
                       "rounded-full px-2.5 py-1 text-xs font-semibold transition-colors",
                       selectedMajor === m.id

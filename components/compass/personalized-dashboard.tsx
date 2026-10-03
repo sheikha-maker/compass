@@ -7,6 +7,7 @@ import {
   HeartPulse, AlertTriangle, Zap, Info, X,
   RotateCcw, ChevronRight,
 } from "lucide-react"
+import { majors, type MajorId } from "@/lib/major-schedules"
 import {
   ONBOARDING_STORAGE_KEY,
   getOnboardingOption,
@@ -208,6 +209,7 @@ function StatPill({
 
 export function PersonalizedDashboard() {
   const [yearId, setYearId] = useState<OnboardingYearId | null>(null)
+  const [majorId, setMajorId] = useState<MajorId>("biology")
   const [alerts, setAlerts] = useState<Alert[]>([])
   const [stats, setStats] = useState<Stats | null>(null)
   const [mounted, setMounted] = useState(false)
@@ -217,6 +219,8 @@ export function PersonalizedDashboard() {
     const stored = read<{ year?: OnboardingYearId }>(ONBOARDING_STORAGE_KEY, {})
     const id = stored.year ?? null
     setYearId(id)
+    const savedMajor = read<MajorId>("pmc_major_v1", "biology")
+    setMajorId(majors.some((major) => major.id === savedMajor) ? savedMajor : "biology")
 
     // Alerts
     setAlerts(buildAlerts(id))
@@ -306,7 +310,7 @@ export function PersonalizedDashboard() {
                 Welcome back — you&apos;re in {option.label}
               </h2>
               <p className="mt-1 text-sm text-muted-foreground">
-                {option.subtitle}
+                {option.subtitle} · {majors.find((major) => major.id === majorId)?.label} major
               </p>
             </div>
             <button
@@ -377,6 +381,19 @@ export function PersonalizedDashboard() {
                   </Link>
                 </Reveal>
               ))}
+            </div>
+          </div>
+
+          <div className="rounded-xl border border-border bg-card px-4 py-4">
+            <p className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Continue where you left off</p>
+            <div className="mt-2 flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+              <div>
+                <p className="font-medium text-foreground">{majors.find((major) => major.id === majorId)?.label} course sequence</p>
+                <p className="text-xs text-muted-foreground">Review the {option.label.toLowerCase()} priorities for your major.</p>
+              </div>
+              <Link href={`/your-path?year=${Math.max(0, Number(yearId?.replace("year", "")) - 1)}#year-compass`} className="inline-flex items-center gap-1 text-sm font-semibold text-primary hover:underline">
+                Resume guide <ChevronRight className="h-3.5 w-3.5" aria-hidden="true" />
+              </Link>
             </div>
           </div>
 

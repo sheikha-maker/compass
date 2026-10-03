@@ -4,6 +4,7 @@ import Link from "next/link"
 import { SidebarNav } from "@/components/compass/sidebar-nav"
 import { SiteFooter } from "@/components/compass/resources"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { ReviewedSource } from "@/components/compass/next-step-card"
 
 export const metadata: Metadata = {
   title: "Pre-Health Club E-Board",
@@ -45,7 +46,10 @@ export default function PreHealthClubPage() {
                   Meet the team
                 </h2>
               </div>
-              <p className="text-sm text-muted-foreground">Officer names will be added soon.</p>
+              <div className="text-right">
+                <p className="text-sm text-muted-foreground">Officer names will be added soon.</p>
+                <ReviewedSource reviewed="Summer 2026" source="Moravian campus planning" />
+              </div>
             </div>
 
             <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
