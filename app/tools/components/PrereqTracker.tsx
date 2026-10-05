@@ -22,10 +22,10 @@ type PrereqData = Record<string, number>
 // ─── Constants ───────────────────────────────────────────────────────────────
 
 const PREREQS: Prereq[] = [
-  { id: "bio",     name: "Biology",              required: 8, note: "2 semesters + labs recommended", category: "science" },
+  { id: "bio",     name: "Biology (BIOL 111)",    required: 8, note: "Foundations of Biology; confirm lab sequence", category: "science" },
   { id: "gchem",   name: "General Chemistry",    required: 8, note: "2 semesters + labs recommended", category: "science" },
   { id: "ochem",   name: "Organic Chemistry",    required: 8, note: "2 courses (8 credits)",         category: "science" },
-  { id: "physics", name: "Physics",              required: 8, note: "2 courses (8 credits)",         category: "science" },
+  { id: "physics", name: "Physics (PHYS 109)",    required: 8, note: "Life-sciences physics sequence; confirm PHYS 110 next", category: "science" },
   { id: "math",    name: "Math / Statistics",    required: 4, note: "4-credit course",              category: "science" },
   { id: "biochem", name: "Biochemistry",         required: 4, note: "1 semester minimum",          category: "science" },
   { id: "english", name: "English / Writing",    required: 8, note: "2 writing-intensive courses", category: "writing" },

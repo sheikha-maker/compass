@@ -9,6 +9,7 @@ const THEME_OPTIONS = [
   { value: "light",  label: "Light"  },
   { value: "dark",   label: "Dark"   },
   { value: "slate",  label: "Grey"   },
+  { value: "greyhound", label: "Greyhound Pride" },
   { value: "teal",   label: "Teal"   },
   { value: "green",  label: "Green"  },
   { value: "purple", label: "Purple" },
