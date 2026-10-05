@@ -9,13 +9,14 @@ import { TiltCard } from "@/components/compass/tilt-card"
 import { McatHomepageBanner } from "@/components/compass/mcat-homepage-banner"
 import { SeasonalCallout } from "@/components/compass/seasonal-callout"
 import Link from "next/link"
-import { ClipboardList, FileText, HeartPulse, Library } from "lucide-react"
+import { ClipboardList, FileText, HeartPulse, Library, Clock3 } from "lucide-react"
 
 const tools = [
   { href: "/tools/plan-check",        icon: ClipboardList, label: "Plan & Check",      desc: "Stay on top of prerequisites, GPA, and your MCAT countdown all in one place."          },
   { href: "/tools/application-prep",  icon: FileText,      label: "Application Prep",  desc: "Build your school list, shape your story, and prepare for essays, interviews, and secondaries."   },
-  { href: "/tools/wellness",    icon: HeartPulse,    label: "Wellness & Hours",   desc: "Log clinical and volunteer hours, and check in on your wellbeing weekly."              },
-  { href: "/tools/resources",         icon: Library,       label: "Resources",          desc: "Curated links and recommendations for every stage of your pre-med journey.", span: true },
+  { href: "/tools/wellness",          icon: HeartPulse,    label: "Wellness",        desc: "Check in on your wellbeing weekly and notice patterns over time." },
+  { href: "/tools/hours",             icon: Clock3,        label: "Hours Tracker",   desc: "Log clinical, volunteer, research, and service experiences." },
+  { href: "/tools/resources",         icon: Library,       label: "Resources",       desc: "Curated links and recommendations for every stage of your pre-med journey." },
 ]
 
 export default function Page() {
@@ -54,7 +55,7 @@ export default function Page() {
             {tools.map((tool, i) => {
               const Icon = tool.icon
               return (
-                <Reveal key={tool.href} delay={i * 80} className={tool.span ? "sm:col-span-2" : ""}>
+                <Reveal key={tool.href} delay={i * 80}>
                   <TiltCard className="rounded-2xl h-full" intensity={5}>
                     <Link
                       href={tool.href}

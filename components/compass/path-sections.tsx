@@ -259,9 +259,11 @@ export function YearCompass({ items: yearCompass = fallbackYearCompass }: { item
             <p className="mt-4 border-t border-accent/20 pt-3 text-sm font-medium text-accent">
               {displaySchedule.tips}
             </p>
-            <p className="mt-3 rounded-lg border border-primary/15 bg-primary/5 p-3 text-xs leading-relaxed text-muted-foreground">
-              {templeEarlyAssuranceNote}
-            </p>
+            {active === 2 && (
+              <p className="mt-3 rounded-lg border border-primary/15 bg-primary/5 p-3 text-xs leading-relaxed text-muted-foreground">
+                {templeEarlyAssuranceNote}
+              </p>
+            )}
           </div>
         )}
 
