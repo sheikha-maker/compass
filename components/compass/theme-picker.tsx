@@ -9,8 +9,7 @@ const THEME_OPTIONS = [
   { value: "light",  label: "Light"  },
   { value: "dark",   label: "Dark"   },
   { value: "slate",  label: "Grey"   },
-  { value: "greyhound", label: "Greyhound Pride" },
-  { value: "teal",   label: "Teal"   },
+  { value: "navy",   label: "Navy"   },
   { value: "green",  label: "Green"  },
   { value: "purple", label: "Purple" },
 ]
@@ -23,7 +22,8 @@ export function ThemePicker() {
     setMounted(true)
     // Older builds exposed maroon and gold; normalize those saved preferences
     // so removed options never leave the app in an unsupported theme state.
-    if (theme === "maroon" || theme === "gold") setTheme("light")
+    if (theme === "maroon" || theme === "gold" || theme === "teal") setTheme("light")
+    if (theme === "greyhound") setTheme("navy")
   }, [setTheme, theme])
 
   if (!mounted) return <div className="h-8 w-full animate-pulse rounded-md bg-sidebar-accent/30" />

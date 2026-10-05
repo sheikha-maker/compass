@@ -98,7 +98,7 @@
   --card-foreground: oklch(0.16 0.06 145);
   --popover: oklch(0.99 0.02 138);
   --popover-foreground: oklch(0.16 0.06 145);
-  --primary: oklch(0.44 0.14 140);
+  --primary: oklch(0.52 0.11 140);
   --primary-foreground: oklch(0.99 0.01 145);
   --secondary: oklch(0.90 0.05 135);
   --secondary-foreground: oklch(0.20 0.06 145);
@@ -124,9 +124,9 @@
   --sidebar-accent-foreground: oklch(0.22 0.06 145);
   --sidebar-border: oklch(0.88 0.04 140);
   --sidebar-ring: oklch(0.44 0.14 140);
-  --hero-start: oklch(0.44 0.14 140);
-  --hero-mid: oklch(0.51 0.11 144);
-  --hero-end: oklch(0.58 0.08 152);
+  --hero-start: oklch(0.52 0.11 140);
+  --hero-mid: oklch(0.59 0.09 144);
+  --hero-end: oklch(0.66 0.07 152);
 }
 
 /* Muted lavender — soft, dusty purple */
@@ -166,45 +166,6 @@
   --hero-start: oklch(0.48 0.14 300);
   --hero-mid: oklch(0.54 0.10 296);
   --hero-end: oklch(0.61 0.08 290);
-}
-
-/* Ocean teal — clear, focused, clinical calm */
-.teal {
-  --background: oklch(0.97 0.03 192);
-  --foreground: oklch(0.16 0.06 195);
-  --card: oklch(0.99 0.02 190);
-  --card-foreground: oklch(0.16 0.06 195);
-  --popover: oklch(0.99 0.02 190);
-  --popover-foreground: oklch(0.16 0.06 195);
-  --primary: oklch(0.46 0.14 192);
-  --primary-foreground: oklch(0.99 0.01 195);
-  --secondary: oklch(0.90 0.05 190);
-  --secondary-foreground: oklch(0.20 0.06 195);
-  --muted: oklch(0.93 0.03 192);
-  --muted-foreground: oklch(0.46 0.07 195);
-  --accent: oklch(0.58 0.10 188);
-  --accent-foreground: oklch(0.14 0.05 195);
-  --destructive: oklch(0.52 0.14 25);
-  --destructive-foreground: oklch(0.99 0.01 195);
-  --border: oklch(0.88 0.04 192);
-  --input: oklch(0.95 0.03 192);
-  --ring: oklch(0.46 0.14 192);
-  --chart-1: oklch(0.46 0.14 192);
-  --chart-2: oklch(0.62 0.10 175);
-  --chart-3: oklch(0.54 0.09 205);
-  --chart-4: oklch(0.60 0.08 215);
-  --chart-5: oklch(0.70 0.08 180);
-  --sidebar: oklch(0.95 0.03 192);
-  --sidebar-foreground: oklch(0.16 0.06 195);
-  --sidebar-primary: oklch(0.46 0.14 192);
-  --sidebar-primary-foreground: oklch(0.99 0.01 195);
-  --sidebar-accent: oklch(0.91 0.05 192);
-  --sidebar-accent-foreground: oklch(0.22 0.06 195);
-  --sidebar-border: oklch(0.88 0.04 192);
-  --sidebar-ring: oklch(0.46 0.14 192);
-  --hero-start: oklch(0.46 0.14 192);
-  --hero-mid: oklch(0.52 0.10 188);
-  --hero-end: oklch(0.60 0.07 180);
 }
 
 
@@ -247,8 +208,8 @@
   --hero-end: oklch(0.58 0.008 235);
 }
 
-/* Greyhound Pride — Moravian navy and silver */
-.greyhound {
+/* Navy — Moravian navy and silver */
+.navy {
   --background: oklch(0.97 0.008 245);
   --foreground: oklch(0.18 0.045 245);
   --card: oklch(0.995 0.004 245);
@@ -507,7 +468,7 @@ html {
   line-height: 1.6;
 }
 
-/* ─── Mobile layout fixes ────────────────────────────────────────────────── */
+/* ─── Mobile layout fixes ───────────��────────────────────────────────────── */
 
 /* Prevent tool tables from overflowing on mobile */
 @media (max-width: 640px) {
