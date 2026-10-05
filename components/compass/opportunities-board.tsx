@@ -96,6 +96,18 @@ export function OpportunitiesBoard({
       recentlyUpdated={recentlyUpdated}
       intro="Research, clinical, shadowing, leadership, and service opportunities specific to Moravian and the Lehigh Valley. This is local knowledge you won't find on a national pre-med site."
     >
+      <div className="mb-6 rounded-xl border border-primary/20 bg-primary/5 p-5">
+        <div className="flex items-start gap-3">
+          <Stethoscope className="mt-0.5 h-5 w-5 shrink-0 text-primary" aria-hidden />
+          <div>
+            <p className="font-semibold text-foreground">A local clinical starting point</p>
+            <p className="mt-1 text-sm leading-relaxed text-muted-foreground">
+              Ask about Moravian&apos;s St. Luke&apos;s Premed and PA Observer Program through HLTR 285. The course is designed around structured hospital observation, a reflection journal sequence, and 100+ hours of clinical exposure. Confirm current enrollment, placement, and hour requirements with the department before planning around it.
+            </p>
+          </div>
+        </div>
+      </div>
+
       {/* Category filter pills */}
       <div className="mb-5 flex flex-wrap gap-2">
         <button

@@ -6,7 +6,7 @@ import { experienceTools, yearCompass as fallbackYearCompass, courseGuides as fa
 import type { NotionYearCompassItem, NotionCourseGuide } from "@/lib/notion"
 import { changelog, formatChangeDate, isRecent } from "@/lib/updates"
 import { experienceTypeCards } from "@/lib/path-content"
-import { majors, majorSampleSchedules, type MajorId } from "@/lib/major-schedules"
+import { majors, majorSampleSchedules, templeEarlyAssuranceNote, type MajorId } from "@/lib/major-schedules"
 import { Section } from "./section"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { PathDepthChecklist } from "./path/path-depth-checklist"
@@ -258,6 +258,9 @@ export function YearCompass({ items: yearCompass = fallbackYearCompass }: { item
             </div>
             <p className="mt-4 border-t border-accent/20 pt-3 text-sm font-medium text-accent">
               {displaySchedule.tips}
+            </p>
+            <p className="mt-3 rounded-lg border border-primary/15 bg-primary/5 p-3 text-xs leading-relaxed text-muted-foreground">
+              {templeEarlyAssuranceNote}
             </p>
           </div>
         )}

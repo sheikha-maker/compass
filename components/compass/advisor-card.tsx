@@ -13,7 +13,7 @@ export function AdvisorCard() {
             Dr. Cecilia M. Fox
           </h3>
           <p className="text-sm text-muted-foreground leading-snug mt-0.5">
-            Professor of Biological Sciences · Director, Neuroscience Program
+            Professor of Biological Sciences · Director, Neuroscience Program · HPAC advisor
           </p>
           <p className="text-sm font-medium text-primary mt-1">
             Your Health Professions Advisor
@@ -23,7 +23,7 @@ export function AdvisorCard() {
 
       {/* First action prompt */}
       <div className="rounded-lg border border-primary/20 bg-background px-4 py-3 text-sm leading-relaxed text-foreground">
-        Before you do anything else on this site, introduce yourself to Dr. Fox. She advises every pre-health student at Moravian, and oversees both the Pre-Health Club and Brain Club. One office hours visit in your first semester is worth more than most resources on this page.
+        Before you do anything else on this site, introduce yourself to Dr. Fox. She advises every pre-health student at Moravian and helps coordinate the Health Professions Advisory Committee (HPAC). Ask about the committee petition process early: students typically need to request an evaluation and recommendation letters before their application cycle, with committee-specific deadlines and materials confirmed directly with HPAC.
       </div>
 
       {/* Contact details */}

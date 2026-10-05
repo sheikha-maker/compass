@@ -27,6 +27,9 @@ export type MajorScheduleYear = {
   tips: string
 }
 
+export const templeEarlyAssuranceNote =
+  "Moravian students exploring the Temple/Lewis Katz early assurance pathway should plan around the junior-year application window and protect a 3.5+ cumulative GPA and 3.5+ science GPA. Confirm current eligibility, deadlines, and partner-site details with HPAC before relying on this sample sequence."
+
 export type MajorId = "biology" | "biochemistry" | "neuroscience"
 
 export const majors: { id: MajorId; label: string; blurb: string; official: boolean }[] = [

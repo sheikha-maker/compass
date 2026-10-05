@@ -247,6 +247,38 @@
   --hero-end: oklch(0.58 0.008 235);
 }
 
+/* Greyhound Pride — Moravian navy and silver */
+.greyhound {
+  --background: oklch(0.97 0.008 245);
+  --foreground: oklch(0.18 0.045 245);
+  --card: oklch(0.995 0.004 245);
+  --card-foreground: oklch(0.18 0.045 245);
+  --popover: oklch(0.995 0.004 245);
+  --popover-foreground: oklch(0.18 0.045 245);
+  --primary: oklch(0.30 0.105 250);
+  --primary-foreground: oklch(0.99 0.005 245);
+  --secondary: oklch(0.90 0.012 245);
+  --secondary-foreground: oklch(0.24 0.06 250);
+  --muted: oklch(0.93 0.01 245);
+  --muted-foreground: oklch(0.45 0.035 245);
+  --accent: oklch(0.66 0.025 245);
+  --accent-foreground: oklch(0.16 0.045 245);
+  --border: oklch(0.84 0.018 245);
+  --input: oklch(0.90 0.012 245);
+  --ring: oklch(0.30 0.105 250);
+  --sidebar: oklch(0.24 0.075 250);
+  --sidebar-foreground: oklch(0.96 0.008 245);
+  --sidebar-primary: oklch(0.74 0.025 245);
+  --sidebar-primary-foreground: oklch(0.16 0.045 245);
+  --sidebar-accent: oklch(0.31 0.08 250);
+  --sidebar-accent-foreground: oklch(0.98 0.005 245);
+  --sidebar-border: oklch(0.38 0.06 250);
+  --sidebar-ring: oklch(0.74 0.025 245);
+  --hero-start: oklch(0.24 0.075 250);
+  --hero-mid: oklch(0.32 0.09 250);
+  --hero-end: oklch(0.48 0.045 245);
+}
+
 @theme inline {
   --font-sans: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
   --font-serif: var(--font-serif), ui-serif, Georgia, serif;
