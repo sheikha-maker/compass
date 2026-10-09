@@ -21,7 +21,7 @@ const sourceSerif = Source_Serif_4({
 
 const siteUrl =
   process.env.NEXT_PUBLIC_SITE_URL ??
-  (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'https://v0-premedcompass.vercel.app')
+  (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'https://www.premedcompass.org')
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     description:
       'A sustainable, anxiety-aware pre-med guide for Moravian University students. MCAT prep, application timeline, and wellness tools.',
     siteName: 'The Pre-Med Compass',
-    url: 'https://v0-premedcompass.vercel.app',
+    url: 'https://www.premedcompass.org',
     type: 'website',
     locale: 'en_US',
     images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'The Pre-Med Compass' }],

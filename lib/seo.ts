@@ -10,7 +10,7 @@ export const SITE_NAME = "The Pre-Med Compass"
 
 export const SITE_URL =
   process.env.NEXT_PUBLIC_SITE_URL ??
-  (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "https://v0-premedcompass.vercel.app")
+  (process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : "https://www.premedcompass.org")
 
 type PageMetaOptions = {
   /** Page title without the site suffix, e.g. "Building Your Path". */

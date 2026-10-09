@@ -75,7 +75,7 @@ export default function OgImage() {
           }}
         >
           <span style={{ color: "rgba(255,255,255,0.8)", fontSize: "18px" }}>
-            {process.env.NEXT_PUBLIC_SITE_URL ?? "v0-premedcompass.vercel.app"}
+            {(process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.premedcompass.org").replace(/^https?:\/\//, "")}
           </span>
         </div>
       </div>

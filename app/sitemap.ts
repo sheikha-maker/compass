@@ -1,6 +1,6 @@
 import { MetadataRoute } from "next"
 
-const BASE_URL = "https://v0-premedcompass.vercel.app"
+const BASE_URL = "https://www.premedcompass.org"
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date()

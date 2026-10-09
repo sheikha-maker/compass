@@ -13,10 +13,12 @@ export const auth = betterAuth({
 
   trustedOrigins: [
     baseURL,
+    "https://www.premedcompass.org",
+    "https://premedcompass.org",
     "https://v0-premedcompass.vercel.app",
     "http://localhost:3000",
     "https://*.vusercontent.net",
-  ], // ✅ FIXED: comma added here
+  ],
 
   database: dbAvailable
     ? drizzleAdapter(db, {
