@@ -1,5 +1,5 @@
 import { SidebarNav } from "@/components/compass/sidebar-nav"
-import { HeroClient } from "@/components/compass/hero-client"
+import { CampusHero, ValuePillars, StoryFooter } from "@/components/compass/campus-hero"
 import { OnboardingQuiz } from "@/components/compass/onboarding-quiz"
 import { PersonalizedDashboard } from "@/components/compass/personalized-dashboard"
 import { SectionCardsClient } from "@/components/compass/section-cards-client"
@@ -24,7 +24,8 @@ export default function Page() {
     <div className="min-h-screen bg-background">
       <SidebarNav />
       <main id="main-content" className="lg:pl-72">
-        <HeroClient />
+        <CampusHero />
+        <ValuePillars />
         <McatHomepageBanner />
 
         {/* Seasonal "This week in pre-med" callout */}
@@ -76,6 +77,7 @@ export default function Page() {
           </div>
         </section>
 
+        <StoryFooter />
         <SiteFooter />
       </main>
     </div>
