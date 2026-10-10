@@ -202,13 +202,20 @@ export function PageLayout({ title, eyebrow, description, backHref = "/", navIte
       </nav>
 
       <main id="main-content" className="lg:pl-72">
-        <div className="border-b border-border bg-primary px-5 py-10 text-primary-foreground md:px-8 md:py-14">
-          <div className="mx-auto max-w-4xl">
-            <p className="text-sm font-medium uppercase tracking-wider text-primary-foreground/60">{eyebrow}</p>
-            <h1 className="mt-2 font-serif text-3xl font-semibold md:text-4xl">{title}</h1>
-            {description && (
-              <p className="mt-4 max-w-2xl text-lg leading-relaxed text-primary-foreground/80">{description}</p>
-            )}
+        <div className="relative overflow-hidden border-b border-border bg-[linear-gradient(135deg,var(--hero-start),var(--hero-mid)_58%,var(--hero-end))] px-5 py-12 text-primary-foreground md:px-8 md:py-20">
+          <div className="absolute -right-12 -top-20 h-64 w-64 rounded-full border border-primary-foreground/15 md:h-80 md:w-80" aria-hidden="true" />
+          <div className="absolute right-20 top-12 hidden h-3 w-3 rounded-full bg-accent md:block" aria-hidden="true" />
+          <div className="relative mx-auto max-w-4xl">
+            <p className="text-xs font-semibold uppercase tracking-[0.22em] text-primary-foreground/65">{eyebrow}</p>
+            <div className="mt-4 flex items-start gap-4">
+              <Compass className="mt-1 hidden h-8 w-8 shrink-0 text-primary-foreground/80 sm:block" aria-hidden="true" />
+              <div>
+                <h1 className="font-serif text-4xl font-semibold tracking-tight md:text-5xl">{title}</h1>
+                {description && (
+                  <p className="mt-5 max-w-2xl text-base leading-relaxed text-primary-foreground/78 md:text-lg">{description}</p>
+                )}
+              </div>
+            </div>
           </div>
         </div>
         {children}
