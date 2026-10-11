@@ -38,7 +38,7 @@ export function StudentSpotlight() {
           Moravian pre-meds, a few years on
         </h2>
         <p className="mt-3 max-w-2xl text-muted-foreground">
-          Real-shaped stories from students who walked this path before you. Different timelines, different routes — all
+          Real stories from Moravian students who walked this path before you. Different timelines, different routes — all
           of them honest.
         </p>
       </Reveal>
@@ -139,7 +139,11 @@ export function StudentSpotlight() {
       </div>
 
       <p className="mt-6 text-center text-xs text-muted-foreground">
-        Want to be featured? Reach out to your pre-health advisor — these profiles grow over time.
+        Want to be featured? Email Ayaan at{" "}
+        <a href="mailto:sheikha@moravian.edu?subject=Pre-Med%20Compass%20spotlight" className="underline underline-offset-2 hover:text-foreground">
+          sheikha@moravian.edu
+        </a>{" "}
+        — these profiles grow over time.
       </p>
     </section>
   )

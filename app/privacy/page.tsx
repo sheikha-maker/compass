@@ -1,11 +1,12 @@
-import type { Metadata } from "next"
 import { SidebarNav } from "@/components/compass/sidebar-nav"
 import { SiteFooter } from "@/components/compass/resources"
+import { pageMetadata } from "@/lib/seo"
 
-export const metadata: Metadata = {
-  title: "Privacy Policy | The Pre-Med Compass",
+export const metadata = pageMetadata({
+  title: "Privacy Policy",
   description: "How The Pre-Med Compass collects, uses, and protects account and wellness data.",
-}
+  path: "/privacy",
+})
 
 export default function PrivacyPage() {
   return (

@@ -18,16 +18,22 @@ const STATS: Stat[] = [
 ]
 
 function useCountUp(target: number, duration = 1200, started: boolean) {
-  const [count, setCount] = useState(0)
+  // Start at the real value so the server-rendered HTML (and no-JS visitors,
+  // crawlers) see the true number instead of 0. Once JS runs, reset to 0 and
+  // count up when the stat scrolls into view.
+  const [count, setCount] = useState(target)
   const frameRef = useRef<number | null>(null)
   const startRef = useRef<number | null>(null)
 
   useEffect(() => {
-    if (!started) return
-
     // Skip animation for prefers-reduced-motion
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       setCount(target)
+      return
+    }
+
+    if (!started) {
+      setCount(0)
       return
     }
 

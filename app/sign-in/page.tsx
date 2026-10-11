@@ -27,7 +27,7 @@ function SignInForm() {
     const { error: authError } = await signIn.email({ email, password })
 
     if (authError) {
-      setError(authError.message ?? "Couldn't sign in. Check your email and password.")
+      setError(signInErrorMessage(authError))
       setLoading(false)
       return
     }
@@ -52,7 +52,7 @@ function SignInForm() {
 
         <h1 className="font-serif text-2xl font-semibold text-foreground mb-1">Sign in</h1>
         <p className="text-sm text-muted-foreground mb-6">
-          Your activity logs and check-ins sync across devices.
+          Sign in to use the planning, application, hours, and wellness tools. Your progress syncs across devices.
         </p>
 
         <form onSubmit={handleSubmit} className="flex flex-col gap-4">
@@ -113,6 +113,13 @@ function SignInForm() {
       </div>
     </div>
   )
+}
+
+function signInErrorMessage(err: { status?: number; message?: string }) {
+  if (err.status === 429) return "Too many attempts. Please wait a minute and try again."
+  if (err.status === 403) return "Sign-in was blocked for security reasons. Refresh the page and try again."
+  if (err.status && err.status >= 500) return "Something went wrong on our end. Please try again shortly."
+  return err.message || "Couldn't sign in. Check your email and password."
 }
 
 export default function SignInPage() {

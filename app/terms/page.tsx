@@ -1,11 +1,12 @@
-import type { Metadata } from "next"
 import { SidebarNav } from "@/components/compass/sidebar-nav"
 import { SiteFooter } from "@/components/compass/resources"
+import { pageMetadata } from "@/lib/seo"
 
-export const metadata: Metadata = {
-  title: "Terms of Service | The Pre-Med Compass",
+export const metadata = pageMetadata({
+  title: "Terms of Service",
   description: "Terms for using The Pre-Med Compass.",
-}
+  path: "/terms",
+})
 
 export default function TermsPage() {
   return (

@@ -1,23 +1,31 @@
-import type { Metadata } from "next"
 import { Users, Mail, ArrowRight, Landmark } from "lucide-react"
 import Link from "next/link"
 import { SidebarNav } from "@/components/compass/sidebar-nav"
 import { SiteFooter } from "@/components/compass/resources"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { ReviewedSource } from "@/components/compass/next-step-card"
+import { pageMetadata } from "@/lib/seo"
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Pre-Health Club E-Board",
   description: "Meet the Moravian Pre-Health Club executive board and learn how to get involved.",
-}
+  path: "/pre-health-club",
+})
 
-const positions = [
+/**
+ * To announce an officer, add `name` (and optionally `email`) to their entry.
+ * Until at least one name is filled in, the page shows the roles only —
+ * no "TBD" placeholders.
+ */
+const positions: { title: string; description: string; name?: string; email?: string }[] = [
   { title: "President", description: "Coordinates the club's direction, meetings, and campus partnerships." },
   { title: "Vice President", description: "Supports club programming and helps turn member ideas into events." },
   { title: "Secretary", description: "Keeps meeting notes, announcements, and club communication organized." },
   { title: "Treasurer", description: "Helps manage the club budget, purchases, and funding requests." },
   { title: "Social Media Manager", description: "Shares meetings, opportunities, and club updates with the campus community." },
 ]
+
+const anyNamed = positions.some((p) => p.name)
 
 export default function PreHealthClubPage() {
   return (
@@ -43,12 +51,14 @@ export default function PreHealthClubPage() {
               <div>
                 <p className="text-sm font-semibold uppercase tracking-wider text-accent">2026–27 board</p>
                 <h2 id="board-heading" className="mt-1 font-serif text-2xl font-semibold text-foreground md:text-3xl">
-                  Meet the team
+                  {anyNamed ? "Meet the team" : "What the board does"}
                 </h2>
               </div>
-              <div className="text-right">
-                <p className="text-sm text-muted-foreground">Officer names will be added soon.</p>
-                <ReviewedSource reviewed="Summer 2026" source="Moravian campus planning" />
+              <div className="sm:text-right">
+                {!anyNamed && (
+                  <p className="text-sm text-muted-foreground">Officer names will be posted here once the board is confirmed.</p>
+                )}
+                <ReviewedSource reviewed="Fall 2026" source="Moravian campus planning" />
               </div>
             </div>
 
@@ -56,17 +66,20 @@ export default function PreHealthClubPage() {
               {positions.map((position) => (
                 <Card key={position.title} className="h-full rounded-2xl border-border/80 bg-card/80 shadow-none transition-shadow hover:shadow-md">
                   <CardHeader>
-                    <div className="flex items-center justify-between gap-4">
-                      <CardTitle className="font-serif text-xl">{position.title}</CardTitle>
-                      <span className="rounded-full bg-muted px-2.5 py-1 text-xs font-medium text-muted-foreground">TBD</span>
-                    </div>
+                    <CardTitle className="font-serif text-xl">{position.title}</CardTitle>
+                    {position.name && <p className="text-sm font-medium text-foreground">{position.name}</p>}
                   </CardHeader>
                   <CardContent>
                     <p className="text-sm leading-relaxed text-muted-foreground">{position.description}</p>
-                    <div className="mt-6 flex items-center gap-2 text-sm text-muted-foreground">
-                      <Mail className="h-4 w-4 text-primary" aria-hidden="true" />
-                      <span>Officer contact coming soon</span>
-                    </div>
+                    {position.email && (
+                      <a
+                        href={`mailto:${position.email}`}
+                        className="mt-6 inline-flex items-center gap-2 text-sm font-medium text-primary hover:underline"
+                      >
+                        <Mail className="h-4 w-4" aria-hidden="true" />
+                        {position.email}
+                      </a>
+                    )}
                   </CardContent>
                 </Card>
               ))}
@@ -93,7 +106,7 @@ export default function PreHealthClubPage() {
           <section className="mt-12 rounded-2xl border border-primary/20 bg-primary/5 p-6 md:p-8" aria-labelledby="involved-heading">
             <h2 id="involved-heading" className="font-serif text-2xl font-semibold text-foreground">Want to get involved?</h2>
             <p className="mt-2 max-w-2xl leading-relaxed text-muted-foreground">
-              Attend a meeting, introduce yourself to the officers, and bring an idea for an event or conversation you would like the club to host.
+              Introduce yourself to the officers and bring an idea for an event or conversation you would like the club to host. Meeting times aren't posted here yet, so ask your pre-health advisor or watch campus announcements for the next one.
             </p>
             <Link href="/tools/resources" className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-primary hover:underline">
               Explore student resources

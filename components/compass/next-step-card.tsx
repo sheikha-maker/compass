@@ -36,7 +36,7 @@ export function NextStepCard({
 }
 
 export function ReviewedSource({
-  reviewed = "Summer 2026",
+  reviewed = "Fall 2026",
   source,
 }: {
   reviewed?: string

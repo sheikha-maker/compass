@@ -6,6 +6,13 @@ import { StatsBar } from "@/components/compass/stats-bar"
 import { StudentSpotlight } from "@/components/compass/student-spotlight"
 import Image from "next/image"
 import Link from "next/link"
+import { pageMetadata } from "@/lib/seo"
+
+export const metadata = pageMetadata({
+  title: "About",
+  description: "Why Ayaan Sheikh built The Pre-Med Compass, a student-made guide for Moravian University pre-meds.",
+  path: "/about",
+})
 
 const testimonials = [
   {

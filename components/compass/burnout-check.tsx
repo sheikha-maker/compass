@@ -125,6 +125,7 @@ const RESULTS: ResultTier[] = [
         href: "https://www.moravian.edu/counseling",
       },
       { text: "Talk to someone today. A friend, a family member, anyone" },
+      { text: "If you're in crisis or having thoughts of harming yourself, call or text 988 (Suicide & Crisis Lifeline in the U.S.), any time" },
       { text: "Consider talking to your advisor about your course load" },
     ],
     cardBg: "bg-red-50 dark:bg-red-950/20",
@@ -156,16 +157,9 @@ export function BurnoutCheck() {
     <section id="burnout-check" className="scroll-mt-20 border-b border-border py-14 md:py-20">
       <div className="mx-auto w-full max-w-3xl px-5 md:px-8">
         <header className="mb-8">
-          <p className="mb-2 text-sm font-semibold uppercase tracking-wider text-accent">
-            Your Wellbeing
-          </p>
-          <h2 className="text-balance font-serif text-3xl font-semibold text-foreground md:text-4xl">
-            Burnout Check
+          <h2 className="text-balance font-serif text-2xl font-semibold text-foreground md:text-3xl">
+            Take the check-in
           </h2>
-          <p className="mt-4 text-pretty text-lg leading-relaxed text-muted-foreground">
-            Five honest questions. This gives you a reflection score and next-step guidance, not a diagnosis.
-            Take it whenever something feels off.
-          </p>
         </header>
 
         {!submitted ? (
@@ -289,7 +283,8 @@ export function BurnoutCheck() {
               >
                 Moravian Counseling Services
               </a>{" "}
-              is free for all students.
+              is free for all students. If you're in crisis or thinking about harming yourself, call or text 988
+              (the Suicide &amp; Crisis Lifeline in the U.S.) at any hour.
             </p>
           </div>
         ) : null}

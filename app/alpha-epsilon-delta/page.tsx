@@ -1,4 +1,3 @@
-import type { Metadata } from "next"
 import Link from "next/link"
 import { ArrowRight, BookOpen, Construction, HeartHandshake, Landmark, Users } from "lucide-react"
 import { SidebarNav } from "@/components/compass/sidebar-nav"
@@ -6,11 +5,13 @@ import { SiteFooter } from "@/components/compass/resources"
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { ReviewedSource } from "@/components/compass/next-step-card"
+import { pageMetadata } from "@/lib/seo"
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Alpha Epsilon Delta",
   description: "Learn about Moravian's emerging Alpha Epsilon Delta pre-health honor society chapter.",
-}
+  path: "/alpha-epsilon-delta",
+})
 
 const membershipRequirements = [
   "Pursuing a post-baccalaureate professional healthcare track, such as medicine, dentistry, veterinary medicine, or physical therapy.",
@@ -63,7 +64,7 @@ export default function AlphaEpsilonDeltaPage() {
             </AlertDescription>
           </Alert>
           <div className="mt-2">
-            <ReviewedSource reviewed="Summer 2026" source="Alpha Epsilon Delta national overview" />
+            <ReviewedSource reviewed="Fall 2026" source="Alpha Epsilon Delta national overview" />
           </div>
 
           <section className="mt-12 grid gap-6 md:grid-cols-2" aria-labelledby="overview-heading">

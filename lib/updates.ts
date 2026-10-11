@@ -26,6 +26,15 @@ export type ChangelogEntry = {
 
 export const changelog: ChangelogEntry[] = [
   {
+    date: "2026-10-10",
+    type: "updated",
+    title: "Student spotlights are back",
+    description:
+      "'Where are they now' returns with two real Moravian alumni, shared with their permission: a traditional route and a path with several stops along the way.",
+    href: "/about",
+    area: "Community",
+  },
+  {
     date: "2026-08-24",
     type: "updated",
     title: "Student spotlights paused",
@@ -91,7 +100,7 @@ export const changelog: ChangelogEntry[] = [
 /** The single most recent change date, formatted for display (e.g. "June 2026"). */
 export function latestUpdateLabel(): string {
   const latest = changelog[0]?.date
-  if (!latest) return "Summer 2026"
+  if (!latest) return "Fall 2026"
   return new Date(latest + "T00:00:00").toLocaleDateString("en-US", { month: "long", year: "numeric" })
 }
 

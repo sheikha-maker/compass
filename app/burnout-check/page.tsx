@@ -36,7 +36,7 @@ const betweenCheckins = [
   {
     icon: MessageCircle,
     title: "Talk to someone",
-    desc: "Moravian Counseling Services is free and confidential for all students. You don't need to be in crisis to use it.",
+    desc: "Moravian Counseling Services is free and confidential for all students. You don't need to be in crisis to use it. In a crisis, call or text 988 any time.",
     href: "https://www.moravian.edu/counseling",
     external: true,
   },

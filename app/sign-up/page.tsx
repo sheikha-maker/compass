@@ -10,9 +10,9 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 
 const perks = [
-  { icon: HeartPulse,    text: "Wellness check-ins saved across devices" },
-  { icon: Activity,      text: "Burnout scores tracked over time"         },
-  { icon: ClipboardList, text: "Application and milestone progress synced" },
+  { icon: HeartPulse,    text: "Wellness check-ins saved across devices"          },
+  { icon: Activity,      text: "Clinical, research, and volunteer hours in one place" },
+  { icon: ClipboardList, text: "Course plans, GPA, and application progress synced" },
 ]
 
 function SignUpForm() {
