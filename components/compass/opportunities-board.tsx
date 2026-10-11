@@ -8,6 +8,7 @@ import {
 import { Section } from "./section"
 import type { NotionOpportunity, OpportunityCategory } from "@/lib/notion"
 import { cn } from "@/lib/utils"
+import { EmptyState } from "./site-utilities"
 
 const CATEGORY_META: Record<OpportunityCategory, { icon: typeof FlaskConical; color: string }> = {
   Research:   { icon: FlaskConical, color: "bg-violet-500/15 text-violet-700 dark:text-violet-300" },
@@ -138,9 +139,7 @@ export function OpportunitiesBoard({
       </div>
 
       {visible.length === 0 ? (
-        <p className="rounded-xl border border-dashed border-border p-6 text-center text-sm text-muted-foreground">
-          No opportunities listed in this category yet.
-        </p>
+  <EmptyState title="Nothing here yet" description="There are no opportunities in this category right now. Try another category or check back after the next update." />
       ) : (
         <div className="grid gap-3 sm:grid-cols-2">
           {visible.map(opp => (

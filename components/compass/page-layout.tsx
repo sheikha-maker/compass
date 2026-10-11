@@ -8,6 +8,7 @@ import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { AuthButton } from "@/components/compass/auth-button"
 import { ThemePicker } from "@/components/compass/theme-picker"
+import { ContinuePrompt, GlobalCommandMenu } from "@/components/compass/site-utilities"
 
 const TOOL_LINKS = [
   { href: "/tools/plan-check",       label: "Plan & Check",      icon: ClipboardList },
@@ -64,6 +65,11 @@ export function PageLayout({ title, eyebrow, description, backHref = "/", navIte
 
   return (
     <div className="min-h-screen bg-background">
+      <div className="fixed right-5 top-4 z-50 hidden items-center gap-2 rounded-full border border-border bg-background/95 p-1.5 shadow-sm backdrop-blur lg:flex">
+        <GlobalCommandMenu />
+        <ThemePicker compact />
+        <AuthButton compact />
+      </div>
       {/* Mobile top bar — no ThemePicker here; it lives in the sidebar footer */}
       <header className="sticky top-0 z-40 flex items-center justify-between border-b border-border bg-sidebar/95 px-4 py-3 backdrop-blur lg:hidden">
         <div className="flex items-center gap-2">
@@ -89,6 +95,7 @@ export function PageLayout({ title, eyebrow, description, backHref = "/", navIte
       )}
 
       {/* Sidebar */}
+      <ContinuePrompt />
       <nav
         aria-label="Page sections"
         className={cn(
@@ -194,11 +201,11 @@ export function PageLayout({ title, eyebrow, description, backHref = "/", navIte
           </div>
         </div>
 
-        {/* Footer — theme + auth, matching SidebarNav */}
-        <div className="border-t border-sidebar-border px-4 py-3 space-y-2">
-          <ThemePicker />
-          <AuthButton />
-        </div>
+  {/* Footer keeps the navigation usable on small screens. */}
+  <div className="border-t border-sidebar-border px-4 py-3 space-y-2 lg:hidden">
+  <ThemePicker />
+  <AuthButton />
+  </div>
       </nav>
 
       <main id="main-content" className="lg:pl-72">
