@@ -48,14 +48,18 @@ export function SidebarNav() {
           <Compass className="h-5 w-5 text-primary" aria-hidden="true" />
           <span className="font-serif text-base font-semibold text-foreground">The Pre-Med Compass</span>
         </div>
-        <Button
-          variant="ghost"
-          size="icon"
-          onClick={() => setOpen((v) => !v)}
+        <div className="flex items-center gap-1.5">
+          <ThemePicker compact />
+          <AuthButton compact />
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={() => setOpen((v) => !v)}
           aria-label={open ? "Close navigation" : "Open navigation"}
         >
           {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </Button>
+        </div>
       </header>
 
       {/* Mobile overlay */}
@@ -68,8 +72,8 @@ export function SidebarNav() {
       )}
 
       <div className="fixed right-5 top-4 z-50 hidden items-center gap-2 rounded-full border border-border bg-background/90 p-1.5 shadow-sm backdrop-blur lg:flex">
-        <ThemePicker />
-        <AuthButton />
+        <ThemePicker compact />
+        <AuthButton compact />
       </div>
 
       {/* Sidebar */}

@@ -14,7 +14,7 @@ const THEME_OPTIONS = [
   { value: "purple", label: "Purple" },
 ]
 
-export function ThemePicker() {
+export function ThemePicker({ compact = false }: { compact?: boolean }) {
   const { theme, setTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
 
@@ -29,10 +29,10 @@ export function ThemePicker() {
   if (!mounted) return <div className="h-8 w-full animate-pulse rounded-md bg-sidebar-accent/30" />
 
   return (
-    <div className="flex items-center gap-2">
+    <div className={compact ? "flex items-center" : "flex items-center gap-2"}>
       <Palette className="h-3.5 w-3.5 shrink-0 text-muted-foreground" aria-hidden="true" />
       <Select value={theme ?? "light"} onValueChange={setTheme}>
-        <SelectTrigger className="h-8 flex-1 text-xs border-sidebar-border bg-sidebar-accent/30 hover:bg-sidebar-accent/50 focus:ring-1 focus:ring-ring">
+        <SelectTrigger className={compact ? "h-8 w-8 border-0 bg-transparent p-0 text-xs [&>svg]:hidden" : "h-8 flex-1 text-xs border-sidebar-border bg-sidebar-accent/30 hover:bg-sidebar-accent/50 focus:ring-1 focus:ring-ring"} aria-label="Choose theme">
           <SelectValue placeholder="Theme" />
         </SelectTrigger>
         <SelectContent>

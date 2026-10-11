@@ -9,14 +9,17 @@ import { TiltCard } from "@/components/compass/tilt-card"
 import { McatHomepageBanner } from "@/components/compass/mcat-homepage-banner"
 import { SeasonalCallout } from "@/components/compass/seasonal-callout"
 import Link from "next/link"
-import { ClipboardList, FileText, HeartPulse, Library, Clock3 } from "lucide-react"
+import { ClipboardList, FileText, HeartPulse, Users, Clock3 } from "lucide-react"
 
 const tools = [
-  { href: "/tools/plan-check",        icon: ClipboardList, label: "Plan & Check",      desc: "Stay on top of prerequisites, GPA, and your MCAT countdown all in one place."          },
-  { href: "/tools/application-prep",  icon: FileText,      label: "Application Prep",  desc: "Build your school list, shape your story, and prepare for essays, interviews, and secondaries."   },
-  { href: "/tools/wellness",          icon: HeartPulse,    label: "Wellness",        desc: "Check in on your wellbeing weekly and notice patterns over time." },
-  { href: "/tools/hours",             icon: Clock3,        label: "Hours Tracker",   desc: "Log clinical, volunteer, research, and service experiences." },
-  { href: "/tools/resources",         icon: Library,       label: "Resources",       desc: "Curated links and recommendations for every stage of your pre-med journey." },
+  { href: "/tools/plan-check",       icon: ClipboardList, label: "Plan & Check",     desc: "Track prerequisites, GPA, and your MCAT countdown." },
+  { href: "/tools/application-prep", icon: FileText,      label: "Application Prep", desc: "Build your school list and prepare your application." },
+  { href: "/tools/hours",            icon: Clock3,        label: "Hours Tracker",    desc: "Log clinical, volunteer, research, and service hours." },
+]
+
+const supportingLinks = [
+  { href: "/tools/wellness", icon: HeartPulse, label: "Wellbeing", desc: "Check in, reset, and build a sustainable rhythm." },
+  { href: "/pre-health-club", icon: Users, label: "Campus Community", desc: "Find your people, programs, and next campus connection." },
 ]
 
 export default function Page() {
@@ -48,11 +51,11 @@ export default function Page() {
               Your essential tools
             </h2>
             <p className="mt-3 max-w-2xl text-muted-foreground">
-              A focused set of tools for planning coursework, preparing applications, and caring for your wellbeing.
+              Start with the three tools that keep your pre-med plan moving.
             </p>
           </Reveal>
 
-          <div className="mt-6 grid gap-4 sm:grid-cols-2">
+          <div className="mt-6 grid gap-4 sm:grid-cols-3">
             {tools.map((tool, i) => {
               const Icon = tool.icon
               return (
@@ -72,6 +75,18 @@ export default function Page() {
                     </Link>
                   </TiltCard>
                 </Reveal>
+              )
+            })}
+          </div>
+
+          <div className="mt-10 grid gap-4 sm:grid-cols-2">
+            {supportingLinks.map((link) => {
+              const Icon = link.icon
+              return (
+                <Link key={link.href} href={link.href} className="editorial-card group flex items-center gap-4 p-5">
+                  <div className="rounded-xl bg-primary/10 p-2.5"><Icon className="h-5 w-5 text-primary" aria-hidden="true" /></div>
+                  <div><p className="font-semibold text-foreground">{link.label}</p><p className="mt-0.5 text-sm text-muted-foreground">{link.desc}</p></div>
+                </Link>
               )
             })}
           </div>
