@@ -1,6 +1,7 @@
 import { ExternalLink, Mail, Compass } from "lucide-react"
 import { usefulLinks, lastReviewed } from "@/lib/content"
 import { Section } from "./section"
+import { GuideNote } from "./site-utilities"
 
 // Group links by category
 const linkCategories = [
@@ -56,8 +57,9 @@ export function Resources() {
       <div className="mt-8 rounded-lg border border-primary/20 bg-primary/5 p-6">
         <h3 className="font-serif text-lg font-medium text-foreground">Want to contribute to this guide?</h3>
         <p className="mt-2 leading-relaxed text-muted-foreground">
-          If you&apos;re a current or former Moravian pre-med and want to share something you wish you&apos;d known, reach out.
+          If you&apos;re a current or former Moravian pre-med and want to share something useful, reach out.
         </p>
+        <GuideNote />
         <a
           href="mailto:sheikha@moravian.edu"
           className="mt-4 inline-flex items-center gap-2 rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-opacity hover:opacity-90"
@@ -78,10 +80,8 @@ export function SiteFooter() {
           <Compass className="h-5 w-5" aria-hidden="true" />
           <span className="font-serif text-lg font-semibold">The Pre-Med Compass</span>
         </div>
-        <p className="text-sm leading-relaxed text-primary-foreground/70">
-          A student-made guide for Moravian University pre-meds. Not affiliated with official advising, always confirm
-          requirements with your pre-health advisor. Built with care, by Ayaan.
-        </p>
+        <p className="text-sm leading-relaxed text-primary-foreground/70">A student-made guide for Moravian University pre-meds.</p>
+        <div className="max-w-2xl rounded-lg bg-primary-foreground/10 p-3"><GuideNote /></div>
         <div className="mt-2 flex flex-wrap items-center gap-x-4 gap-y-2 text-xs text-primary-foreground/60">
           <span>Last reviewed: {lastReviewed}</span>
           <a href="/privacy" className="underline-offset-2 hover:text-primary-foreground hover:underline">Privacy</a>

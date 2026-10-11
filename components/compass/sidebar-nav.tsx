@@ -12,6 +12,7 @@ import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { usePathname } from "next/navigation"
 import { ThemePicker } from "@/components/compass/theme-picker"
+import { ContinuePrompt, GlobalCommandMenu } from "@/components/compass/site-utilities"
 
 const AuthButton = dynamic(
   () => import("@/components/compass/auth-button").then((mod) => mod.AuthButton),
@@ -49,6 +50,7 @@ export function SidebarNav() {
           <span className="font-serif text-base font-semibold text-foreground">The Pre-Med Compass</span>
         </div>
         <div className="flex items-center gap-1.5">
+          <GlobalCommandMenu />
           <ThemePicker compact />
           <AuthButton compact />
           <Button
@@ -76,6 +78,7 @@ export function SidebarNav() {
         <AuthButton compact />
       </div>
 
+      <ContinuePrompt />
       {/* Sidebar */}
       <nav
         className={cn(
