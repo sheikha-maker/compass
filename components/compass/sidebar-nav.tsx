@@ -67,6 +67,11 @@ export function SidebarNav() {
         />
       )}
 
+      <div className="fixed right-5 top-4 z-50 hidden items-center gap-2 rounded-full border border-border bg-background/90 p-1.5 shadow-sm backdrop-blur lg:flex">
+        <ThemePicker />
+        <AuthButton />
+      </div>
+
       {/* Sidebar */}
       <nav
         className={cn(
@@ -135,11 +140,6 @@ export function SidebarNav() {
           })}
         </div>
 
-        {/* Theme + Auth */}
-        <div className="border-t border-border px-4 py-3 space-y-2">
-          <ThemePicker />
-          <AuthButton />
-        </div>
       </nav>
     </>
   )

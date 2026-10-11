@@ -1,5 +1,5 @@
 import { SidebarNav } from "@/components/compass/sidebar-nav"
-import { CampusHero, ValuePillars, StoryFooter } from "@/components/compass/campus-hero"
+import { CampusHero, ValuePillars } from "@/components/compass/campus-hero"
 import { OnboardingQuiz } from "@/components/compass/onboarding-quiz"
 import { PersonalizedDashboard } from "@/components/compass/personalized-dashboard"
 import { SectionCardsClient } from "@/components/compass/section-cards-client"
@@ -77,7 +77,6 @@ export default function Page() {
           </div>
         </section>
 
-        <StoryFooter />
         <SiteFooter />
       </main>
     </div>
