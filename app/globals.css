@@ -292,7 +292,27 @@
   }
   body {
     @apply bg-background text-foreground;
+    background-image: radial-gradient(circle at 1px 1px, color-mix(in oklch, var(--border) 32%, transparent) 1px, transparent 0);
+    background-size: 28px 28px;
   }
+}
+
+/* Editorial surfaces used throughout the campus guide */
+.editorial-card {
+  border: 1px solid color-mix(in oklch, var(--border) 85%, transparent);
+  border-radius: 1.25rem;
+  background: color-mix(in oklch, var(--card) 94%, transparent);
+  box-shadow: 0 12px 32px color-mix(in oklch, var(--primary) 7%, transparent);
+}
+
+.editorial-rule {
+  height: 1px;
+  background: linear-gradient(90deg, var(--primary), color-mix(in oklch, var(--border) 55%, transparent), transparent);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .editorial-card { transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease; }
+  .editorial-card:hover { transform: translateY(-2px); box-shadow: 0 16px 38px color-mix(in oklch, var(--primary) 12%, transparent); }
 }
 
 @keyframes fadeSlideIn {

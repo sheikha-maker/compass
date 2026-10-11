@@ -12,7 +12,7 @@ export default function ResourcesPage() {
   return (
     <PageLayout title="Resources" eyebrow="Tools" navItems={navItems}>
       <section className="mx-auto w-full max-w-4xl px-5 md:px-8 mb-8">
-        <div className="space-y-3 rounded-3xl border border-border bg-card p-6">
+        <div className="editorial-card space-y-3 p-6 md:p-8">
           <h2 className="text-balance font-serif text-3xl font-semibold text-foreground md:text-4xl">
             Resources
           </h2>
@@ -52,7 +52,7 @@ export default function ResourcesPage() {
                 </h3>
                 <ul className="space-y-3">
                   {group.sources.map((source) => (
-                    <li key={source.title} className="group rounded-xl border border-border bg-card p-4 transition-colors hover:border-primary/40">
+                    <li key={source.title} className="editorial-card group p-4">
                       <a
                         href={source.url}
                         target="_blank"
