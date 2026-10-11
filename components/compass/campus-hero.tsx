@@ -10,14 +10,14 @@ export function CampusHero() {
     <section className="relative isolate overflow-hidden border-b border-border bg-[#f8f7f3] dark:bg-background">
       <div className="absolute inset-0 -z-10">
         <Image
-          src="/comenius-hall-hero.png"
-          alt="Comenius Hall at Moravian University"
+          src="/hub-hero.png"
+          alt="Moravian University Haupert Union Building"
           fill
           priority
-          className="object-cover object-center opacity-25 dark:opacity-20"
+          className="object-cover object-center opacity-55 dark:opacity-45"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#f8f7f3] via-[#f8f7f3]/90 to-[#f8f7f3]/45 dark:from-background dark:via-background/90 dark:to-background/40" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#f8f7f3]/92 via-[#f8f7f3]/62 to-[#f8f7f3]/18 dark:from-background/88 dark:via-background/55 dark:to-background/15" />
       </div>
 
       <div className="mx-auto grid max-w-6xl gap-10 px-5 py-16 md:grid-cols-[1.05fr_0.95fr] md:items-center md:px-8 md:py-24">
@@ -86,8 +86,8 @@ export function StoryFooter() {
   return (
     <section className="relative overflow-hidden rounded-t-[3rem] bg-[#102f59] px-5 py-16 text-center text-white md:px-8 md:py-20">
       <div className="relative mx-auto max-w-3xl">
-        <p className="font-serif text-3xl font-semibold md:text-5xl">A clearer way forward.</p>
-        <p className="mx-auto mt-4 max-w-xl text-white/75">Made by a Moravian student, for Moravian pre-meds.</p>
+
+        <p className="mx-auto mt-4 max-w-xl text-white/75">A focused guide for Moravian pre-med students.</p>
         <Link href="/your-path" className="mt-8 inline-block">
           <Button size="lg" variant="secondary" className="rounded-full gap-2 px-7">
             Start planning <ArrowRight data-icon="inline-end" />
